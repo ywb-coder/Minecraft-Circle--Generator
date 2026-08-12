@@ -59,12 +59,34 @@
   },
   "perSize": {
     "title": "Círculo de Minecraft com {d} blocos de diâmetro",
-    "desc": "Planta gratuita bloco a bloco para um {shape} de {d} blocos no Minecraft. Veja a grade de pixels, o número de blocos e construa no Java ou no Bedrock.",
+    "desc": "Planta gratuita bloco a bloco para um {shape} de {d} blocos no Minecraft - {blocks} blocos no total. Veja a grade de pixels e construa no Java ou no Bedrock.",
     "blocks": "blocos",
     "layer": "Camada",
     "openTool": "Abrir no gerador",
     "related": "Tamanhos relacionados",
-    "otherShapes": "Outras formas"
+    "otherShapes": "Outras formas",
+    "keyFacts": "Fatos-chave",
+    "factDiameter": "Diâmetro",
+    "factBlocks": "Blocos",
+    "factLayers": "Camadas",
+    "factHeight": "Altura",
+    "definition": "Um {shape} de Minecraft com {d} blocos usa {blocks} blocos.",
+    "howToTitle": "Como construir",
+    "steps": [
+      "Marque o bloco central da sua área de construção.",
+      "Coloque os blocos do contorno linha por linha seguindo a planta.",
+      "Mantenha cada anel e linha alinhados ao mesmo centro.",
+      "Para esferas e cúpulas, empilhe cada camada diretamente sobre a anterior.",
+      "Finalize com o bloco do topo e suavize degraus com lajes ou escadas."
+    ],
+    "usageTitle": "O que construir com ele",
+    "usageIntro": "Um {shape} de {d} blocos funciona bem para:",
+    "faqQ1": "Quantos blocos tem um {shape} de Minecraft com {d} blocos?",
+    "faqA1": "Um {shape} de Minecraft com {d} blocos usa {blocks} blocos.",
+    "faqQ2": "O que posso construir com um {shape} de {d} blocos?",
+    "faqA2": "É um tamanho popular para {use} - veja o guia de tamanhos para mais ideias.",
+    "faqQ3": "As plantas funcionam no Java e no Bedrock?",
+    "faqA3": "Sim - todas as plantas funcionam igualmente nas edições Java e Bedrock."
   },
   "faq": {
     "title": "Perguntas frequentes",

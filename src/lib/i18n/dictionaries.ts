@@ -58,6 +58,22 @@ export interface Dictionary {
     openTool: string;
     related: string;
     otherShapes: string;
+    keyFacts: string;
+    factDiameter: string;
+    factBlocks: string;
+    factLayers: string;
+    factHeight: string;
+    definition: string;
+    howToTitle: string;
+    steps: string[];
+    usageTitle: string;
+    usageIntro: string;
+    faqQ1: string;
+    faqA1: string;
+    faqQ2: string;
+    faqA2: string;
+    faqQ3: string;
+    faqA3: string;
   };
   faq: {
     title: string;

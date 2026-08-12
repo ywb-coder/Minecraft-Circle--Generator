@@ -7,7 +7,8 @@ import {
   isLocale,
   subpathLocales,
 } from "@/lib/i18n/locales";
-import { hreflangMap } from "@/lib/seo";
+import { SITE_URL } from "@/lib/config";
+import { hreflangMap, localizePath } from "@/lib/seo";
 
 export function generateStaticParams() {
   return subpathLocales.map((locale) => ({ locale }));
@@ -23,6 +24,7 @@ export async function generateMetadata({
     title: dict.meta.title,
     description: dict.meta.description,
     alternates: {
+      canonical: SITE_URL + localizePath("/", locale),
       languages: hreflangMap("/"),
     },
   };

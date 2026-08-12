@@ -59,12 +59,34 @@
   },
   "perSize": {
     "title": "Lingkaran Minecraft dengan diameter {d} blok",
-    "desc": "Cetak biru gratis blok demi blok untuk {shape} {d} blok di Minecraft. Lihat kisi piksel, jumlah blok, dan bangun di Java atau Bedrock.",
+    "desc": "Cetak biru gratis blok demi blok untuk {shape} {d} blok di Minecraft - total {blocks} blok. Lihat kisi piksel dan bangun di Java atau Bedrock.",
     "blocks": "blok",
     "layer": "Lapisan",
     "openTool": "Buka di generator",
     "related": "Ukuran terkait",
-    "otherShapes": "Bentuk lain"
+    "otherShapes": "Bentuk lain",
+    "keyFacts": "Fakta penting",
+    "factDiameter": "Diameter",
+    "factBlocks": "Blok",
+    "factLayers": "Lapisan",
+    "factHeight": "Tinggi",
+    "definition": "{shape} Minecraft {d} blok menggunakan {blocks} blok.",
+    "howToTitle": "Cara membangunnya",
+    "steps": [
+      "Tandai blok tengah area bangunan Anda.",
+      "Pasang blok garis luar baris demi baris mengikuti cetak biru.",
+      "Jaga setiap cincin dan baris sejajar dengan titik tengah yang sama.",
+      "Untuk bola dan kubah, tumpuk setiap lapisan tepat di atas lapisan sebelumnya.",
+      "Akhiri dengan blok atas dan ratakan tangga yang kasar dengan lempengan atau tangga."
+    ],
+    "usageTitle": "Apa yang bisa dibangun",
+    "usageIntro": "{shape} {d} blok cocok untuk:",
+    "faqQ1": "Berapa banyak blok dalam {shape} Minecraft {d} blok?",
+    "faqA1": "Garis luar {shape} Minecraft {d} blok menggunakan {blocks} blok.",
+    "faqQ2": "Apa yang bisa saya bangun dengan {shape} {d} blok?",
+    "faqA2": "Ini ukuran populer untuk {use} - lihat panduan ukuran untuk ide lainnya.",
+    "faqQ3": "Apakah cetak biru berfungsi di Java dan Bedrock?",
+    "faqA3": "Ya - semua cetak biru berfungsi sama di edisi Java dan Bedrock."
   },
   "faq": {
     "title": "Pertanyaan yang sering diajukan",

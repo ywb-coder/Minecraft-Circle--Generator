@@ -59,12 +59,34 @@
   },
   "perSize": {
     "title": "Cercle Minecraft de {d} blocs de diamètre",
-    "desc": "Plan gratuit bloc par bloc pour un {shape} de {d} blocs dans Minecraft. Voir la grille de pixels, le nombre de blocs et le construire en Java ou Bedrock.",
+    "desc": "Plan gratuit bloc par bloc pour un {shape} de {d} blocs dans Minecraft - {blocks} blocs au total. Voir la grille de pixels et le construire en Java ou Bedrock.",
     "blocks": "blocs",
     "layer": "Couche",
     "openTool": "Ouvrir dans le générateur",
     "related": "Tailles similaires",
-    "otherShapes": "Autres formes"
+    "otherShapes": "Autres formes",
+    "keyFacts": "Infos clés",
+    "factDiameter": "Diamètre",
+    "factBlocks": "Blocs",
+    "factLayers": "Couches",
+    "factHeight": "Hauteur",
+    "definition": "Un {shape} Minecraft de {d} blocs utilise {blocks} blocs.",
+    "howToTitle": "Comment le construire",
+    "steps": [
+      "Marquez le bloc central de votre zone de construction.",
+      "Placez les blocs du contour rangée par rangée en suivant le plan.",
+      "Gardez chaque anneau et chaque rangée alignés sur le même centre.",
+      "Pour les sphères et dômes, empilez chaque couche directement sur la précédente.",
+      "Terminez par le bloc supérieur et adoucissez les marches avec des dalles ou escaliers."
+    ],
+    "usageTitle": "Que construire avec",
+    "usageIntro": "Un {shape} de {d} blocs convient bien pour :",
+    "faqQ1": "Combien de blocs compte un {shape} Minecraft de {d} blocs ?",
+    "faqA1": "Un {shape} Minecraft de {d} blocs utilise {blocks} blocs.",
+    "faqQ2": "Que puis-je construire avec un {shape} de {d} blocs ?",
+    "faqA2": "C'est une taille populaire pour {use} - consultez le guide des tailles pour plus d'idées.",
+    "faqQ3": "Les plans fonctionnent-ils dans Java et Bedrock ?",
+    "faqA3": "Oui : tous les plans fonctionnent à l'identique dans les éditions Java et Bedrock."
   },
   "faq": {
     "title": "Questions fréquentes",

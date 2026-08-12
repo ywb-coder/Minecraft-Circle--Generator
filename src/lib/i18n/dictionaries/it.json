@@ -59,12 +59,34 @@
   },
   "perSize": {
     "title": "Cerchio Minecraft con {d} blocchi di diametro",
-    "desc": "Progetto gratuito blocco per blocco per un {shape} di {d} blocchi in Minecraft. Guarda la griglia di pixel, il numero di blocchi e costruiscilo in Java o Bedrock.",
+    "desc": "Progetto gratuito blocco per blocco per un {shape} di {d} blocchi in Minecraft: {blocks} blocchi in totale. Guarda la griglia di pixel e costruiscilo in Java o Bedrock.",
     "blocks": "blocchi",
     "layer": "Livello",
     "openTool": "Apri nel generatore",
     "related": "Dimensioni correlate",
-    "otherShapes": "Altre forme"
+    "otherShapes": "Altre forme",
+    "keyFacts": "Dati chiave",
+    "factDiameter": "Diametro",
+    "factBlocks": "Blocchi",
+    "factLayers": "Livelli",
+    "factHeight": "Altezza",
+    "definition": "Un {shape} Minecraft da {d} blocchi usa {blocks} blocchi.",
+    "howToTitle": "Come costruirlo",
+    "steps": [
+      "Segna il blocco centrale della tua area di costruzione.",
+      "Posiziona i blocchi del contorno riga per riga seguendo il progetto.",
+      "Mantieni ogni anello e riga allineati allo stesso centro.",
+      "Per sfere e cupole, impila ogni livello direttamente su quello precedente.",
+      "Finisci con il blocco superiore e ammorbidisci gli scalini con lastre o scale."
+    ],
+    "usageTitle": "Cosa costruire",
+    "usageIntro": "Un {shape} da {d} blocchi funziona bene per:",
+    "faqQ1": "Quanti blocchi ha un {shape} Minecraft da {d} blocchi?",
+    "faqA1": "Un {shape} Minecraft da {d} blocchi usa {blocks} blocchi.",
+    "faqQ2": "Cosa posso costruire con un {shape} da {d} blocchi?",
+    "faqA2": "È una dimensione popolare per {use}: consulta la guida alle dimensioni per altre idee.",
+    "faqQ3": "I progetti funzionano in Java e Bedrock?",
+    "faqA3": "Sì: tutti i progetti funzionano allo stesso modo nelle edizioni Java e Bedrock."
   },
   "faq": {
     "title": "Domande frequenti",

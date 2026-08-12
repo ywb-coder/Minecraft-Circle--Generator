@@ -59,12 +59,34 @@
   },
   "perSize": {
     "title": "Círculo de Minecraft de {d} bloques de diámetro",
-    "desc": "Plano gratuito bloque a bloque para un {shape} de {d} bloques en Minecraft. Ve la cuadrícula de píxeles, el número de bloques y constrúyelo en Java o Bedrock.",
+    "desc": "Plano gratuito bloque a bloque para un {shape} de {d} bloques en Minecraft: {blocks} bloques en total. Ve la cuadrícula de píxeles y constrúyelo en Java o Bedrock.",
     "blocks": "bloques",
     "layer": "Capa",
     "openTool": "Abrir en el generador",
     "related": "Tamaños relacionados",
-    "otherShapes": "Otras formas"
+    "otherShapes": "Otras formas",
+    "keyFacts": "Datos clave",
+    "factDiameter": "Diámetro",
+    "factBlocks": "Bloques",
+    "factLayers": "Capas",
+    "factHeight": "Alto",
+    "definition": "Un {shape} de Minecraft de {d} bloques usa {blocks} bloques.",
+    "howToTitle": "Cómo construirlo",
+    "steps": [
+      "Marca el bloque central de tu área de construcción.",
+      "Coloca los bloques del contorno fila por fila según el plano.",
+      "Mantén cada anillo y fila alineados con el mismo punto central.",
+      "Para esferas y cúpulas, apila cada capa directamente sobre la anterior.",
+      "Termina con el bloque superior y suaviza los escalones con losas o escaleras."
+    ],
+    "usageTitle": "Qué construir con él",
+    "usageIntro": "Un {shape} de {d} bloques funciona bien para:",
+    "faqQ1": "¿Cuántos bloques tiene un {shape} de Minecraft de {d} bloques?",
+    "faqA1": "Un {shape} de Minecraft de {d} bloques usa {blocks} bloques.",
+    "faqQ2": "¿Qué puedo construir con un {shape} de {d} bloques?",
+    "faqA2": "Es un tamaño popular para {use}; consulta la guía de tamaños para más ideas.",
+    "faqQ3": "¿Los planos funcionan en Java y Bedrock?",
+    "faqA3": "Sí: todos los planos funcionan igual en las ediciones Java y Bedrock."
   },
   "faq": {
     "title": "Preguntas frecuentes",

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Dictionary } from "@/lib/i18n/dictionaries";
 import { defaultLocale, type Locale } from "@/lib/i18n/locales";
+import { HREFLANG_MAP, SITE_URL } from "@/lib/config";
 import LangSync from "./LangSync";
 import LangSwitcher from "./LangSwitcher";
 import CircleTool from "./tool/CircleTool";
@@ -15,6 +16,9 @@ export default function HomePage({
 }) {
   const hrefFor = (l: Locale) => (l === defaultLocale ? "/" : `/${l}/`);
 
+  const langPath = hrefFor(locale);
+  const inLanguage = HREFLANG_MAP[locale];
+
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -27,6 +31,30 @@ export default function HomePage({
       },
     })),
   };
+
+  const webSiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: dict.siteName,
+    url: SITE_URL,
+    inLanguage,
+  };
+
+  const webApplicationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: dict.siteName,
+    url: `${SITE_URL}${langPath}`,
+    description: dict.meta.description,
+    applicationCategory: "GameApplication",
+    operatingSystem: "Web Browser",
+    inLanguage,
+  };
+
+  const escapeJsonLd = (data: unknown) =>
+    JSON.stringify(data).replace(/</g, "\\u003c");
+
+  const sizeButtons = dict.sizeGuide.entries.slice(0, 5);
 
   return (
     <div className="flex min-h-full flex-col">
@@ -78,6 +106,24 @@ export default function HomePage({
           <SizeGuideTable dict={dict} />
         </section>
 
+        <section className="mx-auto max-w-5xl px-4 pb-16">
+          <h2 className="font-pixel text-sm text-ink pixel-shadow">
+            {dict.sizeGuide.title}
+          </h2>
+          <div className="mt-6 flex flex-wrap gap-3">
+            {sizeButtons.map((entry) => (
+              <Link
+                key={entry.size}
+                href={`${langPath}circle/${entry.size}/`}
+                title={entry.use}
+                className="mc-btn px-3! py-1!"
+              >
+                <span className="font-pixel text-[10px]">{entry.size}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
         <section id="faq" className="mx-auto max-w-5xl px-4 pb-16">
           <h2 className="font-pixel text-sm text-ink pixel-shadow">
             {dict.faq.title}
@@ -95,7 +141,19 @@ export default function HomePage({
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: JSON.stringify(faqJsonLd).replace(/</g, "\\u003c"),
+              __html: escapeJsonLd(faqJsonLd),
+            }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: escapeJsonLd(webSiteJsonLd),
+            }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: escapeJsonLd(webApplicationJsonLd),
             }}
           />
         </section>

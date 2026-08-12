@@ -5,10 +5,12 @@ import type { ReactNode } from "react";
 import { getDictionary, type Dictionary } from "@/lib/i18n/dictionaries";
 import { defaultLocale, type Locale } from "@/lib/i18n/locales";
 import { interpolate } from "@/lib/i18n/format";
+import { SITE_URL } from "@/lib/config";
 import { generateShape } from "@/lib/shapes";
 import {
   hreflangMap,
   isOvalPair,
+  localizePath,
   nearestOvalPair,
   OVAL_PAIRS,
   parsePositiveInt,
@@ -69,11 +71,43 @@ export async function shapePageMetadata(
   if (!resolved) return {};
   const dict = await getDictionary(input.locale);
   const shape = dict.tool[SHAPE_KEYS[input.type]];
+  const generated = generateShape(
+    input.type === "oval"
+      ? { type: input.type, w: resolved.w, h: resolved.h, style: "outline" }
+      : { type: input.type, d: resolved.d, style: "outline" }
+  );
+  const blocks =
+    input.type === "sphere" || input.type === "dome"
+      ? generated.totalBlockCount
+      : generated.blockCount;
   return {
     title: interpolate(dict.perSize.title, { shape, d: resolved.d }),
-    description: interpolate(dict.perSize.desc, { shape, d: resolved.d }),
-    alternates: { languages: hreflangMap(resolved.path) },
+    description: interpolate(dict.perSize.desc, {
+      shape,
+      d: resolved.d,
+      blocks,
+    }),
+    alternates: {
+      canonical: `${SITE_URL}${localizePath(resolved.path, input.locale)}`,
+      languages: hreflangMap(resolved.path),
+    },
   };
+}
+
+function nearestUse(dict: Dictionary, d: number): string {
+  const entries = dict.sizeGuide.entries;
+  const exact = entries.find((entry) => entry.size === String(d));
+  if (exact) return exact.use;
+  let best = entries[0];
+  let bestDiff = Infinity;
+  for (const entry of entries) {
+    const diff = Math.abs(Number(entry.size) - d);
+    if (diff < bestDiff) {
+      bestDiff = diff;
+      best = entry;
+    }
+  }
+  return best.use;
 }
 
 function toolHref(
@@ -168,8 +202,11 @@ export default async function ShapePage(
       : { type, d, style: "outline" }
   );
   const layered = type === "sphere" || type === "dome";
+  const blocks = layered ? shape.totalBlockCount : shape.blockCount;
+  const use = nearestUse(dict, d);
   const related = relatedLinks(type, d);
   const others = otherShapeLinks(locale, type, d);
+  const vars = { shape: shapeName, d, blocks, use };
   return (
     <SeoShell dict={dict} locale={locale}>
       <div className="mx-auto max-w-3xl">
@@ -233,6 +270,78 @@ export default async function ShapePage(
           )}
         </section>
 
+        <p className="mt-10 text-ink">{interpolate(dict.perSize.definition, vars)}</p>
+
+        <section className="mc-panel-inset pixel-corners mt-4 p-4">
+          <h2 className="font-pixel text-[10px] uppercase tracking-wide text-cyan">
+            {dict.perSize.keyFacts}
+          </h2>
+          <table className="mt-3 w-full">
+            <tbody>
+              <tr>
+                <td className="pr-4 font-pixel text-[10px] text-muted">
+                  {dict.perSize.factDiameter}
+                </td>
+                <td className="font-terminal text-xl text-accent">{d}</td>
+              </tr>
+              <tr>
+                <td className="pr-4 font-pixel text-[10px] text-muted">
+                  {dict.perSize.factBlocks}
+                </td>
+                <td className="font-terminal text-xl text-accent">{blocks}</td>
+              </tr>
+              {layered && (
+                <>
+                  <tr>
+                    <td className="pr-4 font-pixel text-[10px] text-muted">
+                      {dict.perSize.factLayers}
+                    </td>
+                    <td className="font-terminal text-xl text-accent">
+                      {shape.layers.length}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="pr-4 font-pixel text-[10px] text-muted">
+                      {dict.perSize.factHeight}
+                    </td>
+                    <td className="font-terminal text-xl text-accent">
+                      {shape.layers.length}
+                    </td>
+                  </tr>
+                </>
+              )}
+            </tbody>
+          </table>
+        </section>
+
+        <section className="mt-10">
+          <h2 className="font-pixel text-[10px] uppercase tracking-wide text-cyan">
+            {dict.perSize.howToTitle}
+          </h2>
+          <ol className="mt-3 list-decimal space-y-2 pl-5">
+            {dict.perSize.steps
+              .slice(0, layered ? 5 : 3)
+              .map((step, index) => (
+                <li
+                  key={index}
+                  className="font-pixel text-[10px] leading-relaxed text-ink"
+                >
+                  {step}
+                </li>
+              ))}
+          </ol>
+        </section>
+
+        <section className="mt-10">
+          <h2 className="font-pixel text-[10px] uppercase tracking-wide text-cyan">
+            {dict.perSize.usageTitle}
+          </h2>
+          <p className="mt-3 text-sm text-muted">
+            {interpolate(dict.perSize.usageIntro, vars)}{" "}
+            <span className="font-bold text-accent">{use}</span>
+          </p>
+        </section>
+
         {related.length > 0 && (
           <section className="mt-10">
             <h2 className="font-pixel text-[10px] uppercase tracking-wide text-cyan">
@@ -277,6 +386,42 @@ export default async function ShapePage(
           path={path}
           title={title}
           description={description}
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: [
+                {
+                  "@type": "Question",
+                  name: interpolate(dict.perSize.faqQ1, vars),
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: interpolate(dict.perSize.faqA1, vars),
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: interpolate(dict.perSize.faqQ2, vars),
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: interpolate(dict.perSize.faqA2, vars),
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: interpolate(dict.perSize.faqQ3, vars),
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: interpolate(dict.perSize.faqA3, vars),
+                  },
+                },
+              ],
+            }).replace(/</g, "\\u003c"),
+          }}
         />
       </div>
     </SeoShell>

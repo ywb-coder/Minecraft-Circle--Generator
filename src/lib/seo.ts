@@ -65,5 +65,6 @@ export function hreflangMap(path: string): Record<string, string> {
   for (const locale of HREFLANG_LOCALES) {
     languages[HREFLANG_MAP[locale]] = localizedUrl(path, locale);
   }
+  languages["x-default"] = `${SITE_URL}/`;
   return languages;
 }

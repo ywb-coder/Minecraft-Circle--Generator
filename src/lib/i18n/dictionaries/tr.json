@@ -59,12 +59,34 @@
   },
   "perSize": {
     "title": "{d} blok çapında Minecraft {shape}",
-    "desc": "Minecraft'ta {d} blokluk {shape} için ücretsiz blok blok plan. Piksel ızgarasını ve blok sayısını görün, Java veya Bedrock'ta inşa edin.",
+    "desc": "Minecraft'ta {d} blokluk {shape} için ücretsiz blok blok plan - toplam {blocks} blok. Piksel ızgarasını görün ve Java veya Bedrock'ta inşa edin.",
     "blocks": "blok",
     "layer": "Katman",
     "openTool": "Oluşturucuda aç",
     "related": "İlgili boyutlar",
-    "otherShapes": "Diğer şekiller"
+    "otherShapes": "Diğer şekiller",
+    "keyFacts": "Temel bilgiler",
+    "factDiameter": "Çap",
+    "factBlocks": "Blok",
+    "factLayers": "Katman",
+    "factHeight": "Yükseklik",
+    "definition": "{d} blokluk Minecraft {shape} {blocks} blok kullanır.",
+    "howToTitle": "Nasıl inşa edilir",
+    "steps": [
+      "İnşa alanının merkez bloğunu işaretleyin.",
+      "Planı takip ederek kontur bloklarını satır satır yerleştirin.",
+      "Tüm halkaları ve satırları aynı merkez noktasına hizalayın.",
+      "Küreler ve kubbeler için her katmanı bir öncekinin üzerine yerleştirin.",
+      "Tepe bloğuyla bitirin ve sert basamakları levha veya merdivenle yumuşatın."
+    ],
+    "usageTitle": "Ne inşa edebilirsiniz",
+    "usageIntro": "{d} blokluk {shape} şunlar için uygundur:",
+    "faqQ1": "{d} blokluk Minecraft {shape} kaç blok içerir?",
+    "faqA1": "{d} blokluk Minecraft {shape} dış hattı {blocks} blok kullanır.",
+    "faqQ2": "{d} blokluk {shape} ile ne inşa edebilirim?",
+    "faqA2": "{use} için popüler bir boyuttur - daha fazla fikir için boyut rehberine bakın.",
+    "faqQ3": "Planlar Java ve Bedrock'ta çalışıyor mu?",
+    "faqA3": "Evet - tüm planlar Java ve Bedrock sürümlerinde aynı şekilde çalışır."
   },
   "faq": {
     "title": "Sık sorulan sorular",

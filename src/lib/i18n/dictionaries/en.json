@@ -59,12 +59,34 @@
   },
   "perSize": {
     "title": "Minecraft {shape} with {d} block diameter",
-    "desc": "Free block-by-block blueprint for a {d}-block {shape} in Minecraft. See the pixel grid, block count, and build it in Java or Bedrock.",
+    "desc": "Free block-by-block blueprint for a {d}-block {shape} in Minecraft - {blocks} blocks in total. See the pixel grid and build it in Java or Bedrock.",
     "blocks": "blocks",
     "layer": "Layer",
     "openTool": "Open in the generator",
     "related": "Related sizes",
-    "otherShapes": "Other shapes"
+    "otherShapes": "Other shapes",
+    "keyFacts": "Key facts",
+    "factDiameter": "Diameter",
+    "factBlocks": "Blocks",
+    "factLayers": "Layers",
+    "factHeight": "Height",
+    "definition": "A {d}-block Minecraft {shape} uses {blocks} blocks.",
+    "howToTitle": "How to build it",
+    "steps": [
+      "Mark the center block of your build area.",
+      "Place the outline blocks row by row, following the blueprint.",
+      "Keep every ring and row aligned to the same center point.",
+      "For spheres and domes, stack each layer directly on top of the previous one.",
+      "Finish with the top cap and smooth any harsh steps with slabs or stairs."
+    ],
+    "usageTitle": "What to build with it",
+    "usageIntro": "A {d}-block {shape} works well for:",
+    "faqQ1": "How many blocks are in a {d}-block Minecraft {shape}?",
+    "faqA1": "A {d}-block Minecraft {shape} outline uses {blocks} blocks.",
+    "faqQ2": "What can I build with a {d}-block {shape}?",
+    "faqA2": "It is a popular size for {use} - check the size guide for more ideas.",
+    "faqQ3": "Do the blueprints work in Java and Bedrock?",
+    "faqA3": "Yes - every blueprint works identically in Java Edition and Bedrock Edition."
   },
   "faq": {
     "title": "Frequently asked questions",

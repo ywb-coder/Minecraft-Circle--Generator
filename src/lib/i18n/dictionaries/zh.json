@@ -59,12 +59,34 @@
   },
   "perSize": {
     "title": "{d} 方块直径的 Minecraft {shape}",
-    "desc": "Minecraft 中 {d} 方块 {shape} 的免费逐方块蓝图。查看像素网格、方块数量,并可在 Java 或 Bedrock 中建造。",
+    "desc": "Minecraft 中 {d} 方块 {shape} 的免费逐方块蓝图——共 {blocks} 个方块。查看像素网格,并可在 Java 或 Bedrock 中建造。",
     "blocks": "个方块",
     "layer": "层",
     "openTool": "在生成器中打开",
     "related": "相关尺寸",
-    "otherShapes": "其他形状"
+    "otherShapes": "其他形状",
+    "keyFacts": "关键数据",
+    "factDiameter": "直径",
+    "factBlocks": "方块数",
+    "factLayers": "层数",
+    "factHeight": "高度",
+    "definition": "{d} 格的 Minecraft {shape}需要 {blocks} 个方块。",
+    "howToTitle": "如何建造",
+    "steps": [
+      "标记建造区域的中心方块。",
+      "按照蓝图逐行放置轮廓方块。",
+      "保持每一圈和每一行都对齐同一个中心点。",
+      "球形和穹顶要逐层堆叠,每层直接放在上一层上面。",
+      "最后盖上顶部方块,用台阶修整不平整的阶梯。"
+    ],
+    "usageTitle": "可以用来建什么",
+    "usageIntro": "{d} 格的 {shape}适合用于:",
+    "faqQ1": "{d} 格的 Minecraft {shape}有多少个方块?",
+    "faqA1": "{d} 格的 Minecraft {shape}轮廓需要 {blocks} 个方块。",
+    "faqQ2": "{d} 格的 {shape}能用来建什么?",
+    "faqA2": "这是常用于{use}的尺寸——更多创意见尺寸指南。",
+    "faqQ3": "蓝图适用于 Java 和 Bedrock 吗?",
+    "faqA3": "适用——所有蓝图在 Java 版和基岩版中完全一致。"
   },
   "faq": {
     "title": "常见问题",

@@ -9,7 +9,7 @@ async function removeTxt(dir) {
     const full = join(dir, entry.name);
     if (entry.isDirectory()) {
       await removeTxt(full);
-    } else if (entry.name.endsWith(".txt")) {
+    } else if (entry.name.endsWith(".txt") && dir !== outDir) {
       await rm(full);
     }
   }

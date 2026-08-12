@@ -59,12 +59,34 @@
   },
   "perSize": {
     "title": "Minecraft {shape} mit {d} Blöcken Durchmesser",
-    "desc": "Kostenloser Block-für-Block-Bauplan für einen {d}-Block-{shape} in Minecraft. Sieh das Pixelraster und die Blockanzahl ein und baue es in Java oder Bedrock.",
+    "desc": "Kostenloser Block-für-Block-Bauplan für einen {d}-Block-{shape} in Minecraft - insgesamt {blocks} Blöcke. Sieh das Pixelraster und baue es in Java oder Bedrock.",
     "blocks": "Blöcke",
     "layer": "Ebene",
     "openTool": "Im Generator öffnen",
     "related": "Verwandte Größen",
-    "otherShapes": "Andere Formen"
+    "otherShapes": "Andere Formen",
+    "keyFacts": "Wichtige Fakten",
+    "factDiameter": "Durchmesser",
+    "factBlocks": "Blöcke",
+    "factLayers": "Ebenen",
+    "factHeight": "Höhe",
+    "definition": "Ein {shape} aus {d} Blöcken in Minecraft benötigt {blocks} Blöcke.",
+    "howToTitle": "So baust du es",
+    "steps": [
+      "Markiere den Mittelblock deiner Baufläche.",
+      "Setze die Umrissblöcke Reihe für Reihe nach dem Bauplan.",
+      "Halte alle Ringe und Reihen auf denselben Mittelpunkt ausgerichtet.",
+      "Bei Kugeln und Kuppeln stapelst du jede Ebene direkt auf die vorherige.",
+      "Schließe mit dem Deckblock ab und gleiche harte Stufen mit Stufenblöcken aus."
+    ],
+    "usageTitle": "Was du damit bauen kannst",
+    "usageIntro": "Ein {shape} aus {d} Blöcken eignet sich gut für:",
+    "faqQ1": "Wie viele Blöcke hat ein {shape} aus {d} Blöcken in Minecraft?",
+    "faqA1": "Ein {shape} aus {d} Blöcken in Minecraft benötigt {blocks} Blöcke.",
+    "faqQ2": "Was kann ich mit einem {shape} aus {d} Blöcken bauen?",
+    "faqA2": "Diese Größe ist beliebt für {use} - weitere Ideen findest du in der Größentabelle.",
+    "faqQ3": "Funktionieren die Baupläne in Java und Bedrock?",
+    "faqA3": "Ja - jeder Bauplan funktioniert in Java Edition und Bedrock Edition identisch."
   },
   "faq": {
     "title": "Häufige Fragen",

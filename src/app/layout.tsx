@@ -27,6 +27,29 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
   return (
     <html lang="en" className="h-full antialiased">
+      <head>
+        <link
+          rel="preload"
+          href="/fonts/press-start-2p.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/vt323.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/inter.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className="flex min-h-full flex-col">
         {children}
         {plausibleDomain ? (

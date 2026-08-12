@@ -59,12 +59,34 @@
   },
   "perSize": {
     "title": "Koło w Minecraft o średnicy {d} bloków",
-    "desc": "Darmowy plan blok po bloku dla {shape} z {d} bloków w Minecraft. Zobacz siatkę pikseli, liczbę bloków i zbuduj go w Java lub Bedrock.",
+    "desc": "Darmowy plan blok po bloku dla {shape} z {d} bloków w Minecraft - łącznie {blocks} bloków. Zobacz siatkę pikseli i zbuduj go w Java lub Bedrock.",
     "blocks": "bloków",
     "layer": "Warstwa",
     "openTool": "Otwórz w generatorze",
     "related": "Podobne rozmiary",
-    "otherShapes": "Inne kształty"
+    "otherShapes": "Inne kształty",
+    "keyFacts": "Najważniejsze fakty",
+    "factDiameter": "Średnica",
+    "factBlocks": "Bloków",
+    "factLayers": "Warstwy",
+    "factHeight": "Wysokość",
+    "definition": "{shape} z {d} bloków w Minecraft używa {blocks} bloków.",
+    "howToTitle": "Jak to zbudować",
+    "steps": [
+      "Zaznacz środkowy blok swojego obszaru budowy.",
+      "Umieszczaj bloki obrysu rząd po rzędzie zgodnie z planem.",
+      "Trzymaj wszystkie pierścienie i rzędy wyrównane do tego samego środka.",
+      "W przypadku sfer i kopuł układaj każdą warstwę bezpośrednio na poprzedniej.",
+      "Zakończ blokiem szczytowym i wygładź ostre stopnie płytami lub schodami."
+    ],
+    "usageTitle": "Co z tym zbudować",
+    "usageIntro": "{shape} z {d} bloków świetnie nadaje się do:",
+    "faqQ1": "Ile bloków ma {shape} z {d} bloków w Minecraft?",
+    "faqA1": "Obrys {shape} z {d} bloków w Minecraft używa {blocks} bloków.",
+    "faqQ2": "Co mogę zbudować z {shape} z {d} bloków?",
+    "faqA2": "To popularny rozmiar do {use} - więcej pomysłów znajdziesz w przewodniku rozmiarów.",
+    "faqQ3": "Czy plany działają w Java i Bedrock?",
+    "faqA3": "Tak - wszystkie plany działają identycznie w edycjach Java i Bedrock."
   },
   "faq": {
     "title": "Częste pytania",
