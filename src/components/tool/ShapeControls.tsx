@@ -115,13 +115,13 @@ export default function ShapeControls({
     <div className="flex flex-col gap-4">
       <fieldset>
         <legend className="font-pixel text-[10px] text-muted">{dict.tool.shape}</legend>
-        <div className="mt-2 flex flex-wrap gap-1.5">
+        <div className="mt-2 grid grid-cols-2 gap-1.5">
           {SHAPES.map((s) => (
             <button
               key={s}
               type="button"
               onClick={() => set({ type: s })}
-              className={`mc-btn px-2! py-1! ${type === s ? "mc-btn-selected" : ""}`}
+              className={`mc-btn w-full px-2! py-1! ${type === s ? "mc-btn-selected" : ""}`}
             >
               {dict.tool[s]}
             </button>
@@ -214,8 +214,8 @@ export default function ShapeControls({
       </fieldset>
 
       {showThickness && state.style === "outline" && (
-        <label className="block">
-          <span className="font-pixel text-[10px] text-muted">
+        <label className="flex items-center gap-2">
+          <span className="shrink-0 font-pixel text-[10px] text-muted">
             {dict.tool.thickness} {state.thickness}
           </span>
           <input
@@ -225,15 +225,15 @@ export default function ShapeControls({
             step={1}
             value={state.thickness}
             onChange={(e) => set({ thickness: Number(e.target.value) })}
-            className="mt-1 w-full"
+            className="w-full"
             style={{ accentColor: "var(--accent)" }}
           />
         </label>
       )}
 
       {showInner && (
-        <label className="block">
-          <span className="font-pixel text-[10px] text-muted">
+        <label className="flex items-center gap-2">
+          <span className="shrink-0 font-pixel text-[10px] text-muted">
             {dict.tool.inner} {state.inner > 0 ? state.inner : 0}
           </span>
           <input
@@ -243,7 +243,7 @@ export default function ShapeControls({
             step={2}
             value={clamp(state.inner, 0, Math.max(0, state.d - 4))}
             onChange={(e) => set({ inner: Number(e.target.value) })}
-            className="mt-1 w-full"
+            className="w-full"
             style={{ accentColor: "var(--accent)" }}
           />
         </label>
@@ -268,8 +268,8 @@ export default function ShapeControls({
       )}
 
       {isLayered && (
-        <label className="block">
-          <span className="font-pixel text-[10px] text-muted">
+        <label className="flex items-center gap-2">
+          <span className="shrink-0 font-pixel text-[10px] text-muted">
             {dict.tool.layer} {clamp(state.layerIndex, 0, Math.max(0, layerCount - 1)) + 1} / {Math.max(1, layerCount)}
           </span>
           <input
@@ -279,7 +279,7 @@ export default function ShapeControls({
             step={1}
             value={clamp(state.layerIndex, 0, Math.max(0, layerCount - 1))}
             onChange={(e) => set({ layerIndex: Number(e.target.value) })}
-            className="mt-1 w-full"
+            className="w-full"
             style={{ accentColor: "var(--accent)" }}
           />
         </label>

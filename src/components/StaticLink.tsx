@@ -1,6 +1,13 @@
-import Link from "next/link";
-import type { ComponentProps } from "react";
+import type { AnchorHTMLAttributes, ReactNode } from "react";
 
-export default function StaticLink(props: ComponentProps<typeof Link>) {
-  return <Link {...props} prefetch={false} />;
+export default function StaticLink({
+  href,
+  children,
+  ...rest
+}: AnchorHTMLAttributes<HTMLAnchorElement> & { children?: ReactNode }) {
+  return (
+    <a href={href} {...rest}>
+      {children}
+    </a>
+  );
 }

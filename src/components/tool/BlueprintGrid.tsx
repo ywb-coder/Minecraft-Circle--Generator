@@ -59,13 +59,13 @@ function BlueprintGridBase({
     return (
       <div
         aria-label={label}
-        className="mc-panel-inset pixel-corners inline-block max-w-full overflow-auto p-2"
+        className="mc-panel-inset pixel-corners block w-full overflow-auto p-2"
       >
         <svg
           width={sizeW * cell}
           height={sizeH * cell}
           viewBox={`0 0 ${sizeW * cell} ${sizeH * cell}`}
-          className="block"
+          className="mx-auto block max-w-full"
           style={{
             backgroundImage:
               "linear-gradient(rgba(148,163,184,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.18) 1px, transparent 1px)",
@@ -91,7 +91,7 @@ function BlueprintGridBase({
   return (
     <div
       aria-label={label}
-      className="mc-panel-inset pixel-corners inline-block max-w-full overflow-auto p-2"
+      className="mc-panel-inset pixel-corners block w-full overflow-auto p-2"
     >
       <div className="flex">
         {showCoords && (
@@ -108,7 +108,7 @@ function BlueprintGridBase({
               ))}
           </div>
         )}
-        <div>
+        <div className="min-w-0">
           {showCoords && (
             <div className="mb-1 flex">
               {cells.slice(0, sizeW).map((c) => (
@@ -127,7 +127,8 @@ function BlueprintGridBase({
             style={{
               gridTemplateColumns: `repeat(${sizeW}, minmax(0, 1fr))`,
               gap: 1,
-              width: sizeW * cellMaxWidth,
+              width: "100%",
+              maxWidth: sizeW * cellMaxWidth,
             }}
           >
             {cells.map((c) => {

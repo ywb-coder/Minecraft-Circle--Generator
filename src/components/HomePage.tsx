@@ -96,11 +96,11 @@ export default function HomePage({
               {dict.siteName}
             </span>
           </Link>
-          <nav className="flex items-center gap-4">
-            <a href="#tool" className="font-pixel text-[10px] text-ink hover:text-accent">
+          <nav className="flex items-center gap-3 sm:gap-4">
+            <a href="#tool" className="hidden font-pixel text-[10px] text-ink hover:text-accent sm:inline">
               {dict.nav.tool}
             </a>
-            <a href="#faq" className="font-pixel text-[10px] text-ink hover:text-accent">
+            <a href="#faq" className="hidden font-pixel text-[10px] text-ink hover:text-accent sm:inline">
               {dict.nav.faq}
             </a>
             <LangSwitcher locale={locale} />
