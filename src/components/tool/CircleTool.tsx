@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { getBlock } from "@/lib/blocks";
 import {
   blocksText,
@@ -679,11 +680,21 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
   );
 
   if (state.fullscreen) {
-    return (
+    const overlay = (
       <div className="fixed inset-0 z-50 overflow-auto bg-bg p-4">
+        <div className="mx-auto flex max-w-7xl justify-end pb-2">
+          <button
+            type="button"
+            className="mc-btn px-3! py-1!"
+            onClick={() => setState((s) => ({ ...s, fullscreen: false }))}
+          >
+            {dict.tool.fullscreen} ✕
+          </button>
+        </div>
         {content}
       </div>
     );
+    return createPortal(overlay, document.body);
   }
 
   return content;
