@@ -31,6 +31,14 @@ export async function GET(): Promise<Response> {
   lines.push(
     `- A 15-block dome uses ${dome.totalBlockCount} blocks across ${dome.layers.length} layers.`
   );
+  const torus = generateShape({ type: "torus", d: 41, t: 8 });
+  lines.push(
+    `- A 41-block torus with an 8-block tube uses ${torus.totalBlockCount} blocks across ${torus.layers.length} layers.`
+  );
+  const ellipsoid = generateShape({ type: "ellipsoid", w: 25, h: 17, dp: 9 });
+  lines.push(
+    `- A 25x17x9 ellipsoid uses ${ellipsoid.totalBlockCount} blocks across ${ellipsoid.layers.length} layers.`
+  );
   lines.push("");
   lines.push("## Pages");
   lines.push("");
@@ -45,6 +53,8 @@ export async function GET(): Promise<Response> {
   lines.push(`- [Sphere with 15 block diameter](${SITE_URL}/sphere/15/): sphere blueprint`);
   lines.push(`- [Dome with 15 block diameter](${SITE_URL}/dome/15/): dome blueprint`);
   lines.push(`- [Oval 15x7](${SITE_URL}/oval/15/7/): oval blueprint`);
+  lines.push(`- [Torus 41x8](${SITE_URL}/torus/41/8/): torus blueprint`);
+  lines.push(`- [Ellipsoid 25x17x9](${SITE_URL}/ellipsoid/25/17/9/): ellipsoid blueprint`);
 
   return new Response(lines.join("\n"), {
     headers: { "Content-Type": "text/plain; charset=utf-8" },

@@ -30,6 +30,16 @@ function domeSummary(d: number): string {
   return `${shape.totalBlockCount} blocks across ${shape.layers.length} layers`;
 }
 
+function torusSummary(d: number, t: number): string {
+  const shape = generateShape({ type: "torus", d, t });
+  return `${shape.totalBlockCount} blocks across ${shape.layers.length} layers`;
+}
+
+function ellipsoidSummary(w: number, h: number, dp: number): string {
+  const shape = generateShape({ type: "ellipsoid", w, h, dp });
+  return `${shape.totalBlockCount} blocks across ${shape.layers.length} layers`;
+}
+
 export async function GET(): Promise<Response> {
   const lines: string[] = [];
   lines.push("# Minecraft Circle Generator");
@@ -55,6 +65,12 @@ export async function GET(): Promise<Response> {
   lines.push(
     "- Arc: a curved section of a circle outline, useful for paths, windows and ornamental arches."
   );
+  lines.push(
+    "- Torus: a donut-shaped ring of tube, defined by its outer diameter and tube thickness, built from stacked circular layers that narrow toward the top and bottom."
+  );
+  lines.push(
+    "- Ellipsoid: a sphere stretched on three axes, defined by width, height and depth, built from stacked oval layers that shrink toward the poles."
+  );
   lines.push("");
   lines.push("## Key facts");
   lines.push("");
@@ -67,6 +83,14 @@ export async function GET(): Promise<Response> {
   for (const d of LAYERED_SIZES) {
     lines.push(`- A ${d}-block dome uses ${domeSummary(d)}.`);
   }
+  lines.push(
+    `- A 41-block torus with an 8-block tube uses ${torusSummary(41, 8)}.`
+  );
+  lines.push(
+    `- A 65-block torus with a 12-block tube uses ${torusSummary(65, 12)}.`
+  );
+  lines.push(`- A 25x17x9 ellipsoid uses ${ellipsoidSummary(25, 17, 9)}.`);
+  lines.push(`- A 49x31x21 ellipsoid uses ${ellipsoidSummary(49, 31, 21)}.`);
   lines.push("");
   lines.push("## Size guide");
   lines.push("");
@@ -75,6 +99,18 @@ export async function GET(): Promise<Response> {
       `- ${d} blocks: ${circleBlocks(d)} blocks in outline form - good for ${SIZE_USES[d]}.`
     );
   }
+  lines.push(
+    `- Torus 41x8: ${torusSummary(41, 8)} - a compact ring for fountains and circular towers.`
+  );
+  lines.push(
+    `- Torus 65x12: ${torusSummary(65, 12)} - a large ring for arenas and ring walls.`
+  );
+  lines.push(
+    `- Ellipsoid 25x17x9: ${ellipsoidSummary(25, 17, 9)} - a low elongated dome for halls.`
+  );
+  lines.push(
+    `- Ellipsoid 49x31x21: ${ellipsoidSummary(49, 31, 21)} - a big three-axis shape for stadium builds.`
+  );
   lines.push("");
   lines.push("## FAQ");
   lines.push("");

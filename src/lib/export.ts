@@ -31,6 +31,20 @@ export function blocksText(points: Point[]): string {
   return points.map((p) => `${p.x} ${p.y}`).join("\n");
 }
 
+export function setblockText(
+  points: Point[],
+  cx: number,
+  cy: number,
+  cz: number,
+  layerZ = 0,
+  blockId = "stone"
+): string {
+  const block = `minecraft:${blockId.replace(/-/g, "_")}`;
+  return points
+    .map((p) => `/setblock ${p.x + cx} ${layerZ + cy} ${p.y + cz} ${block}`)
+    .join("\n");
+}
+
 export function downloadText(filename: string, text: string, mime: string): void {
   const blob = new Blob([text], { type: mime });
   downloadBlob(filename, blob);

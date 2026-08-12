@@ -1,30 +1,50 @@
 import type { CircleStyle, Point } from "./types";
 
 export const MIN_DIAMETER = 3;
-export const MAX_DIAMETER = 256;
+export const MAX_DIAMETER = 512;
 
 /**
- * Perfect pixel circle (ring) — cells whose center distance to the origin
- * falls inside [r - 0.5, r + 0.5), r = (d - 1) / 2. This is the same
- * discrete circle used by the leading circle-generator tools and produces
- * the clean thin ring at any odd diameter.
+ * Core band primitive: all cells whose center distance from the origin falls
+ * in [lo, hi). All circle variants are expressed through this function.
  */
-export function outlineCircle(d: number): Point[] {
-  if (d <= 1) return [{ x: 0, y: 0 }];
-  const r = (d - 1) / 2;
-  const lo = (r - 0.5) * (r - 0.5);
-  const hi = (r + 0.5) * (r + 0.5);
+export function bandPoints(lo: number, hi: number): Point[] {
   const cells: Point[] = [];
-  const rr = Math.round(r);
-  for (let y = -rr; y <= rr; y++) {
-    for (let x = -rr; x <= rr; x++) {
+  const max = Math.ceil(hi);
+  for (let y = -max; y <= max; y++) {
+    for (let x = -max; x <= max; x++) {
       const dist2 = x * x + y * y;
-      if (dist2 >= lo && dist2 < hi) {
+      if (dist2 >= lo * lo && dist2 < hi * hi) {
         cells.push({ x, y });
       }
     }
   }
   return cells;
+}
+
+/**
+ * Perfect pixel circle (ring) — the thin outline used by the leading
+ * circle-generator tools: cells in [r - 0.5, r + 0.5), r = (d - 1) / 2.
+ */
+export function outlineCircle(d: number): Point[] {
+  if (d <= 1) return [{ x: 0, y: 0 }];
+  const r = (d - 1) / 2;
+  return bandPoints(r - 0.5, r + 0.5);
+}
+
+/** Thick ring: the outline expanded inward by (thickness - 1) blocks. */
+export function ringPoints(d: number, thickness: number): Point[] {
+  if (d <= 1) return [{ x: 0, y: 0 }];
+  const r = (d - 1) / 2;
+  const t = Math.max(1, thickness);
+  return bandPoints(r - 0.5 - (t - 1), r + 0.5);
+}
+
+/** Hollow ring: the outer circle with an inner cut-out circle removed. */
+export function annulusPoints(outerD: number, innerD: number): Point[] {
+  if (outerD <= 1) return [{ x: 0, y: 0 }];
+  const outerR = (outerD - 1) / 2;
+  const innerR = Math.min(innerD, outerD - 2) > 1 ? (innerD - 1) / 2 : -1;
+  return bandPoints(innerR + 0.5, outerR + 0.5);
 }
 
 /** Solid disc: for every row y, every cell with |x| <= round(sqrt(r^2 - y^2)). */

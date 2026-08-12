@@ -1,14 +1,18 @@
 import { describe, expect, it } from "vitest";
 import {
+  annulusPoints,
   arcPoints,
   chartCircle,
   circlePoints,
   domeLayers,
+  ellipsoidLayers,
   filledCircle,
   generateShape,
   outlineCircle,
   ovalPoints,
+  ringPoints,
   sphereLayers,
+  torusLayers,
 } from "./index";
 
 /** Ground truth extracted from the reference site's prerendered HTML. */
@@ -230,9 +234,9 @@ describe("arc", () => {
 });
 
 describe("generateShape", () => {
-  it("defaults to circle d=15 outline", () => {
+  it("defaults to circle d=25 outline", () => {
     const result = generateShape({ type: "circle" });
-    expect(result.blockCount).toBe(40);
+    expect(result.blockCount).toBe(outlineCircle(25).length);
     expect(result.type).toBe("circle");
   });
 
@@ -240,5 +244,82 @@ describe("generateShape", () => {
     const result = generateShape({ type: "sphere", d: 15 });
     expect(result.layers).toHaveLength(15);
     expect(result.totalBlockCount).toBeGreaterThan(result.blockCount);
+  });
+});
+
+describe("ring thickness", () => {
+  it("thicker rings have more blocks and stay in bounds", () => {
+    const thin = ringPoints(15, 1);
+    const thick = ringPoints(15, 3);
+    expect(thick.length).toBeGreaterThan(thin.length);
+    for (const p of thick) {
+      expect(Math.abs(p.x)).toBeLessThanOrEqual(7);
+      expect(Math.abs(p.y)).toBeLessThanOrEqual(7);
+    }
+  });
+
+  it("thickness 1 equals the thin outline", () => {
+    expect(ringPoints(15, 1).length).toBe(outlineCircle(15).length);
+  });
+});
+
+describe("inner cutout (hollow ring)", () => {
+  it("cutting out the center keeps a hollow wall band", () => {
+    const hollow = annulusPoints(15, 5);
+    expect(hollow.length).toBeGreaterThan(0);
+    expect(hollow.length).toBeLessThan(filledCircle(15).length);
+    for (const p of hollow) {
+      expect(p.x * p.x + p.y * p.y).toBeGreaterThanOrEqual(2.5 * 2.5);
+    }
+  });
+
+  it("inner cutout via generateShape", () => {
+    const result = generateShape({ type: "circle", d: 15, inner: 5 });
+    expect(result.blockCount).toBe(annulusPoints(15, 5).length);
+  });
+});
+
+describe("torus", () => {
+  it("d=41 tube=8 has symmetric layers with a widest equator", () => {
+    const layers = torusLayers(41, 8);
+    expect(layers.length).toBe(9);
+    expect(layers[0].blockCount).toBe(layers[8].blockCount);
+    const widths = layers.map((l) => l.blockCount);
+    const center = layers[Math.floor(layers.length / 2)].blockCount;
+    expect(center).toBe(Math.max(...widths));
+  });
+
+  it("generateShape torus aggregates layers", () => {
+    const result = generateShape({ type: "torus", d: 41, t: 8 });
+    expect(result.totalBlockCount).toBeGreaterThan(result.blockCount);
+    expect(result.depth).toBe(9);
+  });
+
+  it("every torus cell is in the outer bounds", () => {
+    const result = generateShape({ type: "torus", d: 41, t: 8 });
+    for (const layer of result.layers) {
+      for (const p of layer.points) {
+        expect(Math.abs(p.x)).toBeLessThanOrEqual(21);
+        expect(Math.abs(p.y)).toBeLessThanOrEqual(21);
+      }
+    }
+  });
+});
+
+describe("ellipsoid", () => {
+  it("25x17x9 has 9 symmetric layers with a widest equator", () => {
+    const layers = ellipsoidLayers(25, 17, 9);
+    expect(layers.length).toBe(9);
+    expect(layers[0].blockCount).toBe(layers[8].blockCount);
+    const center = layers[Math.floor(layers.length / 2)];
+    const widths = layers.map((l) => l.blockCount);
+    expect(center.blockCount).toBe(Math.max(...widths));
+    expect(center.blockCount).toBeGreaterThan(layers[0].blockCount);
+  });
+
+  it("generateShape ellipsoid reports total across layers", () => {
+    const result = generateShape({ type: "ellipsoid", w: 25, h: 17, dp: 9 });
+    expect(result.totalBlockCount).toBeGreaterThan(result.blockCount);
+    expect(result.depth).toBe(9);
   });
 });

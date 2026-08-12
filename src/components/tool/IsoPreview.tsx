@@ -103,6 +103,9 @@ function IsoPreview({
   color: string;
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const rotYRef = useRef(0);
+  const dragRef = useRef<{ x: number; rot: number } | null>(null);
+  const scheduleRef = useRef<() => void>(() => {});
 
   const cubes = useMemo(() => {
     const arr: Cube[] = [];
@@ -153,12 +156,17 @@ function IsoPreview({
       ctx.clearRect(0, 0, w, h);
 
       if (cubes.length === 0) return;
+      const rot = (rotYRef.current * Math.PI) / 180;
+      const cr = Math.cos(rot);
+      const sr = Math.sin(rot);
+      const rotX = (x: number, z: number) => x * cr - z * sr;
+      const rotZ = (x: number, z: number) => x * sr + z * cr;
       let minX = Infinity;
       let maxX = -Infinity;
       let minY = Infinity;
       let maxY = -Infinity;
       for (const c of cubes) {
-        for (const [px, py] of cubeCorners(c.x, c.z, c.y, 1)) {
+        for (const [px, py] of cubeCorners(rotX(c.x, c.z), rotZ(c.x, c.z), c.y, 1)) {
           if (px < minX) minX = px;
           if (px > maxX) maxX = px;
           if (py < minY) minY = py;
@@ -174,9 +182,16 @@ function IsoPreview({
 
       const sprite = getSprite(color, s);
       const dy = s * sin30;
-      for (const c of sorted) {
-        const x0 = (c.x + c.z) * cos30 * s;
-        const y0 = (-c.x + c.z) * sin30 * s - c.y * s;
+      const sortedRot = [...sorted].sort(
+        (a, b) =>
+          rotX(b.x, b.z) + rotZ(b.x, b.z) + b.y -
+          (rotX(a.x, a.z) + rotZ(a.x, a.z) + a.y)
+      );
+      for (const c of sortedRot) {
+        const xr = rotX(c.x, c.z);
+        const zr = rotZ(c.x, c.z);
+        const x0 = (xr + zr) * cos30 * s;
+        const y0 = (-xr + zr) * sin30 * s - c.y * s;
         ctx.drawImage(sprite, x0 - 1, y0 - dy - 1);
       }
     };
@@ -189,6 +204,7 @@ function IsoPreview({
         render();
       });
     };
+    scheduleRef.current = scheduleDraw;
 
     scheduleDraw();
     window.addEventListener("resize", scheduleDraw);
@@ -198,13 +214,35 @@ function IsoPreview({
     };
   }, [cubes, sorted, color]);
 
+  const handlePointerDown = (e: React.PointerEvent) => {
+    dragRef.current = { x: e.clientX, rot: rotYRef.current };
+    (e.currentTarget as HTMLElement).setPointerCapture?.(e.pointerId);
+  };
+
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (!dragRef.current) return;
+    rotYRef.current = dragRef.current.rot + (e.clientX - dragRef.current.x) * 0.4;
+    scheduleRef.current();
+  };
+
+  const handlePointerUp = () => {
+    dragRef.current = null;
+  };
+
   return (
-    <div className="mc-panel-inset pixel-corners relative aspect-square w-full overflow-hidden">
+    <div
+      className="mc-panel-inset pixel-corners relative aspect-square w-full overflow-hidden"
+      onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMove}
+      onPointerUp={handlePointerUp}
+      onPointerLeave={handlePointerUp}
+      style={{ touchAction: "none" }}
+    >
       <canvas
         ref={canvasRef}
         className="h-full w-full"
         role="img"
-        aria-label="Isometric 3D preview of the generated shape"
+        aria-label="Isometric 3D preview of the generated shape - drag to rotate"
       />
     </div>
   );

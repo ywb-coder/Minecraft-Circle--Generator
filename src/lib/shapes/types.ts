@@ -1,4 +1,11 @@
-export type ShapeType = "circle" | "oval" | "sphere" | "dome" | "arc";
+export type ShapeType =
+  | "circle"
+  | "oval"
+  | "sphere"
+  | "dome"
+  | "arc"
+  | "torus"
+  | "ellipsoid";
 
 export type CircleStyle = "outline" | "chart" | "filled";
 

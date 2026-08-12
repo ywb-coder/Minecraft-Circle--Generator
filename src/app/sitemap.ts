@@ -6,10 +6,12 @@ import { HREFLANG_LOCALES } from "@/lib/config";
 import {
   circleDiameters,
   domeDiameters,
+  ELLIPSOID_COMBOS,
   hreflangMap,
   localizedUrl,
   OVAL_PAIRS,
   sphereDiameters,
+  TORUS_COMBOS,
 } from "@/lib/seo";
 
 const homeEntries: MetadataRoute.Sitemap = HREFLANG_LOCALES.map((locale) => ({
@@ -55,6 +57,26 @@ for (const locale of HREFLANG_LOCALES) {
   }
   for (const [w, h] of OVAL_PAIRS) {
     const path = `/oval/${w}/${h}`;
+    shapeEntries.push({
+      url: localizedUrl(path, locale),
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: { languages: hreflangMap(path) },
+    });
+  }
+  for (const [d, t] of TORUS_COMBOS) {
+    const path = `/torus/${d}/${t}`;
+    shapeEntries.push({
+      url: localizedUrl(path, locale),
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: { languages: hreflangMap(path) },
+    });
+  }
+  for (const [w, h, dp] of ELLIPSOID_COMBOS) {
+    const path = `/ellipsoid/${w}/${h}/${dp}`;
     shapeEntries.push({
       url: localizedUrl(path, locale),
       lastModified: new Date(),

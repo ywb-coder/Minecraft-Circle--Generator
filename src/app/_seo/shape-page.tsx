@@ -8,19 +8,29 @@ import { interpolate } from "@/lib/i18n/format";
 import { SITE_URL } from "@/lib/config";
 import { generateShape } from "@/lib/shapes";
 import {
+  ELLIPSOID_COMBOS,
   hreflangMap,
+  isEllipsoidCombo,
   isOvalPair,
+  isTorusCombo,
   localizePath,
   nearestOvalPair,
   OVAL_PAIRS,
   parsePositiveInt,
+  TORUS_COMBOS,
 } from "@/lib/seo";
 import SeoShell from "./shell";
 import { BlueprintGrid, LayerGrid } from "./blueprint";
 import SizeGuide from "./sizeguide";
 import SeoJsonLd from "./jsonld";
 
-export type RouteShape = "circle" | "sphere" | "dome" | "oval";
+export type RouteShape =
+  | "circle"
+  | "sphere"
+  | "dome"
+  | "oval"
+  | "torus"
+  | "ellipsoid";
 
 export type ShapePageInput = {
   type: RouteShape;
@@ -28,15 +38,19 @@ export type ShapePageInput = {
   d?: string;
   w?: string;
   h?: string;
+  t?: string;
+  dp?: string;
 };
 
 const RANGES: Record<
-  "circle" | "sphere" | "dome",
+  "circle" | "sphere" | "dome" | "torus" | "ellipsoid",
   { min: number; max: number }
 > = {
   circle: { min: 5, max: 256 },
   sphere: { min: 5, max: 128 },
   dome: { min: 5, max: 128 },
+  torus: { min: 15, max: 512 },
+  ellipsoid: { min: 5, max: 256 },
 };
 
 const SHAPE_KEYS: Record<RouteShape, keyof Dictionary["tool"]> = {
@@ -44,24 +58,76 @@ const SHAPE_KEYS: Record<RouteShape, keyof Dictionary["tool"]> = {
   sphere: "sphere",
   dome: "dome",
   oval: "oval",
+  torus: "torus",
+  ellipsoid: "ellipsoid",
 };
 
-function resolveParams(input: ShapePageInput): {
-  d: number;
-  w: number;
-  h: number;
-  path: string;
-} | null {
+type ResolvedParams =
+  | {
+      type: "circle" | "sphere" | "dome" | "oval";
+      d: number;
+      w: number;
+      h: number;
+      path: string;
+    }
+  | {
+      type: "torus";
+      d: number;
+      w: number;
+      h: number;
+      t: number;
+      path: string;
+    }
+  | {
+      type: "ellipsoid";
+      d: number;
+      w: number;
+      h: number;
+      dp: number;
+      path: string;
+    };
+
+function resolveParams(input: ShapePageInput): ResolvedParams | null {
   if (input.type === "oval") {
     const w = parsePositiveInt(input.w);
     const h = parsePositiveInt(input.h);
     if (w === null || h === null || !isOvalPair(w, h)) return null;
-    return { d: w, w, h, path: `/oval/${w}/${h}` };
+    return { type: input.type, d: w, w, h, path: `/oval/${w}/${h}` };
+  }
+  if (input.type === "torus") {
+    const d = parsePositiveInt(input.d);
+    const t = parsePositiveInt(input.t);
+    const range = RANGES.torus;
+    if (d === null || t === null || !isTorusCombo(d, t)) return null;
+    if (d < range.min || d > range.max) return null;
+    return { type: input.type, d, w: d, h: d, t, path: `/torus/${d}/${t}` };
+  }
+  if (input.type === "ellipsoid") {
+    const w = parsePositiveInt(input.w);
+    const h = parsePositiveInt(input.h);
+    const dp = parsePositiveInt(input.dp);
+    const range = RANGES.ellipsoid;
+    if (
+      w === null ||
+      h === null ||
+      dp === null ||
+      !isEllipsoidCombo(w, h, dp)
+    )
+      return null;
+    if (w < range.min || w > range.max) return null;
+    return {
+      type: input.type,
+      d: w,
+      w,
+      h,
+      dp,
+      path: `/ellipsoid/${w}/${h}/${dp}`,
+    };
   }
   const range = RANGES[input.type];
   const d = parsePositiveInt(input.d);
   if (d === null || d < range.min || d > range.max) return null;
-  return { d, w: d, h: d, path: `/${input.type}/${d}` };
+  return { type: input.type, d, w: d, h: d, path: `/${input.type}/${d}` };
 }
 
 export async function shapePageMetadata(
@@ -71,20 +137,36 @@ export async function shapePageMetadata(
   if (!resolved) return {};
   const dict = await getDictionary(input.locale);
   const shape = dict.tool[SHAPE_KEYS[input.type]];
+  const { d, w, h } = resolved;
   const generated = generateShape(
-    input.type === "oval"
-      ? { type: input.type, w: resolved.w, h: resolved.h, style: "outline" }
-      : { type: input.type, d: resolved.d, style: "outline" }
+    resolved.type === "oval"
+      ? { type: resolved.type, w, h, style: "outline" }
+      : resolved.type === "torus"
+        ? { type: resolved.type, d, t: resolved.t, style: "outline" }
+        : resolved.type === "ellipsoid"
+          ? { type: resolved.type, w, h, dp: resolved.dp, style: "outline" }
+          : { type: resolved.type, d, style: "outline" }
   );
-  const blocks =
-    input.type === "sphere" || input.type === "dome"
-      ? generated.totalBlockCount
-      : generated.blockCount;
+  const layered =
+    input.type === "sphere" ||
+    input.type === "dome" ||
+    input.type === "torus" ||
+    input.type === "ellipsoid";
+  const blocks = layered ? generated.totalBlockCount : generated.blockCount;
+  const title =
+    resolved.type === "ellipsoid"
+      ? interpolate(dict.perSize.titleEllipsoid, {
+          shape,
+          w,
+          h,
+          dp: resolved.dp,
+        })
+      : interpolate(dict.perSize.title, { shape, d });
   return {
-    title: interpolate(dict.perSize.title, { shape, d: resolved.d }),
+    title,
     description: interpolate(dict.perSize.desc, {
       shape,
-      d: resolved.d,
+      d: resolved.type === "torus" ? d : w,
       blocks,
     }),
     alternates: {
@@ -115,10 +197,14 @@ function toolHref(
   type: RouteShape,
   d: number,
   w: number,
-  h: number
+  h: number,
+  t?: number,
+  dp?: number
 ): string {
   const base = locale === defaultLocale ? "/" : `/${locale}/`;
   if (type === "oval") return `${base}?t=oval&w=${w}&h=${h}`;
+  if (type === "torus") return `${base}?t=torus&d=${d}&tk=${t}`;
+  if (type === "ellipsoid") return `${base}?t=ellipsoid&w=${w}&h=${h}&dp=${dp}`;
   return `${base}?t=${type}&d=${d}`;
 }
 
@@ -144,6 +230,38 @@ function relatedLinks(
       .filter((v) => v >= range.min && v <= range.max)
       .map((v) => ({ href: `/${type}/${v}/`, label: String(v) }));
   }
+  if (type === "torus") {
+    const index = TORUS_COMBOS.findIndex(([pd]) => pd === d);
+    const links: { href: string; label: string }[] = [];
+    if (index > 0) {
+      const [pd, pt] = TORUS_COMBOS[index - 1];
+      links.push({ href: `/torus/${pd}/${pt}/`, label: `${pd}×${pt}` });
+    }
+    if (index >= 0 && index < TORUS_COMBOS.length - 1) {
+      const [pd, pt] = TORUS_COMBOS[index + 1];
+      links.push({ href: `/torus/${pd}/${pt}/`, label: `${pd}×${pt}` });
+    }
+    return links;
+  }
+  if (type === "ellipsoid") {
+    const index = ELLIPSOID_COMBOS.findIndex(([pw]) => pw === d);
+    const links: { href: string; label: string }[] = [];
+    if (index > 0) {
+      const [pw, ph, pd] = ELLIPSOID_COMBOS[index - 1];
+      links.push({
+        href: `/ellipsoid/${pw}/${ph}/${pd}/`,
+        label: `${pw}×${ph}×${pd}`,
+      });
+    }
+    if (index >= 0 && index < ELLIPSOID_COMBOS.length - 1) {
+      const [pw, ph, pd] = ELLIPSOID_COMBOS[index + 1];
+      links.push({
+        href: `/ellipsoid/${pw}/${ph}/${pd}/`,
+        label: `${pw}×${ph}×${pd}`,
+      });
+    }
+    return links;
+  }
   const index = OVAL_PAIRS.findIndex(([pw]) => pw === d);
   const links: { href: string; label: string }[] = [];
   if (index > 0) {
@@ -155,6 +273,32 @@ function relatedLinks(
     links.push({ href: `/oval/${pw}/${ph}/`, label: `${pw}×${ph}` });
   }
   return links;
+}
+
+function nearestTorusCombo(d: number): readonly [number, number] {
+  let best = TORUS_COMBOS[0];
+  let bestDiff = Infinity;
+  for (const combo of TORUS_COMBOS) {
+    const diff = Math.abs(combo[0] - d);
+    if (diff < bestDiff) {
+      bestDiff = diff;
+      best = combo;
+    }
+  }
+  return best;
+}
+
+function nearestEllipsoidCombo(d: number): readonly [number, number, number] {
+  let best = ELLIPSOID_COMBOS[0];
+  let bestDiff = Infinity;
+  for (const combo of ELLIPSOID_COMBOS) {
+    const diff = Math.abs(combo[0] - d);
+    if (diff < bestDiff) {
+      bestDiff = diff;
+      best = combo;
+    }
+  }
+  return best;
 }
 
 function otherShapeLinks(
@@ -179,6 +323,17 @@ function otherShapeLinks(
     const [w, h] = nearestOvalPair(d);
     links.push({ href: `/oval/${w}/${h}/`, labelKey: "oval" });
   }
+  if (type !== "torus") {
+    const [td, tt] = nearestTorusCombo(d);
+    links.push({ href: `/torus/${td}/${tt}/`, labelKey: "torus" });
+  }
+  if (type !== "ellipsoid") {
+    const [ew, eh, edp] = nearestEllipsoidCombo(d);
+    links.push({
+      href: `/ellipsoid/${ew}/${eh}/${edp}/`,
+      labelKey: "ellipsoid",
+    });
+  }
   return links;
 }
 
@@ -187,26 +342,42 @@ export default async function ShapePage(
 ): Promise<ReactNode> {
   const resolved = resolveParams(input);
   if (!resolved) notFound();
-  const { locale, type } = input;
+  const { locale } = input;
   const { d, w, h, path } = resolved;
   const dict = await getDictionary(locale);
-  const shapeName = dict.tool[SHAPE_KEYS[type]];
+  const shapeName = dict.tool[SHAPE_KEYS[resolved.type]];
   const shape = generateShape(
-    type === "oval"
-      ? { type, w, h, style: "outline" }
-      : { type, d, style: "outline" }
+    resolved.type === "oval"
+      ? { type: resolved.type, w, h, style: "outline" }
+      : resolved.type === "torus"
+        ? { type: resolved.type, d, t: resolved.t, style: "outline" }
+        : resolved.type === "ellipsoid"
+          ? { type: resolved.type, w, h, dp: resolved.dp, style: "outline" }
+          : { type: resolved.type, d, style: "outline" }
   );
-  const layered = type === "sphere" || type === "dome";
+  const layered =
+    resolved.type === "sphere" ||
+    resolved.type === "dome" ||
+    resolved.type === "torus" ||
+    resolved.type === "ellipsoid";
   const blocks = layered ? shape.totalBlockCount : shape.blockCount;
-  const title = interpolate(dict.perSize.title, { shape: shapeName, d });
+  const title =
+    resolved.type === "ellipsoid"
+      ? interpolate(dict.perSize.titleEllipsoid, {
+          shape: shapeName,
+          w,
+          h,
+          dp: resolved.dp,
+        })
+      : interpolate(dict.perSize.title, { shape: shapeName, d });
   const description = interpolate(dict.perSize.desc, {
     shape: shapeName,
-    d,
+    d: resolved.type === "torus" ? d : w,
     blocks,
   });
   const use = nearestUse(dict, d);
-  const related = relatedLinks(type, d);
-  const others = otherShapeLinks(locale, type, d);
+  const related = relatedLinks(resolved.type, d);
+  const others = otherShapeLinks(locale, resolved.type, d);
   const vars = { shape: shapeName, d, blocks, use };
   return (
     <SeoShell dict={dict} locale={locale}>
@@ -219,7 +390,15 @@ export default async function ShapePage(
         </p>
         <div className="mt-6">
           <a
-            href={toolHref(locale, type, d, w, h)}
+            href={toolHref(
+              locale,
+              resolved.type,
+              d,
+              w,
+              h,
+              "t" in resolved ? resolved.t : undefined,
+              "dp" in resolved ? resolved.dp : undefined
+            )}
             className="mc-btn mc-btn-primary inline-block"
           >
             {dict.perSize.openTool}
@@ -291,6 +470,26 @@ export default async function ShapePage(
                 </td>
                 <td className="font-terminal text-xl text-accent">{blocks}</td>
               </tr>
+              {resolved.type === "torus" && (
+                <tr>
+                  <td className="pr-4 font-pixel text-[10px] text-muted">
+                    {dict.tool.tube}
+                  </td>
+                  <td className="font-terminal text-xl text-accent">
+                    {resolved.t}
+                  </td>
+                </tr>
+              )}
+              {resolved.type === "ellipsoid" && (
+                <tr>
+                  <td className="pr-4 font-pixel text-[10px] text-muted">
+                    {dict.tool.depth}
+                  </td>
+                  <td className="font-terminal text-xl text-accent">
+                    {resolved.dp}
+                  </td>
+                </tr>
+              )}
               {layered && (
                 <>
                   <tr>

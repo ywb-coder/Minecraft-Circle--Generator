@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { getBlock } from "@/lib/blocks";
@@ -9,6 +9,7 @@ import {
   downloadText,
   pointsToCSV,
   pointsToJSON,
+  setblockText,
   shapeExportMeta,
   toSVG,
 } from "@/lib/export";
@@ -31,10 +32,20 @@ import SizeGuideTable from "./SizeGuideTable";
 import { clamp, DEFAULT_STATE, toInt, type ToolState } from "./tool-state";
 
 type Tab = "blueprint" | "preview" | "build";
+type MobileTab = "controls" | "preview" | "export";
 
 const TABS: Tab[] = ["blueprint", "preview", "build"];
-const SHAPE_TYPES: ShapeType[] = ["circle", "oval", "sphere", "dome", "arc"];
+const SHAPE_TYPES: ShapeType[] = [
+  "circle",
+  "oval",
+  "sphere",
+  "dome",
+  "arc",
+  "torus",
+  "ellipsoid",
+];
 const STYLES: CircleStyle[] = ["outline", "chart", "filled"];
+const STORAGE_KEY = "cg-tool-state-v1";
 
 function stateFromUrl(): ToolState {
   if (typeof window === "undefined") return DEFAULT_STATE;
@@ -52,18 +63,55 @@ function stateFromUrl(): ToolState {
   if (b && getBlock(b).id === b) next.block = b;
   next.start = clamp(toInt(params.get("a"), next.start), 0, 359);
   next.span = clamp(toInt(params.get("g"), next.span), 0, 359);
+  next.thickness = clamp(toInt(params.get("tk"), next.thickness), 1, 6);
+  next.inner = clamp(toInt(params.get("in"), next.inner), 0, 510);
+  next.centerX = toInt(params.get("cx"), next.centerX);
+  next.centerY = toInt(params.get("cy"), next.centerY);
+  next.centerZ = toInt(params.get("cz"), next.centerZ);
+  next.t = clamp(toInt(params.get("tb"), next.t), 1, 64);
+  next.dp = clamp(toInt(params.get("dp"), next.dp), 5, 256);
   return next;
+}
+
+function mergeSaved(saved: Partial<ToolState> | null, next: ToolState): ToolState {
+  if (!saved) return next;
+  const merged = { ...next };
+  const urlType = new URLSearchParams(window.location.search).get("t");
+  const fromUrl = new Set(["t", "d", "w", "h", "s", "b", "a", "g", "tk", "in", "cx", "cy", "cz", "tb", "dp"]);
+  (Object.keys(saved) as (keyof ToolState)[]).forEach((key) => {
+    if (fromUrl.has(key)) return;
+    const value = saved[key];
+    if (value === undefined) return;
+    if (key === "placed" && Array.isArray(value)) {
+      merged.placed = value as string[];
+    } else if (typeof value === "boolean" || typeof value === "number" || typeof value === "string") {
+      (merged as Record<string, unknown>)[key] = value;
+    }
+  });
+  void urlType;
+  return merged;
 }
 
 export default function CircleTool({ dict }: { dict: Dictionary }) {
   const [state, setState] = useState<ToolState>(DEFAULT_STATE);
   const [tab, setTab] = useState<Tab>("blueprint");
+  const [mobileTab, setMobileTab] = useState<MobileTab>("controls");
   const [orderIndex, setOrderIndex] = useState(0);
   const [copied, setCopied] = useState(false);
   const skipFirstWrite = useRef(true);
 
   useEffect(() => {
-    const id = window.setTimeout(() => setState(stateFromUrl), 0);
+    const id = window.setTimeout(() => {
+      const fromUrl = stateFromUrl();
+      let saved: Partial<ToolState> | null = null;
+      try {
+        const raw = window.localStorage.getItem(STORAGE_KEY);
+        if (raw) saved = JSON.parse(raw) as Partial<ToolState>;
+      } catch {
+        saved = null;
+      }
+      setState(mergeSaved(saved, fromUrl));
+    }, 0);
     return () => window.clearTimeout(id);
   }, []);
 
@@ -82,6 +130,13 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
       params.set("b", state.block);
       params.set("a", String(state.start));
       params.set("g", String(state.span));
+      params.set("tk", String(state.thickness));
+      params.set("in", String(state.inner));
+      params.set("cx", String(state.centerX));
+      params.set("cy", String(state.centerY));
+      params.set("cz", String(state.centerZ));
+      params.set("tb", String(state.t));
+      params.set("dp", String(state.dp));
       window.history.replaceState(
         null,
         "",
@@ -91,8 +146,43 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
     return () => window.clearTimeout(id);
   }, [state]);
 
+  useEffect(() => {
+    if (skipFirstWrite.current) return;
+    const id = window.setTimeout(() => {
+      try {
+        const persist: Partial<ToolState> = {
+          type: state.type,
+          d: state.d,
+          w: state.w,
+          h: state.h,
+          dp: state.dp,
+          t: state.t,
+          thickness: state.thickness,
+          inner: state.inner,
+          style: state.style,
+          block: state.block,
+          start: state.start,
+          span: state.span,
+          centerX: state.centerX,
+          centerY: state.centerY,
+          centerZ: state.centerZ,
+          placed: state.placed,
+          showCoords: state.showCoords,
+          rowCounts: state.rowCounts,
+          layerIndex: state.layerIndex,
+          speed: state.speed,
+        };
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(persist));
+      } catch {
+        // storage unavailable
+      }
+    }, 500);
+    return () => window.clearTimeout(id);
+  }, [state]);
+
+  const shapeType = state.type;
   const shape = useMemo(() => {
-    if (state.type === "oval") {
+    if (shapeType === "oval") {
       const limits = shapeLimits.oval;
       return generateShape({
         type: "oval",
@@ -101,15 +191,43 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
         style: state.style,
       });
     }
-    const limits = shapeLimits[state.type];
+    if (shapeType === "torus") {
+      const limits = shapeLimits.torus;
+      return generateShape({
+        type: "torus",
+        d: clamp(state.d, limits.min, limits.max),
+        t: clamp(state.t, 1, 64),
+      });
+    }
+    if (shapeType === "ellipsoid") {
+      const limits = shapeLimits.ellipsoid;
+      return generateShape({
+        type: "ellipsoid",
+        w: clamp(state.w, limits.min, limits.max),
+        h: clamp(state.h, limits.min, limits.max),
+        dp: clamp(state.dp, limits.min, limits.max),
+      });
+    }
+    if (shapeType === "circle" && state.style === "outline") {
+      const limits = shapeLimits.circle;
+      const d = clamp(state.d, limits.min, limits.max);
+      return generateShape({
+        type: "circle",
+        d,
+        style: "outline",
+        thickness: clamp(state.thickness, 1, 6),
+        inner: state.inner,
+      });
+    }
+    const limits = shapeLimits[shapeType];
     return generateShape({
-      type: state.type,
+      type: shapeType,
       d: clamp(state.d, limits.min, limits.max),
       style: state.style,
       start: state.start,
       span: state.span,
     });
-  }, [state.type, state.d, state.w, state.h, state.style, state.start, state.span]);
+  }, [shapeType, state.d, state.w, state.h, state.dp, state.t, state.thickness, state.inner, state.style, state.start, state.span]);
 
   const layerIndex =
     shape.layers.length > 0
@@ -119,6 +237,7 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
     shape.layers.length > 0 ? shape.layers[layerIndex].points : shape.points;
   const blockCount = points.length;
   const color = getBlock(state.block).color;
+  const blockId = getBlock(state.block).id;
 
   const bounds = useMemo(() => {
     const xs = points.map((p) => p.x);
@@ -170,13 +289,38 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
     setState((s) => ({ ...s, playing: false }));
   };
 
+  const handleCellClick = useCallback((x: number, y: number) => {
+    setState((s) => {
+      const key = `${x},${y}`;
+      const placed = s.placed.includes(key)
+        ? s.placed.filter((k) => k !== key)
+        : [...s.placed, key];
+      return { ...s, placed };
+    });
+  }, []);
+
+  const handleNext = () => {
+    const current = order[safeIndex];
+    if (!current) return;
+    const key = `${current.x},${current.y}`;
+    setState((s) => ({
+      ...s,
+      placed: s.placed.includes(key) ? s.placed : [...s.placed, key],
+    }));
+    setOrderIndex((i) => Math.min(i + 1, order.length - 1));
+  };
+
+  const handlePrev = () => {
+    setOrderIndex((i) => Math.max(0, i - 1));
+  };
+
   const showCopied = () => {
     setCopied(true);
     window.setTimeout(() => setCopied(false), 2000);
   };
 
   const filename = `${state.type}-${
-    state.type === "oval" ? `${state.w}x${state.h}` : state.d
+    state.type === "oval" ? `${state.w}x${state.h}` : state.type === "ellipsoid" ? `${state.w}x${state.h}x${state.dp}` : state.type === "torus" ? `${state.d}x${state.t}` : state.d
   }`;
 
   const copyToClipboard = async (text: string) => {
@@ -186,6 +330,38 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
     } catch {
       // clipboard unavailable
     }
+  };
+
+  const handleSetblock = () =>
+    copyToClipboard(
+      setblockText(
+        points,
+        state.centerX,
+        state.centerY,
+        state.centerZ,
+        shape.layers.length > 0 ? shape.layers[layerIndex].z : 0,
+        blockId
+      )
+    );
+
+  const handleSetblockAll = () => {
+    if (shape.layers.length === 0) {
+      handleSetblock();
+      return;
+    }
+    const all = shape.layers
+      .map((layer) =>
+        setblockText(
+          layer.points,
+          state.centerX,
+          state.centerY,
+          state.centerZ,
+          layer.z,
+          blockId
+        )
+      )
+      .join("\n");
+    copyToClipboard(all);
   };
 
   const handlePng = () => downloadGridPng(points, color, `${filename}.png`);
@@ -223,125 +399,285 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
     const path =
       state.type === "oval"
         ? `oval/${state.w}/${state.h}/`
-        : `${state.type}/${state.d}/`;
+        : state.type === "torus"
+          ? `torus/${state.d}/${state.t}/`
+          : state.type === "ellipsoid"
+            ? `ellipsoid/${state.w}/${state.h}/${state.dp}/`
+            : `${state.type}/${state.d}/`;
     copyToClipboard(`${window.location.origin}${prefix}${path}`);
   };
 
-  const hasStaticPage = state.type !== "arc";
+  const hasStaticPage =
+    state.type !== "arc" &&
+    state.type !== "sphere" &&
+    state.type !== "dome" &&
+    (state.type !== "circle" || state.style === "outline");
 
-  const handleLayerSelect = useCallback((index: number) => {
-    setState((s) => ({ ...s, layerIndex: index }));
-  }, [setState]);
+  const placed = state.placed;
+  const placedSet = useMemo(() => new Set(placed), [placed]);
+  const placedCount = placedSet.size;
+  const builderEnabled =
+    state.builder && bounds.sizeW * bounds.sizeH <= 2048;
 
-  return (
-    <div className="grid gap-4 lg:grid-cols-[340px_1fr]">
-      <div className="flex flex-col gap-4">
-        <ShapeControls dict={dict} state={state} setState={setState} />
-        <BlockPalette
-          value={state.block}
-          onChange={(block) => setState((s) => ({ ...s, block }))}
-          dict={dict}
-        />
+  const controlsPanel = (
+    <>
+      <ShapeControls dict={dict} state={state} setState={setState} />
+      <BlockPalette
+        value={state.block}
+        onChange={(block) => setState((s) => ({ ...s, block }))}
+        dict={dict}
+      />
+    </>
+  );
+
+  const previewPanel = (
+    <>
+      <div className="flex flex-wrap gap-1.5">
+        {TABS.map((t) => (
+          <button
+            key={t}
+            type="button"
+            onClick={() => setTab(t)}
+            className={`mc-btn px-3! py-1! ${tab === t ? "mc-btn-selected" : ""}`}
+          >
+            {dict.tool[t === "build" ? "buildOrder" : t]}
+          </button>
+        ))}
+        <button
+          type="button"
+          className="mc-btn px-2! py-1!"
+          onClick={() => setState((s) => ({ ...s, fullscreen: !s.fullscreen }))}
+        >
+          {dict.tool.fullscreen}
+        </button>
+        <button
+          type="button"
+          className={`mc-btn px-2! py-1! ${state.showCoords ? "mc-btn-selected" : ""}`}
+          onClick={() => setState((s) => ({ ...s, showCoords: !s.showCoords }))}
+        >
+          {dict.tool.showCoords}
+        </button>
+        <button
+          type="button"
+          className={`mc-btn px-2! py-1! ${state.rowCounts ? "mc-btn-selected" : ""}`}
+          onClick={() => setState((s) => ({ ...s, rowCounts: !s.rowCounts }))}
+        >
+          {dict.tool.rowCounts}
+        </button>
       </div>
 
-      <div className="flex min-w-0 flex-col gap-4">
-        <div className="flex flex-wrap gap-1.5">
-          {TABS.map((t) => (
-            <button
-              key={t}
-              type="button"
-              onClick={() => setTab(t)}
-              className={`mc-btn px-3! py-1! ${tab === t ? "mc-btn-selected" : ""}`}
-            >
-              {dict.tool[t === "build" ? "buildOrder" : t]}
-            </button>
-          ))}
-        </div>
-
-        <div className="mc-panel-inset pixel-corners flex flex-col items-center gap-4 p-3">
-          {tab === "preview" ? (
-            <IsoPreview shape={shape} color={color} />
-          ) : tab === "build" ? (
-            <>
-              <BlueprintGrid
-                points={points}
-                sizeW={bounds.sizeW}
-                sizeH={bounds.sizeH}
-                color={color}
-                label={dict.tool.buildOrder}
-                highlight={order[safeIndex] ?? null}
-              />
-              <BuildOrderBar
-                total={order.length}
-                current={Math.min(safeIndex + 1, order.length)}
-                playing={state.playing}
-                speed={state.speed}
-                onToggle={handleToggle}
-                onSpeed={(speed) => setState((s) => ({ ...s, speed }))}
-                onReset={handleReset}
-                dict={dict}
-              />
-            </>
-          ) : state.type === "sphere" || state.type === "dome" ? (
-            <LayerStack
-              layers={shape.layers}
-              activeIndex={layerIndex}
+      <div className="mc-panel-inset pixel-corners flex flex-col items-center gap-4 p-3">
+        {tab === "preview" ? (
+          <IsoPreview shape={shape} color={color} />
+        ) : tab === "build" ? (
+          <>
+            <div className="flex w-full flex-wrap items-center gap-2">
+              <button
+                type="button"
+                className={`mc-btn px-2! py-1! ${state.builder ? "mc-btn-selected" : ""}`}
+                onClick={() => setState((s) => ({ ...s, builder: !s.builder }))}
+              >
+                {dict.tool.builder}
+              </button>
+              {state.builder && (
+                <>
+                  <button type="button" className="mc-btn px-2! py-1!" onClick={handlePrev}>
+                    {dict.tool.prev}
+                  </button>
+                  <button type="button" className="mc-btn px-2! py-1!" onClick={handleNext}>
+                    {dict.tool.next}
+                  </button>
+                  <span className="font-terminal text-lg text-accent">
+                    {placedCount} / {order.length}
+                  </span>
+                </>
+              )}
+            </div>
+            {state.builder && !builderEnabled && (
+              <p className="font-pixel text-[10px] text-muted">
+                {dict.tool.builder} 鈥?{dict.tool.blueprint}
+              </p>
+            )}
+            <BlueprintGrid
+              points={points}
+              sizeW={bounds.sizeW}
+              sizeH={bounds.sizeH}
               color={color}
-              dict={dict}
-              onSelect={handleLayerSelect}
+              label={dict.tool.buildOrder}
+              highlight={order[safeIndex] ?? null}
+              interactive={builderEnabled}
+              placedKeys={builderEnabled ? placedSet : undefined}
+              onCellClick={builderEnabled ? handleCellClick : undefined}
+              showCoords={state.showCoords}
+              rowCounts={state.rowCounts}
             />
-          ) : (
+            <BuildOrderBar
+              total={order.length}
+              current={Math.min(safeIndex + 1, order.length)}
+              playing={state.playing}
+              speed={state.speed}
+              onToggle={handleToggle}
+              onSpeed={(speed) => setState((s) => ({ ...s, speed }))}
+              onReset={handleReset}
+              dict={dict}
+            />
+          </>
+        ) : (
+          <>
+            {shape.layers.length > 0 ? (
+              <LayerStack
+                layers={shape.layers}
+                activeIndex={layerIndex}
+                color={color}
+                dict={dict}
+                onSelect={(i) => setState((s) => ({ ...s, layerIndex: i }))}
+              />
+            ) : null}
             <BlueprintGrid
               points={points}
               sizeW={bounds.sizeW}
               sizeH={bounds.sizeH}
               color={color}
               label={dict.tool.blueprint}
-              context={
-                state.type === "arc" ? outlineCircle(state.d) : undefined
-              }
+              context={state.type === "arc" ? outlineCircle(state.d) : undefined}
+              showCoords={state.showCoords}
+              rowCounts={state.rowCounts}
             />
-          )}
-          <p className="font-terminal text-3xl text-accent">
-            {state.type === "sphere" || state.type === "dome"
-              ? `${blockCount} / ${shape.totalBlockCount}`
-              : blockCount}{" "}
-            {dict.tool.blocksCount}
-          </p>
-        </div>
-
-        {copied && (
-          <p className="font-pixel text-[10px] text-accent">{dict.tool.copied}</p>
+          </>
         )}
+        <p className="font-terminal text-3xl text-accent">
+          {blockCount} {dict.tool.blocksCount}
+        </p>
+      </div>
 
-        <div className="flex flex-wrap gap-1.5">
-          <button type="button" className="mc-btn mc-btn-primary px-2! py-1!" onClick={handlePng}>
-            {dict.tool.exportPng}
+      {copied && (
+        <p className="font-pixel text-[10px] text-accent">{dict.tool.copied}</p>
+      )}
+
+      <div className="flex flex-wrap gap-1.5">
+        <button type="button" className="mc-btn mc-btn-primary px-2! py-1!" onClick={handlePng}>
+          {dict.tool.exportPng}
+        </button>
+        <button type="button" className="mc-btn px-2! py-1!" onClick={handleSvg}>
+          SVG
+        </button>
+        <button type="button" className="mc-btn px-2! py-1!" onClick={handleCsv}>
+          CSV
+        </button>
+        <button type="button" className="mc-btn px-2! py-1!" onClick={handleJson}>
+          JSON
+        </button>
+        <button type="button" className="mc-btn px-2! py-1!" onClick={handleCopyBlocks}>
+          {dict.tool.copyBlocks}
+        </button>
+        <button type="button" className="mc-btn px-2! py-1!" onClick={handleCopyLink}>
+          {dict.tool.copyLink}
+        </button>
+        {hasStaticPage && (
+          <button type="button" className="mc-btn px-2! py-1!" onClick={handlePermLink}>
+            {dict.tool.permLink}
           </button>
-          <button type="button" className="mc-btn px-2! py-1!" onClick={handleSvg}>
-            SVG
+        )}
+        <button type="button" className="mc-btn px-2! py-1!" onClick={handleSetblock}>
+          {dict.tool.setblock}
+        </button>
+        {shape.layers.length > 0 && (
+          <button type="button" className="mc-btn px-2! py-1!" onClick={handleSetblockAll}>
+            {dict.tool.allLayers}
           </button>
-          <button type="button" className="mc-btn px-2! py-1!" onClick={handleCsv}>
-            CSV
+        )}
+      </div>
+
+      <SizeGuideTable dict={dict} />
+    </>
+  );
+
+  const exportPanel = (
+    <div className="mc-panel-inset pixel-corners flex flex-col gap-4 p-4">
+      <p className="font-pixel text-[10px] text-muted">{dict.tool.worldCoords}</p>
+      <div className="flex flex-wrap gap-3">
+        <button type="button" className="mc-btn mc-btn-primary px-2! py-1!" onClick={handlePng}>
+          {dict.tool.exportPng}
+        </button>
+        <button type="button" className="mc-btn px-2! py-1!" onClick={handleSvg}>
+          SVG
+        </button>
+        <button type="button" className="mc-btn px-2! py-1!" onClick={handleCsv}>
+          CSV
+        </button>
+        <button type="button" className="mc-btn px-2! py-1!" onClick={handleJson}>
+          JSON
+        </button>
+        <button type="button" className="mc-btn px-2! py-1!" onClick={handleCopyBlocks}>
+          {dict.tool.copyBlocks}
+        </button>
+        <button type="button" className="mc-btn px-2! py-1!" onClick={handleCopyLink}>
+          {dict.tool.copyLink}
+        </button>
+        {hasStaticPage && (
+          <button type="button" className="mc-btn px-2! py-1!" onClick={handlePermLink}>
+            {dict.tool.permLink}
           </button>
-          <button type="button" className="mc-btn px-2! py-1!" onClick={handleJson}>
-            JSON
+        )}
+        <button type="button" className="mc-btn px-2! py-1!" onClick={handleSetblock}>
+          {dict.tool.setblock}
+        </button>
+        {shape.layers.length > 0 && (
+          <button type="button" className="mc-btn px-2! py-1!" onClick={handleSetblockAll}>
+            {dict.tool.allLayers}
           </button>
-          <button type="button" className="mc-btn px-2! py-1!" onClick={handleCopyBlocks}>
-            {dict.tool.copyBlocks}
-          </button>
-          <button type="button" className="mc-btn px-2! py-1!" onClick={handleCopyLink}>
-            {dict.tool.copyLink}
-          </button>
-          {hasStaticPage && (
-            <button type="button" className="mc-btn px-2! py-1!" onClick={handlePermLink}>
-              {dict.tool.permLink}
-            </button>
-          )}
+        )}
+      </div>
+      {copied && (
+        <p className="font-pixel text-[10px] text-accent">{dict.tool.copied}</p>
+      )}
+    </div>
+  );
+
+  const mobileBar = (
+    <div className="flex flex-wrap gap-1.5 lg:hidden">
+      {(["controls", "preview", "export"] as MobileTab[]).map((mt) => (
+        <button
+          key={mt}
+          type="button"
+          onClick={() => setMobileTab(mt)}
+          className={`mc-btn px-3! py-1! ${mobileTab === mt ? "mc-btn-selected" : ""}`}
+        >
+          {mt === "controls"
+            ? dict.nav.tool
+            : mt === "preview"
+              ? dict.tool.preview
+              : dict.tool.exportPng}
+        </button>
+      ))}
+    </div>
+  );
+
+  const content = (
+    <div className="grid gap-4 lg:grid-cols-[340px_1fr]">
+      <div className="hidden flex-col gap-4 lg:flex">{controlsPanel}</div>
+
+      <div className="flex min-w-0 flex-col gap-4">
+        <div className="hidden lg:block">{previewPanel}</div>
+        <div className="lg:hidden">
+          {mobileBar}
+          <div className="mt-4">
+            {mobileTab === "controls" && controlsPanel}
+            {mobileTab === "preview" && previewPanel}
+            {mobileTab === "export" && exportPanel}
+          </div>
         </div>
-
-        <SizeGuideTable dict={dict} />
       </div>
     </div>
   );
+
+  if (state.fullscreen) {
+    return (
+      <div className="fixed inset-0 z-50 overflow-auto bg-bg p-4">
+        {content}
+      </div>
+    );
+  }
+
+  return content;
 }

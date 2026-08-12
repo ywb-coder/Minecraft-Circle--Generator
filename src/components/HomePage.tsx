@@ -133,6 +133,24 @@ export default function HomePage({
           </div>
         </section>
 
+        <section className="mx-auto max-w-5xl px-4 pb-10">
+          <div className="mc-panel pixel-corners p-5">
+            <h2 className="font-pixel text-sm text-ink pixel-shadow">
+              {dict.home.howToTitle}
+            </h2>
+            <ol className="mt-4 flex flex-col gap-3">
+              {dict.home.howTo.map((step, i) => (
+                <li key={i} className="flex items-baseline gap-3 text-sm leading-7 text-ink">
+                  <span className="font-terminal text-xl text-accent">
+                    {i + 1}
+                  </span>
+                  <span>{step}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
         <section id="tool" className="mx-auto max-w-5xl px-4 pb-16">
           <div className="mc-panel pixel-corners blueprint-grid p-4">
             <CircleTool dict={dict} />

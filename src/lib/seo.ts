@@ -32,8 +32,48 @@ export function parsePositiveInt(value: string | undefined): number | null {
   return Number.isSafeInteger(n) && n > 0 ? n : null;
 }
 
+export const TORUS_COMBOS: readonly (readonly [number, number])[] = [
+  [21, 4],
+  [25, 4],
+  [33, 6],
+  [41, 8],
+  [49, 8],
+  [57, 10],
+  [65, 12],
+  [73, 12],
+  [81, 16],
+  [97, 20],
+  [113, 20],
+  [129, 24],
+];
+
+export const ELLIPSOID_COMBOS: readonly (readonly [number, number, number])[] = [
+  [15, 11, 7],
+  [21, 15, 9],
+  [25, 17, 11],
+  [33, 21, 13],
+  [41, 25, 17],
+  [49, 31, 21],
+  [57, 37, 25],
+  [65, 41, 29],
+  [81, 51, 33],
+  [97, 61, 41],
+  [113, 71, 49],
+  [129, 81, 57],
+];
+
 export function isOvalPair(w: number, h: number): boolean {
   return OVAL_PAIRS.some(([pw, ph]) => pw === w && ph === h);
+}
+
+export function isTorusCombo(d: number, t: number): boolean {
+  return TORUS_COMBOS.some(([pd, pt]) => pd === d && pt === t);
+}
+
+export function isEllipsoidCombo(w: number, h: number, dp: number): boolean {
+  return ELLIPSOID_COMBOS.some(
+    ([pw, ph, pd]) => pw === w && ph === h && pd === dp
+  );
 }
 
 export function nearestOvalPair(d: number): (typeof OVAL_PAIRS)[number] {

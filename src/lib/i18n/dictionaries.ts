@@ -18,6 +18,8 @@ export interface Dictionary {
     answer2: string;
     sourcesTitle: string;
     sourcesIntro: string;
+    howToTitle: string;
+    howTo: string[];
   };
   tool: {
     diameter: string;
@@ -53,6 +55,25 @@ export interface Dictionary {
     generate: string;
     copied: string;
     invalidSize: string;
+    torus: string;
+    ellipsoid: string;
+    thickness: string;
+    inner: string;
+    tube: string;
+    worldCoords: string;
+    centerX: string;
+    centerY: string;
+    centerZ: string;
+    builder: string;
+    next: string;
+    prev: string;
+    showCoords: string;
+    rowCounts: string;
+    fullscreen: string;
+    setblock: string;
+    allLayers: string;
+    presets: string;
+    depth: string;
   };
   sizeGuide: {
     title: string;
@@ -60,6 +81,7 @@ export interface Dictionary {
   };
   perSize: {
     title: string;
+    titleEllipsoid: string;
     desc: string;
     blocks: string;
     layer: string;
