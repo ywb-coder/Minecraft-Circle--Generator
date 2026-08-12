@@ -13,7 +13,10 @@ export const metadata: Metadata = {
   },
   description:
     "Free Minecraft circle generator with block-by-block pixel blueprints for circles, ovals, spheres, domes and arcs. Works for Java and Bedrock.",
-  icons: { icon: "/favicon.png" },
+  icons: {
+    icon: "/favicon.png",
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     siteName: "CircleGen",
     type: "website",

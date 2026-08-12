@@ -10,6 +10,13 @@
     "title": "Build Perfect Circles in Minecraft",
     "subtitle": "Generate block-by-block blueprints for circles, ovals, spheres, and domes — with live preview, build order animation, and PNG downloads for Java and Bedrock."
   },
+  "home": {
+    "answerTitle": "What is a Minecraft circle generator?",
+    "answer1": "A Minecraft circle generator is a free online tool that turns any diameter into a block-by-block pixel blueprint you can copy directly into the game. Pick a size from 5 to 256 blocks, choose a shape, and the generator draws the exact grid - every row, every block - for circles, ovals, spheres, domes and arcs in both Java and Bedrock editions.",
+    "answer2": "The circle generator uses the same discrete-circle math as the midpoint circle algorithm, which is why odd diameters produce a clean, symmetric ring every time. No downloads, no accounts, and the blueprint is always free.",
+    "sourcesTitle": "Sources",
+    "sourcesIntro": "The circle generator is based on standard discrete-circle rendering, documented by the following public references:"
+  },
   "tool": {
     "diameter": "Diameter",
     "width": "Width",
@@ -99,7 +106,8 @@
     ]
   },
   "footer": {
-    "tagline": "Free Minecraft circle, oval, sphere, and dome blueprints."
+    "tagline": "Free Minecraft circle, oval, sphere, and dome blueprints.",
+    "lastUpdated": "Last updated"
   },
   "meta": {
     "title": "Minecraft Circle Generator — Circles & Spheres",

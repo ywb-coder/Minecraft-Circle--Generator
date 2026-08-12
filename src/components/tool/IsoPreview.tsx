@@ -200,7 +200,12 @@ function IsoPreview({
 
   return (
     <div className="mc-panel-inset pixel-corners relative aspect-square w-full overflow-hidden">
-      <canvas ref={canvasRef} className="h-full w-full" />
+      <canvas
+        ref={canvasRef}
+        className="h-full w-full"
+        role="img"
+        aria-label="Isometric 3D preview of the generated shape"
+      />
     </div>
   );
 }

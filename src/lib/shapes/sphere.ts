@@ -1,4 +1,4 @@
-import type { Layer, Point } from "./types";
+import type { Layer } from "./types";
 import { outlineCircle } from "./circle";
 
 export const MIN_SPHERE = 5;
@@ -31,8 +31,4 @@ export function domeLayers(d: number): Layer[] {
     layers.push({ z, points, blockCount: points.length });
   }
   return layers;
-}
-
-export function flattenLayers(layers: Layer[]): Point[] {
-  return layers[0] ? layers[0].points : [];
 }

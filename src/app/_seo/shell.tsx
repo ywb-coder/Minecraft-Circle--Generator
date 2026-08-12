@@ -49,7 +49,7 @@ export default function SeoShell({
             </Link>
           </nav>
           <p className="font-terminal text-sm text-muted">
-            Last updated: {buildDate()}
+            {dict.footer.lastUpdated}: {buildDate()}
           </p>
         </div>
       </footer>

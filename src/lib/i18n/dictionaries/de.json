@@ -10,6 +10,13 @@
     "title": "Baue perfekte Kreise in Minecraft",
     "subtitle": "Erstelle Block-für-Block-Baupläne für Kreise, Ovale, Kugeln und Kuppeln — mit Live-Vorschau, Bau-Reihenfolge-Animation und PNG-Download für Java und Bedrock."
   },
+  "home": {
+    "answerTitle": "Was ist ein Minecraft-Kreisgenerator?",
+    "answer1": "Ein Minecraft-Kreisgenerator ist ein kostenloses Online-Tool, das jeden Durchmesser in einen Block-für-Block-Bauplan verwandelt, den du direkt ins Spiel übertragen kannst. Wähle eine Größe von 5 bis 256 Blöcken und eine Form, und der Generator zeichnet das exakte Raster - jede Reihe, jeder Block - für Kreise, Ovale, Kugeln, Kuppeln und Bögen in Java und Bedrock.",
+    "answer2": "Der Kreisgenerator nutzt dieselbe diskrete Kreismathematik wie der Midpoint-Kreisalgorithmus - deshalb ergeben ungerade Durchmesser immer einen sauberen, symmetrischen Ring. Keine Downloads, keine Konten, und der Bauplan ist immer kostenlos.",
+    "sourcesTitle": "Quellen",
+    "sourcesIntro": "Der Kreisgenerator basiert auf standardmäßigem diskretem Kreis-Rendering, dokumentiert durch folgende öffentliche Quellen:"
+  },
   "tool": {
     "diameter": "Durchmesser",
     "width": "Breite",
@@ -99,7 +106,8 @@
     ]
   },
   "footer": {
-    "tagline": "Kostenlose Minecraft Baupläne für Kreise, Ovale, Kugeln und Kuppeln."
+    "tagline": "Kostenlose Minecraft Baupläne für Kreise, Ovale, Kugeln und Kuppeln.",
+    "lastUpdated": "Zuletzt aktualisiert"
   },
   "meta": {
     "title": "Minecraft Kreisgenerator — Kreise & Kugeln",

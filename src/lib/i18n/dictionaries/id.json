@@ -10,6 +10,13 @@
     "title": "Bangun Lingkaran Sempurna di Minecraft",
     "subtitle": "Buat cetak biru blok demi blok untuk lingkaran, oval, bola, dan kubah — dengan pratinjau langsung, animasi urutan bangun, dan unduhan PNG untuk Java dan Bedrock."
   },
+  "home": {
+    "answerTitle": "Apa itu pembuat lingkaran Minecraft?",
+    "answer1": "Pembuat lingkaran Minecraft adalah alat online gratis yang mengubah diameter apa pun menjadi cetak biru piksel blok demi blok yang bisa langsung Anda salin ke dalam game. Pilih ukuran 5 hingga 256 blok dan bentuk, lalu generator menggambar kisi yang tepat - setiap baris, setiap blok - untuk lingkaran, oval, bola, kubah, dan busur di Java dan Bedrock.",
+    "answer2": "Generator menggunakan matematika lingkaran diskret yang sama dengan algoritme titik tengah, itulah sebabnya diameter ganjil selalu menghasilkan cincin yang rapi dan simetris. Tanpa unduhan, tanpa akun, dan cetak birunya selalu gratis.",
+    "sourcesTitle": "Sumber",
+    "sourcesIntro": "Generator didasarkan pada rendering lingkaran diskret standar, didokumentasikan oleh referensi publik berikut:"
+  },
   "tool": {
     "diameter": "Diameter",
     "width": "Lebar",
@@ -99,7 +106,8 @@
     ]
   },
   "footer": {
-    "tagline": "Cetak biru lingkaran, oval, bola, dan kubah Minecraft gratis."
+    "tagline": "Cetak biru lingkaran, oval, bola, dan kubah Minecraft gratis.",
+    "lastUpdated": "Pembaruan terakhir"
   },
   "meta": {
     "title": "Pembuat Lingkaran Minecraft — Lingkaran dan Bola",

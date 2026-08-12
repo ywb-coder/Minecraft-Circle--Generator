@@ -12,6 +12,13 @@ export interface Dictionary {
     title: string;
     subtitle: string;
   };
+  home: {
+    answerTitle: string;
+    answer1: string;
+    answer2: string;
+    sourcesTitle: string;
+    sourcesIntro: string;
+  };
   tool: {
     diameter: string;
     width: string;
@@ -82,6 +89,7 @@ export interface Dictionary {
   };
   footer: {
     tagline: string;
+    lastUpdated: string;
   };
   meta: {
     title: string;

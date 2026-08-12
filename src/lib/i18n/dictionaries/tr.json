@@ -10,6 +10,13 @@
     "title": "Minecraft'ta Mükemmel Daireler İnşa Edin",
     "subtitle": "Daireler, ovaller, küreler ve kubbeler için blok blok planlar oluşturun — canlı önizleme, inşa sırası animasyonu ve Java ile Bedrock için PNG indirmeleriyle."
   },
+  "home": {
+    "answerTitle": "Minecraft daire oluşturucu nedir?",
+    "answer1": "Minecraft daire oluşturucu, herhangi bir çapı doğrudan oyuna kopyalayabileceğiniz blok blok piksel planına dönüştüren ücretsiz bir çevrimiçi araçtır. 5 ile 256 blok arasında bir boyut ve bir şekil seçin; oluşturucu daireler, ovaller, küreler, kubbeler ve yaylar için tam ızgarayı - her satırı, her bloğu - Java ve Bedrock'ta çizer.",
+    "answer2": "Oluşturucu, orta nokta daire algoritmasıyla aynı ayrık daire matematiğini kullanır; bu yüzden tek sayılı çaplar her zaman temiz ve simetrik bir halka üretir. İndirme yok, hesap yok ve plan her zaman ücretsizdir.",
+    "sourcesTitle": "Kaynaklar",
+    "sourcesIntro": "Oluşturucu, aşağıdaki herkese açık referanslarla belgelenen standart ayrık daire çizimine dayanır:"
+  },
   "tool": {
     "diameter": "Çap",
     "width": "Genişlik",
@@ -99,7 +106,8 @@
     ]
   },
   "footer": {
-    "tagline": "Minecraft için ücretsiz daire, oval, küre ve kubbe planları."
+    "tagline": "Minecraft için ücretsiz daire, oval, küre ve kubbe planları.",
+    "lastUpdated": "Son güncelleme"
   },
   "meta": {
     "title": "Minecraft Daire Oluşturucu — Daireler ve Küreler",

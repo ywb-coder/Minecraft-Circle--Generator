@@ -10,6 +10,13 @@
     "title": "Construisez des cercles parfaits dans Minecraft",
     "subtitle": "Générez des plans bloc par bloc pour cercles, ovales, sphères et dômes — avec aperçu en direct, animation de l'ordre de construction et téléchargements PNG pour Java et Bedrock."
   },
+  "home": {
+    "answerTitle": "Qu'est-ce qu'un générateur de cercles Minecraft ?",
+    "answer1": "Un générateur de cercles Minecraft est un outil gratuit en ligne qui transforme n'importe quel diamètre en plan pixel par pixel à copier directement dans le jeu. Choisissez une taille de 5 à 256 blocs et une forme, et le générateur dessine la grille exacte - chaque rangée, chaque bloc - pour cercles, ovales, sphères, dômes et arcs dans Java et Bedrock.",
+    "answer2": "Le générateur utilise la même mathématique de cercle discret que l'algorithme du point médian : c'est pourquoi les diamètres impairs produisent toujours un anneau propre et symétrique. Sans téléchargement, sans compte, et le plan est toujours gratuit.",
+    "sourcesTitle": "Sources",
+    "sourcesIntro": "Le générateur repose sur le rendu standard des cercles discrets, documenté par les références publiques suivantes :"
+  },
   "tool": {
     "diameter": "Diamètre",
     "width": "Largeur",
@@ -99,7 +106,8 @@
     ]
   },
   "footer": {
-    "tagline": "Plans gratuits de cercles, ovales, sphères et dômes pour Minecraft."
+    "tagline": "Plans gratuits de cercles, ovales, sphères et dômes pour Minecraft.",
+    "lastUpdated": "Dernière mise à jour"
   },
   "meta": {
     "title": "Générateur de Cercles Minecraft — Cercles et Sphères",

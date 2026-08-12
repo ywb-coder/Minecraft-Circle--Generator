@@ -10,6 +10,13 @@
     "title": "Costruisci cerchi perfetti in Minecraft",
     "subtitle": "Genera progetti blocco per blocco per cerchi, ovali, sfere e cupole — con anteprima dal vivo, animazione dell'ordine di costruzione e download PNG per Java e Bedrock."
   },
+  "home": {
+    "answerTitle": "Cos'è un generatore di cerchi per Minecraft?",
+    "answer1": "Un generatore di cerchi per Minecraft è uno strumento online gratuito che trasforma qualsiasi diametro in un progetto pixel per pixel da copiare direttamente nel gioco. Scegli una dimensione da 5 a 256 blocchi e una forma, e il generatore disegna la griglia esatta - ogni riga, ogni blocco - per cerchi, ovali, sfere, cupole e archi in Java e Bedrock.",
+    "answer2": "Il generatore usa la stessa matematica del cerchio discreto dell'algoritmo del punto medio: per questo i diametri dispari producono sempre un anello pulito e simmetrico. Nessun download, nessun account e il progetto è sempre gratuito.",
+    "sourcesTitle": "Fonti",
+    "sourcesIntro": "Il generatore si basa sul rendering standard dei cerchi discreti, documentato dalle seguenti referenze pubbliche:"
+  },
   "tool": {
     "diameter": "Diametro",
     "width": "Larghezza",
@@ -99,7 +106,8 @@
     ]
   },
   "footer": {
-    "tagline": "Progetti gratuiti di cerchi, ovali, sfere e cupole per Minecraft."
+    "tagline": "Progetti gratuiti di cerchi, ovali, sfere e cupole per Minecraft.",
+    "lastUpdated": "Ultimo aggiornamento"
   },
   "meta": {
     "title": "Generatore di Cerchi Minecraft — Cerchi e Sfere",

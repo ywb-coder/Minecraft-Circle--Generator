@@ -1,8 +1,5 @@
 import type { CircleStyle, Point } from "./types";
 
-export const MIN_OVAL = 5;
-export const MAX_OVAL = 256;
-
 /**
  * Outline oval: cells whose normalized distance (x/rx)^2 + (y/ry)^2 falls in
  * [(1 - 0.5/rmin)^2, (1 + 0.5/rmin)^2), keeping the ring one cell thick in

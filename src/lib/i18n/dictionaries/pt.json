@@ -10,6 +10,13 @@
     "title": "Construa círculos perfeitos no Minecraft",
     "subtitle": "Gere plantas bloco a bloco para círculos, ovais, esferas e cúpulas — com visualização ao vivo, animação da ordem de construção e downloads PNG para Java e Bedrock."
   },
+  "home": {
+    "answerTitle": "O que é um gerador de círculos para Minecraft?",
+    "answer1": "Um gerador de círculos para Minecraft é uma ferramenta gratuita online que transforma qualquer diâmetro em uma planta pixel a pixel que você pode copiar direto para o jogo. Escolha um tamanho de 5 a 256 blocos e uma forma, e o gerador desenha a grade exata - cada linha, cada bloco - para círculos, ovais, esferas, cúpulas e arcos no Java e no Bedrock.",
+    "answer2": "O gerador usa a mesma matemática de círculo discreto do algoritmo do ponto médio; por isso, diâmetros ímpares produzem sempre um anel limpo e simétrico. Sem downloads, sem contas, e a planta é sempre gratuita.",
+    "sourcesTitle": "Fontes",
+    "sourcesIntro": "O gerador é baseado na renderização padrão de círculos discretos, documentada pelas seguintes referências públicas:"
+  },
   "tool": {
     "diameter": "Diâmetro",
     "width": "Largura",
@@ -99,7 +106,8 @@
     ]
   },
   "footer": {
-    "tagline": "Plantas gratuitas de círculos, ovais, esferas e cúpulas para Minecraft."
+    "tagline": "Plantas gratuitas de círculos, ovais, esferas e cúpulas para Minecraft.",
+    "lastUpdated": "Última atualização"
   },
   "meta": {
     "title": "Gerador de Círculos Minecraft — Círculos e Esferas",

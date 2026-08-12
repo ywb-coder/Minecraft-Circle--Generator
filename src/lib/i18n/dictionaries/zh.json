@@ -10,6 +10,13 @@
     "title": "在 Minecraft 中建造完美的圆形",
     "subtitle": "生成圆形、椭圆形、球形和穹顶的逐方块蓝图——支持实时预览、建造顺序动画,以及 Java 和 Bedrock 版的 PNG 下载。"
   },
+  "home": {
+    "answerTitle": "什么是 Minecraft 圆形生成器?",
+    "answer1": "Minecraft 圆形生成器是一款免费的在线工具,能把任意直径转换成可以直接照搬进游戏的逐方块像素蓝图。从 5 到 256 格任选尺寸、选择形状,生成器会画出精确的网格——每一行、每一个方块——支持圆形、椭圆、球形、穹顶和圆弧,Java 与 Bedrock 通用。",
+    "answer2": "生成器采用与中点圆算法同族的离散圆数学,因此奇数直径每次都能生成干净对称的圆环。无需下载、无需注册,蓝图永远免费。",
+    "sourcesTitle": "来源",
+    "sourcesIntro": "本生成器基于标准的离散圆渲染,以下公开资料可供参考:"
+  },
   "tool": {
     "diameter": "直径",
     "width": "宽度",
@@ -99,7 +106,8 @@
     ]
   },
   "footer": {
-    "tagline": "免费 Minecraft 圆形、椭圆形、球形和穹顶蓝图。"
+    "tagline": "免费 Minecraft 圆形、椭圆形、球形和穹顶蓝图。",
+    "lastUpdated": "最后更新"
   },
   "meta": {
     "title": "Minecraft 圆形生成器 — 圆形与球形",

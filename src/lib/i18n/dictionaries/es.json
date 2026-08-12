@@ -10,6 +10,13 @@
     "title": "Construye círculos perfectos en Minecraft",
     "subtitle": "Genera planos bloque a bloque para círculos, óvalos, esferas y cúpulas — con vista previa en vivo, animación del orden de construcción y descargas PNG para Java y Bedrock."
   },
+  "home": {
+    "answerTitle": "¿Qué es un generador de círculos de Minecraft?",
+    "answer1": "Un generador de círculos de Minecraft es una herramienta gratuita en línea que convierte cualquier diámetro en un plano píxel a píxel que puedes copiar directamente en el juego. Elige un tamaño de 5 a 256 bloques y una forma, y el generador dibuja la cuadrícula exacta - cada fila, cada bloque - para círculos, óvalos, esferas, cúpulas y arcos en Java y Bedrock.",
+    "answer2": "El generador usa la misma matemática de círculo discreto que el algoritmo de punto medio; por eso los diámetros impares producen siempre un anillo limpio y simétrico. Sin descargas, sin cuentas, y el plano siempre es gratis.",
+    "sourcesTitle": "Fuentes",
+    "sourcesIntro": "El generador se basa en el renderizado estándar de círculos discretos, documentado por las siguientes referencias públicas:"
+  },
   "tool": {
     "diameter": "Diámetro",
     "width": "Ancho",
@@ -99,7 +106,8 @@
     ]
   },
   "footer": {
-    "tagline": "Planos gratuitos de círculos, óvalos, esferas y cúpulas para Minecraft."
+    "tagline": "Planos gratuitos de círculos, óvalos, esferas y cúpulas para Minecraft.",
+    "lastUpdated": "Última actualización"
   },
   "meta": {
     "title": "Generador de Círculos Minecraft — Círculos y Esferas",

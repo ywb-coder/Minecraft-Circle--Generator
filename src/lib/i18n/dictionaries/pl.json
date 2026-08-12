@@ -10,6 +10,13 @@
     "title": "Buduj idealne koła w Minecraft",
     "subtitle": "Generuj plany blok po bloku dla kół, owali, sfer i kopuł — z podglądem na żywo, animacją kolejności budowy i pobieraniem PNG dla Java i Bedrock."
   },
+  "home": {
+    "answerTitle": "Czym jest generator kół do Minecrafta?",
+    "answer1": "Generator kół do Minecrafta to darmowe narzędzie online, które zamienia dowolną średnicę na plan piksel po pikselu, blok po bloku, do skopiowania prosto do gry. Wybierz rozmiar od 5 do 256 bloków i kształt, a generator narysuje dokładną siatkę - każdy rząd, każdy blok - dla kół, owali, sfer, kopuł i łuków w Java i Bedrock.",
+    "answer2": "Generator używa tej samej matematyki dyskretnego koła co algorytm punktu środkowego, dlatego nieparzyste średnice zawsze dają czysty, symetryczny pierścień. Bez pobierania, bez kont, a plan jest zawsze darmowy.",
+    "sourcesTitle": "Źródła",
+    "sourcesIntro": "Generator opiera się na standardowym dyskretnym renderowaniu okręgów, udokumentowanym w poniższych publicznych źródłach:"
+  },
   "tool": {
     "diameter": "Średnica",
     "width": "Szerokość",
@@ -99,7 +106,8 @@
     ]
   },
   "footer": {
-    "tagline": "Darmowe plany kół, owali, sfer i kopuł do Minecrafta."
+    "tagline": "Darmowe plany kół, owali, sfer i kopuł do Minecrafta.",
+    "lastUpdated": "Ostatnia aktualizacja"
   },
   "meta": {
     "title": "Generator Kół Minecraft — Koła i Sfery",

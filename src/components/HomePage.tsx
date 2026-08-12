@@ -122,21 +122,13 @@ export default function HomePage({
         <section className="mx-auto max-w-5xl px-4 pb-10">
           <div className="mc-panel pixel-corners p-5">
             <h2 className="font-pixel text-[10px] text-accent">
-              What is a Minecraft circle generator?
+              {dict.home.answerTitle}
             </h2>
             <p className="mt-3 text-sm leading-7 text-ink">
-              A Minecraft circle generator is a free online tool that turns any
-              diameter into a block-by-block pixel blueprint you can copy
-              directly into the game. Pick a size from 5 to 256 blocks, choose
-              a shape, and the generator draws the exact grid — every row, every
-              block — for circles, ovals, spheres, domes and arcs in both Java
-              and Bedrock editions.
+              {dict.home.answer1}
             </p>
             <p className="mt-3 text-sm leading-7 text-muted">
-              The circle generator uses the same discrete-circle math as the
-              midpoint circle algorithm, which is why odd diameters produce a
-              clean, symmetric ring every time. No downloads, no accounts, and
-              the blueprint is always free.
+              {dict.home.answer2}
             </p>
           </div>
         </section>
@@ -171,11 +163,10 @@ export default function HomePage({
 
         <section className="mx-auto max-w-5xl px-4 pb-16">
           <h2 className="font-pixel text-sm text-ink pixel-shadow">
-            Sources
+            {dict.home.sourcesTitle}
           </h2>
           <p className="mt-3 text-sm leading-7 text-muted">
-            The circle generator is based on standard discrete-circle
-            rendering, documented by the following public references:
+            {dict.home.sourcesIntro}
           </p>
           <ul className="mt-4 list-disc pl-6 text-sm leading-7 text-ink">
             {SOURCES.map((source) => (
@@ -255,7 +246,7 @@ export default function HomePage({
             © {new Date().getFullYear()} {dict.siteName}
           </p>
           <p className="font-terminal text-sm text-muted">
-            Last updated: {buildDate()}
+            {dict.footer.lastUpdated}: {buildDate()}
           </p>
         </div>
       </footer>
