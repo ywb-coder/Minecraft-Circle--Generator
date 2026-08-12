@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "@/components/StaticLink";
 import SeoShell from "@/app/_seo/shell";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { defaultLocale } from "@/lib/i18n/locales";
@@ -11,7 +11,7 @@ export default async function NotFound() {
     <SeoShell dict={dict} locale={defaultLocale}>
       <div className="mx-auto max-w-3xl text-center">
         <h1 className="pixel-shadow font-pixel text-lg text-ink sm:text-xl">
-          404 — Page not found
+          404 鈥?Page not found
         </h1>
         <p className="mt-4 text-base leading-7 text-muted">
           That block is missing. Head back to the generator or jump straight

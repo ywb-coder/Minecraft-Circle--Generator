@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+﻿import type { Metadata } from "next";
+import Link from "@/components/StaticLink";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { getDictionary, type Dictionary } from "@/lib/i18n/dictionaries";
@@ -235,11 +235,11 @@ function relatedLinks(
     const links: { href: string; label: string }[] = [];
     if (index > 0) {
       const [pd, pt] = TORUS_COMBOS[index - 1];
-      links.push({ href: `/torus/${pd}/${pt}/`, label: `${pd}×${pt}` });
+      links.push({ href: `/torus/${pd}/${pt}/`, label: `${pd}脳${pt}` });
     }
     if (index >= 0 && index < TORUS_COMBOS.length - 1) {
       const [pd, pt] = TORUS_COMBOS[index + 1];
-      links.push({ href: `/torus/${pd}/${pt}/`, label: `${pd}×${pt}` });
+      links.push({ href: `/torus/${pd}/${pt}/`, label: `${pd}脳${pt}` });
     }
     return links;
   }
@@ -250,14 +250,14 @@ function relatedLinks(
       const [pw, ph, pd] = ELLIPSOID_COMBOS[index - 1];
       links.push({
         href: `/ellipsoid/${pw}/${ph}/${pd}/`,
-        label: `${pw}×${ph}×${pd}`,
+        label: `${pw}脳${ph}脳${pd}`,
       });
     }
     if (index >= 0 && index < ELLIPSOID_COMBOS.length - 1) {
       const [pw, ph, pd] = ELLIPSOID_COMBOS[index + 1];
       links.push({
         href: `/ellipsoid/${pw}/${ph}/${pd}/`,
-        label: `${pw}×${ph}×${pd}`,
+        label: `${pw}脳${ph}脳${pd}`,
       });
     }
     return links;
@@ -266,11 +266,11 @@ function relatedLinks(
   const links: { href: string; label: string }[] = [];
   if (index > 0) {
     const [pw, ph] = OVAL_PAIRS[index - 1];
-    links.push({ href: `/oval/${pw}/${ph}/`, label: `${pw}×${ph}` });
+    links.push({ href: `/oval/${pw}/${ph}/`, label: `${pw}脳${ph}` });
   }
   if (index >= 0 && index < OVAL_PAIRS.length - 1) {
     const [pw, ph] = OVAL_PAIRS[index + 1];
-    links.push({ href: `/oval/${pw}/${ph}/`, label: `${pw}×${ph}` });
+    links.push({ href: `/oval/${pw}/${ph}/`, label: `${pw}脳${ph}` });
   }
   return links;
 }

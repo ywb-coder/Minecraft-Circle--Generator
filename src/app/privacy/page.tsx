@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+﻿import type { Metadata } from "next";
+import Link from "@/components/StaticLink";
 import SeoShell from "@/app/_seo/shell";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { defaultLocale } from "@/lib/i18n/locales";
 import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Minecraft Circle Generator",
+  title: "Privacy Policy 鈥?Minecraft Circle Generator",
   description:
     "Privacy policy for the free Minecraft circle generator: no cookies, no tracking, no personal data collected.",
   alternates: { canonical: `${SITE_URL}/privacy/` },
@@ -37,7 +37,7 @@ export default async function PrivacyPage() {
           <div className="mt-3 space-y-4 text-sm leading-7 text-muted">
             <p>
               <strong className="text-ink">Data we collect:</strong> none.
-              The circle generator runs entirely in your browser — your shape,
+              The circle generator runs entirely in your browser 鈥?your shape,
               size and block settings never leave your device.
             </p>
             <p>

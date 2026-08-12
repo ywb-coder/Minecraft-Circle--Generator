@@ -19,7 +19,8 @@ export function ellipsoidLayers(w: number, h: number, dp: number): Layer[] {
     const k = Math.sqrt(Math.max(0, 1 - (z * z) / (rz * rz)));
     const lw = Math.max(1, Math.round(2 * rx * k));
     const lh = Math.max(1, Math.round(2 * ry * k));
-    const points = ovalPoints(lw, lh, "outline");
+    const points =
+      lw <= 1 || lh <= 1 ? [{ x: 0, y: 0 }] : ovalPoints(lw, lh, "outline");
     layers.push({ z, points, blockCount: points.length });
   }
   return layers;

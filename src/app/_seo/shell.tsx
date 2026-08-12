@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "@/components/StaticLink";
 import type { ReactNode } from "react";
 import type { Dictionary } from "@/lib/i18n/dictionaries";
 import { defaultLocale, type Locale } from "@/lib/i18n/locales";

@@ -99,7 +99,10 @@ function BlueprintGridBase({
             {cells
               .filter((_, i) => i % sizeW === 0)
               .map((c, row) => (
-                <span key={row} className="font-terminal text-[10px] leading-[18px] text-muted">
+                <span
+                  key={row}
+                  className="flex h-6 items-center font-terminal text-[10px] leading-none text-muted"
+                >
                   {c.y}
                 </span>
               ))}
@@ -109,11 +112,14 @@ function BlueprintGridBase({
           {showCoords && (
             <div className="mb-1 flex">
               {cells.slice(0, sizeW).map((c) => (
-                <span key={c.x} className="w-[18px] shrink-0 text-center font-terminal text-[10px] leading-[18px] text-muted">
+                <span
+                  key={c.x}
+                  className="flex h-6 w-6 shrink-0 items-center justify-center font-terminal text-[10px] leading-none text-muted"
+                >
                   {c.x}
                 </span>
               ))}
-              {rowCounts && <span className="w-[18px] shrink-0" />}
+              {rowCounts && <span className="w-6 shrink-0" />}
             </div>
           )}
           <div
@@ -121,7 +127,7 @@ function BlueprintGridBase({
             style={{
               gridTemplateColumns: `repeat(${sizeW}, minmax(0, 1fr))`,
               gap: 1,
-              maxWidth: sizeW * cellMaxWidth,
+              width: sizeW * cellMaxWidth,
             }}
           >
             {cells.map((c) => {
@@ -156,7 +162,10 @@ function BlueprintGridBase({
             {Array.from({ length: sizeH }, (_, row) => {
               const y = Math.floor(sizeH / 2) - row;
               return (
-                <span key={row} className="font-terminal text-[10px] leading-[18px] text-accent">
+                <span
+                  key={row}
+                  className="flex h-6 items-center font-terminal text-[10px] leading-none text-accent"
+                >
                   {rowCountsMap[y] ?? 0}
                 </span>
               );

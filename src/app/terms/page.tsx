@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+﻿import type { Metadata } from "next";
+import Link from "@/components/StaticLink";
 import SeoShell from "@/app/_seo/shell";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { defaultLocale } from "@/lib/i18n/locales";
 import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Terms of Use — Minecraft Circle Generator",
+  title: "Terms of Use 鈥?Minecraft Circle Generator",
   description:
     "Terms of use for the free Minecraft circle generator. Free to use, provided as-is, not affiliated with Mojang or Microsoft.",
   alternates: { canonical: `${SITE_URL}/terms/` },

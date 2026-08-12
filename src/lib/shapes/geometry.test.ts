@@ -322,4 +322,12 @@ describe("ellipsoid", () => {
     expect(result.totalBlockCount).toBeGreaterThan(result.blockCount);
     expect(result.depth).toBe(9);
   });
+
+  it("ellipsoid polar layers are never empty (single cap block)", () => {
+    const layers = ellipsoidLayers(25, 13, 13);
+    for (const layer of layers) {
+      expect(layer.blockCount).toBeGreaterThan(0);
+    }
+    expect(layers[0].blockCount).toBe(1);
+  });
 });

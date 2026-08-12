@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "@/components/StaticLink";
 import type { Dictionary } from "@/lib/i18n/dictionaries";
 import { defaultLocale, type Locale } from "@/lib/i18n/locales";
 import {
@@ -261,7 +261,7 @@ export default function HomePage({
             </Link>
           </nav>
           <p className="font-pixel text-[10px] text-ink">
-            © {new Date().getFullYear()} {dict.siteName}
+            漏 {new Date().getFullYear()} {dict.siteName}
           </p>
           <p className="font-terminal text-sm text-muted">
             {dict.footer.lastUpdated}: {buildDate()}

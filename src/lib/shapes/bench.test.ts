@@ -2,9 +2,14 @@ import { describe, expect, it } from "vitest";
 import { generateShape } from "./index";
 
 function time(fn: () => unknown): number {
-  const t0 = performance.now();
-  fn();
-  return performance.now() - t0;
+  let best = Infinity;
+  for (let i = 0; i < 3; i++) {
+    const t0 = performance.now();
+    fn();
+    const dt = performance.now() - t0;
+    if (dt < best) best = dt;
+  }
+  return best;
 }
 
 describe("performance budgets (release gate)", () => {

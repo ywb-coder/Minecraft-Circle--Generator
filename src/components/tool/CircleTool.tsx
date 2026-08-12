@@ -82,7 +82,23 @@ function stateFromUrl(): ToolState {
 function mergeSaved(saved: Partial<ToolState> | null, next: ToolState): ToolState {
   if (!saved) return next;
   const merged = { ...next };
-  const fromUrl = new Set(["t", "d", "w", "h", "s", "b", "a", "g", "tk", "in", "cx", "cy", "cz", "tb", "dp"]);
+  const fromUrl = new Set([
+    "type",
+    "d",
+    "w",
+    "h",
+    "dp",
+    "t",
+    "thickness",
+    "inner",
+    "style",
+    "block",
+    "start",
+    "span",
+    "centerX",
+    "centerY",
+    "centerZ",
+  ]);
   (Object.keys(saved) as (keyof ToolState)[]).forEach((key) => {
     if (fromUrl.has(key)) return;
     const value = saved[key];
@@ -681,7 +697,7 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
 
   if (state.fullscreen) {
     const overlay = (
-      <div className="fixed inset-0 z-50 flex flex-col bg-bg p-4">
+      <div className="fixed inset-0 z-50 flex flex-col overflow-hidden bg-bg p-4">
         <div className="flex items-center justify-between pb-2">
           <span className="font-pixel text-[10px] text-muted">{dict.siteName}</span>
           <button
