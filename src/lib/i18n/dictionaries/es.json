@@ -20,13 +20,62 @@
     "sphere": "Esfera",
     "dome": "Cúpula",
     "arc": "Arco",
+    "outline": "Contorno",
+    "chart": "Tabla",
+    "filled": "Relleno",
+    "block": "Bloque",
+    "blockColors": "Colores de bloque",
+    "angleStart": "Ángulo inicial",
+    "angleSpan": "Ángulo",
     "preview": "Vista previa",
     "blueprint": "Plano",
+    "buildOrder": "Orden de construcción",
+    "speed": "Velocidad",
+    "layer": "Capa",
+    "blocksCount": "bloques",
     "copyBlocks": "Copiar bloques",
+    "copyLink": "Copiar enlace",
     "exportPng": "Descargar PNG",
     "shareUrl": "Compartir",
     "sizeGuide": "Guía de tamaños",
-    "generate": "Generar"
+    "generate": "Generar",
+    "copied": "¡Copiado al portapapeles!",
+    "invalidSize": "El tamaño debe estar entre {min} y {max}."
+  },
+  "sizeGuide": {
+    "title": "Tamaños comunes y para qué usarlos",
+    "entries": [
+      { "size": "15", "use": "Base de fuente" },
+      { "size": "21", "use": "Torre pequeña" },
+      { "size": "25", "use": "Estanque o charca de jardín" },
+      { "size": "33", "use": "Torre o gran elemento de jardín" },
+      { "size": "41", "use": "Torre de castillo" },
+      { "size": "49", "use": "Torre grande" },
+      { "size": "65", "use": "Gran construcción: coliseo, sala con cúpula" },
+      { "size": "101", "use": "Megaconstrucción: estadio, gran templo" }
+    ]
+  },
+  "perSize": {
+    "title": "Círculo de Minecraft de {d} bloques de diámetro",
+    "desc": "Plano gratuito bloque a bloque para un {shape} de {d} bloques en Minecraft. Ve la cuadrícula de píxeles, el número de bloques y constrúyelo en Java o Bedrock.",
+    "blocks": "bloques",
+    "layer": "Capa",
+    "openTool": "Abrir en el generador",
+    "related": "Tamaños relacionados",
+    "otherShapes": "Otras formas"
+  },
+  "blog": {
+    "title": "Guías de construcción de Minecraft",
+    "readMore": "Leer más"
+  },
+  "faq": {
+    "title": "Preguntas frecuentes",
+    "items": [
+      { "q": "¿Cómo construyo un círculo en Minecraft?", "a": "Elige un diámetro, copia el plano de la cuadrícula y coloca los bloques uno a uno. Empieza por el bloque central y avanza hacia afuera para lograr un resultado perfecto." },
+      { "q": "¿Qué tamaño de círculo debo usar?", "a": "Los círculos pequeños (5-15 bloques) sirven para fuentes y ventanas, 21-49 para torres y salas, y más de 65 para grandes construcciones como estadios y coliseos." },
+      { "q": "¿Los planos funcionan en Java y Bedrock?", "a": "Sí. La cuadrícula muestra las posiciones de los bloques, por lo que funciona igual en la Edición Java y en la Edición Bedrock." },
+      { "q": "¿Cómo construyo una esfera o cúpula?", "a": "Cambia a la pestaña de esfera o cúpula y usa el control deslizante de capas para ver cada sección de abajo hacia arriba. Construye una capa a la vez." }
+    ]
   },
   "footer": {
     "tagline": "Planos gratuitos de círculos, óvalos, esferas y cúpulas para Minecraft."

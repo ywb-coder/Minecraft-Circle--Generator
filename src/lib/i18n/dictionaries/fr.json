@@ -20,13 +20,62 @@
     "sphere": "Sphère",
     "dome": "Dôme",
     "arc": "Arc",
+    "outline": "Contour",
+    "chart": "Tableau",
+    "filled": "Plein",
+    "block": "Bloc",
+    "blockColors": "Couleurs des blocs",
+    "angleStart": "Angle de départ",
+    "angleSpan": "Angle",
     "preview": "Aperçu",
     "blueprint": "Plan",
+    "buildOrder": "Ordre de construction",
+    "speed": "Vitesse",
+    "layer": "Couche",
+    "blocksCount": "blocs",
     "copyBlocks": "Copier les blocs",
+    "copyLink": "Copier le lien",
     "exportPng": "Télécharger le PNG",
     "shareUrl": "Partager",
     "sizeGuide": "Guide des tailles",
-    "generate": "Générer"
+    "generate": "Générer",
+    "copied": "Copié dans le presse-papiers !",
+    "invalidSize": "La taille doit être comprise entre {min} et {max}."
+  },
+  "sizeGuide": {
+    "title": "Tailles courantes et leurs usages",
+    "entries": [
+      { "size": "15", "use": "Base de fontaine" },
+      { "size": "21", "use": "Petite tour" },
+      { "size": "25", "use": "Étang ou bassin de jardin" },
+      { "size": "33", "use": "Tour ou grande pièce de jardin" },
+      { "size": "41", "use": "Tour de château" },
+      { "size": "49", "use": "Grande tour" },
+      { "size": "65", "use": "Grosse construction : colisée, salle à dôme" },
+      { "size": "101", "use": "Méga construction : stade, grand temple" }
+    ]
+  },
+  "perSize": {
+    "title": "Cercle Minecraft de {d} blocs de diamètre",
+    "desc": "Plan gratuit bloc par bloc pour un {shape} de {d} blocs dans Minecraft. Voir la grille de pixels, le nombre de blocs et le construire en Java ou Bedrock.",
+    "blocks": "blocs",
+    "layer": "Couche",
+    "openTool": "Ouvrir dans le générateur",
+    "related": "Tailles similaires",
+    "otherShapes": "Autres formes"
+  },
+  "blog": {
+    "title": "Guides de construction Minecraft",
+    "readMore": "Lire la suite"
+  },
+  "faq": {
+    "title": "Questions fréquentes",
+    "items": [
+      { "q": "Comment construire un cercle dans Minecraft ?", "a": "Choisissez un diamètre, copiez le plan depuis la grille puis placez les blocs un par un. Commencez par le bloc central et travaillez vers l'extérieur pour un résultat parfait." },
+      { "q": "Quelle taille de cercle dois-je utiliser ?", "a": "Les petits cercles (5-15 blocs) conviennent aux fontaines et fenêtres, 21-49 aux tours et pièces, et au-delà de 65 aux grandes constructions comme les stades et les colisées." },
+      { "q": "Les plans fonctionnent-ils pour Java et Bedrock ?", "a": "Oui. La grille montre les positions des blocs, donc c'est identique en édition Java et en édition Bedrock." },
+      { "q": "Comment construire une sphère ou un dôme ?", "a": "Passez à l'onglet sphère ou dôme et utilisez le curseur de couches pour voir chaque tranche de bas en haut. Construisez une couche à la fois." }
+    ]
   },
   "footer": {
     "tagline": "Plans gratuits de cercles, ovales, sphères et dômes pour Minecraft."

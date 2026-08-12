@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CircleGen — Minecraft Circle Generator
 
-## Getting Started
+A free, SEO-optimized Minecraft shape generator. Block-by-block blueprints for circles, ovals, spheres, domes and arcs with live 3D preview, build-order animation, layer slicing and multi-format exports. Supports 11 languages and ships 5,600+ static pages.
 
-First, run the development server:
+## Features
+
+- **Shapes**: circle / oval / sphere / dome / arc, each with 3 styles — outline (pixel-perfect ring), chart (classic Minecraft chart) and filled
+- **Live tool**: interactive blueprint grid, isometric 3D preview, build-order animation, layer-by-layer slicing for spheres/domes, 45-block color palette
+- **Exports**: PNG, SVG, CSV, JSON, copy coordinates, shareable URL state
+- **i18n**: en / de / es / fr / pt / tr / it / ru / pl / id / zh
+- **SEO**: static export (`output: export`), per-size pages `/circle/5` … `/circle/256` (plus sphere/dome/oval), hreflang alternates, JSON-LD (WebApplication, FAQPage, BreadcrumbList, Article, HowTo), sitemap + robots
+- **Blog**: 15 original building-guide articles with internal links
+
+## Tech stack
+
+- Next.js 16 (App Router, Turbopack), React 19, TypeScript
+- Tailwind CSS v4 (custom "Blueprint Night" Minecraft-pixel design system in `src/app/globals.css`)
+- Local pixel fonts (Press Start 2P / VT323 / Inter) — no external font requests
+- Zero backend, zero runtime dependencies — pure static output
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev       # local dev at http://localhost:3000
+npm test          # geometry engine unit tests (vitest)
+npm run lint
+npm run build     # static export to ./out (~5,600 pages)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Configuration (required before deploy)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Set these environment variables at build time:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable | Purpose |
+|---|---|
+| `NEXT_PUBLIC_SITE_URL` | Final domain, e.g. `https://circles.example.com`. Used for canonical URLs, hreflang and JSON-LD. **The placeholder in `src/lib/config.ts` must be replaced.** |
+| `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` | Optional. Enables the Plausible analytics snippet. |
 
-## Learn More
+## Deploy
 
-To learn more about Next.js, take a look at the following resources:
+Any static host works — the build output is plain HTML in `./out`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Cloudflare Pages (recommended)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Push to GitHub, then in Cloudflare Dashboard → Pages → Create project → connect the repo
+2. Build command: `npm run build`, output directory: `out`
+3. Add the env vars above (especially `NEXT_PUBLIC_SITE_URL`)
 
-## Deploy on Vercel
+### Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Import the repo
+2. Build command: `npm run build`, output directory: `out`
+3. Add env vars, deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Post-launch checklist
+
+1. Replace `NEXT_PUBLIC_SITE_URL` with the real domain and rebuild
+2. Submit `sitemap.xml` in Google Search Console (and Bing Webmaster Tools)
+3. Set the hreflang `x-default` on the root page if desired
+4. After indexing and stable rankings: AdSense (needs privacy policy page) or hosting affiliate links
+
+## Project structure
+
+```
+src/
+├── app/                 # routes: / (en), /[locale], /circle|sphere|dome|oval/[d], /blog, sitemap, robots
+│   ├── _seo/            # shared SEO-page components (blueprint grid, shell, JSON-LD)
+│   └── [locale]/        # 10 subpath locales (zh/de/es/fr/pt/tr/it/ru/pl/id)
+├── components/
+│   ├── tool/            # CircleTool: controls, grid, iso preview, build order, palette, exports
+│   └── HomePage.tsx     # localized homepage
+├── lib/
+│   ├── shapes/          # geometry engine (midpoint-perfect pixel circles) + vitest suite
+│   ├── i18n/            # dictionaries for 11 locales, format helpers
+│   ├── export.ts        # PNG/SVG/CSV/JSON/copy/share utilities
+│   ├── blocks.ts        # 45-block palette
+│   ├── seo.ts           # per-size ranges, hreflang map, sitemap helpers
+│   └── config.ts        # SITE_URL + hreflang configuration
+└── content/blog/        # 15 markdown articles
+```

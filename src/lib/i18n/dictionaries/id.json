@@ -20,13 +20,62 @@
     "sphere": "Bola",
     "dome": "Kubah",
     "arc": "Busur",
+    "outline": "Garis tepi",
+    "chart": "Tabel",
+    "filled": "Penuh",
+    "block": "Blok",
+    "blockColors": "Warna blok",
+    "angleStart": "Sudut awal",
+    "angleSpan": "Sudut",
     "preview": "Pratinjau",
     "blueprint": "Cetak biru",
+    "buildOrder": "Urutan bangun",
+    "speed": "Kecepatan",
+    "layer": "Lapisan",
+    "blocksCount": "blok",
     "copyBlocks": "Salin blok",
+    "copyLink": "Salin tautan",
     "exportPng": "Unduh PNG",
     "shareUrl": "Bagikan",
     "sizeGuide": "Panduan ukuran",
-    "generate": "Buat"
+    "generate": "Buat",
+    "copied": "Disalin ke papan klip!",
+    "invalidSize": "Ukuran harus antara {min} dan {max}."
+  },
+  "sizeGuide": {
+    "title": "Ukuran umum dan kegunaannya",
+    "entries": [
+      { "size": "15", "use": "Dasar air mancur" },
+      { "size": "21", "use": "Menara kecil" },
+      { "size": "25", "use": "Kolam atau kolam taman" },
+      { "size": "33", "use": "Menara atau elemen taman besar" },
+      { "size": "41", "use": "Menara kastil" },
+      { "size": "49", "use": "Menara besar" },
+      { "size": "65", "use": "Bangunan raksasa: koloseum, aula berkubah" },
+      { "size": "101", "use": "Bangunan mega: stadion, kuil besar" }
+    ]
+  },
+  "perSize": {
+    "title": "Lingkaran Minecraft dengan diameter {d} blok",
+    "desc": "Cetak biru gratis blok demi blok untuk {shape} {d} blok di Minecraft. Lihat kisi piksel, jumlah blok, dan bangun di Java atau Bedrock.",
+    "blocks": "blok",
+    "layer": "Lapisan",
+    "openTool": "Buka di generator",
+    "related": "Ukuran terkait",
+    "otherShapes": "Bentuk lain"
+  },
+  "blog": {
+    "title": "Panduan Membangun Minecraft",
+    "readMore": "Baca selengkapnya"
+  },
+  "faq": {
+    "title": "Pertanyaan yang sering diajukan",
+    "items": [
+      { "q": "Bagaimana cara membangun lingkaran di Minecraft?", "a": "Pilih diameter, salin cetak biru dari kisi, lalu pasang blok satu per satu. Mulai dari blok tengah dan bekerja ke luar untuk hasil yang sempurna." },
+      { "q": "Ukuran lingkaran apa yang harus saya gunakan?", "a": "Lingkaran kecil (5-15 blok) cocok untuk air mancur dan jendela, 21-49 untuk menara dan ruangan, dan di atas 65 untuk bangunan raksasa seperti stadion dan koloseum." },
+      { "q": "Apakah cetak biru berfungsi untuk Java dan Bedrock?", "a": "Ya. Kisi menunjukkan posisi blok, jadi berfungsi sama di edisi Java dan edisi Bedrock." },
+      { "q": "Bagaimana cara membangun bola atau kubah?", "a": "Pindah ke tab bola atau kubah dan gunakan penggeser lapisan untuk melihat setiap irisan dari bawah ke atas. Bangun satu lapisan pada satu waktu." }
+    ]
   },
   "footer": {
     "tagline": "Cetak biru lingkaran, oval, bola, dan kubah Minecraft gratis."

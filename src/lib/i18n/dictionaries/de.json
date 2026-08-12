@@ -20,13 +20,62 @@
     "sphere": "Kugel",
     "dome": "Kuppel",
     "arc": "Bogen",
+    "outline": "Umriss",
+    "chart": "Diagramm",
+    "filled": "Gefüllt",
+    "block": "Block",
+    "blockColors": "Blockfarben",
+    "angleStart": "Startwinkel",
+    "angleSpan": "Winkel",
     "preview": "Vorschau",
     "blueprint": "Bauplan",
+    "buildOrder": "Bau-Reihenfolge",
+    "speed": "Geschwindigkeit",
+    "layer": "Ebene",
+    "blocksCount": "Blöcke",
     "copyBlocks": "Blöcke kopieren",
+    "copyLink": "Link kopieren",
     "exportPng": "PNG herunterladen",
     "shareUrl": "Teilen",
     "sizeGuide": "Größentabelle",
-    "generate": "Generieren"
+    "generate": "Generieren",
+    "copied": "In die Zwischenablage kopiert!",
+    "invalidSize": "Die Größe muss zwischen {min} und {max} liegen."
+  },
+  "sizeGuide": {
+    "title": "Häufige Größen und ihre Verwendung",
+    "entries": [
+      { "size": "15", "use": "Brunnen-Basis" },
+      { "size": "21", "use": "Kleiner Turm" },
+      { "size": "25", "use": "Teich oder Gartenteich" },
+      { "size": "33", "use": "Turm oder großes Gartenelement" },
+      { "size": "41", "use": "Schlossturm" },
+      { "size": "49", "use": "Großer Turm" },
+      { "size": "65", "use": "Riesiges Bauwerk – Kolosseum, Kuppelhalle" },
+      { "size": "101", "use": "Mega-Bauwerk – Stadion, großer Tempel" }
+    ]
+  },
+  "perSize": {
+    "title": "Minecraft {shape} mit {d} Blöcken Durchmesser",
+    "desc": "Kostenloser Block-für-Block-Bauplan für einen {d}-Block-{shape} in Minecraft. Sieh das Pixelraster und die Blockanzahl ein und baue es in Java oder Bedrock.",
+    "blocks": "Blöcke",
+    "layer": "Ebene",
+    "openTool": "Im Generator öffnen",
+    "related": "Verwandte Größen",
+    "otherShapes": "Andere Formen"
+  },
+  "blog": {
+    "title": "Minecraft Bauanleitungen",
+    "readMore": "Mehr lesen"
+  },
+  "faq": {
+    "title": "Häufige Fragen",
+    "items": [
+      { "q": "Wie baue ich einen Kreis in Minecraft?", "a": "Wähle einen Durchmesser, kopiere den Bauplan aus dem Raster und setze die Blöcke einzeln. Beginne am Mittelblock und arbeite dich nach außen vor – so gelingt es immer perfekt." },
+      { "q": "Welche Kreisgröße sollte ich verwenden?", "a": "Kleine Kreise (5-15 Blöcke) passen für Brunnen und Fenster, 21-49 für Türme und Räume, und alles über 65 ist für große Bauten wie Stadien und Kolosseum gedacht." },
+      { "q": "Funktionieren die Baupläne für Java und Bedrock?", "a": "Ja. Das Raster zeigt die Blockpositionen, daher funktioniert es in Java Edition und Bedrock Edition identisch." },
+      { "q": "Wie baue ich eine Kugel oder Kuppel?", "a": "Wechsle zum Reiter Kugel oder Kuppel und nutze den Ebenen-Schieberegler, um jede Scheibe von unten nach oben zu sehen. Baue eine Ebene nach der anderen." }
+    ]
   },
   "footer": {
     "tagline": "Kostenlose Minecraft Baupläne für Kreise, Ovale, Kugeln und Kuppeln."

@@ -20,13 +20,62 @@
     "sphere": "Küre",
     "dome": "Kubbe",
     "arc": "Yay",
+    "outline": "Dış hat",
+    "chart": "Tablo",
+    "filled": "Dolu",
+    "block": "Blok",
+    "blockColors": "Blok renkleri",
+    "angleStart": "Başlangıç açısı",
+    "angleSpan": "Açı",
     "preview": "Önizleme",
     "blueprint": "Plan",
+    "buildOrder": "İnşa sırası",
+    "speed": "Hız",
+    "layer": "Katman",
+    "blocksCount": "blok",
     "copyBlocks": "Blokları kopyala",
+    "copyLink": "Bağlantıyı kopyala",
     "exportPng": "PNG indir",
     "shareUrl": "Paylaş",
     "sizeGuide": "Boyut rehberi",
-    "generate": "Oluştur"
+    "generate": "Oluştur",
+    "copied": "Panoya kopyalandı!",
+    "invalidSize": "Boyut {min} ile {max} arasında olmalı."
+  },
+  "sizeGuide": {
+    "title": "Yaygın boyutlar ve kullanım alanları",
+    "entries": [
+      { "size": "15", "use": "Çeşme tabanı" },
+      { "size": "21", "use": "Küçük kule" },
+      { "size": "25", "use": "Gölet veya bahçe havuzu" },
+      { "size": "33", "use": "Kule veya büyük bahçe öğesi" },
+      { "size": "41", "use": "Kale kulesi" },
+      { "size": "49", "use": "Büyük kule" },
+      { "size": "65", "use": "Dev yapı: koltuk amfi, kubbeli salon" },
+      { "size": "101", "use": "Mega yapı: stadyum, büyük tapınak" }
+    ]
+  },
+  "perSize": {
+    "title": "{d} blok çapında Minecraft {shape}",
+    "desc": "Minecraft'ta {d} blokluk {shape} için ücretsiz blok blok plan. Piksel ızgarasını ve blok sayısını görün, Java veya Bedrock'ta inşa edin.",
+    "blocks": "blok",
+    "layer": "Katman",
+    "openTool": "Oluşturucuda aç",
+    "related": "İlgili boyutlar",
+    "otherShapes": "Diğer şekiller"
+  },
+  "blog": {
+    "title": "Minecraft İnşa Rehberleri",
+    "readMore": "Devamını oku"
+  },
+  "faq": {
+    "title": "Sık sorulan sorular",
+    "items": [
+      { "q": "Minecraft'ta daire nasıl inşa edilir?", "a": "Bir çap seçin, planı ızgaradan kopyalayın ve blokları tek tek yerleştirin. Merkez bloktan başlayıp dışa doğru ilerleyin; sonuç her zaman kusursuz olur." },
+      { "q": "Hangi daire boyutunu kullanmalıyım?", "a": "Küçük daireler (5-15 blok) çeşmeler ve pencereler için, 21-49 kuleler ve odalar için, 65 üzeri ise stadyum ve koltuk amfi gibi dev yapılar için uygundur." },
+      { "q": "Planlar Java ve Bedrock'ta çalışıyor mu?", "a": "Evet. Izgara blok konumlarını gösterir, bu yüzden Java ve Bedrock sürümlerinde aynı şekilde çalışır." },
+      { "q": "Küre veya kubbe nasıl inşa edilir?", "a": "Küre veya kubbe sekmesine geçin ve her katmanı aşağıdan yukarıya görmek için katman kaydırıcısını kullanın. Bir katmanı tek seferde inşa edin." }
+    ]
   },
   "footer": {
     "tagline": "Minecraft için ücretsiz daire, oval, küre ve kubbe planları."

@@ -20,13 +20,62 @@
     "sphere": "Sfera",
     "dome": "Cupola",
     "arc": "Arco",
+    "outline": "Contorno",
+    "chart": "Tabella",
+    "filled": "Pieno",
+    "block": "Blocco",
+    "blockColors": "Colori dei blocchi",
+    "angleStart": "Angolo iniziale",
+    "angleSpan": "Angolo",
     "preview": "Anteprima",
     "blueprint": "Progetto",
+    "buildOrder": "Ordine di costruzione",
+    "speed": "Velocità",
+    "layer": "Livello",
+    "blocksCount": "blocchi",
     "copyBlocks": "Copia blocchi",
+    "copyLink": "Copia link",
     "exportPng": "Scarica PNG",
     "shareUrl": "Condividi",
     "sizeGuide": "Guida alle dimensioni",
-    "generate": "Genera"
+    "generate": "Genera",
+    "copied": "Copiato negli appunti!",
+    "invalidSize": "La dimensione deve essere tra {min} e {max}."
+  },
+  "sizeGuide": {
+    "title": "Dimensioni comuni e loro utilizzo",
+    "entries": [
+      { "size": "15", "use": "Base della fontana" },
+      { "size": "21", "use": "Torre piccola" },
+      { "size": "25", "use": "Stagno o laghetto da giardino" },
+      { "size": "33", "use": "Torre o grande elemento da giardino" },
+      { "size": "41", "use": "Torre del castello" },
+      { "size": "49", "use": "Torre grande" },
+      { "size": "65", "use": "Grande costruzione: colosseo, sala a cupola" },
+      { "size": "101", "use": "Mega costruzione: stadio, grande tempio" }
+    ]
+  },
+  "perSize": {
+    "title": "Cerchio Minecraft con {d} blocchi di diametro",
+    "desc": "Progetto gratuito blocco per blocco per un {shape} di {d} blocchi in Minecraft. Guarda la griglia di pixel, il numero di blocchi e costruiscilo in Java o Bedrock.",
+    "blocks": "blocchi",
+    "layer": "Livello",
+    "openTool": "Apri nel generatore",
+    "related": "Dimensioni correlate",
+    "otherShapes": "Altre forme"
+  },
+  "blog": {
+    "title": "Guide di costruzione di Minecraft",
+    "readMore": "Leggi tutto"
+  },
+  "faq": {
+    "title": "Domande frequenti",
+    "items": [
+      { "q": "Come costruire un cerchio in Minecraft?", "a": "Scegli un diametro, copia il progetto dalla griglia e posiziona i blocchi uno alla volta. Inizia dal blocco centrale e procedi verso l'esterno per un risultato perfetto." },
+      { "q": "Che dimensione di cerchio devo usare?", "a": "I cerchi piccoli (5-15 blocchi) vanno bene per fontane e finestre, 21-49 per torri e stanze, oltre 65 per costruzioni enormi come stadi e colossei." },
+      { "q": "I progetti funzionano per Java e Bedrock?", "a": "Sì. La griglia mostra le posizioni dei blocchi, quindi funziona allo stesso modo nelle edizioni Java e Bedrock." },
+      { "q": "Come costruisco una sfera o una cupola?", "a": "Passa alla scheda sfera o cupola e usa il cursore dei livelli per vedere ogni sezione dal basso verso l'alto. Costruisci un livello alla volta." }
+    ]
   },
   "footer": {
     "tagline": "Progetti gratuiti di cerchi, ovali, sfere e cupole per Minecraft."

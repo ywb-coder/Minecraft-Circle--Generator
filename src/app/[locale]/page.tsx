@@ -7,6 +7,7 @@ import {
   isLocale,
   subpathLocales,
 } from "@/lib/i18n/locales";
+import { hreflangMap } from "@/lib/seo";
 
 export function generateStaticParams() {
   return subpathLocales.map((locale) => ({ locale }));
@@ -21,6 +22,9 @@ export async function generateMetadata({
   return {
     title: dict.meta.title,
     description: dict.meta.description,
+    alternates: {
+      languages: hreflangMap("/"),
+    },
   };
 }
 

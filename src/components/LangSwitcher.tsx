@@ -15,7 +15,7 @@ export default function LangSwitcher({ locale }: { locale: Locale }) {
         const next = e.target.value as Locale;
         window.location.href = next === defaultLocale ? "/" : `/${next}/`;
       }}
-      className="rounded-md border border-zinc-300 bg-transparent px-2 py-1 text-sm dark:border-zinc-700 dark:bg-zinc-900"
+      className="cursor-pointer border-2 border-mc-border bg-panel-2 px-2 py-1 font-pixel text-[10px] text-ink"
     >
       {Object.entries(localeNames).map(([code, name]) => (
         <option key={code} value={code}>

@@ -20,13 +20,62 @@
     "sphere": "Sfera",
     "dome": "Kopuła",
     "arc": "Łuk",
+    "outline": "Obrys",
+    "chart": "Tabela",
+    "filled": "Wypełnione",
+    "block": "Blok",
+    "blockColors": "Kolory bloków",
+    "angleStart": "Kąt początkowy",
+    "angleSpan": "Kąt",
     "preview": "Podgląd",
     "blueprint": "Plan",
+    "buildOrder": "Kolejność budowy",
+    "speed": "Prędkość",
+    "layer": "Warstwa",
+    "blocksCount": "bloków",
     "copyBlocks": "Kopiuj bloki",
+    "copyLink": "Kopiuj link",
     "exportPng": "Pobierz PNG",
     "shareUrl": "Udostępnij",
     "sizeGuide": "Przewodnik rozmiarów",
-    "generate": "Generuj"
+    "generate": "Generuj",
+    "copied": "Skopiowano do schowka!",
+    "invalidSize": "Rozmiar musi wynosić od {min} do {max}."
+  },
+  "sizeGuide": {
+    "title": "Typowe rozmiary i ich zastosowanie",
+    "entries": [
+      { "size": "15", "use": "Podstawa fontanny" },
+      { "size": "21", "use": "Mała wieża" },
+      { "size": "25", "use": "Staw lub oczko wodne" },
+      { "size": "33", "use": "Wieża lub duży element ogrodu" },
+      { "size": "41", "use": "Wieża zamkowa" },
+      { "size": "49", "use": "Duża wieża" },
+      { "size": "65", "use": "Ogromna budowla: koloseum, sala kopułowa" },
+      { "size": "101", "use": "Megabudowla: stadion, wielka świątynia" }
+    ]
+  },
+  "perSize": {
+    "title": "Koło w Minecraft o średnicy {d} bloków",
+    "desc": "Darmowy plan blok po bloku dla {shape} z {d} bloków w Minecraft. Zobacz siatkę pikseli, liczbę bloków i zbuduj go w Java lub Bedrock.",
+    "blocks": "bloków",
+    "layer": "Warstwa",
+    "openTool": "Otwórz w generatorze",
+    "related": "Podobne rozmiary",
+    "otherShapes": "Inne kształty"
+  },
+  "blog": {
+    "title": "Poradniki budowania w Minecraft",
+    "readMore": "Czytaj dalej"
+  },
+  "faq": {
+    "title": "Częste pytania",
+    "items": [
+      { "q": "Jak zbudować koło w Minecraft?", "a": "Wybierz średnicę, skopiuj plan z siatki i umieszczaj bloki pojedynczo. Zacznij od środkowego bloku i przesuwaj się na zewnątrz, a wynik zawsze będzie idealny." },
+      { "q": "Jakiego rozmiaru koła użyć?", "a": "Małe koła (5-15 bloków) pasują do fontann i okien, 21-49 do wież i pomieszczeń, a powyżej 65 do ogromnych budowli, takich jak stadiony i kolosea." },
+      { "q": "Czy plany działają w Java i Bedrock?", "a": "Tak. Siatka pokazuje pozycje bloków, więc działa identycznie w edycji Java i Bedrock." },
+      { "q": "Jak zbudować sferę lub kopułę?", "a": "Przełącz się na zakładkę sfera lub kopuła i użyj suwaka warstw, aby zobaczyć każdy przekrój od dołu do góry. Buduj warstwę po warstwie." }
+    ]
   },
   "footer": {
     "tagline": "Darmowe plany kół, owali, sfer i kopuł do Minecrafta."
