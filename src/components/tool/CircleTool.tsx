@@ -596,7 +596,7 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
         )}
       </div>
 
-      <SizeGuideTable dict={dict} />
+      {!state.fullscreen && <SizeGuideTable dict={dict} />}
     </>
   );
 
@@ -681,8 +681,9 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
 
   if (state.fullscreen) {
     const overlay = (
-      <div className="fixed inset-0 z-50 overflow-auto bg-bg p-4">
-        <div className="mx-auto flex max-w-7xl justify-end pb-2">
+      <div className="fixed inset-0 z-50 flex flex-col bg-bg p-4">
+        <div className="flex items-center justify-between pb-2">
+          <span className="font-pixel text-[10px] text-muted">{dict.siteName}</span>
           <button
             type="button"
             className="mc-btn px-3! py-1!"
@@ -691,7 +692,12 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
             {dict.tool.fullscreen} ✕
           </button>
         </div>
-        {content}
+        <div className="grid min-h-0 flex-1 gap-4 lg:grid-cols-[340px_minmax(0,1fr)]">
+          <div className="min-h-0 overflow-y-auto">{controlsPanel}</div>
+          <div className="flex min-h-0 flex-col gap-4 overflow-hidden">
+            {previewPanel}
+          </div>
+        </div>
       </div>
     );
     return createPortal(overlay, document.body);

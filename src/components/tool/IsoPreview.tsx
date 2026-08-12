@@ -231,12 +231,12 @@ function IsoPreview({
 
   return (
     <div
-      className="mc-panel-inset pixel-corners relative aspect-square w-full overflow-hidden"
+      className="mc-panel-inset pixel-corners relative mx-auto aspect-square overflow-hidden"
+      style={{ width: "min(100%, calc(100vh - 320px))", touchAction: "none" }}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
       onPointerLeave={handlePointerUp}
-      style={{ touchAction: "none" }}
     >
       <canvas
         ref={canvasRef}
