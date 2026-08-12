@@ -16,70 +16,44 @@ function boundsOf(points: Point[]) {
   return { minX, maxX, minY, maxY };
 }
 
-/**
- * Renders only the filled cells (absolutely positioned) instead of one div
- * per grid cell, so cost is O(blocks) instead of O(size²). The empty cells
- * are suggested by a CSS grid-line background.
- */
-function FilledCells({
-  points,
-  minX,
-  minY,
-  width,
-  height,
-  cell,
-}: {
-  points: Point[];
-  minX: number;
-  minY: number;
-  width: number;
-  height: number;
-  cell: number;
-}) {
-  return (
-    <div
-      className="relative"
-      style={{
-        width: width * cell,
-        height: height * cell,
-        backgroundImage:
-          "linear-gradient(rgba(148,163,184,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.18) 1px, transparent 1px)",
-        backgroundSize: `${cell}px ${cell}px`,
-      }}
-    >
-      {points.map((p) => (
-        <div
-          key={`${p.x},${p.y}`}
-          title={`${p.x}, ${p.y}`}
-          style={{
-            position: "absolute",
-            left: (p.x - minX) * cell,
-            top: (p.y - minY) * cell,
-            width: cell,
-            height: cell,
-            backgroundColor: FILLED,
-          }}
-        />
-      ))}
-    </div>
-  );
+function buildPathData(points: Point[], minX: number, minY: number, cell: number): string {
+  let d = "";
+  for (const p of points) {
+    const x = (p.x - minX) * cell;
+    const y = (p.y - minY) * cell;
+    d += `M${x} ${y}h${cell}v${cell}h-${cell}z`;
+  }
+  return d;
 }
 
+/**
+ * Blueprint rendered as a single SVG <path> instead of one div per block,
+ * so HTML size stays proportional to the outline instead of the area.
+ */
 export function BlueprintGrid({ shape }: { shape: ShapeResult }) {
   const { minX, maxX, minY, maxY } = boundsOf(shape.points);
   const width = maxX - minX + 1;
   const height = maxY - minY + 1;
   const cell = Math.max(1, Math.min(24, Math.floor(448 / width)));
+  const w = width * cell;
+  const h = height * cell;
   return (
     <div className="mc-panel-inset pixel-corners max-w-full overflow-x-auto p-2">
-      <FilledCells
-        points={shape.points}
-        minX={minX}
-        minY={minY}
-        width={width}
-        height={height}
-        cell={cell}
-      />
+      <svg
+        width={w}
+        height={h}
+        viewBox={`0 0 ${w} ${h}`}
+        role="img"
+        aria-label={`${shape.width}x${shape.height} blueprint`}
+        className="block"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(148,163,184,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.18) 1px, transparent 1px)",
+          backgroundSize: `${cell}px ${cell}px`,
+        }}
+      >
+        <path d={buildPathData(shape.points, minX, minY, cell)} fill={FILLED} />
+      </svg>
     </div>
   );
 }
