@@ -1,0 +1,38 @@
+{
+  "siteName": "CircleGen",
+  "tagline": "Minecraft Kreisgenerator",
+  "nav": {
+    "tool": "Generator",
+    "blog": "Blog",
+    "about": "Über"
+  },
+  "hero": {
+    "title": "Baue perfekte Kreise in Minecraft",
+    "subtitle": "Erstelle Block-für-Block-Baupläne für Kreise, Ovale, Kugeln und Kuppeln — mit Live-Vorschau, Bau-Reihenfolge-Animation und PNG-Download für Java und Bedrock."
+  },
+  "tool": {
+    "diameter": "Durchmesser",
+    "width": "Breite",
+    "height": "Höhe",
+    "shape": "Form",
+    "circle": "Kreis",
+    "oval": "Oval",
+    "sphere": "Kugel",
+    "dome": "Kuppel",
+    "arc": "Bogen",
+    "preview": "Vorschau",
+    "blueprint": "Bauplan",
+    "copyBlocks": "Blöcke kopieren",
+    "exportPng": "PNG herunterladen",
+    "shareUrl": "Teilen",
+    "sizeGuide": "Größentabelle",
+    "generate": "Generieren"
+  },
+  "footer": {
+    "tagline": "Kostenlose Minecraft Baupläne für Kreise, Ovale, Kugeln und Kuppeln."
+  },
+  "meta": {
+    "title": "Minecraft Kreisgenerator — Perfekte Kreise, Ovale, Kugeln & Kuppeln",
+    "description": "Kostenloser Minecraft Kreisgenerator mit Block-für-Block-Bauplänen für Kreise, Ovale, Kugeln und Kuppeln. Live-Vorschau, Bau-Animation und PNG-Download für Java und Bedrock."
+  }
+}

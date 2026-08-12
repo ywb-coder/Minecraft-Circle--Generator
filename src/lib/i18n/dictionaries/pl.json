@@ -1,0 +1,38 @@
+{
+  "siteName": "CircleGen",
+  "tagline": "Generator Kół do Minecrafta",
+  "nav": {
+    "tool": "Generator",
+    "blog": "Blog",
+    "about": "O nas"
+  },
+  "hero": {
+    "title": "Buduj idealne koła w Minecraft",
+    "subtitle": "Generuj plany blok po bloku dla kół, owali, sfer i kopuł — z podglądem na żywo, animacją kolejności budowy i pobieraniem PNG dla Java i Bedrock."
+  },
+  "tool": {
+    "diameter": "Średnica",
+    "width": "Szerokość",
+    "height": "Wysokość",
+    "shape": "Kształt",
+    "circle": "Koło",
+    "oval": "Owal",
+    "sphere": "Sfera",
+    "dome": "Kopuła",
+    "arc": "Łuk",
+    "preview": "Podgląd",
+    "blueprint": "Plan",
+    "copyBlocks": "Kopiuj bloki",
+    "exportPng": "Pobierz PNG",
+    "shareUrl": "Udostępnij",
+    "sizeGuide": "Przewodnik rozmiarów",
+    "generate": "Generuj"
+  },
+  "footer": {
+    "tagline": "Darmowe plany kół, owali, sfer i kopuł do Minecrafta."
+  },
+  "meta": {
+    "title": "Generator Kół Minecraft — Idealne Koła, Owale, Sfery i Kopuły",
+    "description": "Darmowy generator kół do Minecrafta z planami blok po bloku dla kół, owali, sfer i kopuł. Podgląd na żywo, animacja budowy i pobieranie PNG dla Java i Bedrock."
+  }
+}

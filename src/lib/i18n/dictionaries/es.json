@@ -1,0 +1,38 @@
+{
+  "siteName": "CircleGen",
+  "tagline": "Generador de Círculos de Minecraft",
+  "nav": {
+    "tool": "Generador",
+    "blog": "Blog",
+    "about": "Acerca de"
+  },
+  "hero": {
+    "title": "Construye círculos perfectos en Minecraft",
+    "subtitle": "Genera planos bloque a bloque para círculos, óvalos, esferas y cúpulas — con vista previa en vivo, animación del orden de construcción y descargas PNG para Java y Bedrock."
+  },
+  "tool": {
+    "diameter": "Diámetro",
+    "width": "Ancho",
+    "height": "Alto",
+    "shape": "Forma",
+    "circle": "Círculo",
+    "oval": "Óvalo",
+    "sphere": "Esfera",
+    "dome": "Cúpula",
+    "arc": "Arco",
+    "preview": "Vista previa",
+    "blueprint": "Plano",
+    "copyBlocks": "Copiar bloques",
+    "exportPng": "Descargar PNG",
+    "shareUrl": "Compartir",
+    "sizeGuide": "Guía de tamaños",
+    "generate": "Generar"
+  },
+  "footer": {
+    "tagline": "Planos gratuitos de círculos, óvalos, esferas y cúpulas para Minecraft."
+  },
+  "meta": {
+    "title": "Generador de Círculos de Minecraft — Círculos, Óvalos, Esferas y Cúpulas Perfectos",
+    "description": "Generador gratuito de círculos para Minecraft con planos bloque a bloque de círculos, óvalos, esferas y cúpulas. Vista previa en vivo, animación de construcción y descarga PNG para Java y Bedrock."
+  }
+}

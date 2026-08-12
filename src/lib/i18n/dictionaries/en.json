@@ -1,0 +1,38 @@
+{
+  "siteName": "CircleGen",
+  "tagline": "Minecraft Circle Generator",
+  "nav": {
+    "tool": "Generator",
+    "blog": "Blog",
+    "about": "About"
+  },
+  "hero": {
+    "title": "Build Perfect Circles in Minecraft",
+    "subtitle": "Generate block-by-block blueprints for circles, ovals, spheres, and domes — with live preview, build order animation, and PNG downloads for Java and Bedrock."
+  },
+  "tool": {
+    "diameter": "Diameter",
+    "width": "Width",
+    "height": "Height",
+    "shape": "Shape",
+    "circle": "Circle",
+    "oval": "Oval",
+    "sphere": "Sphere",
+    "dome": "Dome",
+    "arc": "Arc",
+    "preview": "Preview",
+    "blueprint": "Blueprint",
+    "copyBlocks": "Copy blocks",
+    "exportPng": "Download PNG",
+    "shareUrl": "Share",
+    "sizeGuide": "Size guide",
+    "generate": "Generate"
+  },
+  "footer": {
+    "tagline": "Free Minecraft circle, oval, sphere, and dome blueprints."
+  },
+  "meta": {
+    "title": "Minecraft Circle Generator — Build Perfect Circles, Ovals, Spheres & Domes",
+    "description": "Free Minecraft circle generator with block-by-block blueprints for circles, ovals, spheres, and domes. Live preview, build order animation, and PNG downloads for Java and Bedrock."
+  }
+}

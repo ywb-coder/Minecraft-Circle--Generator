@@ -1,0 +1,38 @@
+{
+  "siteName": "CircleGen",
+  "tagline": "Générateur de Cercles Minecraft",
+  "nav": {
+    "tool": "Générateur",
+    "blog": "Blog",
+    "about": "À propos"
+  },
+  "hero": {
+    "title": "Construisez des cercles parfaits dans Minecraft",
+    "subtitle": "Générez des plans bloc par bloc pour cercles, ovales, sphères et dômes — avec aperçu en direct, animation de l'ordre de construction et téléchargements PNG pour Java et Bedrock."
+  },
+  "tool": {
+    "diameter": "Diamètre",
+    "width": "Largeur",
+    "height": "Hauteur",
+    "shape": "Forme",
+    "circle": "Cercle",
+    "oval": "Ovale",
+    "sphere": "Sphère",
+    "dome": "Dôme",
+    "arc": "Arc",
+    "preview": "Aperçu",
+    "blueprint": "Plan",
+    "copyBlocks": "Copier les blocs",
+    "exportPng": "Télécharger le PNG",
+    "shareUrl": "Partager",
+    "sizeGuide": "Guide des tailles",
+    "generate": "Générer"
+  },
+  "footer": {
+    "tagline": "Plans gratuits de cercles, ovales, sphères et dômes pour Minecraft."
+  },
+  "meta": {
+    "title": "Générateur de Cercles Minecraft — Cercles, Ovales, Sphères & Dômes Parfaits",
+    "description": "Générateur gratuit de cercles Minecraft avec des plans bloc par bloc pour cercles, ovales, sphères et dômes. Aperçu en direct, animation de construction et téléchargement PNG pour Java et Bedrock."
+  }
+}

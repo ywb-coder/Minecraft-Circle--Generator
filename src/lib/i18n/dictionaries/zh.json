@@ -1,0 +1,38 @@
+{
+  "siteName": "CircleGen",
+  "tagline": "Minecraft 圆形生成器",
+  "nav": {
+    "tool": "生成器",
+    "blog": "博客",
+    "about": "关于"
+  },
+  "hero": {
+    "title": "在 Minecraft 中建造完美的圆形",
+    "subtitle": "生成圆形、椭圆形、球形和穹顶的逐方块蓝图——支持实时预览、建造顺序动画,以及 Java 和 Bedrock 版的 PNG 下载。"
+  },
+  "tool": {
+    "diameter": "直径",
+    "width": "宽度",
+    "height": "高度",
+    "shape": "形状",
+    "circle": "圆形",
+    "oval": "椭圆形",
+    "sphere": "球形",
+    "dome": "穹顶",
+    "arc": "圆弧",
+    "preview": "预览",
+    "blueprint": "蓝图",
+    "copyBlocks": "复制方块",
+    "exportPng": "下载 PNG",
+    "shareUrl": "分享",
+    "sizeGuide": "尺寸指南",
+    "generate": "生成"
+  },
+  "footer": {
+    "tagline": "免费 Minecraft 圆形、椭圆形、球形和穹顶蓝图。"
+  },
+  "meta": {
+    "title": "Minecraft 圆形生成器 — 打造完美圆形、椭圆、球形与穹顶",
+    "description": "免费的 Minecraft 圆形生成器,提供圆形、椭圆形、球形和穹顶的逐方块蓝图。支持实时预览、建造顺序动画,以及 Java 和 Bedrock 版 PNG 下载。"
+  }
+}

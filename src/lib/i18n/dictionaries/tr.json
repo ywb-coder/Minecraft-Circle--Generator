@@ -1,0 +1,38 @@
+{
+  "siteName": "CircleGen",
+  "tagline": "Minecraft Daire Oluşturucu",
+  "nav": {
+    "tool": "Oluşturucu",
+    "blog": "Blog",
+    "about": "Hakkında"
+  },
+  "hero": {
+    "title": "Minecraft'ta Mükemmel Daireler İnşa Edin",
+    "subtitle": "Daireler, ovaller, küreler ve kubbeler için blok blok planlar oluşturun — canlı önizleme, inşa sırası animasyonu ve Java ile Bedrock için PNG indirmeleriyle."
+  },
+  "tool": {
+    "diameter": "Çap",
+    "width": "Genişlik",
+    "height": "Yükseklik",
+    "shape": "Şekil",
+    "circle": "Daire",
+    "oval": "Oval",
+    "sphere": "Küre",
+    "dome": "Kubbe",
+    "arc": "Yay",
+    "preview": "Önizleme",
+    "blueprint": "Plan",
+    "copyBlocks": "Blokları kopyala",
+    "exportPng": "PNG indir",
+    "shareUrl": "Paylaş",
+    "sizeGuide": "Boyut rehberi",
+    "generate": "Oluştur"
+  },
+  "footer": {
+    "tagline": "Minecraft için ücretsiz daire, oval, küre ve kubbe planları."
+  },
+  "meta": {
+    "title": "Minecraft Daire Oluşturucu — Mükemmel Daireler, Ovaller, Küreler ve Kubbeler",
+    "description": "Daireler, ovaller, küreler ve kubbeler için blok blok planlar sunan ücretsiz Minecraft daire oluşturucu. Canlı önizleme, inşa animasyonu ve Java ile Bedrock için PNG indirme."
+  }
+}
