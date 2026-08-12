@@ -13,6 +13,7 @@ import {
   toSVG,
 } from "@/lib/export";
 import type { Dictionary } from "@/lib/i18n/dictionaries";
+import { subpathLocales } from "@/lib/i18n/locales";
 import {
   generateShape,
   outlineCircle,
@@ -213,6 +214,21 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
       })
     );
 
+  const handlePermLink = () => {
+    if (state.type === "arc") return;
+    const seg = window.location.pathname.split("/")[1] ?? "";
+    const prefix = (subpathLocales as readonly string[]).includes(seg)
+      ? `/${seg}/`
+      : "/";
+    const path =
+      state.type === "oval"
+        ? `oval/${state.w}/${state.h}/`
+        : `${state.type}/${state.d}/`;
+    copyToClipboard(`${window.location.origin}${prefix}${path}`);
+  };
+
+  const hasStaticPage = state.type !== "arc";
+
   return (
     <div className="grid gap-4 lg:grid-cols-[340px_1fr]">
       <div className="flex flex-col gap-4">
@@ -313,6 +329,11 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
           <button type="button" className="mc-btn px-2! py-1!" onClick={handleCopyLink}>
             {dict.tool.copyLink}
           </button>
+          {hasStaticPage && (
+            <button type="button" className="mc-btn px-2! py-1!" onClick={handlePermLink}>
+              {dict.tool.permLink}
+            </button>
+          )}
         </div>
 
         <SizeGuideTable dict={dict} />

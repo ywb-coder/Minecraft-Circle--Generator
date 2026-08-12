@@ -1,4 +1,4 @@
-import { SITE_URL, HREFLANG_MAP } from "@/lib/config";
+import { SITE_URL, HREFLANG_MAP, LAUNCH_DATE, buildDate } from "@/lib/config";
 import type { Dictionary } from "@/lib/i18n/dictionaries";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizePath } from "@/lib/seo";
@@ -33,6 +33,13 @@ export default function SeoJsonLd({
     description,
     url,
     inLanguage: HREFLANG_MAP[locale],
+    datePublished: LAUNCH_DATE,
+    dateModified: buildDate(),
+    publisher: {
+      "@type": "Organization",
+      name: "CircleGen",
+      url: SITE_URL,
+    },
   };
   return (
     <>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import type { Dictionary } from "@/lib/i18n/dictionaries";
 import { defaultLocale, type Locale } from "@/lib/i18n/locales";
+import { buildDate } from "@/lib/config";
 
 export default function SeoShell({
   dict,
@@ -31,9 +32,26 @@ export default function SeoShell({
         <div className="mx-auto max-w-5xl px-4 py-10">{children}</div>
       </main>
       <footer className="border-t-4 border-mc-border bg-panel-2 py-6">
-        <p className="text-center text-sm text-muted">
-          {dict.footer.tagline}
-        </p>
+        <div className="mx-auto flex max-w-5xl flex-col items-center gap-3 px-4 text-center">
+          <p className="text-sm text-muted">{dict.footer.tagline}</p>
+          <nav className="flex flex-wrap justify-center gap-x-5 gap-y-2">
+            <Link href="/about/" className="pixel-link text-sm">
+              About
+            </Link>
+            <Link href="/contact/" className="pixel-link text-sm">
+              Contact
+            </Link>
+            <Link href="/privacy/" className="pixel-link text-sm">
+              Privacy
+            </Link>
+            <Link href="/terms/" className="pixel-link text-sm">
+              Terms
+            </Link>
+          </nav>
+          <p className="font-terminal text-sm text-muted">
+            Last updated: {buildDate()}
+          </p>
+        </div>
       </footer>
     </div>
   );

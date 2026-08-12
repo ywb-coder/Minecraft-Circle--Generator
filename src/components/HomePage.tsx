@@ -1,7 +1,15 @@
 import Link from "next/link";
 import type { Dictionary } from "@/lib/i18n/dictionaries";
 import { defaultLocale, type Locale } from "@/lib/i18n/locales";
-import { HREFLANG_MAP, SITE_URL } from "@/lib/config";
+import {
+  buildDate,
+  GITHUB_URL,
+  HREFLANG_MAP,
+  LAUNCH_DATE,
+  SITE_EMAIL,
+  SITE_URL,
+  SOURCES,
+} from "@/lib/config";
 import LangSync from "./LangSync";
 import LangSwitcher from "./LangSwitcher";
 import CircleTool from "./tool/CircleTool";
@@ -49,6 +57,23 @@ export default function HomePage({
     applicationCategory: "GameApplication",
     operatingSystem: "Web Browser",
     inLanguage,
+    datePublished: LAUNCH_DATE,
+    dateModified: buildDate(),
+  };
+
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: dict.siteName,
+    url: SITE_URL,
+    logo: `${SITE_URL}/favicon.png`,
+    email: SITE_EMAIL,
+    sameAs: [GITHUB_URL],
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: SITE_EMAIL,
+      contactType: "customer support",
+    },
   };
 
   const escapeJsonLd = (data: unknown) =>
@@ -96,6 +121,28 @@ export default function HomePage({
           <div className="mx-auto mt-8 h-1 w-full bg-accent" />
         </section>
 
+        <section className="mx-auto max-w-5xl px-4 pb-10">
+          <div className="mc-panel pixel-corners p-5">
+            <h2 className="font-pixel text-[10px] text-accent">
+              What is a Minecraft circle generator?
+            </h2>
+            <p className="mt-3 text-sm leading-7 text-ink">
+              A Minecraft circle generator is a free online tool that turns any
+              diameter into a block-by-block pixel blueprint you can copy
+              directly into the game. Pick a size from 5 to 256 blocks, choose
+              a shape, and the generator draws the exact grid — every row, every
+              block — for circles, ovals, spheres, domes and arcs in both Java
+              and Bedrock editions.
+            </p>
+            <p className="mt-3 text-sm leading-7 text-muted">
+              The circle generator uses the same discrete-circle math as the
+              midpoint circle algorithm, which is why odd diameters produce a
+              clean, symmetric ring every time. No downloads, no accounts, and
+              the blueprint is always free.
+            </p>
+          </div>
+        </section>
+
         <section id="tool" className="mx-auto max-w-5xl px-4 pb-16">
           <div className="mc-panel pixel-corners blueprint-grid p-4">
             <CircleTool dict={dict} />
@@ -122,6 +169,30 @@ export default function HomePage({
               </Link>
             ))}
           </div>
+        </section>
+
+        <section className="mx-auto max-w-5xl px-4 pb-16">
+          <h2 className="font-pixel text-sm text-ink pixel-shadow">
+            Sources
+          </h2>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            The circle generator is based on standard discrete-circle
+            rendering, documented by the following public references:
+          </p>
+          <ul className="mt-4 list-disc pl-6 text-sm leading-7 text-ink">
+            {SOURCES.map((source) => (
+              <li key={source.url} className="my-1">
+                <a
+                  href={source.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pixel-link"
+                >
+                  {source.name}
+                </a>
+              </li>
+            ))}
+          </ul>
         </section>
 
         <section id="faq" className="mx-auto max-w-5xl px-4 pb-16">
@@ -156,14 +227,37 @@ export default function HomePage({
               __html: escapeJsonLd(webApplicationJsonLd),
             }}
           />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: escapeJsonLd(organizationJsonLd),
+            }}
+          />
         </section>
       </main>
 
       <footer className="border-t-4 border-mc-border bg-panel-2">
-        <div className="mx-auto flex max-w-5xl flex-col items-center gap-2 px-4 py-8 text-center">
+        <div className="mx-auto flex max-w-5xl flex-col items-center gap-3 px-4 py-8 text-center">
           <p className="text-sm text-muted">{dict.footer.tagline}</p>
+          <nav className="flex flex-wrap justify-center gap-x-5 gap-y-2">
+            <Link href="/about/" className="pixel-link text-sm">
+              About
+            </Link>
+            <Link href="/contact/" className="pixel-link text-sm">
+              Contact
+            </Link>
+            <Link href="/privacy/" className="pixel-link text-sm">
+              Privacy
+            </Link>
+            <Link href="/terms/" className="pixel-link text-sm">
+              Terms
+            </Link>
+          </nav>
           <p className="font-pixel text-[10px] text-ink">
             © {new Date().getFullYear()} {dict.siteName}
+          </p>
+          <p className="font-terminal text-sm text-muted">
+            Last updated: {buildDate()}
           </p>
         </div>
       </footer>

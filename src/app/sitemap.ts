@@ -65,6 +65,15 @@ for (const locale of HREFLANG_LOCALES) {
   }
 }
 
+const trustEntries: MetadataRoute.Sitemap = ["about", "contact", "privacy", "terms"].map(
+  (page) => ({
+    url: localizedUrl(`/${page}`, "en"),
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.4,
+  })
+);
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [...homeEntries, ...shapeEntries];
+  return [...homeEntries, ...shapeEntries, ...trustEntries];
 }

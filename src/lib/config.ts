@@ -25,6 +25,36 @@ export const HREFLANG_LOCALES = [
   "zh",
 ] as const;
 
+export const SITE_EMAIL = "contact@minecraftcirclegenerator.vercel.app";
+export const GITHUB_URL =
+  "https://github.com/ywb-coder/Minecraft-Circle--Generator";
+export const LAUNCH_DATE = "2026-01-01";
+
+export interface Source {
+  name: string;
+  url: string;
+}
+
+export const SOURCES: Source[] = [
+  {
+    name: "Wikipedia — Midpoint circle algorithm",
+    url: "https://en.wikipedia.org/wiki/Midpoint_circle_algorithm",
+  },
+  {
+    name: "Minecraft Wiki — Building",
+    url: "https://minecraft.wiki/w/Building",
+  },
+  {
+    name: "Minecraft.net — Official website",
+    url: "https://www.minecraft.net/",
+  },
+];
+
+/** Build date, baked into the static HTML at build time. */
+export function buildDate(): string {
+  return new Date().toISOString().slice(0, 10);
+}
+
 /** Locale -> hreflang attribute value. */
 export const HREFLANG_MAP: Record<string, string> = {
   en: "en",

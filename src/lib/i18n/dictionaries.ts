@@ -39,6 +39,7 @@ export interface Dictionary {
     blocksCount: string;
     copyBlocks: string;
     copyLink: string;
+    permLink: string;
     exportPng: string;
     shareUrl: string;
     sizeGuide: string;

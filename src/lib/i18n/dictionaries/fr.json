@@ -37,6 +37,7 @@
     "blocksCount": "blocs",
     "copyBlocks": "Copier les blocs",
     "copyLink": "Copier le lien",
+    "permLink": "Copier le lien permanent",
     "exportPng": "Télécharger le PNG",
     "shareUrl": "Partager",
     "sizeGuide": "Guide des tailles",
