@@ -203,7 +203,7 @@ function toolHref(
 ): string {
   const base = locale === defaultLocale ? "/" : `/${locale}/`;
   if (type === "oval") return `${base}?t=oval&w=${w}&h=${h}`;
-  if (type === "torus") return `${base}?t=torus&d=${d}&tk=${t}`;
+  if (type === "torus") return `${base}?t=torus&d=${d}&tb=${t}`;
   if (type === "ellipsoid") return `${base}?t=ellipsoid&w=${w}&h=${h}&dp=${dp}`;
   return `${base}?t=${type}&d=${d}`;
 }

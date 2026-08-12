@@ -257,7 +257,6 @@ export default function ShapeControls({
               <button
                 key={n}
                 type="button"
-                title="16-block chunk-aligned size"
                 onClick={() => set({ d: n })}
                 className="mc-btn px-2! py-1!"
               >

@@ -1,6 +1,6 @@
 ﻿# CircleGen 鈥?Minecraft Circle Generator
 
-A free, SEO-optimized Minecraft shape generator. Block-by-block blueprints for circles, ovals, spheres, domes and arcs with live 3D preview, build-order animation, layer slicing and multi-format exports. Supports 11 languages and ships 2,900+ static pages.
+A free, SEO-optimized Minecraft shape generator. Block-by-block blueprints for circles, ovals, spheres, domes and arcs with live 3D preview, build-order animation, layer slicing and multi-format exports. Supports 11 languages and ships 3,100+ static pages.
 
 ## Features
 
@@ -24,7 +24,7 @@ npm install
 npm run dev       # local dev at http://localhost:3000
 npm test          # geometry engine unit tests (vitest)
 npm run lint
-npm run build     # static export to ./out (~2,900 pages)
+npm run build     # static export to ./out (~3,100 pages)
 ```
 
 ## Configuration (required before deploy)

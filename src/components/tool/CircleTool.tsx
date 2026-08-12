@@ -16,6 +16,11 @@ import {
 import type { Dictionary } from "@/lib/i18n/dictionaries";
 import { subpathLocales } from "@/lib/i18n/locales";
 import {
+  isEllipsoidCombo,
+  isTorusCombo,
+  OVAL_PAIRS,
+} from "@/lib/seo";
+import {
   generateShape,
   outlineCircle,
   shapeLimits,
@@ -76,7 +81,6 @@ function stateFromUrl(): ToolState {
 function mergeSaved(saved: Partial<ToolState> | null, next: ToolState): ToolState {
   if (!saved) return next;
   const merged = { ...next };
-  const urlType = new URLSearchParams(window.location.search).get("t");
   const fromUrl = new Set(["t", "d", "w", "h", "s", "b", "a", "g", "tk", "in", "cx", "cy", "cz", "tb", "dp"]);
   (Object.keys(saved) as (keyof ToolState)[]).forEach((key) => {
     if (fromUrl.has(key)) return;
@@ -88,7 +92,6 @@ function mergeSaved(saved: Partial<ToolState> | null, next: ToolState): ToolStat
       (merged as Record<string, unknown>)[key] = value;
     }
   });
-  void urlType;
   return merged;
 }
 
@@ -408,10 +411,14 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
   };
 
   const hasStaticPage =
-    state.type !== "arc" &&
-    state.type !== "sphere" &&
-    state.type !== "dome" &&
-    (state.type !== "circle" || state.style === "outline");
+    (state.type === "circle" && state.style === "outline" && state.d % 2 === 1) ||
+    (state.type === "oval" &&
+      OVAL_PAIRS.some(([pw, ph]) => pw === state.w && ph === state.h)) ||
+    (state.type === "sphere" && state.d % 2 === 1) ||
+    (state.type === "dome" && state.d % 2 === 1) ||
+    (state.type === "torus" && isTorusCombo(state.d, state.t)) ||
+    (state.type === "ellipsoid" &&
+      isEllipsoidCombo(state.w, state.h, state.dp));
 
   const placed = state.placed;
   const placedSet = useMemo(() => new Set(placed), [placed]);
