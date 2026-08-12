@@ -6,10 +6,9 @@ import { SITE_URL } from "@/lib/config";
 import { hreflangMap } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title:
-    "Minecraft Circle Generator — Build Perfect Circles, Ovals, Spheres & Domes",
+  title: "Minecraft Circle Generator — Circles & Spheres",
   description:
-    "Free Minecraft circle generator with block-by-block blueprints for circles, ovals, spheres, and domes. Live preview, build order animation, and PNG downloads for Java and Bedrock.",
+    "Free Minecraft circle generator with block-by-block pixel blueprints for circles, ovals, spheres, domes and arcs. Works for Java and Bedrock.",
   alternates: {
     canonical: SITE_URL + "/",
     languages: hreflangMap("/"),

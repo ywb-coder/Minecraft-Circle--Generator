@@ -191,11 +191,6 @@ export default async function ShapePage(
   const { d, w, h, path } = resolved;
   const dict = await getDictionary(locale);
   const shapeName = dict.tool[SHAPE_KEYS[type]];
-  const title = interpolate(dict.perSize.title, { shape: shapeName, d });
-  const description = interpolate(dict.perSize.desc, {
-    shape: shapeName,
-    d,
-  });
   const shape = generateShape(
     type === "oval"
       ? { type, w, h, style: "outline" }
@@ -203,6 +198,12 @@ export default async function ShapePage(
   );
   const layered = type === "sphere" || type === "dome";
   const blocks = layered ? shape.totalBlockCount : shape.blockCount;
+  const title = interpolate(dict.perSize.title, { shape: shapeName, d });
+  const description = interpolate(dict.perSize.desc, {
+    shape: shapeName,
+    d,
+    blocks,
+  });
   const use = nearestUse(dict, d);
   const related = relatedLinks(type, d);
   const others = otherShapeLinks(locale, type, d);
