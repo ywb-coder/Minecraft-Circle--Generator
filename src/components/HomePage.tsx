@@ -6,7 +6,6 @@ import {
   GITHUB_URL,
   HREFLANG_MAP,
   LAUNCH_DATE,
-  SITE_EMAIL,
   SITE_URL,
   SOURCES,
 } from "@/lib/config";
@@ -67,11 +66,10 @@ export default function HomePage({
     name: dict.siteName,
     url: SITE_URL,
     logo: `${SITE_URL}/favicon.png`,
-    email: SITE_EMAIL,
     sameAs: [GITHUB_URL],
     contactPoint: {
       "@type": "ContactPoint",
-      email: SITE_EMAIL,
+      url: SITE_URL + "/contact/",
       contactType: "customer support",
     },
   };

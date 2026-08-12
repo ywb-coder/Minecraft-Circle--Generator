@@ -3,7 +3,7 @@ import Link from "next/link";
 import SeoShell from "@/app/_seo/shell";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { defaultLocale } from "@/lib/i18n/locales";
-import { SITE_EMAIL, SITE_URL } from "@/lib/config";
+import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — Minecraft Circle Generator",
@@ -58,11 +58,8 @@ export default async function PrivacyPage() {
             </p>
             <p>
               <strong className="text-ink">Changes:</strong> if this policy
-              changes, it will be updated on this page. Questions? Email{" "}
-              <a href={`mailto:${SITE_EMAIL}`} className="pixel-link">
-                {SITE_EMAIL}
-              </a>
-              .
+              changes, it will be updated on this page. Questions? Use the
+              contact page or open an issue on GitHub.
             </p>
             <p>
               <Link href="/" className="pixel-link">

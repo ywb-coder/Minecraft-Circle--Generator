@@ -1,5 +1,6 @@
 "use client";
 
+import { useMemo } from "react";
 import type { Dispatch, SetStateAction } from "react";
 import type { Dictionary } from "@/lib/i18n/dictionaries";
 import { interpolate } from "@/lib/i18n/format";
@@ -31,11 +32,15 @@ export default function ShapeControls({
   const isArc = type === "arc";
   const isLayered = type === "sphere" || type === "dome";
 
-  const layerCount = isLayered
-    ? (type === "sphere" ? sphereLayers : domeLayers)(
-        clamp(state.d, limits.min, limits.max)
-      ).length
-    : 0;
+  const layerCount = useMemo(
+    () =>
+      isLayered
+        ? (type === "sphere" ? sphereLayers : domeLayers)(
+            clamp(state.d, limits.min, limits.max)
+          ).length
+        : 0,
+    [type, state.d, isLayered, limits.min, limits.max]
+  );
 
   const invalid = isOval
     ? state.w < limits.min || state.w > limits.max || state.h < limits.min || state.h > limits.max

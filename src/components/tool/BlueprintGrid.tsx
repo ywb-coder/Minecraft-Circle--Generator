@@ -1,3 +1,4 @@
+import { memo } from "react";
 import type { Point } from "@/lib/shapes";
 
 const CONTEXT_FILL = "rgba(251,191,36,0.25)";
@@ -19,7 +20,7 @@ function buildPathData(
   return d;
 }
 
-export default function BlueprintGrid({
+const BlueprintGrid = memo(function BlueprintGrid({
   points,
   sizeW,
   sizeH,
@@ -42,7 +43,7 @@ export default function BlueprintGrid({
   const contextSet = context ? new Set(context.map((p) => `${p.x},${p.y}`)) : null;
   const highlightKey = highlight ? `${highlight.x},${highlight.y}` : null;
 
-  if (sizeW * sizeH > 4096) {
+  if (sizeW * sizeH > 2048) {
     const cell = Math.max(1, Math.min(24, Math.floor(448 / sizeW)));
     const ox = Math.floor(sizeW / 2);
     const topBase = sizeH - 1 - Math.floor(sizeH / 2);
@@ -155,4 +156,6 @@ export default function BlueprintGrid({
       </div>
     </div>
   );
-}
+});
+
+export default BlueprintGrid;

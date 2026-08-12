@@ -25,7 +25,6 @@ export const HREFLANG_LOCALES = [
   "zh",
 ] as const;
 
-export const SITE_EMAIL = "contact@minecraftcirclegenerator.vercel.app";
 export const GITHUB_URL =
   "https://github.com/ywb-coder/Minecraft-Circle--Generator";
 export const LAUNCH_DATE = "2026-01-01";

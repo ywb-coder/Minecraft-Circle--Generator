@@ -3,7 +3,7 @@ import Link from "next/link";
 import SeoShell from "@/app/_seo/shell";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { defaultLocale } from "@/lib/i18n/locales";
-import { GITHUB_URL, SITE_EMAIL, SOURCES, SITE_URL } from "@/lib/config";
+import { GITHUB_URL, SOURCES, SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "About — Minecraft Circle Generator",
@@ -86,7 +86,7 @@ export default async function AboutPage() {
             <Link href="/contact/" className="pixel-link">
               contact page
             </Link>{" "}
-            or by email at {SITE_EMAIL}.
+            or by opening an issue on GitHub.
           </p>
         </section>
       </div>

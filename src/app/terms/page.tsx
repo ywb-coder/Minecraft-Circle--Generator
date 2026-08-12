@@ -3,7 +3,7 @@ import Link from "next/link";
 import SeoShell from "@/app/_seo/shell";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { defaultLocale } from "@/lib/i18n/locales";
-import { SITE_EMAIL, SITE_URL } from "@/lib/config";
+import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Terms of Use — Minecraft Circle Generator",
@@ -47,11 +47,8 @@ export default async function TermsPage() {
               permission.
             </p>
             <p>
-              <strong className="text-ink">Questions:</strong> email{" "}
-              <a href={`mailto:${SITE_EMAIL}`} className="pixel-link">
-                {SITE_EMAIL}
-              </a>
-              .
+              <strong className="text-ink">Questions:</strong> use the contact
+              page.
             </p>
             <p>
               <Link href="/" className="pixel-link">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { getBlock } from "@/lib/blocks";
 import {
   blocksText,
@@ -229,6 +229,10 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
 
   const hasStaticPage = state.type !== "arc";
 
+  const handleLayerSelect = useCallback((index: number) => {
+    setState((s) => ({ ...s, layerIndex: index }));
+  }, [setState]);
+
   return (
     <div className="grid gap-4 lg:grid-cols-[340px_1fr]">
       <div className="flex flex-col gap-4">
@@ -284,7 +288,7 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
               activeIndex={layerIndex}
               color={color}
               dict={dict}
-              onSelect={(i) => setState((s) => ({ ...s, layerIndex: i }))}
+              onSelect={handleLayerSelect}
             />
           ) : (
             <BlueprintGrid

@@ -16,7 +16,7 @@ export interface ToolState {
 
 export const DEFAULT_STATE: ToolState = {
   type: "circle",
-  d: 15,
+  d: 25,
   w: 25,
   h: 13,
   style: "outline",

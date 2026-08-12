@@ -1,3 +1,4 @@
+import { memo } from "react";
 import type { Dictionary } from "@/lib/i18n/dictionaries";
 import type { Point } from "@/lib/shapes";
 
@@ -26,7 +27,7 @@ function layerPath(points: Point[]): { d: string; w: number; h: number; cell: nu
   return { d, w, h, cell };
 }
 
-export default function LayerStack({
+export default memo(function LayerStack({
   layers,
   activeIndex,
   color,
@@ -64,7 +65,7 @@ export default function LayerStack({
       })}
     </div>
   );
-}
+});
 
 function LayerMini({ points, color }: { points: Point[]; color: string }) {
   if (points.length === 0) {

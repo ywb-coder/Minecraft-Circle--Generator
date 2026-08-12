@@ -3,7 +3,7 @@ import Link from "next/link";
 import SeoShell from "@/app/_seo/shell";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { defaultLocale } from "@/lib/i18n/locales";
-import { GITHUB_URL, SITE_EMAIL, SITE_URL } from "@/lib/config";
+import { GITHUB_URL, SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Contact — Minecraft Circle Generator",
@@ -29,22 +29,15 @@ export default async function ContactPage() {
           </p>
           <ul className="mt-4 space-y-3 text-sm leading-7 text-ink">
             <li>
-              Email:{" "}
-              <a href={`mailto:${SITE_EMAIL}`} className="pixel-link">
-                {SITE_EMAIL}
-              </a>
-            </li>
-            <li>
-              GitHub:{" "}
               <a
-                href={GITHUB_URL}
+                href={`${GITHUB_URL}/issues`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="pixel-link"
               >
-                ywb-coder/Minecraft-Circle--Generator
-              </a>{" "}
-              (issues and pull requests welcome)
+                Report a bug or request a feature — issues are public and
+                tracked
+              </a>
             </li>
           </ul>
         </section>

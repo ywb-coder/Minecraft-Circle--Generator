@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from "react";
+import { memo, useEffect, useMemo, useRef } from "react";
 import type { ShapeResult } from "@/lib/shapes";
 
 function shade(hex: string, factor: number): string {
@@ -9,21 +9,27 @@ function shade(hex: string, factor: number): string {
   return `rgb(${r},${g},${b})`;
 }
 
-function drawCube(
-  ctx: CanvasRenderingContext2D,
-  x: number,
-  y: number,
-  z: number,
-  base: string,
-  s: number
-) {
+interface Cube {
+  x: number;
+  y: number;
+  z: number;
+}
+
+const spriteCache = new Map<string, HTMLCanvasElement>();
+
+function buildSprite(color: string, s: number): HTMLCanvasElement {
   const cos30 = Math.sqrt(3) / 2;
   const sin30 = 0.5;
-  const x0 = x * s * cos30 + z * s * cos30;
-  const y0 = -x * s * sin30 + z * s * sin30 - y * s;
   const dx = s * cos30;
   const dy = s * sin30;
-  ctx.fillStyle = shade(base, 1.25);
+  const canvas = document.createElement("canvas");
+  canvas.width = Math.ceil(2 * dx) + 2;
+  canvas.height = Math.ceil(2 * dy + s) + 2;
+  const ctx = canvas.getContext("2d");
+  const x0 = 1;
+  const y0 = 1 + dy;
+  if (!ctx) return canvas;
+  ctx.fillStyle = shade(color, 1.25);
   ctx.beginPath();
   ctx.moveTo(x0, y0);
   ctx.lineTo(x0 + dx, y0 - dy);
@@ -31,7 +37,7 @@ function drawCube(
   ctx.lineTo(x0 + dx, y0 + dy);
   ctx.closePath();
   ctx.fill();
-  ctx.fillStyle = shade(base, 0.65);
+  ctx.fillStyle = shade(color, 0.65);
   ctx.beginPath();
   ctx.moveTo(x0 + dx, y0 - dy);
   ctx.lineTo(x0 + dx + dx, y0);
@@ -39,7 +45,7 @@ function drawCube(
   ctx.lineTo(x0 + dx, y0 - dy + s);
   ctx.closePath();
   ctx.fill();
-  ctx.fillStyle = shade(base, 0.45);
+  ctx.fillStyle = shade(color, 0.45);
   ctx.beginPath();
   ctx.moveTo(x0, y0);
   ctx.lineTo(x0 + dx, y0 + dy);
@@ -47,12 +53,17 @@ function drawCube(
   ctx.lineTo(x0, y0 + s);
   ctx.closePath();
   ctx.fill();
+  return canvas;
 }
 
-interface Cube {
-  x: number;
-  y: number;
-  z: number;
+function getSprite(color: string, s: number): HTMLCanvasElement {
+  const key = `${color}|${Math.round(s * 100)}`;
+  let sprite = spriteCache.get(key);
+  if (!sprite) {
+    sprite = buildSprite(color, s);
+    spriteCache.set(key, sprite);
+  }
+  return sprite;
 }
 
 /**
@@ -84,7 +95,7 @@ function cubeCorners(
   ];
 }
 
-export default function IsoPreview({
+function IsoPreview({
   shape,
   color,
 }: {
@@ -93,24 +104,30 @@ export default function IsoPreview({
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  const getCubes = useCallback((): Cube[] => {
-    const cubes: Cube[] = [];
+  const cubes = useMemo(() => {
+    const arr: Cube[] = [];
     if (shape.layers.length > 0) {
       const zs = shape.layers.map((l) => l.z);
       const minZ = Math.min(...zs);
       for (const layer of shape.layers) {
         const wy = layer.z - minZ;
         for (const p of layer.points) {
-          cubes.push({ x: p.x, y: wy, z: p.y });
+          arr.push({ x: p.x, y: wy, z: p.y });
         }
       }
     } else {
       for (const p of shape.points) {
-        cubes.push({ x: p.x, y: 0, z: p.y });
+        arr.push({ x: p.x, y: 0, z: p.y });
       }
     }
-    return cubes;
+    return arr;
   }, [shape]);
+
+  const sorted = useMemo(() => {
+    const step = Math.ceil(cubes.length / 8000);
+    const arr = step > 1 ? cubes.filter((_, i) => i % step === 0) : [...cubes];
+    return arr.sort((a, b) => b.x + b.z + b.y - (a.x + a.z + a.y));
+  }, [cubes]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -119,6 +136,11 @@ export default function IsoPreview({
     if (!ctx) return;
 
     const dpr = window.devicePixelRatio || 1;
+    const cos30 = Math.sqrt(3) / 2;
+    const sin30 = 0.5;
+    let rafId = 0;
+    let pending = false;
+
     const render = () => {
       const rect = canvas.getBoundingClientRect();
       const w = rect.width;
@@ -130,7 +152,6 @@ export default function IsoPreview({
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, w, h);
 
-      const cubes = getCubes();
       if (cubes.length === 0) return;
       let minX = Infinity;
       let maxX = -Infinity;
@@ -151,17 +172,31 @@ export default function IsoPreview({
       const oy = h / 2 - ((minY + maxY) / 2) * s;
       ctx.translate(ox, oy);
 
-      const sorted = [...cubes].sort((a, b) => b.x + b.z + b.y - (a.x + a.z + a.y));
+      const sprite = getSprite(color, s);
+      const dy = s * sin30;
       for (const c of sorted) {
-        drawCube(ctx, c.x, c.z, c.y, color, s);
+        const x0 = (c.x + c.z) * cos30 * s;
+        const y0 = (-c.x + c.z) * sin30 * s - c.y * s;
+        ctx.drawImage(sprite, x0 - 1, y0 - dy - 1);
       }
     };
 
-    render();
-    const onResize = () => render();
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, [getCubes, color, shape]);
+    const scheduleDraw = () => {
+      if (pending) return;
+      pending = true;
+      rafId = requestAnimationFrame(() => {
+        pending = false;
+        render();
+      });
+    };
+
+    scheduleDraw();
+    window.addEventListener("resize", scheduleDraw);
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener("resize", scheduleDraw);
+    };
+  }, [cubes, sorted, color]);
 
   return (
     <div className="mc-panel-inset pixel-corners relative aspect-square w-full overflow-hidden">
@@ -169,3 +204,5 @@ export default function IsoPreview({
     </div>
   );
 }
+
+export default memo(IsoPreview);
