@@ -4,6 +4,9 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  verification: {
+    google: "google59dae63d03160853.html",
+  },
   title: {
     default: "Minecraft Circle Generator — Circles & Spheres",
     template: "%s | CircleGen",
