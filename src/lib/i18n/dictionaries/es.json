@@ -3,9 +3,9 @@
   "tagline": "Generador de Círculos de Minecraft",
   "nav": {
     "tool": "Generador",
-    "blog": "Blog",
     "about": "Acerca de"
-  },
+  ,
+    "faq": "FAQ"},
   "hero": {
     "title": "Construye círculos perfectos en Minecraft",
     "subtitle": "Genera planos bloque a bloque para círculos, óvalos, esferas y cúpulas — con vista previa en vivo, animación del orden de construcción y descargas PNG para Java y Bedrock."
@@ -15,6 +15,7 @@
     "width": "Ancho",
     "height": "Alto",
     "shape": "Forma",
+    "style": "Estilo",
     "circle": "Círculo",
     "oval": "Óvalo",
     "sphere": "Esfera",
@@ -25,6 +26,7 @@
     "filled": "Relleno",
     "block": "Bloque",
     "blockColors": "Colores de bloque",
+    "sizeUse": "Para qué",
     "angleStart": "Ángulo inicial",
     "angleSpan": "Ángulo",
     "preview": "Vista previa",
@@ -63,10 +65,6 @@
     "openTool": "Abrir en el generador",
     "related": "Tamaños relacionados",
     "otherShapes": "Otras formas"
-  },
-  "blog": {
-    "title": "Guías de construcción de Minecraft",
-    "readMore": "Leer más"
   },
   "faq": {
     "title": "Preguntas frecuentes",

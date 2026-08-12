@@ -63,7 +63,7 @@ export default function ShapeControls({
           value={clamp(value, limits.min, limits.max)}
           onChange={(e) => set({ [key]: Number(e.target.value) })}
           className="w-full"
-          style={{ accentColor: "#fbbf24" }}
+          style={{ accentColor: "var(--accent)" }}
         />
       </div>
     </label>
@@ -79,7 +79,7 @@ export default function ShapeControls({
               key={s}
               type="button"
               onClick={() => set({ type: s })}
-              className={`mc-btn !px-2 !py-1 ${type === s ? "mc-btn-selected" : ""}`}
+              className={`mc-btn px-2! py-1! ${type === s ? "mc-btn-selected" : ""}`}
             >
               {dict.tool[s]}
             </button>
@@ -89,13 +89,14 @@ export default function ShapeControls({
 
       {!isArc && (
         <fieldset>
+          <legend className="font-pixel text-[10px] text-muted">{dict.tool.style}</legend>
           <div className="mt-2 flex flex-wrap gap-1.5">
             {STYLES.map((st) => (
               <button
                 key={st}
                 type="button"
                 onClick={() => set({ style: st })}
-                className={`mc-btn !px-2 !py-1 ${state.style === st ? "mc-btn-selected" : ""}`}
+                className={`mc-btn px-2! py-1! ${state.style === st ? "mc-btn-selected" : ""}`}
               >
                 {dict.tool[st]}
               </button>
@@ -134,7 +135,7 @@ export default function ShapeControls({
                   value={state.start}
                   onChange={(e) => set({ start: Number(e.target.value) })}
                   className="w-full"
-                  style={{ accentColor: "#fbbf24" }}
+                  style={{ accentColor: "var(--accent)" }}
                 />
               </div>
             </label>
@@ -146,7 +147,7 @@ export default function ShapeControls({
                     key={s}
                     type="button"
                     onClick={() => set({ span: s })}
-                    className={`mc-btn !px-2 !py-1 ${state.span === s ? "mc-btn-selected" : ""}`}
+                    className={`mc-btn px-2! py-1! ${state.span === s ? "mc-btn-selected" : ""}`}
                   >
                     {s}°
                   </button>
@@ -172,7 +173,7 @@ export default function ShapeControls({
             value={clamp(state.layerIndex, 0, Math.max(0, layerCount - 1))}
             onChange={(e) => set({ layerIndex: Number(e.target.value) })}
             className="mt-1 w-full"
-            style={{ accentColor: "#fbbf24" }}
+            style={{ accentColor: "var(--accent)" }}
           />
         </label>
       )}

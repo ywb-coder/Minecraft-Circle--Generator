@@ -23,10 +23,10 @@ export default function BuildOrderBar({
 }) {
   return (
     <div className="flex w-full flex-wrap items-center gap-3">
-      <button type="button" className="mc-btn !px-2 !py-1" onClick={onToggle}>
+      <button type="button" className="mc-btn px-2! py-1!" onClick={onToggle}>
         {playing ? "⏸" : "▶"}
       </button>
-      <button type="button" className="mc-btn !px-2 !py-1" onClick={onReset}>
+      <button type="button" className="mc-btn px-2! py-1!" onClick={onReset}>
         ↺
       </button>
       <div className="flex min-w-[160px] flex-1 items-center gap-2">
@@ -39,7 +39,7 @@ export default function BuildOrderBar({
           value={speed}
           onChange={(e) => onSpeed(Number(e.target.value))}
           className="w-full"
-          style={{ accentColor: "#fbbf24" }}
+          style={{ accentColor: "var(--accent)" }}
         />
         <span className="font-terminal text-lg text-ink">{speed}x</span>
       </div>

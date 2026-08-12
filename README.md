@@ -8,8 +8,7 @@ A free, SEO-optimized Minecraft shape generator. Block-by-block blueprints for c
 - **Live tool**: interactive blueprint grid, isometric 3D preview, build-order animation, layer-by-layer slicing for spheres/domes, 45-block color palette
 - **Exports**: PNG, SVG, CSV, JSON, copy coordinates, shareable URL state
 - **i18n**: en / de / es / fr / pt / tr / it / ru / pl / id / zh
-- **SEO**: static export (`output: export`), per-size pages `/circle/5` … `/circle/256` (plus sphere/dome/oval), hreflang alternates, JSON-LD (WebApplication, FAQPage, BreadcrumbList, Article, HowTo), sitemap + robots
-- **Blog**: 15 original building-guide articles with internal links
+- **SEO**: static export (`output: export`), per-size pages `/circle/5` … `/circle/256` (plus sphere/dome/oval), hreflang alternates, JSON-LD (WebApplication, FAQPage, BreadcrumbList, HowTo), sitemap + robots
 
 ## Tech stack
 
@@ -64,7 +63,7 @@ Any static host works — the build output is plain HTML in `./out`.
 
 ```
 src/
-├── app/                 # routes: / (en), /[locale], /circle|sphere|dome|oval/[d], /blog, sitemap, robots
+├── app/                 # routes: / (en), /[locale], /circle|sphere|dome|oval/[d], sitemap, robots
 │   ├── _seo/            # shared SEO-page components (blueprint grid, shell, JSON-LD)
 │   └── [locale]/        # 10 subpath locales (zh/de/es/fr/pt/tr/it/ru/pl/id)
 ├── components/
@@ -77,5 +76,4 @@ src/
 │   ├── blocks.ts        # 45-block palette
 │   ├── seo.ts           # per-size ranges, hreflang map, sitemap helpers
 │   └── config.ts        # SITE_URL + hreflang configuration
-└── content/blog/        # 15 markdown articles
 ```

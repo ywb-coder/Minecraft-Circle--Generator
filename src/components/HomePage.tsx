@@ -39,7 +39,7 @@ export default function HomePage({
             className="flex items-center gap-3"
           >
             <span className="grid h-8 w-8 place-items-center bg-accent shadow-[3px_3px_0_rgba(0,0,0,0.5)]">
-              <span className="font-pixel text-[8px] text-[#1a1205]">CG</span>
+              <span className="font-pixel text-[8px] text-(--accent-ink)">CG</span>
             </span>
             <span className="font-pixel text-[10px] text-ink">
               {dict.siteName}
@@ -49,11 +49,8 @@ export default function HomePage({
             <a href="#tool" className="font-pixel text-[10px] text-ink hover:text-accent">
               {dict.nav.tool}
             </a>
-            <Link href="/blog/" className="font-pixel text-[10px] text-ink hover:text-accent">
-              {dict.nav.blog}
-            </Link>
             <a href="#faq" className="font-pixel text-[10px] text-ink hover:text-accent">
-              {dict.nav.about}
+              {dict.nav.faq}
             </a>
             <LangSwitcher locale={locale} />
           </nav>

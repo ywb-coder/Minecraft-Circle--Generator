@@ -1,24 +1,6 @@
 import { SITE_URL, HREFLANG_LOCALES, HREFLANG_MAP } from "./config";
 import { defaultLocale } from "./i18n/locales";
 
-export const BLOG_SLUGS = [
-  "how-to-build-a-circle-in-minecraft",
-  "minecraft-circle-chart-explained",
-  "how-to-build-a-sphere-in-minecraft",
-  "how-to-build-a-dome-in-minecraft",
-  "how-to-build-an-oval-in-minecraft",
-  "best-minecraft-fountain-designs",
-  "how-to-build-a-minecraft-tower",
-  "minecraft-stadium-build-guide",
-  "minecraft-cherry-blossom-house-designs",
-  "minecraft-japanese-tea-house-design",
-  "how-to-build-a-minecraft-castle",
-  "minecraft-garden-designs-with-circles",
-  "how-to-build-a-circular-pool",
-  "minecraft-pixel-art-techniques",
-  "minecraft-mega-build-ideas",
-] as const;
-
 export const OVAL_PAIRS = [
   [15, 7],
   [21, 9],
@@ -34,15 +16,15 @@ export const OVAL_PAIRS = [
   [121, 61],
 ] as const;
 
-function range(min: number, max: number): number[] {
+function oddRange(min: number, max: number): number[] {
   const values: number[] = [];
-  for (let n = min; n <= max; n++) values.push(n);
+  for (let n = min; n <= max; n += 2) values.push(n);
   return values;
 }
 
-export const circleDiameters = range(5, 256);
-export const sphereDiameters = range(5, 128);
-export const domeDiameters = range(5, 128);
+export const circleDiameters = oddRange(5, 255);
+export const sphereDiameters = oddRange(5, 127);
+export const domeDiameters = oddRange(5, 127);
 
 export function parsePositiveInt(value: string | undefined): number | null {
   if (value === undefined || !/^\d+$/.test(value)) return null;

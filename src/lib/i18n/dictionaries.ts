@@ -5,8 +5,8 @@ export interface Dictionary {
   tagline: string;
   nav: {
     tool: string;
-    blog: string;
     about: string;
+    faq: string;
   };
   hero: {
     title: string;
@@ -17,6 +17,7 @@ export interface Dictionary {
     width: string;
     height: string;
     shape: string;
+    style: string;
     circle: string;
     oval: string;
     sphere: string;
@@ -27,6 +28,7 @@ export interface Dictionary {
     filled: string;
     block: string;
     blockColors: string;
+    sizeUse: string;
     angleStart: string;
     angleSpan: string;
     preview: string;
@@ -56,10 +58,6 @@ export interface Dictionary {
     openTool: string;
     related: string;
     otherShapes: string;
-  };
-  blog: {
-    title: string;
-    readMore: string;
   };
   faq: {
     title: string;

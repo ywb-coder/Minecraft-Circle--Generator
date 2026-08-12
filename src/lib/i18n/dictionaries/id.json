@@ -3,9 +3,9 @@
   "tagline": "Pembuat Lingkaran Minecraft",
   "nav": {
     "tool": "Generator",
-    "blog": "Blog",
     "about": "Tentang"
-  },
+  ,
+    "faq": "FAQ"},
   "hero": {
     "title": "Bangun Lingkaran Sempurna di Minecraft",
     "subtitle": "Buat cetak biru blok demi blok untuk lingkaran, oval, bola, dan kubah — dengan pratinjau langsung, animasi urutan bangun, dan unduhan PNG untuk Java dan Bedrock."
@@ -15,6 +15,7 @@
     "width": "Lebar",
     "height": "Tinggi",
     "shape": "Bentuk",
+    "style": "Gaya",
     "circle": "Lingkaran",
     "oval": "Oval",
     "sphere": "Bola",
@@ -25,6 +26,7 @@
     "filled": "Penuh",
     "block": "Blok",
     "blockColors": "Warna blok",
+    "sizeUse": "Untuk apa",
     "angleStart": "Sudut awal",
     "angleSpan": "Sudut",
     "preview": "Pratinjau",
@@ -63,10 +65,6 @@
     "openTool": "Buka di generator",
     "related": "Ukuran terkait",
     "otherShapes": "Bentuk lain"
-  },
-  "blog": {
-    "title": "Panduan Membangun Minecraft",
-    "readMore": "Baca selengkapnya"
   },
   "faq": {
     "title": "Pertanyaan yang sering diajukan",

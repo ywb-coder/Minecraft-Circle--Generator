@@ -15,6 +15,7 @@ import {
 import type { Dictionary } from "@/lib/i18n/dictionaries";
 import {
   generateShape,
+  outlineCircle,
   shapeLimits,
   type CircleStyle,
   type ShapeType,
@@ -23,6 +24,7 @@ import BlockPalette from "./BlockPalette";
 import BlueprintGrid from "./BlueprintGrid";
 import BuildOrderBar from "./BuildOrderBar";
 import IsoPreview from "./IsoPreview";
+import LayerStack from "./LayerStack";
 import ShapeControls from "./ShapeControls";
 import SizeGuideTable from "./SizeGuideTable";
 import { clamp, DEFAULT_STATE, toInt, type ToolState } from "./tool-state";
@@ -53,11 +55,16 @@ function stateFromUrl(): ToolState {
 }
 
 export default function CircleTool({ dict }: { dict: Dictionary }) {
-  const [state, setState] = useState<ToolState>(stateFromUrl);
+  const [state, setState] = useState<ToolState>(DEFAULT_STATE);
   const [tab, setTab] = useState<Tab>("blueprint");
   const [orderIndex, setOrderIndex] = useState(0);
   const [copied, setCopied] = useState(false);
   const skipFirstWrite = useRef(true);
+
+  useEffect(() => {
+    const id = window.setTimeout(() => setState(stateFromUrl), 0);
+    return () => window.clearTimeout(id);
+  }, []);
 
   useEffect(() => {
     if (skipFirstWrite.current) {
@@ -224,7 +231,7 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
               key={t}
               type="button"
               onClick={() => setTab(t)}
-              className={`mc-btn !px-3 !py-1 ${tab === t ? "mc-btn-selected" : ""}`}
+              className={`mc-btn px-3! py-1! ${tab === t ? "mc-btn-selected" : ""}`}
             >
               {dict.tool[t === "build" ? "buildOrder" : t]}
             </button>
@@ -255,6 +262,14 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
                 dict={dict}
               />
             </>
+          ) : state.type === "sphere" || state.type === "dome" ? (
+            <LayerStack
+              layers={shape.layers}
+              activeIndex={layerIndex}
+              color={color}
+              dict={dict}
+              onSelect={(i) => setState((s) => ({ ...s, layerIndex: i }))}
+            />
           ) : (
             <BlueprintGrid
               points={points}
@@ -262,10 +277,16 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
               sizeH={bounds.sizeH}
               color={color}
               label={dict.tool.blueprint}
+              context={
+                state.type === "arc" ? outlineCircle(state.d) : undefined
+              }
             />
           )}
           <p className="font-terminal text-3xl text-accent">
-            {blockCount} {dict.tool.blocksCount}
+            {state.type === "sphere" || state.type === "dome"
+              ? `${blockCount} / ${shape.totalBlockCount}`
+              : blockCount}{" "}
+            {dict.tool.blocksCount}
           </p>
         </div>
 
@@ -274,22 +295,22 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
         )}
 
         <div className="flex flex-wrap gap-1.5">
-          <button type="button" className="mc-btn mc-btn-primary !px-2 !py-1" onClick={handlePng}>
+          <button type="button" className="mc-btn mc-btn-primary px-2! py-1!" onClick={handlePng}>
             {dict.tool.exportPng}
           </button>
-          <button type="button" className="mc-btn !px-2 !py-1" onClick={handleSvg}>
+          <button type="button" className="mc-btn px-2! py-1!" onClick={handleSvg}>
             SVG
           </button>
-          <button type="button" className="mc-btn !px-2 !py-1" onClick={handleCsv}>
+          <button type="button" className="mc-btn px-2! py-1!" onClick={handleCsv}>
             CSV
           </button>
-          <button type="button" className="mc-btn !px-2 !py-1" onClick={handleJson}>
+          <button type="button" className="mc-btn px-2! py-1!" onClick={handleJson}>
             JSON
           </button>
-          <button type="button" className="mc-btn !px-2 !py-1" onClick={handleCopyBlocks}>
+          <button type="button" className="mc-btn px-2! py-1!" onClick={handleCopyBlocks}>
             {dict.tool.copyBlocks}
           </button>
-          <button type="button" className="mc-btn !px-2 !py-1" onClick={handleCopyLink}>
+          <button type="button" className="mc-btn px-2! py-1!" onClick={handleCopyLink}>
             {dict.tool.copyLink}
           </button>
         </div>

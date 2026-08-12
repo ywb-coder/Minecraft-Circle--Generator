@@ -3,9 +3,9 @@
   "tagline": "Generatore di Cerchi per Minecraft",
   "nav": {
     "tool": "Generatore",
-    "blog": "Blog",
     "about": "Info"
-  },
+  ,
+    "faq": "FAQ"},
   "hero": {
     "title": "Costruisci cerchi perfetti in Minecraft",
     "subtitle": "Genera progetti blocco per blocco per cerchi, ovali, sfere e cupole — con anteprima dal vivo, animazione dell'ordine di costruzione e download PNG per Java e Bedrock."
@@ -15,6 +15,7 @@
     "width": "Larghezza",
     "height": "Altezza",
     "shape": "Forma",
+    "style": "Stile",
     "circle": "Cerchio",
     "oval": "Ovale",
     "sphere": "Sfera",
@@ -25,6 +26,7 @@
     "filled": "Pieno",
     "block": "Blocco",
     "blockColors": "Colori dei blocchi",
+    "sizeUse": "Per cosa",
     "angleStart": "Angolo iniziale",
     "angleSpan": "Angolo",
     "preview": "Anteprima",
@@ -63,10 +65,6 @@
     "openTool": "Apri nel generatore",
     "related": "Dimensioni correlate",
     "otherShapes": "Altre forme"
-  },
-  "blog": {
-    "title": "Guide di costruzione di Minecraft",
-    "readMore": "Leggi tutto"
   },
   "faq": {
     "title": "Domande frequenti",

@@ -243,8 +243,7 @@ export default async function ShapePage(
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="mc-btn px-3 py-1.5 text-[10px]"
-                  style={{ padding: "6px 12px" }}
+                  className="mc-btn px-2! py-1! text-[10px]"
                 >
                   {link.label}
                 </Link>
@@ -262,8 +261,7 @@ export default async function ShapePage(
               <Link
                 key={link.href}
                 href={link.href}
-                className="mc-btn px-3 py-1.5 text-[10px]"
-                style={{ padding: "6px 12px" }}
+                className="mc-btn px-2! py-1! text-[10px]"
               >
                 {dict.tool[link.labelKey]}
               </Link>

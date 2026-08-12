@@ -15,6 +15,7 @@ export const ARC_SPANS = [45, 90, 135, 180, 270] as const;
  * arc stays connected.
  */
 export function arcPoints(d: number, start: number, span: number): Point[] {
+  if (span % 360 === 0) return span === 0 ? [] : outlineCircle(d);
   const r = (d - 1) / 2;
   const a0 = ((start % 360) * Math.PI) / 180;
   const a1 = (((start + span) % 360) * Math.PI) / 180;

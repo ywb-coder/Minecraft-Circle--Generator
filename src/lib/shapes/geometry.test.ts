@@ -203,6 +203,14 @@ describe("sphere and dome", () => {
 });
 
 describe("arc", () => {
+  it("span=0 returns an empty list", () => {
+    expect(arcPoints(15, 0, 0)).toHaveLength(0);
+  });
+
+  it("full 360° arc equals the outline circle", () => {
+    expect(arcPoints(15, 30, 360)).toEqual(outlineCircle(15));
+  });
+
   it("90° arc of d=15 has ~10 blocks (quarter of 40)", () => {
     const points = arcPoints(15, 0, 90);
     expect(points.length).toBeGreaterThanOrEqual(9);

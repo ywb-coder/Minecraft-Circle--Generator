@@ -3,9 +3,9 @@
   "tagline": "Minecraft Daire Oluşturucu",
   "nav": {
     "tool": "Oluşturucu",
-    "blog": "Blog",
     "about": "Hakkında"
-  },
+  ,
+    "faq": "SSS"},
   "hero": {
     "title": "Minecraft'ta Mükemmel Daireler İnşa Edin",
     "subtitle": "Daireler, ovaller, küreler ve kubbeler için blok blok planlar oluşturun — canlı önizleme, inşa sırası animasyonu ve Java ile Bedrock için PNG indirmeleriyle."
@@ -15,6 +15,7 @@
     "width": "Genişlik",
     "height": "Yükseklik",
     "shape": "Şekil",
+    "style": "Stil",
     "circle": "Daire",
     "oval": "Oval",
     "sphere": "Küre",
@@ -25,6 +26,7 @@
     "filled": "Dolu",
     "block": "Blok",
     "blockColors": "Blok renkleri",
+    "sizeUse": "Ne için",
     "angleStart": "Başlangıç açısı",
     "angleSpan": "Açı",
     "preview": "Önizleme",
@@ -63,10 +65,6 @@
     "openTool": "Oluşturucuda aç",
     "related": "İlgili boyutlar",
     "otherShapes": "Diğer şekiller"
-  },
-  "blog": {
-    "title": "Minecraft İnşa Rehberleri",
-    "readMore": "Devamını oku"
   },
   "faq": {
     "title": "Sık sorulan sorular",

@@ -11,7 +11,7 @@ export default function SizeGuideTable({ dict }: { dict: Dictionary }) {
               {dict.tool.diameter}
             </th>
             <th className="pb-2 font-pixel text-[10px] text-muted">
-              {dict.tool.sizeGuide}
+              {dict.tool.sizeUse}
             </th>
           </tr>
         </thead>

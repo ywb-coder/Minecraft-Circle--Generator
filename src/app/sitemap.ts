@@ -4,7 +4,6 @@ export const dynamic = "force-static";
 
 import { HREFLANG_LOCALES } from "@/lib/config";
 import {
-  BLOG_SLUGS,
   circleDiameters,
   domeDiameters,
   hreflangMap,
@@ -66,13 +65,6 @@ for (const locale of HREFLANG_LOCALES) {
   }
 }
 
-const blogEntries: MetadataRoute.Sitemap = BLOG_SLUGS.map((slug) => ({
-  url: localizedUrl(`/blog/${slug}`, "en"),
-  lastModified: new Date(),
-  changeFrequency: "monthly",
-  priority: 0.7,
-}));
-
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [...homeEntries, ...shapeEntries, ...blogEntries];
+  return [...homeEntries, ...shapeEntries];
 }

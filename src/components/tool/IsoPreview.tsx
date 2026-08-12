@@ -55,6 +55,35 @@ interface Cube {
   z: number;
 }
 
+/**
+ * Projected corner points of a cube drawn with the same math as drawCube.
+ * Top face: (x0,y0), (x0+dx,y0-dy), (x0+2dx,y0), (x0+dx,y0+dy);
+ * bottom face: top face + (0, s).
+ */
+function cubeCorners(
+  x: number,
+  y: number,
+  z: number,
+  s: number
+): [number, number][] {
+  const cos30 = Math.sqrt(3) / 2;
+  const sin30 = 0.5;
+  const x0 = (x + z) * cos30 * s;
+  const y0 = (-x + z) * sin30 * s - y * s;
+  const dx = s * cos30;
+  const dy = s * sin30;
+  return [
+    [x0, y0],
+    [x0 + dx, y0 - dy],
+    [x0 + 2 * dx, y0],
+    [x0 + dx, y0 + dy],
+    [x0, y0 + s],
+    [x0 + dx, y0 - dy + s],
+    [x0 + 2 * dx, y0 + s],
+    [x0 + dx, y0 + dy + s],
+  ];
+}
+
 export default function IsoPreview({
   shape,
   color,
@@ -69,14 +98,12 @@ export default function IsoPreview({
     if (shape.layers.length > 0) {
       const zs = shape.layers.map((l) => l.z);
       const minZ = Math.min(...zs);
-      const maxZ = Math.max(...zs);
       for (const layer of shape.layers) {
         const wy = layer.z - minZ;
         for (const p of layer.points) {
           cubes.push({ x: p.x, y: wy, z: p.y });
         }
       }
-      void maxZ;
     } else {
       for (const p of shape.points) {
         cubes.push({ x: p.x, y: 0, z: p.y });
@@ -105,16 +132,23 @@ export default function IsoPreview({
 
       const cubes = getCubes();
       if (cubes.length === 0) return;
-      const span = Math.max(shape.width, shape.height, shape.depth) + 2;
-      const s = Math.min(w, h) / (span * 1.4);
-      const cos30 = Math.sqrt(3) / 2;
-      const minX = Math.min(...cubes.map((c) => c.x));
-      const maxX = Math.max(...cubes.map((c) => c.x));
-      const minZ = Math.min(...cubes.map((c) => c.z));
-      const maxZ = Math.max(...cubes.map((c) => c.z));
-      const cx = ((minX + maxX) / 2) * s * cos30;
-      const ox = w / 2 - cx;
-      const oy = h / 2 + (maxZ - minZ) * s * 0.5;
+      let minX = Infinity;
+      let maxX = -Infinity;
+      let minY = Infinity;
+      let maxY = -Infinity;
+      for (const c of cubes) {
+        for (const [px, py] of cubeCorners(c.x, c.z, c.y, 1)) {
+          if (px < minX) minX = px;
+          if (px > maxX) maxX = px;
+          if (py < minY) minY = py;
+          if (py > maxY) maxY = py;
+        }
+      }
+      const bboxW = maxX - minX;
+      const bboxH = maxY - minY;
+      const s = Math.min(w, h) / Math.max(bboxW, bboxH) / 1.12;
+      const ox = w / 2 - ((minX + maxX) / 2) * s;
+      const oy = h / 2 - ((minY + maxY) / 2) * s;
       ctx.translate(ox, oy);
 
       const sorted = [...cubes].sort((a, b) => b.x + b.z + b.y - (a.x + a.z + a.y));

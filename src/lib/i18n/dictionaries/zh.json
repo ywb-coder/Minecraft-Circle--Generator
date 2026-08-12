@@ -3,9 +3,9 @@
   "tagline": "Minecraft 圆形生成器",
   "nav": {
     "tool": "生成器",
-    "blog": "博客",
     "about": "关于"
-  },
+  ,
+    "faq": "常见问题"},
   "hero": {
     "title": "在 Minecraft 中建造完美的圆形",
     "subtitle": "生成圆形、椭圆形、球形和穹顶的逐方块蓝图——支持实时预览、建造顺序动画,以及 Java 和 Bedrock 版的 PNG 下载。"
@@ -15,6 +15,7 @@
     "width": "宽度",
     "height": "高度",
     "shape": "形状",
+    "style": "样式",
     "circle": "圆形",
     "oval": "椭圆形",
     "sphere": "球形",
@@ -25,6 +26,7 @@
     "filled": "实心",
     "block": "方块",
     "blockColors": "方块颜色",
+    "sizeUse": "用途",
     "angleStart": "起始角度",
     "angleSpan": "角度",
     "preview": "预览",
@@ -63,10 +65,6 @@
     "openTool": "在生成器中打开",
     "related": "相关尺寸",
     "otherShapes": "其他形状"
-  },
-  "blog": {
-    "title": "Minecraft 建造指南",
-    "readMore": "阅读更多"
   },
   "faq": {
     "title": "常见问题",

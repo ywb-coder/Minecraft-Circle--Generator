@@ -1,6 +1,6 @@
 import type { Layer, Point, ShapeResult } from "@/lib/shapes";
 
-const FILLED = "#4ade80";
+const FILLED = "var(--accent)";
 
 function boundsOf(points: Point[]) {
   let minX = Infinity;

@@ -3,9 +3,9 @@
   "tagline": "Minecraft Kreisgenerator",
   "nav": {
     "tool": "Generator",
-    "blog": "Blog",
     "about": "Über"
-  },
+  ,
+    "faq": "FAQ"},
   "hero": {
     "title": "Baue perfekte Kreise in Minecraft",
     "subtitle": "Erstelle Block-für-Block-Baupläne für Kreise, Ovale, Kugeln und Kuppeln — mit Live-Vorschau, Bau-Reihenfolge-Animation und PNG-Download für Java und Bedrock."
@@ -15,6 +15,7 @@
     "width": "Breite",
     "height": "Höhe",
     "shape": "Form",
+    "style": "Stil",
     "circle": "Kreis",
     "oval": "Oval",
     "sphere": "Kugel",
@@ -25,6 +26,7 @@
     "filled": "Gefüllt",
     "block": "Block",
     "blockColors": "Blockfarben",
+    "sizeUse": "Wofür",
     "angleStart": "Startwinkel",
     "angleSpan": "Winkel",
     "preview": "Vorschau",
@@ -63,10 +65,6 @@
     "openTool": "Im Generator öffnen",
     "related": "Verwandte Größen",
     "otherShapes": "Andere Formen"
-  },
-  "blog": {
-    "title": "Minecraft Bauanleitungen",
-    "readMore": "Mehr lesen"
   },
   "faq": {
     "title": "Häufige Fragen",
