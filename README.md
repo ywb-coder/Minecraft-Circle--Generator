@@ -1,21 +1,21 @@
-﻿# CircleGen 鈥?Minecraft Circle Generator
+# CircleGen –?Minecraft Circle Generator
 
 A free, SEO-optimized Minecraft shape generator. Block-by-block blueprints for circles, ovals, spheres, domes and arcs with live 3D preview, build-order animation, layer slicing and multi-format exports. Supports 11 languages and ships 3,100+ static pages.
 
 ## Features
 
-- **Shapes**: circle / oval / sphere / dome / arc, each with 3 styles 鈥?outline (pixel-perfect ring), chart (classic Minecraft chart) and filled
+- **Shapes**: circle / oval / sphere / dome / arc, each with 3 styles –?outline (pixel-perfect ring), chart (classic Minecraft chart) and filled
 - **Live tool**: interactive blueprint grid, isometric 3D preview, build-order animation, layer-by-layer slicing for spheres/domes, 45-block color palette
 - **Exports**: PNG, SVG, CSV, JSON, copy coordinates, shareable URL state
 - **i18n**: en / de / es / fr / pt / tr / it / ru / pl / id / zh
-- **SEO**: static export (`output: export`), per-size pages `/circle/5` 鈥?`/circle/256` (plus sphere/dome/oval), hreflang alternates, JSON-LD (WebApplication, FAQPage, BreadcrumbList, HowTo), sitemap + robots
+- **SEO**: static export (`output: export`), per-size pages `/circle/5` –?`/circle/256` (plus sphere/dome/oval), hreflang alternates, JSON-LD (WebApplication, FAQPage, BreadcrumbList, HowTo), sitemap + robots
 
 ## Tech stack
 
 - Next.js 16 (App Router, Turbopack), React 19, TypeScript
 - Tailwind CSS v4 (custom "Blueprint Night" Minecraft-pixel design system in `src/app/globals.css`)
-- Local pixel fonts (Press Start 2P / VT323 / Inter) 鈥?no external font requests
-- Zero backend, zero runtime dependencies 鈥?pure static output
+- Local pixel fonts (Press Start 2P / VT323 / Inter) –?no external font requests
+- Zero backend, zero runtime dependencies –?pure static output
 
 ## Getting started
 
@@ -38,7 +38,7 @@ Set these environment variables at build time:
 
 ## Deploy
 
-Any static host works 鈥?the build output is plain HTML in `./out`.
+Any static host works –?the build output is plain HTML in `./out`.
 
 ### Cloudflare Pages (recommended)
 

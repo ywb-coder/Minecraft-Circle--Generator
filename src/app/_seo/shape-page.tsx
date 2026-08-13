@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "@/components/StaticLink";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";

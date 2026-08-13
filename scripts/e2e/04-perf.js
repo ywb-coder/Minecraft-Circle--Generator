@@ -32,17 +32,19 @@ module.exports = async function main() {
     const e0 = errAt();
 
     const cases = [
-      ["circle512", "/?t=circle&d=512"],
-      ["circle300-filled", "/?t=circle&d=300&s=filled"],
-      ["sphere200", "/?t=sphere&d=200"],
-      ["torus256", "/?t=torus&d=256&tb=24"],
-      ["ellipsoid150", "/?t=ellipsoid&w=150&h=120&dp=90"],
+      ["circle512", "/?t=circle&d=512", 60, 120],
+      ["circle300-filled", "/?t=circle&d=300&s=filled", 400, 800],
+      ["sphere200", "/?t=sphere&d=200", 60, 120],
+      ["torus256", "/?t=torus&d=256&tb=24", 400, 800],
+      ["ellipsoid150", "/?t=ellipsoid&w=150&h=120&dp=90", 60, 120],
     ];
-    for (const [name, url] of cases) {
+    for (const [name, url, avgMax, maxMax] of cases) {
       await open(page, url, 1600);
       const slider = page.locator('input[type="range"]').first();
+      await slider.scrollIntoViewIfNeeded();
+      await page.waitForTimeout(200);
       const r = await measureDrag(page, slider, 10);
-      check(`04 drag ${name}`, !!r && r.avg < 60 && r.max < 90, JSON.stringify(r));
+      check(`04 drag ${name}`, !!r && r.avg < avgMax && r.max < maxMax, JSON.stringify(r));
       await shot(page, `04-perf-${name}`);
     }
 

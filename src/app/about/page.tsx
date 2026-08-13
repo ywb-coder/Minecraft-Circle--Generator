@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "@/components/StaticLink";
 import SeoShell from "@/app/_seo/shell";
 import { getDictionary } from "@/lib/i18n/dictionaries";
@@ -6,7 +6,7 @@ import { defaultLocale } from "@/lib/i18n/locales";
 import { GITHUB_URL, SOURCES, SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "About 鈥?Minecraft Circle Generator",
+  title: "About –?Minecraft Circle Generator",
   description:
     "About CircleGen, the free Minecraft circle generator. How the block-by-block blueprint algorithm works, why it is free, and who builds it.",
   alternates: { canonical: `${SITE_URL}/about/` },
@@ -30,7 +30,7 @@ export default async function AboutPage() {
             diameter from 5 to 256 blocks into a block-by-block pixel blueprint
             for circles, ovals, spheres, domes and arcs. Every blueprint works
             identically in Java Edition and Bedrock Edition, and everything on
-            this site is free 鈥?no accounts, no paywalls, no ads.
+            this site is free –?no accounts, no paywalls, no ads.
           </p>
         </section>
 
@@ -71,7 +71,7 @@ export default async function AboutPage() {
             Who builds it
           </h2>
           <p className="mt-3 text-sm leading-7 text-ink">
-            CircleGen is made by the CircleGen Team 鈥?a small group of
+            CircleGen is made by the CircleGen Team –?a small group of
             Minecraft builders who got tired of squinting at circle charts. The
             source code is open on{" "}
             <a

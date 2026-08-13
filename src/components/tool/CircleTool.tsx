@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
@@ -264,12 +264,20 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
   const blockId = getBlock(state.block).id;
 
   const bounds = useMemo(() => {
-    const xs = points.map((p) => p.x);
-    const ys = points.map((p) => p.y);
-    if (xs.length === 0) return { sizeW: 1, sizeH: 1 };
+    let minX = Infinity;
+    let maxX = -Infinity;
+    let minY = Infinity;
+    let maxY = -Infinity;
+    for (const p of points) {
+      if (p.x < minX) minX = p.x;
+      if (p.x > maxX) maxX = p.x;
+      if (p.y < minY) minY = p.y;
+      if (p.y > maxY) maxY = p.y;
+    }
+    if (points.length === 0) return { sizeW: 1, sizeH: 1 };
     return {
-      sizeW: Math.max(...xs) - Math.min(...xs) + 1,
-      sizeH: Math.max(...ys) - Math.min(...ys) + 1,
+      sizeW: maxX - minX + 1,
+      sizeH: maxY - minY + 1,
     };
   }, [points]);
 
@@ -551,7 +559,7 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
             </div>
             {state.builder && !builderEnabled && (
               <p className="font-pixel text-[10px] text-muted">
-                {dict.tool.builder} 鈥?{dict.tool.blueprint}
+                {dict.tool.builder} –?{dict.tool.blueprint}
               </p>
             )}
             <BlueprintGrid

@@ -119,37 +119,7 @@ export default function HomePage({
           <div className="mx-auto mt-8 h-1 w-full bg-accent" />
         </section>
 
-        <section className="mx-auto max-w-5xl px-4 pb-10">
-          <div className="mc-panel pixel-corners p-5">
-            <h2 className="font-pixel text-[10px] text-accent">
-              {dict.home.answerTitle}
-            </h2>
-            <p className="mt-3 text-sm leading-7 text-ink">
-              {dict.home.answer1}
-            </p>
-            <p className="mt-3 text-sm leading-7 text-muted">
-              {dict.home.answer2}
-            </p>
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-5xl px-4 pb-10">
-          <div className="mc-panel pixel-corners p-5">
-            <h2 className="font-pixel text-sm text-ink pixel-shadow">
-              {dict.home.howToTitle}
-            </h2>
-            <ol className="mt-4 flex flex-col gap-3">
-              {dict.home.howTo.map((step, i) => (
-                <li key={i} className="flex items-baseline gap-3 text-sm leading-7 text-ink">
-                  <span className="font-terminal text-xl text-accent">
-                    {i + 1}
-                  </span>
-                  <span>{step}</span>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
+        
 
         <section id="tool" className="mx-auto max-w-5xl px-4 pb-16">
           <div className="mc-panel pixel-corners blueprint-grid p-4">
@@ -176,6 +146,58 @@ export default function HomePage({
                 <span className="font-pixel text-[10px]">{entry.size}</span>
               </Link>
             ))}
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-5xl px-4 pb-10">
+          <div className="mc-panel pixel-corners p-5">
+            <h2 className="font-pixel text-sm text-ink pixel-shadow">
+              {dict.home.howToTitle}
+            </h2>
+            <ol className="mt-4 flex flex-col gap-3">
+              {dict.home.howTo.map((step, i) => (
+                <li key={i} className="flex items-baseline gap-3 text-sm leading-7 text-ink">
+                  <span className="font-terminal text-xl text-accent">
+                    {i + 1}
+                  </span>
+                  <span>{step}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-5xl px-4 pb-10">
+          <div className="mc-panel pixel-corners p-5">
+            <h2 className="font-pixel text-[10px] text-accent">
+              {dict.home.answerTitle}
+            </h2>
+            <p className="mt-3 text-sm leading-7 text-ink">
+              {dict.home.answer1}
+            </p>
+            <p className="mt-3 text-sm leading-7 text-muted">
+              {dict.home.answer2}
+            </p>
+          </div>
+        </section>
+
+        
+
+        <section className="mx-auto max-w-5xl px-4 pb-10">
+          <div className="mc-panel pixel-corners p-5">
+            <h2 className="font-pixel text-sm text-ink pixel-shadow">
+              {dict.home.howToTitle}
+            </h2>
+            <ol className="mt-4 flex flex-col gap-3">
+              {dict.home.howTo.map((step, i) => (
+                <li key={i} className="flex items-baseline gap-3 text-sm leading-7 text-ink">
+                  <span className="font-terminal text-xl text-accent">
+                    {i + 1}
+                  </span>
+                  <span>{step}</span>
+                </li>
+              ))}
+            </ol>
           </div>
         </section>
 
@@ -261,7 +283,7 @@ export default function HomePage({
             </Link>
           </nav>
           <p className="font-pixel text-[10px] text-ink">
-            漏 {new Date().getFullYear()} {dict.siteName}
+            © {new Date().getFullYear()} {dict.siteName}
           </p>
           <p className="font-terminal text-sm text-muted">
             {dict.footer.lastUpdated}: {buildDate()}
