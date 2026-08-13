@@ -121,7 +121,12 @@
     "faqQ2": "Co mogę zbudować z {shape} z {d} bloków?",
     "faqA2": "To popularny rozmiar do {use} - więcej pomysłów znajdziesz w przewodniku rozmiarów.",
     "faqQ3": "Czy plany działają w Java i Bedrock?",
-    "faqA3": "Tak - wszystkie plany działają identycznie w edycjach Java i Bedrock."
+    "faqA3": "Tak - wszystkie plany działają identycznie w edycjach Java i Bedrock.",
+    "setblockTitle": "Kopiuj jako komendy /setblock",
+    "setblockBody": "Otwórz generator i kliknij Kopiuj /setblock, aby uzyskać każdy blok jako komendę Minecrafta. Dodaj współrzędne świata, a cały {shape} stanie dokładnie tam, gdzie chcesz.",
+    "thicknessTip": "Potrzebujesz grubszej ściany? Ustaw grubość obrysu na 3-6: pierścień z {d} bloków z grubym obrysem jest znacznie solidniejszy dla murów i baz.",
+    "innerTip": "Potrzebujesz pustego pierścienia? Użyj wewnętrznego wycięcia, aby usunąć środek koła: idealne do fos, aren i okrągłych wież.",
+    "builderTip": "Buduj blok po bloku: włącz tryb budowniczego, zaznaczaj każdy blok kliknięciem, przeglądaj Dalej/Wstecz lub naciśnij Odtwórz."
   },
   "faq": {
     "title": "Częste pytania",
@@ -129,7 +134,9 @@
       { "q": "Jak zbudować koło w Minecraft?", "a": "Wybierz średnicę, skopiuj plan z siatki i umieszczaj bloki pojedynczo. Zacznij od środkowego bloku i przesuwaj się na zewnątrz, a wynik zawsze będzie idealny." },
       { "q": "Jakiego rozmiaru koła użyć?", "a": "Małe koła (5-15 bloków) pasują do fontann i okien, 21-49 do wież i pomieszczeń, a powyżej 65 do ogromnych budowli, takich jak stadiony i kolosea." },
       { "q": "Czy plany działają w Java i Bedrock?", "a": "Tak. Siatka pokazuje pozycje bloków, więc działa identycznie w edycji Java i Bedrock." },
-      { "q": "Jak zbudować sferę lub kopułę?", "a": "Przełącz się na zakładkę sfera lub kopuła i użyj suwaka warstw, aby zobaczyć każdy przekrój od dołu do góry. Buduj warstwę po warstwie." }
+      { "q": "Jak zbudować sferę lub kopułę?", "a": "Przełącz się na zakładkę sfera lub kopuła i użyj suwaka warstw, aby zobaczyć każdy przekrój od dołu do góry. Buduj warstwę po warstwie." },
+      { "q": "Czy mogę kopiować komendy /setblock?", "a": "Tak — kliknij Kopiuj /setblock, aby uzyskać każdy blok jako komendę ze współrzędnymi świata. Dla sfer, kopuł, torusów i elipsoid użyj Kopiuj wszystkie warstwy." },
+      { "q": "Czym jest tryb budowniczego?", "a": "Tryb budowniczego zamienia plan w przewodnik krok po kroku: zaznaczaj bloki kliknięciem, przeglądaj Dalej/Wstecz lub naciśnij Odtwórz." }
     ]
   },
   "footer": {

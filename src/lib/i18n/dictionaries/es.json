@@ -121,7 +121,12 @@
     "faqQ2": "¿Qué puedo construir con un {shape} de {d} bloques?",
     "faqA2": "Es un tamaño popular para {use}; consulta la guía de tamaños para más ideas.",
     "faqQ3": "¿Los planos funcionan en Java y Bedrock?",
-    "faqA3": "Sí: todos los planos funcionan igual en las ediciones Java y Bedrock."
+    "faqA3": "Sí: todos los planos funcionan igual en las ediciones Java y Bedrock.",
+    "setblockTitle": "Copiarlo como comandos /setblock",
+    "setblockBody": "Abre el generador y pulsa Copiar /setblock para obtener cada bloque como un comando de Minecraft. Añade tus coordenadas del mundo y todo el {shape} quedará exactamente donde quieras.",
+    "thicknessTip": "¿Necesitas una pared más gruesa? Pon el grosor del contorno en 3-6: un anillo de {d} bloques con contorno grueso es mucho más resistente para muros y bases.",
+    "innerTip": "¿Necesitas un anillo hueco? Usa el recorte interior para quitar el centro del círculo: perfecto para fosos, arenas y torres redondas.",
+    "builderTip": "Constrúyelo bloque a bloque: activa el modo Constructor para marcar cada colocación con un clic, avanza con Siguiente/Anterior o pulsa Play."
   },
   "faq": {
     "title": "Preguntas frecuentes",
@@ -129,7 +134,9 @@
       { "q": "¿Cómo construyo un círculo en Minecraft?", "a": "Elige un diámetro, copia el plano de la cuadrícula y coloca los bloques uno a uno. Empieza por el bloque central y avanza hacia afuera para lograr un resultado perfecto." },
       { "q": "¿Qué tamaño de círculo debo usar?", "a": "Los círculos pequeños (5-15 bloques) sirven para fuentes y ventanas, 21-49 para torres y salas, y más de 65 para grandes construcciones como estadios y coliseos." },
       { "q": "¿Los planos funcionan en Java y Bedrock?", "a": "Sí. La cuadrícula muestra las posiciones de los bloques, por lo que funciona igual en la Edición Java y en la Edición Bedrock." },
-      { "q": "¿Cómo construyo una esfera o cúpula?", "a": "Cambia a la pestaña de esfera o cúpula y usa el control deslizante de capas para ver cada sección de abajo hacia arriba. Construye una capa a la vez." }
+      { "q": "¿Cómo construyo una esfera o cúpula?", "a": "Cambia a la pestaña de esfera o cúpula y usa el control deslizante de capas para ver cada sección de abajo hacia arriba. Construye una capa a la vez." },
+      { "q": "¿Puedo copiar comandos /setblock?", "a": "Sí: pulsa Copiar /setblock para obtener cada bloque como comando con tus coordenadas del mundo. Usa Copiar todas las capas para esferas, cúpulas, toros y elipsoides." },
+      { "q": "¿Qué es el modo Constructor?", "a": "El modo Constructor convierte el plano en una guía paso a paso: marca bloques con un clic, avanza con Siguiente/Anterior o pulsa Play para avanzar automáticamente." }
     ]
   },
   "footer": {
