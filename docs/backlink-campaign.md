@@ -41,6 +41,19 @@
 | 14 | 贴吧 minecraft 吧 | nofollow | ★(中文流量) | ☐ 可参与(先读吧规) |
 | 15 | 网易我的世界论坛 | nofollow | ★★ | ☐ 可参与 |
 | 16 | B站 MC 建造 up 主合作 | 视频简介外链 | ★★★ | ☐ 可联系 |
+| 17 | **dev.to 干货文** | dofollow(实测) | ★★★★ | ☐ 写一篇工具介绍/教程文,正文带链接 |
+| 18 | **LiteDevelopers/awesome-minecraft**(PR) | dofollow | ★★★★ | ☐ 145★ 活跃,有 Tools 分类,要求开源免费(符合) |
+| 19 | **itch.io /tools** | dofollow(实测) | ★★★★ | ☐ 免费发布 HTML5 网页工具 |
+| 20 | **ArkFlame/awesome-minecraft**(PR) | dofollow | ★★★ | ☐ Content Creation Tools 分类(已收 misode/MCStacker) |
+| 21 | **CAIMEOX/awesome-minecraft-bedrock**(PR) | dofollow | ★★★ | ☐ 基岩版清单,Tool→General 分类 |
+| 22 | **Uneed(uneed.best)** | dofollow(官方声明) | ★★★ | ☐ 免费排队提交,注意域名是 uneed.best 不是 uneed.io |
+| 23 | **LibHunt** | dofollow(大部分) | ★★★ | ☐ /repo/submit 免费,要求 GitHub 开源项目 |
+| 24 | **SideProjectors** | dofollow(实测) | ★★★ | ☐ 免费展示,人工审核 |
+| 25 | **Launching Next** | 🟡 多源标 dofollow | ★★ | ☐ 免费表单,发布后自查 |
+| 26 | **10words** | ⚪ 未验证 | ★★ | ☐ 免费,10 词简介 |
+| 27 | **Alternative.me** | 🟡 | ★★ | ☐ 可把 CircleGen 作为 Plotz 替代品提交 |
+| 28 | **minecrafttools.net** | dofollow(实测) | ★★ | ☐ 无表单,需进 Discord 建议,收录不确定 |
+| 29 | Indie Hackers | ❌ 默认 nofollow | ★(曝光) | ☐ 可选:只当社区曝光(需 500 积分才解锁 dofollow) |
 
 ### 已提交记录
 
@@ -312,6 +325,143 @@ Github:    https://github.com/ywb-coder/Minecraft-Circle--Generator
 
 ---
 
+### 4.16 dev.to(✅ 已核实,第二轮首选)
+
+**2026-08-13 核实:免费、dofollow(实测正文链接无 nofollow)、即时发布、无审核;工具帖生态好(有 #showdev 标签)。**
+
+**操作:**
+1. 注册:`dev.to` → /enter(邮箱或 GitHub 登录)
+2. 写一篇干货文,标题建议:
+   - `How I built a static Minecraft circle generator in 11 languages`
+   - 或 `Free Minecraft circle generator: pixel-perfect blueprints for Java & Bedrock`
+3. 结构建议:为什么做 → 数学原理(中点圆算法)→ 功能演示(贴截图/GIF)→ 用法 → 链接放正文叙述中(只甩一个链接的纯广告帖会被举报)
+4. 标签:`showdev`、`minecraft`、`javascript`、`nextjs`
+5. 发布后回复评论;可同时投稿到 dev.to 的 weekly digest
+
+⚠️ 链接自然融入正文(比如"the tool is live at pixelcircle.online"),不要堆外链。
+
+---
+
+### 4.17 LiteDevelopers/awesome-minecraft(✅ 已核实)
+
+**2026-08-13 核实:145★,最后推送 2026-07-17,有 `Software → Tools` 分类(已收 Blockbench),要求开源且免费(CircleGen MIT + 免费符合);合并节奏慢(现积压 4 个 PR),提交后耐心等。**
+
+**操作:** 与 4.1 相同的 fork → 编辑 readme → 跨仓库 PR 流程:
+1. fork `github.com/LiteDevelopers/awesome-minecraft`
+2. 在 `Software → Tools(Miscellaneous tools)` 分类加:
+   ```
+   - [CircleGen](https://pixelcircle.online) - Free Minecraft circle generator with block-by-block pixel blueprints in 11 languages.
+   ```
+3. 跨仓库 PR 到 `LiteDevelopers:master`
+
+---
+
+### 4.18 itch.io /tools(✅ 已核实)
+
+**2026-08-13 核实:免费发布 HTML5 网页工具,项目页外链 dofollow(实测)。**
+
+**操作:**
+1. 注册 `itch.io`
+2. 右上角 **Upload new project** → 分类选 **Tools**,类型选 **HTML**(Play in browser)
+3. 打包一个 HTML 入口页(或直接填 Website 链接指向 pixelcircle.online;若只填外链没有自托管文件,itch 可能要求可玩内容,可放一个 iframe 嵌入页面)
+4. 填标题 `CircleGen - Minecraft Circle Generator`、描述(中版文案)、标签 minecraft/generator
+5. 免费发布
+
+---
+
+### 4.19 ArkFlame/awesome-minecraft(✅ 已核实)
+
+**2026-08-13 核实:25★,2026-06-18 更新;`Content Creation Tools → Data Packs Commands and Generators` 分类已收 misode/MCStacker/minecraft.tools 等网页工具。README 有完整 Contributing 规则(名称/规范 URL/一句话描述/分类/状态徽章/收录理由)。**
+
+**操作:** fork → 按 CONTRIBUTING 加条目 → 跨仓库 PR。
+
+---
+
+### 4.20 CAIMEOX/awesome-minecraft-bedrock(✅ 已核实)
+
+**2026-08-13 核实:74★,2026-02-28 更新;`Tool → General` 分类已收网站类工具;描述要求英文 ≤200 字符、不重复、分类正确。**
+
+**操作:** fork → PR;CircleGen 支持 Bedrock,可写:
+```
+- [CircleGen](https://pixelcircle.online) - Free web-based Minecraft circle and shape generator with block blueprints, works on Bedrock.
+```
+
+---
+
+### 4.21 Uneed(uneed.best)(✅ 已核实,注意域名!)
+
+**2026-08-13 核实:uneed.io 已停运(域名在售);当前平台是 `uneed.best`。免费排队提交(付费可插队 $14.99-29.99),官方声明获 75DR 域 dofollow 外链。**
+
+**操作:**
+1. 打开 `uneed.best/submit-a-tool` → 注册
+2. 提交工具信息(Name/URL/描述/分类 Free Tools)
+3. 选免费排队("Join the line"),等排期发布
+4. 发布后可分享投票链接积累支持
+
+---
+
+### 4.22 LibHunt(✅ 已核实)
+
+**2026-08-13 核实:免费提交开源项目,`libhunt.com/repo/submit` 填 GitHub 仓库 URL;外链大部分 dofollow。**
+
+**操作:**
+1. 打开 `libhunt.com/repo/submit`
+2. 填仓库 URL:`github.com/ywb-coder/Minecraft-Circle--Generator`
+3. 提交,等待收录;可顺带在 `/t/minecraft` 相关标签下活跃
+
+---
+
+### 4.23 SideProjectors(✅ 已核实)
+
+**2026-08-13 核实:免费展示提交,dofollow(实测 listing 无 nofollow),人工审核("All projects are reviewed")。**
+
+**操作:**
+1. 注册 `sideprojectors.com`
+2. 提交项目:名称、描述(中版文案)、截图(`01-tool-main.png`)、链接
+3. 等人工审核通过
+
+---
+
+### 4.24 Launching Next(✅ 已核实,待发布后自查)
+
+**2026-08-13 核实:免费表单提交;多源标注 dofollow(未能直接抓 HTML 验证,发布后建议用外链检查工具确认)。**
+
+**操作:** `launchingnext.com/submit/` → 填 Name/URL/Tagline/Description/Email → 提交。
+
+---
+
+### 4.25 10words(✅ 已核实)
+
+**2026-08-13 核实:免费,提交只需 10 词简介;dofollow 未验证。**
+
+**操作:** `app.10words.io/submit` → 填名称 + 10 词简介(如 "Free Minecraft circle generator with pixel-perfect block blueprints in 11 languages")。
+
+---
+
+### 4.26 Alternative.me(🟡 已核实)
+
+**2026-08-13 核实:有 suggest 入口、免费、活跃;可将 CircleGen 作为 Plotz 的替代品提交。**
+
+**操作:** `alternative.me` → 找 Plotz(或同类)→ Suggest → 填 CircleGen 信息。
+
+---
+
+### 4.27 minecrafttools.net(🟡 已核实,收录不确定)
+
+**2026-08-13 核实:活跃 MC 工具聚合站(©2026),dofollow(实测首页无 nofollow);无提交表单,官方 FAQ 说通过 Discord 建议收录。**
+
+**操作:** 加入其 Discord(`discord.gg/T6nyycywvY`)→ 在合适频道建议收录 CircleGen(附描述+截图);收录与否不确定,顺带在 Discord 混个脸熟。
+
+---
+
+### 4.28 Indie Hackers(⚠️ 已核实,仅作社区曝光)
+
+**2026-08-13 核实:发布免费,但**新账号所有外链默认 nofollow**(官方 JS bundle 验证),需 500 积分才解锁 dofollow;适合当社区曝光渠道,不指望外链值。**
+
+**操作:** 注册 → 发产品页/帖子("Show IH")→ 正常参与社区积累积分;外链 SEO 价值≈0,别浪费精力。
+
+---
+
 ### 4.15 中文版文案模板(贴吧/网易用)
 
 > 免费 MC 圆形生成器,支持 11 种语言(含简体中文):
@@ -328,9 +478,9 @@ Github:    https://github.com/ywb-coder/Minecraft-Circle--Generator
 | 周 | 任务 |
 |---|---|
 | 第 1 周 | ✅ awesome-minecraft PR 已提交(#66)→ AlternativeTo / SaaSHub 提交(2 个确定可行) |
-| 第 2 周 | Product Hunt 排期(Upcoming)+ HN 账号养 karma + PlanetMinecraft(走 Greenlight 审核)/ minecraftforum 注册活跃 |
-| 第 3 周 | PH 发布日(周二-周四)+ HN Show HN + reddit 开始自然参与 |
-| 第 4 周 | reddit/Discord/中文社区持续参与 + B站联系 up 主 + 复查 Freesiteslike / FreeToolDirectory 是否恢复 |
+| 第 2 周 | **dev.to 干货文 + itch.io /tools 发布 + LiteDevelopers PR**(第二轮高性价比渠道)→ PH 排期 + HN 养 karma |
+| 第 3 周 | PH 发布日 + HN Show HN + Uneed(uneed.best)/ LibHunt / SideProjectors 提交 + reddit 开始自然参与 |
+| 第 4 周 | ArkFlame / CAIMEOX PR + Launching Next / 10words / Alternative.me + B站联系 + 复查停摆站 |
 | 第 5 周起 | 每周 2-3 次社区参与;**GSC → 链接报告**看外链收录;评估是否启动博客 |
 
 ---
@@ -338,6 +488,8 @@ Github:    https://github.com/ywb-coder/Minecraft-Circle--Generator
 ## 六、渠道核实记录(2026-08-13)
 
 > 逐个核实后的结论,与追踪表一致。来源:官方页面/帮助文档为主,第三方交叉印证,无法确认的已标注。
+
+### 第一轮(目录站)
 
 | 渠道 | 核实结论 |
 |---|---|
@@ -353,6 +505,28 @@ Github:    https://github.com/ywb-coder/Minecraft-Circle--Generator
 | PlanetMinecraft | ✅ 可提交:新账号走 Greenlight 审核(资源发布需审批),Lv5+ 可建 Jam,广告链接需 Lv20+,须满 13 岁 |
 | minecraftforum.net | ⚠️ 全站 Cloudflare 拦截,版规/发帖门槛需注册登录后确认(community-standards 页) |
 | Reddit / Discord / 贴吧 / 网易 / B站 | 无需额外核实,按各平台版规操作(先读规则、不硬广) |
+
+### 第二轮(创作者平台 + Minecraft 清单/工具目录)
+
+| 渠道 | 核实结论 |
+|---|---|
+| **dev.to** | ✅ 免费、dofollow(实测正文无 nofollow)、即时发布;工具帖生态好(#showdev),推荐写成干货文 |
+| **LiteDevelopers/awesome-minecraft** | ✅ 145★ 活跃(2026-07-17),有 Tools 分类,要求开源免费(符合),合并慢(积压 4 PR) |
+| **ArkFlame/awesome-minecraft** | ✅ 25★(2026-06-18),Content Creation Tools 已收 misode/MCStacker 等,贡献规则完整 |
+| **CAIMEOX/awesome-minecraft-bedrock** | ✅ 74★(2026-02-28),Tool→General 分类收网站工具,描述 ≤200 字符 |
+| **itch.io /tools** | ✅ 免费发布 HTML5 工具,项目页外链 dofollow(实测) |
+| **Uneed** | ✅ **域名是 uneed.best**(uneed.io 已停运在售);免费排队,官方声明 75DR dofollow |
+| **LibHunt** | ✅ /repo/submit 免费,要求 GitHub 开源项目,外链大部分 dofollow |
+| **SideProjectors** | ✅ 免费展示,dofollow(实测),人工审核 |
+| **Launching Next** | ✅ 免费表单;dofollow 多源标注但未能直验,发布后自查 |
+| **10words** | ✅ 免费,10 词简介;dofollow 未验证 |
+| **Alternative.me** | ✅ suggest 入口免费,可把 CircleGen 作为 Plotz 替代品 |
+| **minecrafttools.net** | ✅ dofollow(实测),但无表单,需进 Discord 建议,收录不确定 |
+| **Indie Hackers** | ⚠️ 免费但新账号外链默认 **nofollow**(JS bundle 验证),需 500 积分解锁;仅作社区曝光 |
+| **BetaList** | ❌ 无免费档(FAQ 原文 "All submissions are paid"),有预算再考虑 |
+| **Lenny's 目录** | ❌ 无公开免费提交渠道 |
+| **mcpedl** | ❌ 只收文件类资源(Mods/Maps/Skins),不收网页工具 |
+| **awesome-gamedev / awesome-minecraft-server 系列 / 中文清单** | ❌ 不匹配或停更 |
 
 ---
 
