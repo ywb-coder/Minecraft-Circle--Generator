@@ -30,7 +30,7 @@ export default async function AboutPage() {
             diameter from 5 to 256 blocks into a block-by-block pixel blueprint
             for circles, ovals, spheres, domes and arcs. Every blueprint works
             identically in Java Edition and Bedrock Edition, and everything on
-            this site is free –no accounts, no paywalls, no ads.
+            this site is free – no accounts, no paywalls.
           </p>
         </section>
 

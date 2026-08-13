@@ -65,17 +65,17 @@ Github:    https://github.com/ywb-coder/Minecraft-Circle--Generator
 
 **短版(目录站表单用,1 句话):**
 
-> Free Minecraft circle generator with pixel-perfect block blueprints for circles, ovals, spheres, domes, arcs, toruses and ellipsoids. 11 languages, PNG/SVG export, /setblock copy. No ads, no accounts.
+> Free Minecraft circle generator with pixel-perfect block blueprints for circles, ovals, spheres, domes, arcs, toruses and ellipsoids. 11 languages, PNG/SVG export, /setblock copy. Free, no accounts.
 
 **中版(目录站长描述/社区帖用):**
 
-> CircleGen is a free Minecraft shape generator that turns any diameter into a block-by-block pixel blueprint you can copy straight into the game. It supports circles, ovals, spheres, domes, arcs, toruses and ellipsoids with outline, chart and filled styles; includes a live 3D preview, build-order animation, layer slicing, a 45-block color palette, and PNG/SVG/CSV/JSON exports. Everything runs in the browser — no downloads, no accounts, no ads. Available in 11 languages for Java and Bedrock editions.
+> CircleGen is a free Minecraft shape generator that turns any diameter into a block-by-block pixel blueprint you can copy straight into the game. It supports circles, ovals, spheres, domes, arcs, toruses and ellipsoids with outline, chart and filled styles; includes a live 3D preview, build-order animation, layer slicing, a 45-block color palette, and PNG/SVG/CSV/JSON exports. Everything runs in the browser — no downloads, no accounts. Available in 11 languages for Java and Bedrock editions.
 
 **长版(Product Hunt 用):**
 
 > CircleGen — pixel-perfect Minecraft circle blueprints in 11 languages.
 > Every Minecraft builder has hit the same wall: how do you lay out a circle, sphere or dome block by block? CircleGen answers that in seconds. Pick a shape and diameter, and you get a precise pixel grid you can copy straight into the game — with outline, classic-chart and filled styles, a draggable 3D preview, build-order animation, layer-by-layer slicing for spheres and domes, and a 45-block color palette.
-> Export your blueprint as PNG, SVG, CSV or JSON, copy /setblock commands with your world coordinates, or share the exact state with a link. It ships as a fully static site with zero backend and zero ads — the math runs entirely in your browser.
+> Export your blueprint as PNG, SVG, CSV or JSON, copy /setblock commands with your world coordinates, or share the exact state with a link. It ships as a fully static site with zero backend — the math runs entirely in your browser.
 > Bonus for builders who read this far: per-size guide pages (e.g. "Minecraft circle with 25 blocks") exist for 3,100+ combinations across 11 languages, so your exact build is one search away.
 
 **社区评论模板(reddit/论坛自然带出):**
@@ -99,7 +99,7 @@ Github:    https://github.com/ywb-coder/Minecraft-Circle--Generator
    ```
 4. 提交 commit(写:`Add CircleGen to Tools`)
 5. 回到原仓库 → 点 **Pull requests** → **New pull request** → **compare across forks** → 选你的 fork 分支 → 创建 PR,描述写:
-   > Adds CircleGen, a free static Minecraft circle/shape generator with per-size blueprint pages in 11 languages. No ads, no accounts, MIT licensed.
+   > Adds CircleGen, a free static Minecraft circle/shape generator with per-size blueprint pages in 11 languages. Free, no accounts, MIT licensed.
 6. 等待维护者合并(通常几天)。合并即获得外链。
 
 ⚠️ 注意:列表条目要求**英文描述**、按字母顺序排;若你 fork 后列表已有变化,先同步上游再提交。
@@ -113,7 +113,7 @@ Github:    https://github.com/ywb-coder/Minecraft-Circle--Generator
 2. 点右上角/侧边 **Contribute / Edit on GitHub**(它会带你到该仓库的贡献流程)
 3. 按仓库 CONTRIBUTING 指引,在合适分类(如 Software 或 Hosting 附近找"Design/Game"类)添加条目:
    ```
-   - [CircleGen](https://pixelcircle.online) — free Minecraft circle generator with pixel-perfect block blueprints, 11 languages, PNG/SVG export, no ads.
+   - [CircleGen](https://pixelcircle.online) — free Minecraft circle generator with pixel-perfect block blueprints, 11 languages, PNG/SVG export.
    ```
 4. 提 PR,等合并
 
@@ -194,9 +194,9 @@ Github:    https://github.com/ywb-coder/Minecraft-Circle--Generator
 
 **操作:**
 1. 打开 `news.ycombinator.com`,注册账号(需要邮箱;新账号可发帖,但最好先攒点 karma)
-2. 标题格式:`Show HN: Free Minecraft circle generator (static, no ads, 11 languages)`
+2. 标题格式:`Show HN: Free Minecraft circle generator (static, 11 languages)`
 3. 正文(第一段即可):
-   > I built a fully static Minecraft circle generator that turns any diameter into a copyable block blueprint. Circles, ovals, spheres, domes, arcs, toruses, ellipsoids; PNG/SVG/CSV export, /setblock copy, build-order animation, 11 languages, 3100+ SEO pages. No backend, no ads — the math runs in your browser.
+   > I built a fully static Minecraft circle generator that turns any diameter into a copyable block blueprint. Circles, ovals, spheres, domes, arcs, toruses, ellipsoids; PNG/SVG/CSV export, /setblock copy, build-order animation, 11 languages, 3100+ SEO pages. No backend — the math runs in your browser.
    > Demo: https://pixelcircle.online
 4. **发布后 1-2 小时务必在评论区回复技术问题**(HN 排序算法极其看重作者参与度)
 5. 常见质疑应对:
@@ -282,7 +282,7 @@ Github:    https://github.com/ywb-coder/Minecraft-Circle--Generator
 > - 圆形/椭圆/球形/穹顶/圆弧/圆环/椭球,轮廓/图表/实心三种样式
 > - 逐块像素蓝图,可直接照着搭;支持 3D 预览、建造顺序动画、逐层切片
 > - 导出 PNG/SVG/CSV/JSON,复制 /setblock 命令(带世界坐标)
-> - 45 种方块配色、无广告、无需注册、纯静态、Java & Bedrock 通用
+> - 45 种方块配色、免费、无需注册、纯静态、Java & Bedrock 通用
 > 地址:https://pixelcircle.online
 
 ---
@@ -340,7 +340,19 @@ A: 4-8 周 15-30 个足够启动;之后靠内容持续积累。
 
 ---
 
-## 九、可选:提交后给维护者的跟进模板
+## 十、广告策略(重要:先读再提交)
+
+**当前定位:免费工具(free tool),不做"无广告(no ads)"承诺。**
+
+原因:提交给目录站/社区的文案、README、llms.txt 会被 Google 缓存、被 AI 引擎长期引用。一旦未来接入广告,"no ads" 就会变成假话,损害 GEO 信任和品牌形象。**"免费"是永久成立的定位,广告不影响它。**
+
+**未来接入广告时的正确姿势:**
+1. 位置:不遮挡工具主体(如:侧边栏/底部/导出页),不影响核心操作
+2. 类型:Google AdSense(需要新增隐私政策声明——现有 privacy 页可补充)或联盟链接(如 Minecraft 服务器/主机商)
+3. 文案演进:"free tool" 保持不变;若产品页曾被收录 "no ads" 文案,发布广告后更新这些页面并等待重新抓取
+4. 本文档所有模板已按此原则编写,**提交时不要私自加回 "no ads" 表述**
+
+## 十一、可选:提交后给维护者的跟进模板
 
 若 7 天后目录站/awesome PR 未合并:
 
