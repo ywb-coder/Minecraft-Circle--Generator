@@ -93,85 +93,101 @@ function BlueprintGridBase({
       aria-label={label}
       className="mc-panel-inset pixel-corners block w-full overflow-auto p-2"
     >
-      <div className="flex">
+      <div
+        className="blueprint-frame"
+        style={{
+          display: "grid",
+          gridTemplateColumns: showCoords
+            ? "auto minmax(0, 1fr) auto"
+            : "minmax(0, 1fr) auto",
+          gridTemplateRows: "auto 1fr",
+          rowGap: showCoords ? 4 : 0,
+          columnGap: 4,
+        }}
+      >
         {showCoords && (
-          <div className="mr-1 flex flex-col justify-between py-0.5">
+          <div className="flex flex-col" style={{ gridRow: 2, gridColumn: 1 }}>
             {cells
               .filter((_, i) => i % sizeW === 0)
               .map((c, row) => (
                 <span
                   key={row}
-                  className="flex h-6 items-center font-terminal text-[10px] leading-none text-muted"
+                  className="flex min-h-0 flex-1 items-center font-terminal text-[10px] leading-none text-muted"
                 >
                   {c.y}
                 </span>
               ))}
           </div>
         )}
-        <div className="min-w-0">
-          {showCoords && (
-            <div className="mb-1 flex">
-              {cells.slice(0, sizeW).map((c) => (
-                <span
-                  key={c.x}
-                  className="flex h-6 w-6 shrink-0 items-center justify-center font-terminal text-[10px] leading-none text-muted"
-                >
-                  {c.x}
-                </span>
-              ))}
-              {rowCounts && <span className="w-6 shrink-0" />}
-            </div>
-          )}
-          <div
-            className="grid"
-            style={{
-              gridTemplateColumns: `repeat(${sizeW}, minmax(0, 1fr))`,
-              gap: 1,
-              width: "100%",
-              maxWidth: sizeW * cellMaxWidth,
-            }}
-          >
-            {cells.map((c) => {
-              const key = `${c.x},${c.y}`;
-              const isHighlight = highlightKey === key;
-              const isPlaced = placedKeys?.has(key) ?? false;
-              const isContext = contextSet?.has(key) ?? false;
-              return (
-                <div
-                  key={key}
-                  title={key}
-                  onClick={interactive && onCellClick ? () => onCellClick(c.x, c.y) : undefined}
-                  className="aspect-square w-full"
-                  style={{
-                    background: c.on ? color : isContext ? "rgba(251,191,36,0.25)" : "transparent",
-                    border: isPlaced
-                      ? "2px solid #4ade80"
-                      : isHighlight
-                        ? "2px solid var(--accent)"
-                        : c.on
-                          ? "1px solid rgba(5,13,31,0.9)"
-                          : "1px solid rgba(5,13,31,0.55)",
-                    cursor: interactive ? "pointer" : undefined,
-                  }}
-                />
-              );
-            })}
+        {showCoords && (
+          <div className="flex" style={{ gridRow: 1, gridColumn: 2 }}>
+            {cells.slice(0, sizeW).map((c) => (
+              <span
+                key={c.x}
+                className="flex min-w-0 flex-1 items-center justify-center font-terminal text-[10px] leading-none text-muted"
+              >
+                {c.x}
+              </span>
+            ))}
           </div>
+        )}
+        <div
+          className="grid"
+          style={{
+            gridTemplateColumns: `repeat(${sizeW}, minmax(0, 1fr))`,
+            gap: 1,
+            width: "100%",
+            maxWidth: sizeW * cellMaxWidth,
+            gridRow: 2,
+            gridColumn: showCoords ? 2 : 1,
+          }}
+        >
+          {cells.map((c) => {
+            const key = `${c.x},${c.y}`;
+            const isHighlight = highlightKey === key;
+            const isPlaced = placedKeys?.has(key) ?? false;
+            const isContext = contextSet?.has(key) ?? false;
+            return (
+              <div
+                key={key}
+                title={key}
+                onClick={interactive && onCellClick ? () => onCellClick(c.x, c.y) : undefined}
+                className="aspect-square w-full"
+                style={{
+                  background: c.on ? color : isContext ? "rgba(251,191,36,0.25)" : "transparent",
+                  border: isPlaced
+                    ? "2px solid #4ade80"
+                    : isHighlight
+                      ? "2px solid var(--accent)"
+                      : c.on
+                        ? "1px solid rgba(5,13,31,0.9)"
+                        : "1px solid rgba(5,13,31,0.55)",
+                  cursor: interactive ? "pointer" : undefined,
+                }}
+              />
+            );
+          })}
         </div>
         {rowCounts && (
-          <div className="ml-1 flex flex-col justify-between py-0.5">
+          <div
+            className="flex flex-col"
+            style={{ gridRow: 2, gridColumn: showCoords ? 3 : 2 }}
+          >
             {Array.from({ length: sizeH }, (_, row) => {
               const y = Math.floor(sizeH / 2) - row;
               return (
                 <span
                   key={row}
-                  className="flex h-6 items-center font-terminal text-[10px] leading-none text-accent"
+                  className="flex min-h-0 flex-1 items-center font-terminal text-[10px] leading-none text-accent"
                 >
                   {rowCountsMap[y] ?? 0}
                 </span>
               );
             })}
           </div>
+        )}
+        {showCoords && rowCounts && (
+          <span className="w-6" style={{ gridRow: 1, gridColumn: 3 }} />
         )}
       </div>
     </div>
