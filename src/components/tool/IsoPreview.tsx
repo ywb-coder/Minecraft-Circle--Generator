@@ -66,35 +66,6 @@ function getSprite(color: string, s: number): HTMLCanvasElement {
   return sprite;
 }
 
-/**
- * Projected corner points of a cube drawn with the same math as drawCube.
- * Top face: (x0,y0), (x0+dx,y0-dy), (x0+2dx,y0), (x0+dx,y0+dy);
- * bottom face: top face + (0, s).
- */
-function cubeCorners(
-  x: number,
-  y: number,
-  z: number,
-  s: number
-): [number, number][] {
-  const cos30 = Math.sqrt(3) / 2;
-  const sin30 = 0.5;
-  const x0 = (x + z) * cos30 * s;
-  const y0 = (-x + z) * sin30 * s - y * s;
-  const dx = s * cos30;
-  const dy = s * sin30;
-  return [
-    [x0, y0],
-    [x0 + dx, y0 - dy],
-    [x0 + 2 * dx, y0],
-    [x0 + dx, y0 + dy],
-    [x0, y0 + s],
-    [x0 + dx, y0 - dy + s],
-    [x0 + 2 * dx, y0 + s],
-    [x0 + dx, y0 + dy + s],
-  ];
-}
-
 function IsoPreview({
   shape,
   color,
@@ -165,13 +136,20 @@ function IsoPreview({
       let maxX = -Infinity;
       let minY = Infinity;
       let maxY = -Infinity;
+      // Exact sprite bounding box in unit space: each cube's sprite spans
+      // [x0, x0 + 2*cos30] horizontally and [y0 - sin30, y0 + sin30 + 1] vertically.
       for (const c of cubes) {
-        for (const [px, py] of cubeCorners(rotX(c.x, c.z), rotZ(c.x, c.z), c.y, 1)) {
-          if (px < minX) minX = px;
-          if (px > maxX) maxX = px;
-          if (py < minY) minY = py;
-          if (py > maxY) maxY = py;
-        }
+        const xr = rotX(c.x, c.z);
+        const zr = rotZ(c.x, c.z);
+        const px = (xr + zr) * cos30;
+        const py = (-xr + zr) * sin30 - c.y;
+        if (px < minX) minX = px;
+        const px2 = px + 2 * cos30;
+        if (px2 > maxX) maxX = px2;
+        const pyTop = py - sin30;
+        if (pyTop < minY) minY = pyTop;
+        const pyBot = py + sin30 + 1;
+        if (pyBot > maxY) maxY = pyBot;
       }
       const bboxW = maxX - minX;
       const bboxH = maxY - minY;
