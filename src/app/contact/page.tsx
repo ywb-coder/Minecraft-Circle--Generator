@@ -6,7 +6,7 @@ import { defaultLocale } from "@/lib/i18n/locales";
 import { GITHUB_URL, SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Contact –?Minecraft Circle Generator",
+  title: "Contact –Minecraft Circle Generator",
   description:
     "Contact the CircleGen team: bug reports, feature requests and questions about the free Minecraft circle generator.",
   alternates: { canonical: `${SITE_URL}/contact/` },
@@ -35,7 +35,7 @@ export default async function ContactPage() {
                 rel="noopener noreferrer"
                 className="pixel-link"
               >
-                Report a bug or request a feature –?issues are public and
+                Report a bug or request a feature –issues are public and
                 tracked
               </a>
             </li>

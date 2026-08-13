@@ -559,7 +559,7 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
             </div>
             {state.builder && !builderEnabled && (
               <p className="font-pixel text-[10px] text-muted">
-                {dict.tool.builder} –?{dict.tool.blueprint}
+                {dict.tool.builder} –{dict.tool.blueprint}
               </p>
             )}
             <BlueprintGrid
