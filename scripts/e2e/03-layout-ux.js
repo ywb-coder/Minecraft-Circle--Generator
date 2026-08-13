@@ -69,8 +69,12 @@ module.exports = async function main() {
     const fsLeft = overlay.locator(".overflow-y-auto");
     check(
       "03 fullscreen left scrollable",
-      (await fsLeft.count()) === 1 &&
-        (await fsLeft.evaluate((el) => getComputedStyle(el).overflowY)) === "auto"
+      (await fsLeft.count()) >= 1 &&
+        (await fsLeft.first().evaluate((el) => getComputedStyle(el).overflowY)) === "auto"
+    );
+    check(
+      "03 fullscreen right scrollable",
+      (await overlay.locator(".overflow-x-hidden.overflow-y-auto").count()) === 1
     );
     await shot(dpage, "03-fullscreen");
 

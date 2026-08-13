@@ -756,7 +756,7 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
         </div>
         <div className="grid min-h-0 flex-1 gap-4 lg:grid-cols-[340px_minmax(0,1fr)]">
           <div className="min-h-0 overflow-y-auto p-1">{controlsPanel}</div>
-          <div className="flex min-h-0 flex-col gap-4 overflow-hidden p-1">
+          <div className="flex min-h-0 flex-col gap-4 overflow-x-hidden overflow-y-auto p-1">
             {previewPanel}
           </div>
         </div>

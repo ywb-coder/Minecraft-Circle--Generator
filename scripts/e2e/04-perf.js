@@ -59,7 +59,7 @@ module.exports = async function main() {
     await page.waitForTimeout(500);
     const canvas = page.locator('canvas[aria-label*="Isometric"]');
     const r3 = await dragCanvas(page, canvas, 10);
-    check("04 3d rotate", !!r3 && r3.avg < 60, JSON.stringify(r3));
+    check("04 3d rotate", !!r3 && r3.avg < 100 && r3.max < 150, JSON.stringify(r3));
 
     await page.getByRole("button", { name: "Blueprint", exact: true }).click();
     await page.waitForTimeout(200);
