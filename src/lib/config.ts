@@ -5,7 +5,7 @@
  * It is used for canonical URLs, hreflang alternates and JSON-LD.
  */
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://minecraftcirclegenerator.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://pixelcircle.online";
 
 export const SITE_NAME = "CircleGen";
 export const DEFAULT_LOCALE = "en";
