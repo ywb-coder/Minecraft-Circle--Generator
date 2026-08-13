@@ -688,7 +688,7 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
 
   const content = (
     <div className="grid gap-4 lg:grid-cols-[340px_1fr]">
-      <div className="hidden flex-col gap-4 lg:flex lg:h-[calc(100vh-180px)] lg:overflow-y-auto">
+      <div className="hidden flex-col gap-4 p-1 lg:flex lg:h-[calc(100vh-180px)] lg:overflow-y-auto">
         {controlsPanel}
       </div>
 
@@ -720,8 +720,8 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
           </button>
         </div>
         <div className="grid min-h-0 flex-1 gap-4 lg:grid-cols-[340px_minmax(0,1fr)]">
-          <div className="min-h-0 overflow-y-auto">{controlsPanel}</div>
-          <div className="flex min-h-0 flex-col gap-4 overflow-hidden">
+          <div className="min-h-0 overflow-y-auto p-1">{controlsPanel}</div>
+          <div className="flex min-h-0 flex-col gap-4 overflow-hidden p-1">
             {previewPanel}
           </div>
         </div>
