@@ -2,12 +2,6 @@
   "redirects": [
     {
       "source": "/(.*)",
-      "has": [{ "type": "host", "value": "minecraftcirclegenerator.vercel.app" }],
-      "destination": "https://pixelcircle.online/$1",
-      "statusCode": 301
-    },
-    {
-      "source": "/(.*)",
       "has": [{ "type": "host", "value": "www.pixelcircle.online" }],
       "destination": "https://pixelcircle.online/$1",
       "statusCode": 301
