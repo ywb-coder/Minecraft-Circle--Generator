@@ -13,29 +13,40 @@
 | LICENSE | 已添加 MIT 许可证(目录站和 awesome 列表的接受门槛) |
 | 文案素材 | 见本文档第四节,可直接复制 |
 | 乱码清理 | 全站 mojibake 已清零(含 README 残留) |
+| 营销素材 | 截图 ×5 + 演示 GIF + PH 1000×1000 主图,位于 `docs/assets/campaign/`(见 3.1) |
+| **awesome-minecraft PR** | **已提交 PR #66**(`bs-community:master`),待合并(见 4.1 / 追踪表) |
+| **渠道核实** | 16 个渠道全部核实,结论见第六节;无效渠道(FREE FOR DEV / Toolify / 疑似停摆站)已标记跳过 |
 
 ---
 
 ## 二、提交追踪表(每完成一项打勾)
 
+> 2026-08-13 已逐渠道核实,标注了实际可行性(✅ 可提交 / ⚠️ 待确认 / ❌ 跳过)。
+
 | # | 渠道 | 外链类型 | 预估价值 | 状态 |
 |---|---|---|---|---|
-| 1 | awesome-minecraft(GitHub PR) | dofollow | ★★★★ | ☐ |
-| 2 | FREE FOR DEV | dofollow | ★★★ | ☐ |
-| 3 | AlternativeTo | dofollow | ★★★ | ☐ |
-| 4 | SaaSHub | dofollow | ★★ | ☐ |
-| 5 | Freesiteslike | dofollow | ★★ | ☐ |
-| 6 | FreeToolDirectory | dofollow | ★★ | ☐ |
-| 7 | Toolify | dofollow | ★★ | ☐ |
-| 8 | Product Hunt Launch | dofollow | ★★★★ | ☐ |
-| 9 | Hacker News Show HN | dofollow | ★★★★ | ☐ |
-| 10 | PlanetMinecraft 资源页 | dofollow | ★★★ | ☐ |
-| 11 | minecraftforum.net | dofollow | ★★★ | ☐ |
-| 12 | Reddit 自然参与 | dofollow/nofollow | ★★★★ | ☐ |
-| 13 | Discord 社区分享 | nofollow | ★★ | ☐ |
-| 14 | 贴吧 minecraft 吧 | nofollow | ★(中文流量) | ☐ |
-| 15 | 网易我的世界论坛 | nofollow | ★★ | ☐ |
-| 16 | B站 MC 建造 up 主合作 | 视频简介外链 | ★★★ | ☐ |
+| 1 | awesome-minecraft(GitHub PR) | dofollow | ★★★★ | ✅ **已提交 PR #66**(2026-08-13),待合并 |
+| 2 | FREE FOR DEV | dofollow | ★★★ | ❌ 跳过:只收 SaaS 免费层级,明确拒绝通用工具箱站,AI 文案 PR 直接关闭 |
+| 3 | AlternativeTo | dofollow | ★★★ | ☐ 可提交(软件详情页 "Suggest alternative" 按钮) |
+| 4 | SaaSHub | dofollow | ★★ | ☐ 可提交(saashub.com/submit,免费,接受网页工具) |
+| 5 | Freesiteslike | dofollow | ★★ | ⚠️ 站点疑似停摆(TLS 证书失效/停放页),待确认 |
+| 6 | FreeToolDirectory | dofollow | ★★ | ⚠️ 站点当前无法访问(超时),待确认 |
+| 7 | Toolify | dofollow | ★★ | ❌ 跳过:只收 AI 工具,且当前提交收费 $99 |
+| 8 | Product Hunt Launch | dofollow | ★★★★ | ☐ 可提交(需排期) |
+| 9 | Hacker News Show HN | dofollow | ★★★★ | ☐ 可提交(需先攒 karma) |
+| 10 | PlanetMinecraft 资源页 | dofollow | ★★★ | ☐ 可提交(新账号走 Greenlight 审核) |
+| 11 | minecraftforum.net | dofollow | ★★★ | ⚠️ 站点被 Cloudflare 拦截,注册后以实际提示为准 |
+| 12 | Reddit 自然参与 | dofollow/nofollow | ★★★★ | ☐ 可参与(遵守各 sub 规则) |
+| 13 | Discord 社区分享 | nofollow | ★★ | ☐ 可参与 |
+| 14 | 贴吧 minecraft 吧 | nofollow | ★(中文流量) | ☐ 可参与(先读吧规) |
+| 15 | 网易我的世界论坛 | nofollow | ★★ | ☐ 可参与 |
+| 16 | B站 MC 建造 up 主合作 | 视频简介外链 | ★★★ | ☐ 可联系 |
+
+### 已提交记录
+
+| 时间 | 渠道 | 内容 | 状态 |
+|---|---|---|---|
+| 2026-08-13 | awesome-minecraft | PR #66 `Add CircleGen to Web Applications`,1 commit(+1 行),目标 `bs-community:master` | 已提交,待维护者合并(仓库较休眠,上次合并约 1 年前,建议保留并 2-3 个月后复查) |
 
 ---
 
@@ -90,85 +101,100 @@ Github:    https://github.com/ywb-coder/Minecraft-Circle--Generator
 
 ## 四、各渠道详细操作步骤
 
-### 4.1 awesome-minecraft(GitHub,优先级最高)
+### 4.1 awesome-minecraft(GitHub,优先级最高)✅ 已完成
 
 > 免费 dofollow 外链,权威相关的完美来源。需要 GitHub 账号(你已有)。
 
-**操作:**
+**✅ 2026-08-13 已提交:PR #66**(`Add CircleGen to Web Applications`,目标 `bs-community:master`,1 commit +1 行)。
+
+**后续:**
+- 等待维护者合并。注意:该仓库**较休眠**(上次合并约 1 年前),PR 可能等数周-数月,保留即可
+- 2-3 个月后若仍未合并,可在 PR 下礼貌跟进一次(见第十一节模板)
+- 若维护者要求修改(如描述格式),按反馈更新即可
+
+**当时的操作流程(留档):**
 1. 打开 `github.com/bs-community/awesome-minecraft`,点右上角 **Fork**(把仓库复制到你的账号)
-2. 在你的 fork 里,打开 `readme.md`,找 **Tools / Websites / Utilities** 分类(或类似 Tools 分区)
-3. 在列表末尾加一行:
+2. 在你的 fork 里,打开 `readme.md`,找 **Web Applications** 分类
+3. 添加一行:
    ```
    - [CircleGen](https://pixelcircle.online) - Free Minecraft circle generator with block-by-block pixel blueprints in 11 languages.
    ```
-4. 提交 commit(写:`Add CircleGen to Tools`)
-5. 回到原仓库 → 点 **Pull requests** → **New pull request** → **compare across forks** → 选你的 fork 分支 → 创建 PR,描述写:
-   > Adds CircleGen, a free static Minecraft circle/shape generator with per-size blueprint pages in 11 languages. Free, no accounts, MIT licensed.
-6. 等待维护者合并(通常几天)。合并即获得外链。
+4. 提交 commit(写:`Add CircleGen to Web Applications`),选 "start a pull request" 分支流程
+5. 先创建了对**自己 fork** 的 PR(无意义),关闭后改用跨仓库 PR:
+   - 到 `github.com/bs-community/awesome-minecraft` → Pull requests → New pull request → **compare across forks**
+   - base:`bs-community/awesome-minecraft:master` ← compare:`ywb-coder:master`(或你的分支)
+   - Create pull request → PR #66 ✅
 
-⚠️ 注意:列表条目要求**英文描述**、按字母顺序排;若你 fork 后列表已有变化,先同步上游再提交。
-
----
-
-### 4.2 FREE FOR DEV
-
-**操作:**
-1. 注册 GitHub 账号登录 `free-for.dev`(无需新注册,用 GitHub OAuth)
-2. 点右上角/侧边 **Contribute / Edit on GitHub**(它会带你到该仓库的贡献流程)
-3. 按仓库 CONTRIBUTING 指引,在合适分类(如 Software 或 Hosting 附近找"Design/Game"类)添加条目:
-   ```
-   - [CircleGen](https://pixelcircle.online) — free Minecraft circle generator with pixel-perfect block blueprints, 11 languages, PNG/SVG export.
-   ```
-4. 提 PR,等合并
+⚠️ 注意:列表条目要求**英文描述**;若之后 fork 已落后上游,先同步再改动。
 
 ---
 
-### 4.3 AlternativeTo
+### 4.2 FREE FOR DEV(❌ 已核实:跳过)
+
+**2026-08-13 核实结果:不匹配,不要提交。**
+- 该清单只收"提供免费层级的 SaaS 服务"(面向 DevOps/基础设施开发者)
+- 明确拒绝"通用工具箱网站——格式转换器、计算器等"
+- 规则写明:未用 PR 模板或明显 AI 生成的提交,不做讨论直接关闭
+- CircleGen 属于"通用免费网页工具",提交大概率被拒,还浪费 PR 名额
+
+---
+
+### 4.3 AlternativeTo(✅ 已核实)
+
+**2026-08-13 核实结果:可提交。入口是软件详情页的 "Suggest alternative" 按钮(旧版直链已失效)。**
 
 **操作:**
-1. 注册账号(邮箱即可)
-2. 打开 `alternativeto.net`,搜索 **"minecraft circle generator"** 或 **"plotz modeller"** 等已知工具(Plotz 是最有名的同类)
-3. 在找到的页面点 **Add alternative** → 填:
+1. 注册:`alternativeto.net` → 右上角 **Sign in / Sign up**(免费,邮箱或 Google 登录)
+2. 搜索 **"Plotz"**(或 "minecraft circle generator"),打开其详情页
+3. 页面找到 **"Suggest alternative"** 按钮(未登录时显示 "Sign in to suggest alternatives")
+4. 填写字段:
    - Name: `CircleGen`
    - Website: `https://pixelcircle.online`
-   - Description: 用中版文案
-   - 标签: `minecraft`, `circle`, `blueprint`
-4. 提交,等审核(1-7 天)
+   - Tagline: 短版文案
+   - Description: 中版文案
+   - License: Free
+   - Platforms: Web
+   - Categories/Tags: `minecraft`、`circle`、`blueprint`、`generator`
+   - 可附 1 张截图
+5. 提交,等审核(通常 1-7 天)
 
 ---
 
-### 4.4 SaaSHub
+### 4.4 SaaSHub(✅ 已核实)
+
+**2026-08-13 核实结果:可提交,免费,接受免费网页工具(榜单上有大量同类)。**
 
 **操作:**
-1. 注册 `saashub.com`
-2. 点 **Add software** → 填名称、URL、描述(中版文案)、类别
-3. 提交后等待审核
+1. 打开 `saashub.com` → 注册(邮箱即可)
+2. 进入 `saashub.com/submit` → 填:
+   - Service name: `CircleGen`
+   - Website: `https://pixelcircle.online`
+   - One-line description: 短版文案
+   - Long description: 中版文案
+   - Logo: 用 `01-tool-main.png` 或 `og-image.png`
+   - Categories / Pricing(Free) / Open source(是)
+3. 提交并完成验证后,可在管理页的 **Submit 标签**把它发布到所有相关目录
 
 ---
 
-### 4.5 Freesiteslike
+### 4.5 Freesiteslike(⚠️ 已核实:疑似停摆)
 
-**操作:**
-1. 打开 `freesiteslike.com`,注册
-2. 点 **Submit a site** → 填 URL、标题、描述(短版文案)
-3. 审核通过后获得外链
+**2026-08-13 核实结果:站点 TLS 证书失效、HTTP 返回主机商停放页,疑似已停止运营。**
+- 建议跳过;若 2-4 周后站点恢复(可先用浏览器手动访问确认),再回来提交
 
 ---
 
-### 4.6 FreeToolDirectory
+### 4.6 FreeToolDirectory(⚠️ 已核实:当前无法访问)
 
-**操作:**
-1. 打开 `freetooldirectory.com` → **Submit**
-2. 填:URL、标题、描述、类别(Games/Design)
-3. 部分目录站要求先免费注册
+**2026-08-13 核实结果:站点 TCP/HTTPS 全部超时,疑似宕机或地域封锁。**
+- 建议跳过;可稍后手动在浏览器打开 `freetooldirectory.com` 确认是否恢复
 
 ---
 
-### 4.7 Toolify
+### 4.7 Toolify(❌ 已核实:跳过)
 
-**操作:**
-1. 打开 `toolify.ai` → 注册
-2. 提交站点(它偏 AI 工具,若审核被拒可跳过,不是重点)
+**2026-08-13 核实结果:只收 AI 工具,且官方提交页当前显示 $99 一次性付费。**
+- 不匹配也不免费,直接跳过
 
 ---
 
@@ -211,23 +237,29 @@ Github:    https://github.com/ywb-coder/Minecraft-Circle--Generator
 
 ---
 
-### 4.10 PlanetMinecraft
+### 4.10 PlanetMinecraft(✅ 已核实)
+
+**2026-08-13 核实结果:可提交。新账号/低等级账号的发布走 Greenlight 审核系统——"低等级会员的资源包提交需经审核与批准",不是硬性天数冷却。注意等级限制:Lv5+ 才能创建 Jam;广告/付费链接需 Lv20+;账号须满 13 岁。**
 
 **操作:**
-1. 注册 `planetminecraft.com`(邮箱,需激活;新账号有发帖限制,先活跃 2-3 天:收藏、评论)
+1. 注册 `planetminecraft.com`(邮箱激活;建议先活跃 2-3 天:收藏、评论,积累等级)
 2. 点 **Create → Resource/Project**(选"其他"类型)
 3. 填:标题 `CircleGen - Free Minecraft Circle Generator`、简介(中版文案)、截图、链接、标签
-4. 发布后把链接加到你的 PMC 签名档
+4. 提交后进入审核队列,通过后公开
+5. 发布后把链接加到你的 PMC 签名档
 
 ---
 
-### 4.11 minecraftforum.net
+### 4.11 minecraftforum.net(⚠️ 已核实:站点有防护,注册后以实际提示为准)
+
+**2026-08-13 核实结果:全站 Cloudflare 拦截,外部无法读取版规与新账号发帖限制。社区准则页地址为 `minecraftforum.net/community-standards/`,请注册登录后阅读。**
 
 **操作:**
 1. 注册 `minecraftforum.net`
-2. 找 **Off Topic / Gaming / Tutorials** 板块(或"Free tools"类)
-3. 发帖:标题 `[Free Tool] CircleGen – Minecraft circle/sphere/dome blueprint generator`,内容用中版文案 + 截图
-4. 把链接放进**签名档**(论坛签名档是持续外链)
+2. 登录后先读 **community-standards**,确认新账号发帖门槛
+3. 找 **Off Topic / Gaming / Tutorials** 板块(或"Free tools"类)
+4. 发帖:标题 `[Free Tool] CircleGen – Minecraft circle/sphere/dome blueprint generator`,内容用中版文案 + 截图
+5. 把链接放进**签名档**(论坛签名档是持续外链)
 
 ---
 
@@ -291,19 +323,40 @@ Github:    https://github.com/ywb-coder/Minecraft-Circle--Generator
 
 ---
 
-## 五、时间线(建议节奏)
+## 五、时间线(建议节奏,已按 2026-08-13 核实结果修订)
 
 | 周 | 任务 |
 |---|---|
-| 第 1 周 | 素材准备 → awesome-minecraft PR → FREE FOR DEV / AlternativeTo / SaaSHub / Freesiteslike / FreeToolDirectory(5-8 个提交) |
-| 第 2 周 | Product Hunt 排期(Upcoming)+ HN 账号养 karma + PlanetMinecraft / minecraftforum 注册活跃 |
+| 第 1 周 | ✅ awesome-minecraft PR 已提交(#66)→ AlternativeTo / SaaSHub 提交(2 个确定可行) |
+| 第 2 周 | Product Hunt 排期(Upcoming)+ HN 账号养 karma + PlanetMinecraft(走 Greenlight 审核)/ minecraftforum 注册活跃 |
 | 第 3 周 | PH 发布日(周二-周四)+ HN Show HN + reddit 开始自然参与 |
-| 第 4 周 | reddit/Discord/中文社区持续参与 + B站联系 up 主 + 回复所有目录站审核 |
+| 第 4 周 | reddit/Discord/中文社区持续参与 + B站联系 up 主 + 复查 Freesiteslike / FreeToolDirectory 是否恢复 |
 | 第 5 周起 | 每周 2-3 次社区参与;**GSC → 链接报告**看外链收录;评估是否启动博客 |
 
 ---
 
-## 六、红线(违反会前功尽弃)
+## 六、渠道核实记录(2026-08-13)
+
+> 逐个核实后的结论,与追踪表一致。来源:官方页面/帮助文档为主,第三方交叉印证,无法确认的已标注。
+
+| 渠道 | 核实结论 |
+|---|---|
+| awesome-minecraft | ✅ 可提交 → **已提交 PR #66**。仓库较休眠(上次合并约 1 年前),639 stars,保留等待 |
+| FREE FOR DEV | ❌ 不匹配:只收 SaaS 免费层级,明确拒绝通用工具箱站,AI 文案 PR 直接关闭 |
+| AlternativeTo | ✅ 可提交:软件详情页 "Suggest alternative" 按钮(旧直链失效),需注册,字段含 Name/URL/Tagline/Description/License/Platforms/分类/标签 |
+| SaaSHub | ✅ 可提交:saashub.com/submit 免费,接受免费网页工具(榜单有大量同类) |
+| Freesiteslike | ⚠️ 疑似停摆:TLS 证书失效、返回停放页,待确认 |
+| FreeToolDirectory | ⚠️ 当前无法访问(超时),待确认 |
+| Toolify | ❌ 只收 AI 工具,提交收费 $99 |
+| Product Hunt | ✅ 可提交:需账号 + Upcoming 排期,发布日互动 |
+| Hacker News | ✅ 可提交:Show HN 需先攒 10-20 karma |
+| PlanetMinecraft | ✅ 可提交:新账号走 Greenlight 审核(资源发布需审批),Lv5+ 可建 Jam,广告链接需 Lv20+,须满 13 岁 |
+| minecraftforum.net | ⚠️ 全站 Cloudflare 拦截,版规/发帖门槛需注册登录后确认(community-standards 页) |
+| Reddit / Discord / 贴吧 / 网易 / B站 | 无需额外核实,按各平台版规操作(先读规则、不硬广) |
+
+---
+
+## 七、红线(违反会前功尽弃)
 
 1. **不买外链、不加入链接农场、不用 PBN**——Google 反外链操纵,新域名最容易中招
 2. **不重复复制粘贴同一文案**(目录站可微调;reddit/论坛必须原创化)
@@ -314,7 +367,7 @@ Github:    https://github.com/ywb-coder/Minecraft-Circle--Generator
 
 ---
 
-## 七、监控与验证
+## 八、监控与验证
 
 | 时间点 | 动作 |
 |---|---|
@@ -328,7 +381,7 @@ Github:    https://github.com/ywb-coder/Minecraft-Circle--Generator
 
 ---
 
-## 八、常见问题
+## 九、常见问题
 
 **Q: 收录要多久?**
 A: 首页 1-2 周;3,161 个 SEO 页 2-6 周逐步收录。外链能明显加速。
