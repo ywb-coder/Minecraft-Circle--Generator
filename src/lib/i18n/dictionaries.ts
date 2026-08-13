@@ -104,6 +104,11 @@ export interface Dictionary {
     faqA2: string;
     faqQ3: string;
     faqA3: string;
+    setblockTitle: string;
+    setblockBody: string;
+    thicknessTip: string;
+    innerTip: string;
+    builderTip: string;
   };
   faq: {
     title: string;

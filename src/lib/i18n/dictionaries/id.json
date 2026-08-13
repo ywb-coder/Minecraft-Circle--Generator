@@ -121,7 +121,12 @@
     "faqQ2": "Apa yang bisa saya bangun dengan {shape} {d} blok?",
     "faqA2": "Ini ukuran populer untuk {use} - lihat panduan ukuran untuk ide lainnya.",
     "faqQ3": "Apakah cetak biru berfungsi di Java dan Bedrock?",
-    "faqA3": "Ya - semua cetak biru berfungsi sama di edisi Java dan Bedrock."
+    "faqA3": "Ya - semua cetak biru berfungsi sama di edisi Java dan Bedrock.",
+    "setblockTitle": "Salin sebagai perintah /setblock",
+    "setblockBody": "Buka generator dan tekan Salin /setblock untuk mengubah setiap blok menjadi perintah Minecraft. Tambahkan koordinat dunia Anda dan seluruh {shape} akan berada tepat di tempat yang Anda inginkan.",
+    "thicknessTip": "Butuh dinding lebih tebal? Atur ketebalan garis luar ke 3-6: cincin {d} blok dengan garis luar tebal jauh lebih kokoh untuk tembok dan pangkalan.",
+    "innerTip": "Butuh cincin berlubang? Gunakan potongan dalam untuk menghilangkan bagian tengah lingkaran: cocok untuk parit, arena, dan menara bundar.",
+    "builderTip": "Bangun blok demi blok: aktifkan mode pembangun untuk menandai setiap penempatan dengan klik, maju dengan Berikutnya/Sebelumnya, atau tekan Putar."
   },
   "faq": {
     "title": "Pertanyaan yang sering diajukan",
@@ -129,7 +134,9 @@
       { "q": "Bagaimana cara membangun lingkaran di Minecraft?", "a": "Pilih diameter, salin cetak biru dari kisi, lalu pasang blok satu per satu. Mulai dari blok tengah dan bekerja ke luar untuk hasil yang sempurna." },
       { "q": "Ukuran lingkaran apa yang harus saya gunakan?", "a": "Lingkaran kecil (5-15 blok) cocok untuk air mancur dan jendela, 21-49 untuk menara dan ruangan, dan di atas 65 untuk bangunan raksasa seperti stadion dan koloseum." },
       { "q": "Apakah cetak biru berfungsi untuk Java dan Bedrock?", "a": "Ya. Kisi menunjukkan posisi blok, jadi berfungsi sama di edisi Java dan edisi Bedrock." },
-      { "q": "Bagaimana cara membangun bola atau kubah?", "a": "Pindah ke tab bola atau kubah dan gunakan penggeser lapisan untuk melihat setiap irisan dari bawah ke atas. Bangun satu lapisan pada satu waktu." }
+      { "q": "Bagaimana cara membangun bola atau kubah?", "a": "Pindah ke tab bola atau kubah dan gunakan penggeser lapisan untuk melihat setiap irisan dari bawah ke atas. Bangun satu lapisan pada satu waktu." },
+      { "q": "Bisakah saya menyalin perintah /setblock?", "a": "Ya - tekan Salin /setblock untuk mengubah setiap blok menjadi perintah dengan koordinat dunia Anda. Gunakan Salin semua lapisan untuk bola, kubah, torus, dan elipsoida." },
+      { "q": "Apa itu mode pembangun?", "a": "Mode pembangun mengubah cetak biru menjadi panduan langkah demi langkah: tandai blok dengan klik, maju dengan Berikutnya/Sebelumnya, atau tekan Putar untuk otomatis." }
     ]
   },
   "footer": {

@@ -121,7 +121,12 @@
     "faqQ2": "Was kann ich mit einem {shape} aus {d} Blöcken bauen?",
     "faqA2": "Diese Größe ist beliebt für {use} - weitere Ideen findest du in der Größentabelle.",
     "faqQ3": "Funktionieren die Baupläne in Java und Bedrock?",
-    "faqA3": "Ja - jeder Bauplan funktioniert in Java Edition und Bedrock Edition identisch."
+    "faqA3": "Ja - jeder Bauplan funktioniert in Java Edition und Bedrock Edition identisch.",
+    "setblockTitle": "Als /setblock-Befehle kopieren",
+    "setblockBody": "Öffne den Generator und klicke auf /setblock kopieren, um jeden Block als Minecraft-Befehl zu erhalten. Füge deine Weltkoordinaten hinzu und der ganze {shape} sitzt exakt dort, wo du ihn haben willst.",
+    "thicknessTip": "Brauchst du eine dickere Wand? Stelle die Umrissdicke im Generator auf 3-6 - ein {d}-Block-Ring mit dickerem Umriss ist viel stabiler für Burgmauern und Basen.",
+    "innerTip": "Brauchst du einen hohlen Ring? Nutze den Innenausschnitt, um die Mitte des Kreises zu entfernen - perfekt für Burggräben, Arenen und runde Türme.",
+    "builderTip": "Baue Block für Block: Schalte im Generator den Builder-Modus ein, markiere jede Platzierung mit einem Klick, navigiere mit Weiter/Zurück oder drücke Play für automatisches Voranschreiten."
   },
   "faq": {
     "title": "Häufige Fragen",
@@ -129,7 +134,9 @@
       { "q": "Wie baue ich einen Kreis in Minecraft?", "a": "Wähle einen Durchmesser, kopiere den Bauplan aus dem Raster und setze die Blöcke einzeln. Beginne am Mittelblock und arbeite dich nach außen vor – so gelingt es immer perfekt." },
       { "q": "Welche Kreisgröße sollte ich verwenden?", "a": "Kleine Kreise (5-15 Blöcke) passen für Brunnen und Fenster, 21-49 für Türme und Räume, und alles über 65 ist für große Bauten wie Stadien und Kolosseum gedacht." },
       { "q": "Funktionieren die Baupläne für Java und Bedrock?", "a": "Ja. Das Raster zeigt die Blockpositionen, daher funktioniert es in Java Edition und Bedrock Edition identisch." },
-      { "q": "Wie baue ich eine Kugel oder Kuppel?", "a": "Wechsle zum Reiter Kugel oder Kuppel und nutze den Ebenen-Schieberegler, um jede Scheibe von unten nach oben zu sehen. Baue eine Ebene nach der anderen." }
+      { "q": "Wie baue ich eine Kugel oder Kuppel?", "a": "Wechsle zum Reiter Kugel oder Kuppel und nutze den Ebenen-Schieberegler, um jede Scheibe von unten nach oben zu sehen. Baue eine Ebene nach der anderen." },
+      { "q": "Kann ich /setblock-Befehle kopieren?", "a": "Ja - klicke auf /setblock kopieren, um jeden Block als /setblock-Befehl mit deinen Weltkoordinaten zu erhalten. Nutze Alle Ebenen kopieren für Kugeln, Kuppeln, Torus und Ellipsoide." },
+      { "q": "Was ist der Builder-Modus?", "a": "Der Builder-Modus macht den Bauplan zu einer Schritt-für-Schritt-Anleitung: Klicke Blöcke zum Markieren an, nutze Weiter/Zurück oder drücke Play für automatisches Voranschreiten." }
     ]
   },
   "footer": {

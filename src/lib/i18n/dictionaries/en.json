@@ -121,7 +121,12 @@
     "faqQ2": "What can I build with a {d}-block {shape}?",
     "faqA2": "It is a popular size for {use} - check the size guide for more ideas.",
     "faqQ3": "Do the blueprints work in Java and Bedrock?",
-    "faqA3": "Yes - every blueprint works identically in Java Edition and Bedrock Edition."
+    "faqA3": "Yes - every blueprint works identically in Java Edition and Bedrock Edition.",
+    "setblockTitle": "Copy it as /setblock commands",
+    "setblockBody": "Open the generator and hit Copy /setblock to get every block as a Minecraft command. Add your world coordinates and the whole {shape} lines up exactly where you want it to be.",
+    "thicknessTip": "Need a thicker wall? Set the outline thickness to 3-6 in the generator - a {d}-block ring with a thicker outline is much sturdier for castle walls and bases.",
+    "innerTip": "Need a hollow ring? Use the inner cutout to remove the middle of the circle - perfect for moats, arenas and round towers.",
+    "builderTip": "Build it block by block: turn on Builder mode in the generator to mark each placement with a click, step with Next and Prev, or press Play to auto-advance."
   },
   "faq": {
     "title": "Frequently asked questions",
@@ -129,7 +134,9 @@
       { "q": "How do I build a circle in Minecraft?", "a": "Pick a diameter, copy the blueprint from the grid, then place the blocks one by one. Start at the center block and work outward for a perfect result every time." },
       { "q": "What circle size should I use?", "a": "Small circles (5-15 blocks) suit fountains and windows, 21-49 is right for towers and rooms, and anything above 65 is for huge builds like stadiums and coliseums." },
       { "q": "Do the blueprints work for Java and Bedrock?", "a": "Yes. The grid shows block positions, so it works identically in Java Edition and Bedrock Edition." },
-      { "q": "How do I build a sphere or dome?", "a": "Switch to the sphere or dome tab, then use the Layer slider to see each slice from bottom to top. Build one layer at a time and the shape assembles itself." }
+      { "q": "How do I build a sphere or dome?", "a": "Switch to the sphere or dome tab, then use the Layer slider to see each slice from bottom to top. Build one layer at a time and the shape assembles itself." },
+      { "q": "Can I copy /setblock commands?", "a": "Yes - hit Copy /setblock to get every block as a /setblock command, with your world coordinates applied. Use Copy All layers for spheres, domes, toruses and ellipsoids." },
+      { "q": "What is Builder mode?", "a": "Builder mode turns the blueprint into a step-by-step guide: click blocks to mark them placed, use Next and Prev to move through the build order, or press Play to auto-advance." }
     ]
   },
   "footer": {

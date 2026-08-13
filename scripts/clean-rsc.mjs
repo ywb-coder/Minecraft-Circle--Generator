@@ -16,7 +16,11 @@ async function removeTxt(dir) {
       await removeTxt(full);
     } else if (
       entry.name.endsWith(".txt") &&
-      entry.name !== "__next._tree.txt"
+      entry.name !== "__next._tree.txt" &&
+      !(
+        dir === outDir &&
+        ["llms.txt", "llms-full.txt", "robots.txt"].includes(entry.name)
+      )
     ) {
       await rm(full);
     }

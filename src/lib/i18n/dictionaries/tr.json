@@ -121,7 +121,12 @@
     "faqQ2": "{d} blokluk {shape} ile ne inşa edebilirim?",
     "faqA2": "{use} için popüler bir boyuttur - daha fazla fikir için boyut rehberine bakın.",
     "faqQ3": "Planlar Java ve Bedrock'ta çalışıyor mu?",
-    "faqA3": "Evet - tüm planlar Java ve Bedrock sürümlerinde aynı şekilde çalışır."
+    "faqA3": "Evet - tüm planlar Java ve Bedrock sürümlerinde aynı şekilde çalışır.",
+    "setblockTitle": "/setblock komutları olarak kopyala",
+    "setblockBody": "Oluşturucuyu açın ve /setblock kopyala'ya basın; her blok bir Minecraft komutu olur. Dünya koordinatlarınızı ekleyin, {shape} tam istediğiniz yere otursun.",
+    "thicknessTip": "Daha kalın bir duvar mı lazım? Dış hat kalınlığını 3-6 yapın - {d} blokluk kalın konturlu halka, kale duvarları için çok daha sağlamdır.",
+    "innerTip": "İçi boş halka mı lazım? Dairenin ortasını kaldırmak için iç oyuğu kullanın - hendekler, arenalar ve yuvarlak kuleler için ideal.",
+    "builderTip": "Blok blok inşa edin: oluşturucuda Oluşturucu modunu açın, her yerleşimi tıklayarak işaretleyin, Sonraki/Önceki ile ilerleyin veya Oynat'a basın."
   },
   "faq": {
     "title": "Sık sorulan sorular",
@@ -129,7 +134,9 @@
       { "q": "Minecraft'ta daire nasıl inşa edilir?", "a": "Bir çap seçin, planı ızgaradan kopyalayın ve blokları tek tek yerleştirin. Merkez bloktan başlayıp dışa doğru ilerleyin; sonuç her zaman kusursuz olur." },
       { "q": "Hangi daire boyutunu kullanmalıyım?", "a": "Küçük daireler (5-15 blok) çeşmeler ve pencereler için, 21-49 kuleler ve odalar için, 65 üzeri ise stadyum ve koltuk amfi gibi dev yapılar için uygundur." },
       { "q": "Planlar Java ve Bedrock'ta çalışıyor mu?", "a": "Evet. Izgara blok konumlarını gösterir, bu yüzden Java ve Bedrock sürümlerinde aynı şekilde çalışır." },
-      { "q": "Küre veya kubbe nasıl inşa edilir?", "a": "Küre veya kubbe sekmesine geçin ve her katmanı aşağıdan yukarıya görmek için katman kaydırıcısını kullanın. Bir katmanı tek seferde inşa edin." }
+      { "q": "Küre veya kubbe nasıl inşa edilir?", "a": "Küre veya kubbe sekmesine geçin ve her katmanı aşağıdan yukarıya görmek için katman kaydırıcısını kullanın. Bir katmanı tek seferde inşa edin." },
+      { "q": "/setblock komutları kopyalayabilir miyim?", "a": "Evet - /setblock kopyala'ya basarak her bloğu dünya koordinatlarınızla komut olarak alabilirsiniz. Küreler, kubbeler, halkalar ve elipsoitler için Tüm katmanları kopyalayın." },
+      { "q": "Oluşturucu modu nedir?", "a": "Oluşturucu modu planı adım adım rehbere çevirir: blokları tıklayarak işaretleyin, Sonraki/Önceki ile ilerleyin veya Oynat ile otomatik ilerletin." }
     ]
   },
   "footer": {

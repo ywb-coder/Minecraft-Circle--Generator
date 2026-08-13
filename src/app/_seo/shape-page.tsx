@@ -534,6 +534,41 @@ export default async function ShapePage(
 
         <section className="mt-10">
           <h2 className="font-pixel text-[10px] uppercase tracking-wide text-cyan">
+            {dict.perSize.setblockTitle}
+          </h2>
+          <p className="mt-3 text-sm text-muted">
+            {interpolate(dict.perSize.setblockBody, vars)}
+          </p>
+          <pre className="mt-3 inline-block border-2 border-mc-border bg-panel-2 p-3 font-terminal text-lg leading-7 text-cyan">
+            /setblock 0 64 0 minecraft:stone
+          </pre>
+        </section>
+
+        {resolved.type === "circle" && (
+          <section className="mt-10">
+            <h2 className="font-pixel text-[10px] uppercase tracking-wide text-cyan">
+              {dict.tool.thickness} &amp; {dict.tool.inner}
+            </h2>
+            <p className="mt-3 text-sm text-muted">
+              {interpolate(dict.perSize.thicknessTip, vars)}
+            </p>
+            <p className="mt-2 text-sm text-muted">
+              {dict.perSize.innerTip}
+            </p>
+          </section>
+        )}
+
+        <section className="mt-10">
+          <h2 className="font-pixel text-[10px] uppercase tracking-wide text-cyan">
+            {dict.tool.builder}
+          </h2>
+          <p className="mt-3 text-sm text-muted">
+            {dict.perSize.builderTip}
+          </p>
+        </section>
+
+        <section className="mt-10">
+          <h2 className="font-pixel text-[10px] uppercase tracking-wide text-cyan">
             {dict.perSize.usageTitle}
           </h2>
           <p className="mt-3 text-sm text-muted">

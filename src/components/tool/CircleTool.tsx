@@ -331,7 +331,16 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
   };
 
   const handlePrev = () => {
-    setOrderIndex((i) => Math.max(0, i - 1));
+    const prev = Math.max(0, orderIndex - 1);
+    const cell = order[prev];
+    if (cell) {
+      const key = `${cell.x},${cell.y}`;
+      setState((s) => ({
+        ...s,
+        placed: s.placed.filter((k) => k !== key),
+      }));
+    }
+    setOrderIndex(prev);
   };
 
   const showCopied = () => {
@@ -679,7 +688,9 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
 
   const content = (
     <div className="grid gap-4 lg:grid-cols-[340px_1fr]">
-      <div className="hidden flex-col gap-4 lg:flex">{controlsPanel}</div>
+      <div className="hidden flex-col gap-4 lg:flex lg:h-[calc(100vh-180px)] lg:overflow-y-auto">
+        {controlsPanel}
+      </div>
 
       <div className="flex min-w-0 flex-col gap-4">
         <div className="hidden lg:block">{previewPanel}</div>

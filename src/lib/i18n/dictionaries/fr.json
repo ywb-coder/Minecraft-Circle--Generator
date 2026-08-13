@@ -121,7 +121,12 @@
     "faqQ2": "Que puis-je construire avec un {shape} de {d} blocs ?",
     "faqA2": "C'est une taille populaire pour {use} - consultez le guide des tailles pour plus d'idées.",
     "faqQ3": "Les plans fonctionnent-ils dans Java et Bedrock ?",
-    "faqA3": "Oui : tous les plans fonctionnent à l'identique dans les éditions Java et Bedrock."
+    "faqA3": "Oui : tous les plans fonctionnent à l'identique dans les éditions Java et Bedrock.",
+    "setblockTitle": "Copier en commandes /setblock",
+    "setblockBody": "Ouvrez le générateur et cliquez sur Copier /setblock pour obtenir chaque bloc sous forme de commande Minecraft. Ajoutez vos coordonnées du monde et tout le {shape} sera placé exactement où vous voulez.",
+    "thicknessTip": "Besoin d'un mur plus épais ? Réglez l'épaisseur du contour sur 3-6 : un anneau de {d} blocs au contour épais est bien plus solide pour les murs et les bases.",
+    "innerTip": "Besoin d'un anneau creux ? Utilisez la découpe intérieure pour retirer le centre du cercle : idéal pour les douves, arènes et tours rondes.",
+    "builderTip": "Construisez bloc par bloc : activez le mode constructeur pour marquer chaque placement d'un clic, avancez avec Suivant/Précédent ou appuyez sur Lecture."
   },
   "faq": {
     "title": "Questions fréquentes",
@@ -129,7 +134,9 @@
       { "q": "Comment construire un cercle dans Minecraft ?", "a": "Choisissez un diamètre, copiez le plan depuis la grille puis placez les blocs un par un. Commencez par le bloc central et travaillez vers l'extérieur pour un résultat parfait." },
       { "q": "Quelle taille de cercle dois-je utiliser ?", "a": "Les petits cercles (5-15 blocs) conviennent aux fontaines et fenêtres, 21-49 aux tours et pièces, et au-delà de 65 aux grandes constructions comme les stades et les colisées." },
       { "q": "Les plans fonctionnent-ils pour Java et Bedrock ?", "a": "Oui. La grille montre les positions des blocs, donc c'est identique en édition Java et en édition Bedrock." },
-      { "q": "Comment construire une sphère ou un dôme ?", "a": "Passez à l'onglet sphère ou dôme et utilisez le curseur de couches pour voir chaque tranche de bas en haut. Construisez une couche à la fois." }
+      { "q": "Comment construire une sphère ou un dôme ?", "a": "Passez à l'onglet sphère ou dôme et utilisez le curseur de couches pour voir chaque tranche de bas en haut. Construisez une couche à la fois." },
+      { "q": "Puis-je copier des commandes /setblock ?", "a": "Oui : cliquez sur Copier /setblock pour obtenir chaque bloc en commande avec vos coordonnées du monde. Utilisez Copier toutes les couches pour sphères, dômes, tores et ellipsoïdes." },
+      { "q": "Qu'est-ce que le mode constructeur ?", "a": "Le mode constructeur transforme le plan en guide pas à pas : marquez les blocs d'un clic, avancez avec Suivant/Précédent ou appuyez sur Lecture." }
     ]
   },
   "footer": {

@@ -51,6 +51,7 @@ export default memo(function LayerStack({
             type="button"
             onClick={() => onSelect(index)}
             aria-pressed={active}
+            data-testid="layer-row"
             style={active ? { borderColor: "var(--accent)" } : undefined}
             className={`flex items-center gap-3 border-2 px-2 py-1 text-left ${
               active ? "bg-panel" : "border-transparent bg-panel-2/50 hover:bg-panel-2"

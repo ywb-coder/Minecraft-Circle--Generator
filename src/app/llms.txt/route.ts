@@ -40,6 +40,21 @@ export async function GET(): Promise<Response> {
     `- A 25x17x9 ellipsoid uses ${ellipsoid.totalBlockCount} blocks across ${ellipsoid.layers.length} layers.`
   );
   lines.push("");
+  lines.push("## Features");
+  lines.push("");
+  lines.push(
+    "- Export every block as a /setblock command with world coordinates (all layers for 3D shapes)."
+  );
+  lines.push(
+    "- Builder mode steps through placements block by block with click-to-mark, Next/Prev and play."
+  );
+  lines.push(
+    "- Outline thickness (1-6) makes thick walls; inner cutout creates hollow rings."
+  );
+  lines.push(
+    "- Interactive 3D preview with drag-to-rotate, layer-by-layer view for spheres, domes, toruses and ellipsoids."
+  );
+  lines.push("");
   lines.push("## Pages");
   lines.push("");
   lines.push(

@@ -121,7 +121,12 @@
     "faqQ2": "Cosa posso costruire con un {shape} da {d} blocchi?",
     "faqA2": "È una dimensione popolare per {use}: consulta la guida alle dimensioni per altre idee.",
     "faqQ3": "I progetti funzionano in Java e Bedrock?",
-    "faqA3": "Sì: tutti i progetti funzionano allo stesso modo nelle edizioni Java e Bedrock."
+    "faqA3": "Sì: tutti i progetti funzionano allo stesso modo nelle edizioni Java e Bedrock.",
+    "setblockTitle": "Copia come comandi /setblock",
+    "setblockBody": "Apri il generatore e premi Copia /setblock per ottenere ogni blocco come comando di Minecraft. Aggiungi le tue coordinate del mondo e l'intero {shape} sarà esattamente dove vuoi.",
+    "thicknessTip": "Serve un muro più spesso? Imposta lo spessore del contorno su 3-6: un anello di {d} blocchi con contorno spesso è molto più robusto per mura e basi.",
+    "innerTip": "Serve un anello cavo? Usa il ritaglio interno per rimuovere il centro del cerchio: perfetto per fossati, arene e torri rotonde.",
+    "builderTip": "Costruisci blocco per blocco: attiva la modalità costruttore per marcare ogni posizione con un clic, avanza con Avanti/Indietro o premi Play."
   },
   "faq": {
     "title": "Domande frequenti",
@@ -129,7 +134,9 @@
       { "q": "Come costruire un cerchio in Minecraft?", "a": "Scegli un diametro, copia il progetto dalla griglia e posiziona i blocchi uno alla volta. Inizia dal blocco centrale e procedi verso l'esterno per un risultato perfetto." },
       { "q": "Che dimensione di cerchio devo usare?", "a": "I cerchi piccoli (5-15 blocchi) vanno bene per fontane e finestre, 21-49 per torri e stanze, oltre 65 per costruzioni enormi come stadi e colossei." },
       { "q": "I progetti funzionano per Java e Bedrock?", "a": "Sì. La griglia mostra le posizioni dei blocchi, quindi funziona allo stesso modo nelle edizioni Java e Bedrock." },
-      { "q": "Come costruisco una sfera o una cupola?", "a": "Passa alla scheda sfera o cupola e usa il cursore dei livelli per vedere ogni sezione dal basso verso l'alto. Costruisci un livello alla volta." }
+      { "q": "Come costruisco una sfera o una cupola?", "a": "Passa alla scheda sfera o cupola e usa il cursore dei livelli per vedere ogni sezione dal basso verso l'alto. Costruisci un livello alla volta." },
+      { "q": "Posso copiare i comandi /setblock?", "a": "Sì: premi Copia /setblock per ottenere ogni blocco come comando con le tue coordinate del mondo. Usa Copia tutti i livelli per sfere, cupole, tori ed ellissoidi." },
+      { "q": "Cos'è la modalità costruttore?", "a": "La modalità costruttore trasforma il progetto in una guida passo passo: marca i blocchi con un clic, avanza con Avanti/Indietro o premi Play." }
     ]
   },
   "footer": {

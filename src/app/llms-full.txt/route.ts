@@ -134,6 +134,16 @@ export async function GET(): Promise<Response> {
     "Switch to the sphere or dome shape, then build one layer at a time from the bottom up, following the per-layer grids until the shape closes at the top."
   );
   lines.push("");
+  lines.push("### Can I export /setblock commands?");
+  lines.push(
+    "Yes. The generator exports every block as a /setblock command with world coordinates, and can copy all layers for spheres, domes, toruses and ellipsoids."
+  );
+  lines.push("");
+  lines.push("### What is Builder mode?");
+  lines.push(
+    "Builder mode turns the blueprint into a step-by-step guide: click blocks to mark them placed, use Next and Prev to move through the build order, or press Play to auto-advance."
+  );
+  lines.push("");
   lines.push("## All sizes");
   lines.push("");
   for (let d = 5; d <= 255; d += 2) {

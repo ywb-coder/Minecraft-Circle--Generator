@@ -15,7 +15,7 @@ export default function BlockPalette({
   return (
     <div>
       <p className="font-pixel text-[10px] text-muted">{dict.tool.blockColors}</p>
-      <div className="mt-2 grid grid-cols-6 gap-1.5">
+      <div className="mt-2 grid grid-cols-9 gap-1.5">
         {BLOCKS.map((block) => (
           <button
             key={block.id}
