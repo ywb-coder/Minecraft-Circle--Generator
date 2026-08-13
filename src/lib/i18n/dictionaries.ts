@@ -69,6 +69,7 @@ export interface Dictionary {
     prev: string;
     showCoords: string;
     rowCounts: string;
+    zoom: string;
     fullscreen: string;
     setblock: string;
     allLayers: string;

@@ -125,15 +125,14 @@ body {
   padding: 10px 14px;
   cursor: pointer;
   user-select: none;
-  transition: filter 60ms steps(2), transform 60ms steps(2);
+  transition: background 60ms steps(2);
 }
 
 .mc-btn:hover {
-  filter: brightness(1.18);
+  background: linear-gradient(180deg, #92a4cb 0%, #5a6c96 45%, #42527c 55%, #2e3c5c 100%);
 }
 
 .mc-btn:active {
-  transform: translateY(1px);
   box-shadow:
     inset -1px -1px 0 #9db1d8,
     inset 1px 1px 0 #1a2440;
@@ -146,6 +145,10 @@ body {
     inset 1px 1px 0 #fde68a,
     inset -1px -1px 0 #92400e;
   text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.mc-btn-primary:hover {
+  background: linear-gradient(180deg, #fde68a 0%, #fbbf24 45%, #f59e0b 55%, #c2701a 100%);
 }
 
 .mc-btn-primary:active {

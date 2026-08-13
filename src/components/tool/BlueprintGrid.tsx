@@ -15,6 +15,7 @@ function BlueprintGridBase({
   onCellClick,
   showCoords = false,
   rowCounts = false,
+  zoom = 24,
 }: {
   points: Point[];
   sizeW: number;
@@ -29,6 +30,7 @@ function BlueprintGridBase({
   onCellClick?: (x: number, y: number) => void;
   showCoords?: boolean;
   rowCounts?: boolean;
+  zoom?: number;
 }) {
   const set = new Set(points.map((p) => `${p.x},${p.y}`));
   const contextSet = context ? new Set(context.map((p) => `${p.x},${p.y}`)) : null;
@@ -43,6 +45,8 @@ function BlueprintGridBase({
   }
 
   const svgMode = sizeW * sizeH > 2048;
+  const scale = zoom ? zoom / 24 : 1;
+  const origin = scale >= 1 ? "top left" : "center";
   if (svgMode) {
     const cell = Math.max(1, Math.min(24, Math.floor(448 / sizeW)));
     const ox = Math.floor(sizeW / 2);
@@ -70,6 +74,8 @@ function BlueprintGridBase({
             backgroundImage:
               "linear-gradient(rgba(148,163,184,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.18) 1px, transparent 1px)",
             backgroundSize: `${cell}px ${cell}px`,
+            transform: `scale(${scale})`,
+            transformOrigin: origin,
           }}
         >
           {context ? (
@@ -103,6 +109,8 @@ function BlueprintGridBase({
           gridTemplateRows: "auto 1fr",
           rowGap: showCoords ? 4 : 0,
           columnGap: 4,
+          transform: `scale(${scale})`,
+          transformOrigin: origin,
         }}
       >
         {showCoords && (

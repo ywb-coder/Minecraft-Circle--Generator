@@ -76,6 +76,7 @@ function stateFromUrl(): ToolState {
   next.centerZ = toInt(params.get("cz"), next.centerZ);
   next.t = clamp(toInt(params.get("tb"), next.t), 1, 64);
   next.dp = clamp(toInt(params.get("dp"), next.dp), 5, 256);
+  next.zoom = clamp(toInt(params.get("z"), next.zoom), 8, 48);
   return next;
 }
 
@@ -95,6 +96,7 @@ function mergeSaved(saved: Partial<ToolState> | null, next: ToolState): ToolStat
     "block",
     "start",
     "span",
+    "zoom",
     "centerX",
     "centerY",
     "centerZ",
@@ -157,6 +159,7 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
       params.set("cz", String(state.centerZ));
       params.set("tb", String(state.t));
       params.set("dp", String(state.dp));
+      params.set("z", String(state.zoom));
       window.history.replaceState(
         null,
         "",
@@ -189,6 +192,7 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
           placed: state.placed,
           showCoords: state.showCoords,
           rowCounts: state.rowCounts,
+          zoom: state.zoom,
           layerIndex: state.layerIndex,
           speed: state.speed,
         };
@@ -463,6 +467,25 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
     </>
   );
 
+  const zoomControl = (
+    <label className="flex w-full items-center gap-2">
+      <span className="shrink-0 font-pixel text-[10px] text-muted">{dict.tool.zoom}</span>
+      <input
+        type="range"
+        min={8}
+        max={48}
+        step={1}
+        value={state.zoom}
+        onChange={(e) => setState((s) => ({ ...s, zoom: Number(e.target.value) }))}
+        className="w-full"
+        style={{ accentColor: "var(--accent)" }}
+      />
+      <span className="w-11 shrink-0 text-right font-terminal text-lg text-accent">
+        {Math.round((state.zoom / 24) * 100)}%
+      </span>
+    </label>
+  );
+
   const previewPanel = (
     <>
       <div className="flex flex-wrap gap-1.5">
@@ -543,7 +566,9 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
               onCellClick={builderEnabled ? handleCellClick : undefined}
               showCoords={state.showCoords}
               rowCounts={state.rowCounts}
+              zoom={state.zoom}
             />
+            {zoomControl}
             <BuildOrderBar
               total={order.length}
               current={Math.min(safeIndex + 1, order.length)}
@@ -575,7 +600,9 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
               context={state.type === "arc" ? outlineCircle(state.d) : undefined}
               showCoords={state.showCoords}
               rowCounts={state.rowCounts}
+              zoom={state.zoom}
             />
+            {zoomControl}
           </>
         )}
         <p className="font-terminal text-3xl text-accent">
@@ -693,7 +720,7 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
       </div>
 
       <div className="flex min-w-0 flex-col gap-4">
-        <div className="hidden lg:block">{previewPanel}</div>
+        <div className="hidden flex-col gap-4 lg:flex">{previewPanel}</div>
         <div className="lg:hidden">
           {mobileBar}
           <div className="mt-4">

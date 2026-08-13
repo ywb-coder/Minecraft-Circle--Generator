@@ -23,6 +23,7 @@ export interface ToolState {
   placed: string[];
   showCoords: boolean;
   rowCounts: boolean;
+  zoom: number;
   fullscreen: boolean;
   mobileTab: "controls" | "preview" | "export";
 }
@@ -50,6 +51,7 @@ export const DEFAULT_STATE: ToolState = {
   placed: [],
   showCoords: false,
   rowCounts: false,
+  zoom: 24,
   fullscreen: false,
   mobileTab: "controls",
 };

@@ -66,6 +66,7 @@
     "prev": "上一步",
     "showCoords": "显示坐标",
     "rowCounts": "每行块数",
+    "zoom": "缩放",
     "fullscreen": "全屏",
     "setblock": "复制 /setblock",
     "allLayers": "全部层",
