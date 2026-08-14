@@ -118,6 +118,30 @@ function fmtDate() {
   return `${d.getFullYear()}${p(d.getMonth() + 1)}${p(d.getDate())}`;
 }
 
+async function probePresence(page, q) {
+  // site:DOMAIN <keyword> — does the engine associate ANY of our pages with this query?
+  // A hit here means we are inside the engine's candidate pool for the keyword
+  // (typically << 1000 results), even if not yet on page 1.
+  const query = `site:${OUR_DOMAIN} ${q}`;
+  let res = await searchGoogle(page, query);
+  let engine = "google";
+  if (!res.ok) {
+    engine = "bing";
+    res = await searchBing(page, query);
+  }
+  if (!res.ok) {
+    return { engine: "both", present: null, url: "", title: "", blocked: res.blocked || "empty" };
+  }
+  const match = res.results.find((r) => r.href.includes(OUR_DOMAIN));
+  return {
+    engine,
+    present: !!match,
+    url: match ? match.href : "",
+    title: match ? match.title : "",
+    blocked: null,
+  };
+}
+
 async function main() {
   const today = fmtDate();
   fs.mkdirSync(GSC_DIR, { recursive: true });
@@ -176,6 +200,27 @@ async function main() {
     );
   }
 
+  console.log("\n--- Phase 2: index presence probe (site:DOMAIN <keyword>) ---");
+  const probeRows = [];
+  for (const { q } of KEYWORDS) {
+    const p = await probePresence(page, q);
+    const present = p.present === null ? "unknown" : p.present ? "yes" : "no";
+    probeRows.push({
+      date: today,
+      engine: p.engine,
+      keyword: q,
+      present,
+      url: p.url,
+      title: p.title.slice(0, 120),
+      note: p.blocked ? `engine blocked (${p.blocked})` : "",
+    });
+    console.log(
+      `  [${q}] ${present === "yes" ? "IN candidate pool: " + p.url : present === "no" ? "no association yet" : "engine blocked -> manual check"}
+`
+        .trim()
+    );
+  }
+
   await browser.close();
 
   const serpCsv = ["date,engine,keyword,position,matched_url,collected,note"].concat(
@@ -186,15 +231,33 @@ async function main() {
   );
   const serpFile = path.join(GSC_DIR, `serp-${today}.csv`);
   const detailFile = path.join(GSC_DIR, `serp-detail-${today}.csv`);
+  const probeFile = path.join(GSC_DIR, `serp-probe-${today}.csv`);
   fs.writeFileSync(serpFile, "\ufeff" + serpCsv.join("\n"), "utf8");
   fs.writeFileSync(detailFile, "\ufeff" + detailCsv.join("\n"), "utf8");
+  fs.writeFileSync(
+    probeFile,
+    "\ufeff" +
+      ["date,engine,keyword,present,url,title,note"].concat(
+        probeRows.map((r) =>
+          [r.date, r.engine, `"${r.keyword}"`, r.present, r.url, `"${r.title.replace(/"/g, '""')}"`, r.note].join(",")
+        )
+      ).join("\n"),
+    "utf8"
+  );
 
   console.log("\n===== SUMMARY =====");
   rows.forEach((r) =>
     console.log(`  ${r.position.padStart(3)}  ${r.engine.padEnd(5)}  ${r.keyword}${r.note ? "  (" + r.note + ")" : ""}`)
   );
+  console.log("--- index presence probe ---");
+  probeRows.forEach((r) =>
+    console.log(
+      `  ${r.present === "yes" ? "YES " : "no  "}  ${r.engine.padEnd(6)}  ${r.keyword}${r.note ? "  (" + r.note + ")" : ""}`
+    )
+  );
   console.log(`saved: ${serpFile}`);
   console.log(`saved: ${detailFile}`);
+  console.log(`saved: ${probeFile}`);
 }
 
 main().catch((e) => {
