@@ -157,5 +157,19 @@ module.exports = async function main() {
   check("01 调色板换 Gold 生效", goldFilled > 0, "goldCells=" + goldFilled);
   await shot(page, "01-gold-block");
 
+  // 14. SVG 模式(大尺寸):坐标 + 每行块数标注渲染(回归:曾在大尺寸下被静默忽略)
+  const eSvg = errBase();
+  await page.getByRole("button", { name: "Circle", exact: true }).first().click();
+  await page.waitForTimeout(300);
+  await setSlider(page, page.locator('input[type="range"]').first(), 101);
+  await page.waitForTimeout(400);
+  await page.getByRole("button", { name: "Show coordinates", exact: true }).click();
+  await page.getByRole("button", { name: "Row counts", exact: true }).click();
+  await page.waitForTimeout(400);
+  const svgTexts = await page.locator('[aria-label="Blueprint"] svg text').count();
+  check("01 svg-mode 坐标+行数标注渲染", svgTexts >= 202, "texts=" + svgTexts);
+  check("01 svg-mode 无报错", errBase() === eSvg);
+  await shot(page, "01-svg-coords");
+
   await browser.close();
 };

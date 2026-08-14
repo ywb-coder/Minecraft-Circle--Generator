@@ -43,7 +43,7 @@
 | 16 | B站 MC 建造 up 主合作 | 视频简介外链 | ★★★ | ☐ 可联系 |
 | 17 | **dev.to 干货文** | dofollow(实测) | ★★★★ | ✅ **已发布**(2026-08-14),[文章链接](https://dev.to/ywbcoder/how-i-built-a-free-minecraft-circle-generator-with-3100-pre-rendered-pages-2cai),前 1-2 小时蹲评论区 |
 | 18 | **LiteDevelopers/awesome-minecraft**(PR) | dofollow | ★★★★ | ❌ 跳过(2026-08-14 用户决定不做 PR 类渠道;备料仍在 `docs/awesome-lists-prs.md` 留档) |
-| 19 | **itch.io /tools** | dofollow(实测) | ★★★★ | ✅ 入口页已备(`docs/itch/index.html`,zip 后上传),待发布 |
+| 19 | **itch.io /tools** | nofollow(平台对描述链接自动加) | ★★★★ | ✅ **已发布**(2026-08-14),[项目页](https://ywb-coder.itch.io/circlegen-minecraft-circle-generator),Tools/HTML 嵌入,入口页 `docs/itch/index.html`;项目页含指向 pixelcircle.online 的链接(nofollow)+ meta/og 描述 |
 | 20 | **ArkFlame/awesome-minecraft**(PR) | dofollow | ★★★ | ❌ 跳过(2026-08-14 用户决定;备料留档) |
 | 21 | **CAIMEOX/awesome-minecraft-bedrock**(PR) | dofollow | ★★★ | ❌ 跳过(2026-08-14 用户决定;备料留档) |
 | 22 | **Uneed(uneed.best)** | dofollow(官方声明) | ★★★ | ☐ 免费排队提交,注意域名是 uneed.best 不是 uneed.io |
@@ -62,6 +62,8 @@
 | 2026-08-13 | awesome-minecraft | PR #66 `Add CircleGen to Web Applications`,1 commit(+1 行),目标 `bs-community:master` | 已提交,待维护者合并(仓库较休眠,上次合并约 1 年前,建议保留并 2-3 个月后复查) |
 | 2026-08-14 | dev.to | 文章 `How I built a free Minecraft circle generator with 3,100 pre-rendered pages` | ✅ **已发布**(dofollow,正文含 pixelcircle.online + GitHub 链接),标签 showdev/minecraft/javascript/nextjs。URL:https://dev.to/ywbcoder/how-i-built-a-free-minecraft-circle-generator-with-3100-pre-rendered-pages-2cai |
 | 2026-08-14 | GitHub 仓库 | 转为 public + MIT 许可证;About 描述/Website 已设(pixelcircle.online) | ✅ 完成(匿名 API 验证 public) |
+| 2026-08-14 | itch.io /tools | 项目 `CircleGen - Minecraft Circle Generator`,Tools 分类,HTML 嵌入(iframe→pixelcircle.online),封面+3 截图+描述+4 标签 | ✅ **已发布**(2026-08-14),URL:https://ywb-coder.itch.io/circlegen-minecraft-circle-generator;链接为 nofollow(itch 对描述外链自动加),meta/og 描述已补 |
+| 2026-08-14 | itch.io 社区 Release Announcements | 发布公告帖(标题+简介+截图+双链接,符合板块规则) | ✅ **已发布**(2026-08-14),URL:https://itch.io/t/6790276/circlegen-free-minecraft-circle-generator-with-pixel-perfect-block-blueprints |
 
 ---
 

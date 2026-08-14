@@ -51,6 +51,21 @@ function BlueprintGridBase({
     const cell = Math.max(1, Math.min(24, Math.floor(448 / sizeW)));
     const ox = Math.floor(sizeW / 2);
     const oy = Math.floor(sizeH / 2);
+    const gw = sizeW * cell;
+    const gh = sizeH * cell;
+    // Gutters for labels: left (y coords), top (x coords), right (row counts)
+    const gx = showCoords ? 28 : 0;
+    const gy = showCoords ? 18 : 0;
+    const gxr = rowCounts ? 34 : 0;
+    const rowCountsMap: Record<number, number> = {};
+    if (rowCounts) {
+      for (const p of points) {
+        rowCountsMap[p.y] = (rowCountsMap[p.y] ?? 0) + 1;
+      }
+    }
+    let gridD = "";
+    for (let i = 0; i <= sizeW; i++) gridD += `M${i * cell} 0V${gh}`;
+    for (let j = 0; j <= sizeH; j++) gridD += `M0 ${j * cell}H${gw}`;
     const pathFor = (pts: Point[]) => {
       let d = "";
       for (const p of pts) {
@@ -60,28 +75,60 @@ function BlueprintGridBase({
       }
       return d;
     };
+    const labelFont = '"VT323", ui-monospace, monospace';
     return (
       <div
         aria-label={label}
         className="mc-panel-inset pixel-corners block w-full overflow-auto p-2"
       >
         <svg
-          width={sizeW * cell}
-          height={sizeH * cell}
-          viewBox={`0 0 ${sizeW * cell} ${sizeH * cell}`}
+          width={gw + gx + gxr}
+          height={gh + gy}
+          viewBox={`${-gx} ${-gy} ${gw + gx + gxr} ${gh + gy}`}
           className="mx-auto block max-w-full"
           style={{
-            backgroundImage:
-              "linear-gradient(rgba(148,163,184,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.18) 1px, transparent 1px)",
-            backgroundSize: `${cell}px ${cell}px`,
             transform: `scale(${scale})`,
             transformOrigin: origin,
           }}
         >
+          <path d={gridD} stroke="rgba(148,163,184,0.18)" strokeWidth={1} fill="none" />
           {context ? (
             <path d={pathFor(context)} fill="rgba(251,191,36,0.25)" />
           ) : null}
           <path d={pathFor(points)} fill={color} />
+          {showCoords && (
+            <g
+              fill="#8296b0"
+              fontSize={12}
+              fontFamily={labelFont}
+              dominantBaseline="central"
+            >
+              {Array.from({ length: sizeW }, (_, i) => (
+                <text key={i} x={i * cell + cell / 2} y={-9} textAnchor="middle">
+                  {i - ox}
+                </text>
+              ))}
+              {Array.from({ length: sizeH }, (_, j) => (
+                <text key={j} x={-10} y={j * cell + cell / 2} textAnchor="end">
+                  {j - oy}
+                </text>
+              ))}
+            </g>
+          )}
+          {rowCounts && (
+            <g
+              fill="#fbbf24"
+              fontSize={12}
+              fontFamily={labelFont}
+              dominantBaseline="central"
+            >
+              {Array.from({ length: sizeH }, (_, j) => (
+                <text key={j} x={gw + 6} y={j * cell + cell / 2} textAnchor="start">
+                  {rowCountsMap[j - oy] ?? 0}
+                </text>
+              ))}
+            </g>
+          )}
         </svg>
       </div>
     );
