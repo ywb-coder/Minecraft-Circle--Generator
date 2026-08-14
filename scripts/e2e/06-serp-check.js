@@ -142,6 +142,31 @@ async function probePresence(page, q) {
   };
 }
 
+async function deepScanGoogle(page, q, maxRank = 400) {
+  // Scan Google result pages in chunks of 100 up to maxRank (Google caps ~400).
+  // Returns { found, position, scanned, blockedAt } — first occurrence of OUR_DOMAIN.
+  const step = 100;
+  for (let start = 0; start < maxRank; start += step) {
+    const url = `https://www.google.com/search?q=${encodeURIComponent(q)}&hl=en&gl=us&pws=0&num=${step}&start=${start}`;
+    await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 }).catch(() => {});
+    await humanDelay(page, 1500, 2600);
+    await tryConsent(page);
+    const blocked = looksBlocked(page, page.url()) || (await blockedText(page));
+    if (blocked) return { found: false, position: null, scanned: start, blockedAt: start + 1 };
+    const results = await page
+      .$$eval("a:has(h3)", (els) =>
+        els
+          .map((a) => ({ href: a.href, title: (a.querySelector("h3") || {}).innerText || "" }))
+          .filter((x) => x.href && !/^https?:\/\/(www\.)?google\./.test(x.href) && x.href.startsWith("http"))
+      )
+      .catch(() => []);
+    const hit = results.findIndex((r) => r.href.includes(OUR_DOMAIN));
+    if (hit >= 0) return { found: true, position: start + hit + 1, scanned: start + results.length, blockedAt: null };
+    if (results.length === 0) return { found: false, position: null, scanned: start, blockedAt: null }; // exhausted
+  }
+  return { found: false, position: null, scanned: maxRank, blockedAt: null };
+}
+
 async function main() {
   const today = fmtDate();
   fs.mkdirSync(GSC_DIR, { recursive: true });
@@ -221,6 +246,20 @@ async function main() {
     );
   }
 
+  let deep = null;
+  if (process.argv.includes("--deep")) {
+    const q = KEYWORDS[0].q;
+    console.log(`\n--- Phase 3: deep scan (google top-400) for "${q}" ---`);
+    deep = await deepScanGoogle(page, q);
+    if (deep.found) {
+      console.log(`  FOUND at position ${deep.position}`);
+    } else if (deep.blockedAt) {
+      console.log(`  google blocked at page ${Math.floor(deep.blockedAt / 100) + 1} (scan covered top ${deep.scanned})`);
+    } else {
+      console.log(`  not found in top ${deep.scanned} on google`);
+    }
+  }
+
   await browser.close();
 
   const serpCsv = ["date,engine,keyword,position,matched_url,collected,note"].concat(
@@ -232,6 +271,7 @@ async function main() {
   const serpFile = path.join(GSC_DIR, `serp-${today}.csv`);
   const detailFile = path.join(GSC_DIR, `serp-detail-${today}.csv`);
   const probeFile = path.join(GSC_DIR, `serp-probe-${today}.csv`);
+  const deepFile = path.join(GSC_DIR, `serp-deep-${today}.csv`);
   fs.writeFileSync(serpFile, "\ufeff" + serpCsv.join("\n"), "utf8");
   fs.writeFileSync(detailFile, "\ufeff" + detailCsv.join("\n"), "utf8");
   fs.writeFileSync(
@@ -244,6 +284,26 @@ async function main() {
       ).join("\n"),
     "utf8"
   );
+  if (deep) {
+    fs.writeFileSync(
+      deepFile,
+      "\ufeff" +
+        ["date,engine,keyword,found,position,scanned,blocked_at"]
+          .concat([
+            [
+              today,
+              "google",
+              `"${KEYWORDS[0].q}"`,
+              deep.found ? "yes" : "no",
+              deep.position ?? "",
+              deep.scanned,
+              deep.blockedAt ?? "",
+            ].join(","),
+          ])
+          .join("\n"),
+      "utf8"
+    );
+  }
 
   console.log("\n===== SUMMARY =====");
   rows.forEach((r) =>
