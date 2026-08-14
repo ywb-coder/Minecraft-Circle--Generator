@@ -41,7 +41,7 @@
 | 14 | 贴吧 minecraft 吧 | nofollow | ★(中文流量) | ☐ 可参与(先读吧规) |
 | 15 | 网易我的世界论坛 | nofollow | ★★ | ☐ 可参与 |
 | 16 | B站 MC 建造 up 主合作 | 视频简介外链 | ★★★ | ☐ 可联系 |
-| 17 | **dev.to 干货文** | dofollow(实测) | ★★★★ | ✅ 草稿已备(`docs/devto-article.md`,含正文/标签/封面指引),待发布 |
+| 17 | **dev.to 干货文** | dofollow(实测) | ★★★★ | ✅ **已发布**(2026-08-14),[文章链接](https://dev.to/ywbcoder/how-i-built-a-free-minecraft-circle-generator-with-3100-pre-rendered-pages-2cai),前 1-2 小时蹲评论区 |
 | 18 | **LiteDevelopers/awesome-minecraft**(PR) | dofollow | ★★★★ | ✅ 条目已备(`docs/awesome-lists-prs.md`),待 PR(145★ 活跃,Tools 分类) |
 | 19 | **itch.io /tools** | dofollow(实测) | ★★★★ | ✅ 入口页已备(`docs/itch/index.html`,zip 后上传),待发布 |
 | 20 | **ArkFlame/awesome-minecraft**(PR) | dofollow | ★★★ | ✅ 条目已备(`docs/awesome-lists-prs.md`),待 PR |
@@ -60,6 +60,8 @@
 | 时间 | 渠道 | 内容 | 状态 |
 |---|---|---|---|
 | 2026-08-13 | awesome-minecraft | PR #66 `Add CircleGen to Web Applications`,1 commit(+1 行),目标 `bs-community:master` | 已提交,待维护者合并(仓库较休眠,上次合并约 1 年前,建议保留并 2-3 个月后复查) |
+| 2026-08-14 | dev.to | 文章 `How I built a free Minecraft circle generator with 3,100 pre-rendered pages` | ✅ **已发布**(dofollow,正文含 pixelcircle.online + GitHub 链接),标签 showdev/minecraft/javascript/nextjs。URL:https://dev.to/ywbcoder/how-i-built-a-free-minecraft-circle-generator-with-3100-pre-rendered-pages-2cai |
+| 2026-08-14 | GitHub 仓库 | 转为 public + MIT 许可证;About 描述/Website 已设(pixelcircle.online) | ✅ 完成(匿名 API 验证 public) |
 
 ---
 
