@@ -47,7 +47,7 @@
 | 20 | **ArkFlame/awesome-minecraft**(PR) | dofollow | ★★★ | ❌ 跳过(2026-08-14 用户决定;备料留档) |
 | 21 | **CAIMEOX/awesome-minecraft-bedrock**(PR) | dofollow | ★★★ | ❌ 跳过(2026-08-14 用户决定;备料留档) |
 | 22 | **Uneed(uneed.best)** | dofollow(官方声明) | ★★★ | ☐ 免费排队提交,注意域名是 uneed.best 不是 uneed.io |
-| 23 | **LibHunt** | dofollow(大部分) | ★★★ | ☐ /repo/submit 免费,要求 GitHub 开源项目 |
+| 23 | **LibHunt** | dofollow(大部分) | ★★★ | ✅ **已提交并自动批准**(2026-08-14),项目页 https://libhunt.com/r/Minecraft-Circle--Generator 含 pixelcircle.online 链接(已验证) |
 | 24 | **SideProjectors** | dofollow(实测) | ★★★ | ☐ 免费展示,人工审核 |
 | 25 | **Launching Next** | 🟡 多源标 dofollow | ★★ | ☐ 免费表单,发布后自查 |
 | 26 | **10words** | ⚪ 未验证 | ★★ | ☐ 免费,10 词简介 |
@@ -64,6 +64,8 @@
 | 2026-08-14 | GitHub 仓库 | 转为 public + MIT 许可证;About 描述/Website 已设(pixelcircle.online) | ✅ 完成(匿名 API 验证 public) |
 | 2026-08-14 | itch.io /tools | 项目 `CircleGen - Minecraft Circle Generator`,Tools 分类,HTML 嵌入(iframe→pixelcircle.online),封面+3 截图+描述+4 标签 | ✅ **已发布**(2026-08-14),URL:https://ywb-coder.itch.io/circlegen-minecraft-circle-generator;链接为 nofollow(itch 对描述外链自动加),meta/og 描述已补 |
 | 2026-08-14 | itch.io 社区 Release Announcements | 发布公告帖(标题+简介+截图+双链接,符合板块规则) | ✅ **已发布**(2026-08-14),URL:https://itch.io/t/6790276/circlegen-free-minecraft-circle-generator-with-pixel-perfect-block-blueprints |
+| 2026-08-14 | LibHunt | 提交 GitHub 仓库,自动批准;项目页含 pixelcircle.online 链接 | ✅ **已收录**(2026-08-14),URL:https://libhunt.com/r/Minecraft-Circle--Generator |
+| 2026-08-14 | AlternativeTo / SaaSHub | AlternativeTo:Plotz 不在库中且无 Suggest 入口,跳过;SaaSHub:注册被拒(Error 4.22.2,IP/邮箱拦截),OAuth 可后试 | ⚠️ 暂缓,待补 |
 
 ---
 
