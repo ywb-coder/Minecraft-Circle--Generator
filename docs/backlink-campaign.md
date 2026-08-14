@@ -594,3 +594,22 @@ A: 4-8 周 15-30 个足够启动;之后靠内容持续积累。
 若 7 天后目录站/awesome PR 未合并:
 
 > Hi! Just following up on my submission of CircleGen (https://pixelcircle.online) — a free static Minecraft circle generator with per-size blueprint pages in 11 languages. Let me know if anything needs adjusting. Thanks!
+
+
+---
+
+## 十二、外联体检快照(2026-08-14 收工,全部在线实测)
+
+| # | 渠道 | 实测结果 | 状态 |
+|---|---|---|---|
+| 1 | dev.to 文章 | HTTP 200,pixelcircle 链接 ×2,dofollow(无 nofollow) | ✅ 生效 |
+| 2 | LibHunt | HTTP 200,pixelcircle 链接 ×2,dofollow | ✅ 生效 |
+| 3 | itch.io 项目页 | HTTP 200,链接 + meta/og 描述齐全 | ✅ 生效 |
+| 4 | itch.io 社区帖 | HTTP 200,双链接在 | ✅ 生效 |
+| 5 | GitHub 仓库 | public + MIT(API 曾验证 private:false) | ✅ 生效 |
+| 6 | Uneed | 产品页 404 = 未发布(排期 ~8/28,预期) | ⏳ 待发布 |
+| 7 | SideProjectors | 提交页 200,官方邮件确认 2-3 天审核 | ⏳ 审核中 |
+| 8 | Launching Next | 已入队(预计 4 个月) | ⏳ 排队中 |
+| 9 | awesome-minecraft PR #66 | GitHub 页面实测 mergedBy:null = 未合并 | ⏳ 待合并 |
+
+> 下次体检:2026-08-21(周五)或 GSC 数据复查时一并做;重点看 #6 发布、#7 审核、#9 是否合并。
