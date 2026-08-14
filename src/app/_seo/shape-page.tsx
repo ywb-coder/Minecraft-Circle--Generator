@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 import { getDictionary, type Dictionary } from "@/lib/i18n/dictionaries";
 import { defaultLocale, type Locale } from "@/lib/i18n/locales";
 import { interpolate } from "@/lib/i18n/format";
-import { SITE_URL } from "@/lib/config";
+import { SITE_URL, HREFLANG_MAP } from "@/lib/config";
 import { generateShape } from "@/lib/shapes";
 import {
   ELLIPSOID_COMBOS,
@@ -655,6 +655,32 @@ export default async function ShapePage(
                   },
                 },
               ],
+            }).replace(/</g, "\\u003c"),
+          }}
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              name: title,
+              description,
+              url: `${SITE_URL}${localizePath(path, locale)}`,
+              applicationCategory: "UtilitiesApplication",
+              operatingSystem: "Web",
+              inLanguage: HREFLANG_MAP[locale],
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+              },
+              publisher: {
+                "@type": "Organization",
+                name: "CircleGen",
+                url: SITE_URL,
+              },
             }).replace(/</g, "\\u003c"),
           }}
         />
