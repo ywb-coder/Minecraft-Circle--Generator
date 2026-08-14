@@ -215,21 +215,18 @@ Github:    https://github.com/ywb-coder/Minecraft-Circle--Generator
 
 ### 4.8 Product Hunt(单次最大曝光,值得认真做)
 
+> 📦 **2026-08-14 发布包已备:`docs/producthunt-kit.md`** —— 所有表单字段(名称/Tagline/描述/话题/链接)均为最终文案,图片顺序、Upcoming 排期步骤、发布日 Playbook、首条评论模板、24h Update 模板全部就绪,照抄即可。
+
 **准备(发布前 1 周):**
-1. 注册/登录 `producthunt.com`(需 GitHub 或 Twitter 账号)
-2. 准备素材:
-   - 主图 1000×1000(可裁 og-image 或新做)
-   - 1-2 张截图 + 1 个 GIF(3.3 素材)
-   - 标题:`CircleGen — pixel-perfect Minecraft circle blueprints in 11 languages`
-   - 描述:长版文案
-   - 标签(最多 3 个):`Minecraft`、`Design Tools`、`Developer Tools`
-3. 首次发布需要先提交 **Upcoming** 排期(产品页点 "Upcoming",选 1-2 周后)
+1. 注册/登录 `producthunt.com`(需 GitHub 或 Twitter 账号;用 GitHub 即可)
+2. 按 `docs/producthunt-kit.md` 第 1 节填产品字段、传图库
+3. 首次发布需要先提交 **Upcoming** 排期(选 1-2 周后的周二-周四,UTC 上午)
 
 **发布日(选周二-周四,UTC 时间上午):**
 1. 当天刷新产品页确认上线
-2. **前 2 小时是黄金期**:准备 5-10 个朋友/社区支持者点 Upvote 并评论
+2. **前 2 小时是黄金期**:发创始人首条评论(模板在 kit),准备 5-10 个朋友/社区支持者点 Upvote 并评论
 3. 全程回复所有评论(越快越好)
-4. 发布后 24 小时内在产品页发一条 Update 帖(感谢 + 使用技巧)
+4. 发布后 24 小时内在产品页发一条 Update 帖(感谢 + 使用技巧,模板在 kit)
 
 ⚠️ 外链价值:PH 页面是 dofollow,且能带来种子流量和社交信号。
 
