@@ -41,11 +41,11 @@
 | 14 | 贴吧 minecraft 吧 | nofollow | ★(中文流量) | ☐ 可参与(先读吧规) |
 | 15 | 网易我的世界论坛 | nofollow | ★★ | ☐ 可参与 |
 | 16 | B站 MC 建造 up 主合作 | 视频简介外链 | ★★★ | ☐ 可联系 |
-| 17 | **dev.to 干货文** | dofollow(实测) | ★★★★ | ☐ 写一篇工具介绍/教程文,正文带链接 |
-| 18 | **LiteDevelopers/awesome-minecraft**(PR) | dofollow | ★★★★ | ☐ 145★ 活跃,有 Tools 分类,要求开源免费(符合) |
-| 19 | **itch.io /tools** | dofollow(实测) | ★★★★ | ☐ 免费发布 HTML5 网页工具 |
-| 20 | **ArkFlame/awesome-minecraft**(PR) | dofollow | ★★★ | ☐ Content Creation Tools 分类(已收 misode/MCStacker) |
-| 21 | **CAIMEOX/awesome-minecraft-bedrock**(PR) | dofollow | ★★★ | ☐ 基岩版清单,Tool→General 分类 |
+| 17 | **dev.to 干货文** | dofollow(实测) | ★★★★ | ✅ 草稿已备(`docs/devto-article.md`,含正文/标签/封面指引),待发布 |
+| 18 | **LiteDevelopers/awesome-minecraft**(PR) | dofollow | ★★★★ | ✅ 条目已备(`docs/awesome-lists-prs.md`),待 PR(145★ 活跃,Tools 分类) |
+| 19 | **itch.io /tools** | dofollow(实测) | ★★★★ | ✅ 入口页已备(`docs/itch/index.html`,zip 后上传),待发布 |
+| 20 | **ArkFlame/awesome-minecraft**(PR) | dofollow | ★★★ | ✅ 条目已备(`docs/awesome-lists-prs.md`),待 PR |
+| 21 | **CAIMEOX/awesome-minecraft-bedrock**(PR) | dofollow | ★★★ | ✅ 条目已备(`docs/awesome-lists-prs.md`),待 PR |
 | 22 | **Uneed(uneed.best)** | dofollow(官方声明) | ★★★ | ☐ 免费排队提交,注意域名是 uneed.best 不是 uneed.io |
 | 23 | **LibHunt** | dofollow(大部分) | ★★★ | ☐ /repo/submit 免费,要求 GitHub 开源项目 |
 | 24 | **SideProjectors** | dofollow(实测) | ★★★ | ☐ 免费展示,人工审核 |

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CircleGen — Minecraft Circle Generator</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; background: #0b1220; }
+    body {
+      font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+      color: #dbe4f4;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 16px;
+      background: #101a2e;
+      border-bottom: 1px solid #1f2c47;
+      flex: 0 0 auto;
+    }
+    header .brand { font-weight: bold; font-size: 15px; letter-spacing: 0.3px; }
+    header .brand span { color: #4cc9f0; }
+    header a.open {
+      color: #0b1220;
+      background: #4cc9f0;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 4px;
+    }
+    header a.open:hover { background: #6fd6f5; }
+    iframe {
+      flex: 1 1 auto;
+      width: 100%;
+      border: 0;
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">CircleGen — Minecraft Circle Generator</div>
+    <a class="open" href="https://pixelcircle.online" target="_blank" rel="noopener">Open full size</a>
+  </header>
+  <iframe
+    src="https://pixelcircle.online/"
+    title="CircleGen — free Minecraft circle generator with block-by-block blueprints"
+    loading="eager"
+    allowfullscreen
+  ></iframe>
+</body>
+</html>
