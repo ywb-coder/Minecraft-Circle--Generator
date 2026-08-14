@@ -42,10 +42,10 @@
 | 15 | 网易我的世界论坛 | nofollow | ★★ | ☐ 可参与 |
 | 16 | B站 MC 建造 up 主合作 | 视频简介外链 | ★★★ | ☐ 可联系 |
 | 17 | **dev.to 干货文** | dofollow(实测) | ★★★★ | ✅ **已发布**(2026-08-14),[文章链接](https://dev.to/ywbcoder/how-i-built-a-free-minecraft-circle-generator-with-3100-pre-rendered-pages-2cai),前 1-2 小时蹲评论区 |
-| 18 | **LiteDevelopers/awesome-minecraft**(PR) | dofollow | ★★★★ | ✅ 条目已备(`docs/awesome-lists-prs.md`),待 PR(145★ 活跃,Tools 分类) |
+| 18 | **LiteDevelopers/awesome-minecraft**(PR) | dofollow | ★★★★ | ❌ 跳过(2026-08-14 用户决定不做 PR 类渠道;备料仍在 `docs/awesome-lists-prs.md` 留档) |
 | 19 | **itch.io /tools** | dofollow(实测) | ★★★★ | ✅ 入口页已备(`docs/itch/index.html`,zip 后上传),待发布 |
-| 20 | **ArkFlame/awesome-minecraft**(PR) | dofollow | ★★★ | ✅ 条目已备(`docs/awesome-lists-prs.md`),待 PR |
-| 21 | **CAIMEOX/awesome-minecraft-bedrock**(PR) | dofollow | ★★★ | ✅ 条目已备(`docs/awesome-lists-prs.md`),待 PR |
+| 20 | **ArkFlame/awesome-minecraft**(PR) | dofollow | ★★★ | ❌ 跳过(2026-08-14 用户决定;备料留档) |
+| 21 | **CAIMEOX/awesome-minecraft-bedrock**(PR) | dofollow | ★★★ | ❌ 跳过(2026-08-14 用户决定;备料留档) |
 | 22 | **Uneed(uneed.best)** | dofollow(官方声明) | ★★★ | ☐ 免费排队提交,注意域名是 uneed.best 不是 uneed.io |
 | 23 | **LibHunt** | dofollow(大部分) | ★★★ | ☐ /repo/submit 免费,要求 GitHub 开源项目 |
 | 24 | **SideProjectors** | dofollow(实测) | ★★★ | ☐ 免费展示,人工审核 |
