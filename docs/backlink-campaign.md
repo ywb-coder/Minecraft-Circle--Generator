@@ -48,7 +48,7 @@
 | 21 | **CAIMEOX/awesome-minecraft-bedrock**(PR) | dofollow | ★★★ | ❌ 跳过(2026-08-14 用户决定;备料留档) |
 | 22 | **Uneed(uneed.best)** | dofollow(官方声明) | ★★★ | ✅ **已提交并排期**(2026-08-14),slug:uneed.best/tool/circlegen,已 Unschedule 让系统分配约 8/28 档期;发布后公开页生成 |
 | 23 | **LibHunt** | dofollow(大部分) | ★★★ | ✅ **已提交并自动批准**(2026-08-14),项目页 https://libhunt.com/r/Minecraft-Circle--Generator 含 pixelcircle.online 链接(已验证) |
-| 24 | **SideProjectors** | dofollow(实测) | ★★★ | ✅ **已提交**(2026-08-14),Showcase 类型,ID 88943,状态 pending review;ComingUp 免费联动已开 |
+| 24 | **SideProjectors** | dofollow(实测) | ★★★ | ✅ **已通过审核并上线**(2026-08-15),listing:https://www.sideprojectors.com/project/88943,pixelcircle 链接实测 dofollow;ComingUp 联动已开 |
 | 25 | **Launching Next** | 🟡 多源标 dofollow | ★★ | ✅ **已提交**(2026-08-14),免费队列 In Queue(预计 4 个月);$99 Fast-Track 未购买(性价比低),发布后自查 dofollow |
 | 26 | **10words** | ⚪ 未验证 | ★★ | ☐ 免费,10 词简介 |
 | 27 | **Alternative.me** | 🟡 | ★★ | ☐ 可把 CircleGen 作为 Plotz 替代品提交 |
@@ -67,7 +67,7 @@
 | 2026-08-14 | LibHunt | 提交 GitHub 仓库,自动批准;项目页含 pixelcircle.online 链接 | ✅ **已收录**(2026-08-14),URL:https://libhunt.com/r/Minecraft-Circle--Generator |
 | 2026-08-14 | AlternativeTo / SaaSHub | AlternativeTo:Plotz 不在库中且无 Suggest 入口,跳过;SaaSHub:注册被拒(Error 4.22.2,IP/邮箱拦截),OAuth 可后试 | ⚠️ 暂缓,待补 |
 | 2026-08-14 | Uneed(uneed.best) | 提交产品 CircleGen(slug:circlegen,Category Design,Pricing Free,Tagline+描述+Logo+1 图),已 Save;已 Unschedule 等待系统分配约 2026-08-28 档期 | ✅ 已提交,待发布(发布后验证 dofollow) |
-| 2026-08-14 | SideProjectors | Showcase 类型提交(Name+URL+pitch+描述+技术栈),开启 ComingUp 免费联动,ID 88943 | ✅ 已提交,pending review(提交页 HTTP 200 确认) |
+| 2026-08-14 | SideProjectors | Showcase 类型提交(Name+URL+pitch+描述+技术栈),开启 ComingUp 免费联动,ID 88943 | ✅ **已通过审核并上线**(2026-08-15),listing:https://www.sideprojectors.com/project/88943,链接实测 dofollow |
 | 2026-08-14 | Launching Next | 免费表单提交(Name/URL/headline/描述/tags/侧项目/$0 预算),已入队(预计 4 个月);Fast-Track $99 未买 | ✅ 已提交,In Queue |
 
 ---
@@ -608,7 +608,7 @@ A: 4-8 周 15-30 个足够启动;之后靠内容持续积累。
 | 4 | itch.io 社区帖 | HTTP 200,双链接在 | ✅ 生效 |
 | 5 | GitHub 仓库 | public + MIT(API 曾验证 private:false) | ✅ 生效 |
 | 6 | Uneed | 产品页 404 = 未发布(排期 ~8/28,预期) | ⏳ 待发布 |
-| 7 | SideProjectors | 提交页 200,官方邮件确认 2-3 天审核 | ⏳ 审核中 |
+| 7 | SideProjectors | **已通过审核并上线**(2026-08-15),listing 含 pixelcircle 链接,实测 dofollow | ✅ 生效 |
 | 8 | Launching Next | 已入队(预计 4 个月) | ⏳ 排队中 |
 | 9 | awesome-minecraft PR #66 | GitHub 页面实测 mergedBy:null = 未合并 | ⏳ 待合并 |
 
