@@ -535,19 +535,19 @@ export default async function ShapePage(
           <table className="mt-3 w-full">
             <tbody>
               <tr>
-                <td className="pr-4 font-pixel text-[10px] text-muted">
+                <td className="pr-4 font-terminal text-[10px] text-muted">
                   {interpolate(dict.perSize.materials.blocks, { blocks })}
                 </td>
                 <td className="font-terminal text-xl text-accent">{blocks}</td>
               </tr>
               <tr>
-                <td className="pr-4 font-pixel text-[10px] text-muted">
+                <td className="pr-4 font-terminal text-[10px] text-muted">
                   {interpolate(dict.perSize.materials.stacks, { stacks })}
                 </td>
                 <td className="font-terminal text-xl text-accent">{stacks}</td>
               </tr>
               <tr>
-                <td className="pr-4 font-pixel text-[10px] text-muted">
+                <td className="pr-4 font-terminal text-[10px] text-muted">
                   {interpolate(dict.perSize.materials.time, { time })}
                 </td>
                 <td className="font-terminal text-xl text-accent">{time}</td>
