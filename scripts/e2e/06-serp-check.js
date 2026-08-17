@@ -1,18 +1,24 @@
 /**
  * 06-serp-check.js — Real-browser search ranking checker (standalone, NOT part of e2e suite)
  *
- * Simulates a human search: real Chromium, realistic UA, typed keyboard query, small delays.
+ * Simulates a human search: real Chromium (or system Chrome), realistic UA, typed keyboard query, small delays.
  * Checks our site's position for a keyword list on Google (primary) with Bing fallback.
  *
- * Usage:  node scripts/e2e/06-serp-check.js
+ * v2 fixes (2026-08-17):
+ *  - Consent cookies pre-set (SOCS/CONSENT) -> kills Google's consent redirect, the main cause of "empty" pages
+ *  - Prefers the real installed Chrome binary (channel: "chrome") for a far more human fingerprint
+ *  - Stealth init script: hides navigator.webdriver, restores window.chrome/plugins/languages
+ *  - udm=14 forces the classic web SERP (no AI overviews polluting result extraction)
+ *  - If Google blocks, retries once with a fresh context + jitter before falling back to Bing
+ *  - New --headed flag: run with a visible browser window (most reliable against captchas)
+ *
+ * Usage:  node scripts/e2e/06-serp-check.js [--deep] [--headed]
  * Output: docs/gsc/serp-YYYYMMDD.csv            (one row per keyword)
  *         docs/gsc/serp-detail-YYYYMMDD.csv     (top-20 URL list per keyword)
  *         scripts/e2e/screenshots/serp-*.png    (SERP screenshots)
  *
- * Caveat: Google may show a captcha to headless/datacenter traffic; the script then
- * falls back to Bing and marks the row "engine=bing (google blocked)". For 100%
- * ground truth, eyeball Google in your own browser — this tool gives a repeatable
- * approximation every week.
+ * Caveat: Google may still captcha datacenter/cloud IPs regardless of fingerprint. If every
+ * keyword reports "google blocked", run locally with --headed on a residential IP.
  */
 
 const fs = require("fs");
@@ -43,19 +49,45 @@ async function humanDelay(page, min = 600, max = 1800) {
   await sleep(rnd(min, max));
 }
 
-async function tryConsent(page) {
-  // Google consent page: click "Accept all" like a human would
+async function launchBrowser() {
+  const headed = process.argv.includes("--headed");
+  const args = [
+    "--disable-blink-features=AutomationControlled",
+    "--no-first-run",
+    "--no-default-browser-check",
+    "--disable-infobars",
+    "--disable-popup-blocking",
+  ];
   try {
-    if (page.url().includes("consent.google")) {
-      const accept = page.locator("#L2AGLb, button[aria-label*='Accept'], button:has-text('Accept all')").first();
-      if (await accept.count()) {
-        await accept.click({ timeout: 3000 }).catch(() => {});
-        await sleep(1500);
-      }
-    }
-  } catch {
-    /* ignore */
+    const browser = await chromium.launch({ channel: "chrome", headless: !headed, args });
+    console.log(`  browser: real Chrome channel (headed=${headed})`);
+    return browser;
+  } catch (e) {
+    console.log(`  chrome channel unavailable (${e.message.split("\n")[0].slice(0, 80)}), using bundled chromium`);
+    return chromium.launch({ headless: !headed, args });
   }
+}
+
+async function newContext(browser) {
+  const context = await browser.newContext({
+    viewport: { width: 1440, height: 900 },
+    userAgent: UA,
+    locale: "en-US",
+    timezoneId: "America/New_York",
+  });
+  // Pre-set Google consent cookies: bypasses the consent redirect that returns empty pages
+  await context.addCookies([
+    { name: "SOCS", value: "CAI", domain: ".google.com", path: "/" },
+    { name: "CONSENT", value: "YES+cb.20210328-17-p0.en+FX+111", domain: ".google.com", path: "/" },
+  ]);
+  // Stealth: hide automation fingerprints
+  await context.addInitScript(() => {
+    Object.defineProperty(navigator, "webdriver", { get: () => undefined });
+    window.chrome = window.chrome || { runtime: {} };
+    Object.defineProperty(navigator, "languages", { get: () => ["en-US", "en"] });
+    Object.defineProperty(navigator, "plugins", { get: () => [1, 2, 3, 4, 5] });
+  });
+  return context;
 }
 
 function looksBlocked(page, url) {
@@ -67,20 +99,19 @@ function looksBlocked(page, url) {
 
 async function blockedText(page) {
   const body = (await page.locator("body").innerText().catch(() => "")) || "";
-  if (/unusual traffic|our systems have detected|are you a robot/i.test(body)) return "captcha";
-  if (/before you continue|choose your privacy|i agree|accept all/i.test(body)) return "consent";
+  if (!body.trim()) return "empty";
+  if (/unusual traffic|our systems have detected|are you a robot|unusual query/i.test(body)) return "captcha";
+  if (/before you continue|choose your privacy|i agree|accept all|enable javascript/i.test(body)) return "consent";
   return null;
 }
 
 async function searchGoogle(page, q) {
-  const url = `https://www.google.com/search?q=${encodeURIComponent(q)}&hl=en&gl=us&pws=0&num=20`;
+  // udm=14 -> classic web results, no AI overviews polluting the extraction
+  const url = `https://www.google.com/search?q=${encodeURIComponent(q)}&hl=en&gl=us&pws=0&num=20&udm=14`;
   await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 }).catch(() => {});
-  await humanDelay(page, 1200, 2200);
-  await tryConsent(page);
-  let blocked = looksBlocked(page, page.url());
-  const reason = blocked ? "captcha" : await blockedText(page);
-  if (reason) blocked = true;
-  if (blocked) return { ok: false, blocked: reason || "unknown", results: [] };
+  await humanDelay(page, 1400, 2400);
+  const blocked = looksBlocked(page, page.url()) || (await blockedText(page));
+  if (blocked) return { ok: false, blocked, results: [] };
   await page.keyboard.press("End");
   await humanDelay(page, 400, 900);
   await page.keyboard.press("Home");
@@ -147,10 +178,9 @@ async function deepScanGoogle(page, q, maxRank = 400) {
   // Returns { found, position, scanned, blockedAt } — first occurrence of OUR_DOMAIN.
   const step = 100;
   for (let start = 0; start < maxRank; start += step) {
-    const url = `https://www.google.com/search?q=${encodeURIComponent(q)}&hl=en&gl=us&pws=0&num=${step}&start=${start}`;
+    const url = `https://www.google.com/search?q=${encodeURIComponent(q)}&hl=en&gl=us&pws=0&num=${step}&start=${start}&udm=14`;
     await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 }).catch(() => {});
-    await humanDelay(page, 1500, 2600);
-    await tryConsent(page);
+    await humanDelay(page, 1600, 2800);
     const blocked = looksBlocked(page, page.url()) || (await blockedText(page));
     if (blocked) return { found: false, position: null, scanned: start, blockedAt: start + 1 };
     const results = await page
@@ -172,17 +202,9 @@ async function main() {
   fs.mkdirSync(GSC_DIR, { recursive: true });
   fs.mkdirSync(SHOT_DIR, { recursive: true });
 
-  const browser = await chromium.launch({
-    headless: true,
-    args: ["--disable-blink-features=AutomationControlled"],
-  });
-  const context = await browser.newContext({
-    viewport: { width: 1440, height: 900 },
-    userAgent: UA,
-    locale: "en-US",
-    timezoneId: "America/New_York",
-  });
-  const page = await context.newPage();
+  const browser = await launchBrowser();
+  let context = await newContext(browser);
+  let page = await context.newPage();
 
   const rows = [];
   const detailRows = [];
@@ -192,7 +214,16 @@ async function main() {
     let engine = "google";
     let res = await searchGoogle(page, q);
     if (!res.ok) {
-      console.log(`  [${q}] google blocked (${res.blocked || "empty"}) -> bing fallback`);
+      // One retry with a fresh context + jitter before giving up on Google
+      console.log(`  [${q}] google blocked (${res.blocked}) -> retry once with fresh context`);
+      await context.close();
+      context = await newContext(browser);
+      page = await context.newPage();
+      await sleep(rnd(6000, 10000));
+      res = await searchGoogle(page, q);
+    }
+    if (!res.ok) {
+      console.log(`  [${q}] google blocked (${res.blocked}) -> bing fallback`);
       engine = "bing";
       res = await searchBing(page, q);
       if (!res.ok) {
