@@ -127,7 +127,66 @@
     "setblockBody": "Abre el generador y pulsa Copiar /setblock para obtener cada bloque como un comando de Minecraft. Añade tus coordenadas del mundo y todo el {shape} quedará exactamente donde quieras.",
     "thicknessTip": "¿Necesitas una pared más gruesa? Pon el grosor del contorno en 3-6: un anillo de {d} bloques con contorno grueso es mucho más resistente para muros y bases.",
     "innerTip": "¿Necesitas un anillo hueco? Usa el recorte interior para quitar el centro del círculo: perfecto para fosos, arenas y torres redondas.",
-    "builderTip": "Constrúyelo bloque a bloque: activa el modo Constructor para marcar cada colocación con un clic, avanza con Siguiente/Anterior o pulsa Play."
+    "builderTip": "Constrúyelo bloque a bloque: activa el modo Constructor para marcar cada colocación con un clic, avanza con Siguiente/Anterior o pulsa Play.",
+    "stepsByShape": {
+      "circle": [
+        "Marca el bloque central y coloca los cuatro bloques de los ejes al norte, este, sur y oeste.",
+        "Añade los cuatro bloques diagonales de las esquinas para que el anillo tenga 8 puntos de anclaje.",
+        "Rellena cada cuadrante fila por fila, siguiendo la cuadrícula del plano.",
+        "Comprueba la simetría: cada cuadrante debe ser un espejo de los otros tres.",
+        "Para un círculo relleno, avanza hacia dentro anillo a anillo hasta cubrir el centro."
+      ],
+      "sphere": [
+        "Coloca primero el anillo más ancho como ecuador: define el tamaño y la forma.",
+        "Construye la mitad inferior capa a capa, reduciendo cada anillo hacia el casquete inferior.",
+        "Coloca un pilar temporal en el centro para mantener alineadas todas las capas.",
+        "Construye la mitad superior con anillos crecientes hasta pasar el ecuador.",
+        "Termina con el casquete superior y luego retira el pilar temporal."
+      ],
+      "dome": [
+        "Empieza con el círculo base completo en el suelo, igual que un círculo plano.",
+        "Apila cada capa siguiente con un anillo más pequeño, manteniendo el mismo centro.",
+        "Sigue la cuadrícula de capas del plano para saber el tamaño exacto del anillo de cada capa.",
+        "Usa losas o escaleras para suavizar la curva cuando se vuelve más pronunciada.",
+        "Cierra la parte superior con el anillo más pequeño y rellena el bloque central."
+      ],
+      "oval": [
+        "Marca el centro y coloca los dos bloques de los extremos del eje largo.",
+        "Coloca los dos bloques de los extremos del eje corto en ángulo recto con el eje largo.",
+        "Rellena cada arco de cuarto entre los ejes, siguiendo el plano.",
+        "Comprueba el espejo de los cuatro cuartos para ver la simetría.",
+        "Gira todo el óvalo 90 grados para ver cómo encaja en tu construcción."
+      ],
+      "torus": [
+        "Empieza por el anillo interior: el agujero de la rosquilla.",
+        "Construye la sección transversal del anillo en los 8 puntos de la brújula.",
+        "Une las secciones transversales con la curva del tubo del plano.",
+        "Trabaja en el mismo nivel horizontal en todo el contorno.",
+        "Comprueba el grosor: cada segmento del tubo debe ser idéntico."
+      ],
+      "ellipsoid": [
+        "Coloca primero el anillo más ancho sobre el eje horizontal largo.",
+        "Construye el anillo del eje de profundidad en ángulo recto, pasando por el centro.",
+        "Apila capas hacia arriba y hacia abajo, reduciendo el anillo cada vez.",
+        "Mantén simétricos los tres ejes: ancho, alto y profundidad.",
+        "Suaviza la superficie con losas donde la curva sea más pronunciada."
+      ]
+    },
+    "materials": {
+      "title": "Materiales necesarios",
+      "intro": "Para construir este {shape} necesitarás:",
+      "blocks": "{blocks} bloques",
+      "stacks": "{stacks} pilas de 64",
+      "time": "unos {time} minutos",
+      "note": {
+        "circle": "Todos los bloques están a la misma altura, así que coloca primero el anillo del contorno y luego rellena el interior.",
+        "sphere": "Una esfera usa la mayor cantidad de bloques para su tamaño: cada capa por encima del suelo necesita andamios o un pilar central temporal.",
+        "dome": "Las capas se reducen a medida que subes, así que el anillo del suelo usa más bloques. Un pilar central mantiene alineadas todas las capas.",
+        "oval": "Los ejes largo y corto definen el aspecto: una diferencia mayor da un óvalo más aplanado y alargado.",
+        "torus": "El anillo interior usa menos bloques que el tubo exterior, así que planifica primero el tamaño del agujero.",
+        "ellipsoid": "Los tres ejes son diferentes: el anillo más ancho es horizontal, mientras que los ejes de altura y profundidad dan forma al resto."
+      }
+    }
   },
   "faq": {
     "title": "Preguntas frecuentes",

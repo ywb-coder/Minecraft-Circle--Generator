@@ -97,6 +97,29 @@ export interface Dictionary {
     definition: string;
     howToTitle: string;
     steps: string[];
+    stepsByShape: {
+      circle: string[];
+      sphere: string[];
+      dome: string[];
+      oval: string[];
+      torus: string[];
+      ellipsoid: string[];
+    };
+    materials: {
+      title: string;
+      intro: string;
+      blocks: string;
+      stacks: string;
+      time: string;
+      note: {
+        circle: string;
+        sphere: string;
+        dome: string;
+        oval: string;
+        torus: string;
+        ellipsoid: string;
+      };
+    };
     usageTitle: string;
     usageIntro: string;
     faqQ1: string;

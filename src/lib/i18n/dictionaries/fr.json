@@ -127,7 +127,66 @@
     "setblockBody": "Ouvrez le générateur et cliquez sur Copier /setblock pour obtenir chaque bloc sous forme de commande Minecraft. Ajoutez vos coordonnées du monde et tout le {shape} sera placé exactement où vous voulez.",
     "thicknessTip": "Besoin d'un mur plus épais ? Réglez l'épaisseur du contour sur 3-6 : un anneau de {d} blocs au contour épais est bien plus solide pour les murs et les bases.",
     "innerTip": "Besoin d'un anneau creux ? Utilisez la découpe intérieure pour retirer le centre du cercle : idéal pour les douves, arènes et tours rondes.",
-    "builderTip": "Construisez bloc par bloc : activez le mode constructeur pour marquer chaque placement d'un clic, avancez avec Suivant/Précédent ou appuyez sur Lecture."
+    "builderTip": "Construisez bloc par bloc : activez le mode constructeur pour marquer chaque placement d'un clic, avancez avec Suivant/Précédent ou appuyez sur Lecture.",
+    "stepsByShape": {
+      "circle": [
+        "Marquez le bloc central, puis placez les quatre blocs des axes au nord, à l'est, au sud et à l'ouest.",
+        "Ajoutez les quatre blocs d'angle en diagonale pour que l'anneau ait 8 points d'ancrage.",
+        "Remplissez chaque quartier rangée par rangée en suivant la grille du plan.",
+        "Vérifiez la symétrie : chaque quadrant doit être le miroir des trois autres.",
+        "Pour un cercle plein, progressez vers l'intérieur anneau par anneau jusqu'à couvrir le centre."
+      ],
+      "sphere": [
+        "Posez d'abord l'anneau le plus large comme équateur : il fixe la taille et la forme.",
+        "Construisez la moitié inférieure couche par couche, en rétrécissant chaque anneau vers la calotte du bas.",
+        "Placez un pilier temporaire au centre pour garder chaque couche alignée.",
+        "Construisez la moitié supérieure avec des anneaux qui grandissent jusqu'à dépasser l'équateur.",
+        "Terminez par la calotte du haut, puis retirez le pilier temporaire."
+      ],
+      "dome": [
+        "Commencez par le cercle de base complet au sol, comme un cercle plat.",
+        "Empilez chaque couche suivante avec un anneau plus petit, en gardant le même centre.",
+        "Suivez la grille de couches du plan pour la taille exacte de l'anneau de chaque couche.",
+        "Utilisez des dalles ou des escaliers pour adoucir la courbe là où elle devient plus raide.",
+        "Fermez le haut avec le plus petit anneau et remplissez le bloc central."
+      ],
+      "oval": [
+        "Marquez le centre et placez les deux blocs d'extrémité du grand axe.",
+        "Placez les deux blocs d'extrémité du petit axe à angle droit par rapport au grand axe.",
+        "Remplissez chaque quart d'arc entre les axes en suivant le plan.",
+        "Vérifiez en miroir les quatre quarts pour la symétrie.",
+        "Faites pivoter tout l'ovale de 90 degrés pour voir comment il s'intègre à votre construction."
+      ],
+      "torus": [
+        "Commencez par l'anneau intérieur - le trou du donut.",
+        "Construisez la section transversale de l'anneau aux 8 points cardinaux.",
+        "Reliez les sections avec la courbe du tube du plan.",
+        "Travaillez dans le même niveau horizontal tout autour.",
+        "Vérifiez l'épaisseur : chaque segment du tube doit être identique."
+      ],
+      "ellipsoid": [
+        "Posez d'abord l'anneau le plus large sur le grand axe horizontal.",
+        "Construisez l'anneau de l'axe de profondeur à angle droit, en passant par le centre.",
+        "Empilez les couches vers le haut et le bas en rétrécissant l'anneau à chaque fois.",
+        "Gardez les trois axes symétriques : largeur, hauteur et profondeur.",
+        "Adoucissez la surface avec des dalles là où la courbe est la plus raide."
+      ]
+    },
+    "materials": {
+      "title": "Matériaux nécessaires",
+      "intro": "Pour construire ce {shape}, vous aurez besoin de :",
+      "blocks": "{blocks} blocs",
+      "stacks": "{stacks} piles de 64",
+      "time": "environ {time} minutes",
+      "note": {
+        "circle": "Tous les blocs sont à la même hauteur : posez d'abord l'anneau du contour, puis remplissez l'intérieur.",
+        "sphere": "Une sphère utilise le plus de blocs pour sa taille - chaque couche au-dessus du sol nécessite un échafaudage ou un pilier central temporaire.",
+        "dome": "Les couches rétrécissent au fur et à mesure, donc l'anneau au sol utilise le plus de blocs. Un pilier central garde chaque couche alignée.",
+        "oval": "Le grand et le petit axe décident de l'apparence - une plus grande différence donne un ovale plus plat et plus allongé.",
+        "torus": "L'anneau intérieur utilise moins de blocs que le tube extérieur, donc planifiez d'abord la taille du trou.",
+        "ellipsoid": "Les trois axes sont différents - l'anneau le plus large est horizontal, tandis que les axes de hauteur et de profondeur façonnent le reste."
+      }
+    }
   },
   "faq": {
     "title": "Questions fréquentes",

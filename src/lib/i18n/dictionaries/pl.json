@@ -127,7 +127,66 @@
     "setblockBody": "Otwórz generator i kliknij Kopiuj /setblock, aby uzyskać każdy blok jako komendę Minecrafta. Dodaj współrzędne świata, a cały {shape} stanie dokładnie tam, gdzie chcesz.",
     "thicknessTip": "Potrzebujesz grubszej ściany? Ustaw grubość obrysu na 3-6: pierścień z {d} bloków z grubym obrysem jest znacznie solidniejszy dla murów i baz.",
     "innerTip": "Potrzebujesz pustego pierścienia? Użyj wewnętrznego wycięcia, aby usunąć środek koła: idealne do fos, aren i okrągłych wież.",
-    "builderTip": "Buduj blok po bloku: włącz tryb budowniczego, zaznaczaj każdy blok kliknięciem, przeglądaj Dalej/Wstecz lub naciśnij Odtwórz."
+    "builderTip": "Buduj blok po bloku: włącz tryb budowniczego, zaznaczaj każdy blok kliknięciem, przeglądaj Dalej/Wstecz lub naciśnij Odtwórz.",
+    "stepsByShape": {
+      "circle": [
+        "Zaznacz środkowy blok, a następnie umieść cztery bloki osi na północy, wschodzie, południu i zachodzie.",
+        "Dodaj cztery bloki narożne po przekątnej, aby pierścień miał 8 punktów kotwiczących.",
+        "Wypełniaj każdą ćwiartkę rząd po rzędzie, zgodnie z siatką planu.",
+        "Sprawdź symetrię: każda ćwiartka powinna być lustrzanym odbiciem pozostałych trzech.",
+        "W przypadku wypełnionego koła przesuwaj się do środka pierścień po pierścieniu, aż pokryjesz całe centrum."
+      ],
+      "sphere": [
+        "Najpierw ułóż najszerszy pierścień jako równik - to on wyznacza rozmiar i kształt.",
+        "Buduj dolną połowę warstwa po warstwie, zwężając każdy pierścień w stronę dolnej czaszy.",
+        "Umieść tymczasowy filar w środku, aby wszystkie warstwy były wyrównane.",
+        "Buduj górną połowę z coraz większymi pierścieniami, aż przekroczysz równik.",
+        "Zakończ górną czaszą, a następnie usuń tymczasowy filar."
+      ],
+      "dome": [
+        "Zacznij od pełnego koła podstawy na ziemi, dokładnie jak płaskie koło.",
+        "Układaj każdą kolejną warstwę z mniejszym pierścieniem, zachowując ten sam środek.",
+        "Trzymaj się siatki warstw z planu, aby każda warstwa miała dokładny rozmiar pierścienia.",
+        "Użyj płyt lub schodów, aby wygładzić krzywiznę, gdy robi się bardziej stroma.",
+        "Zamknij górę najmniejszym pierścieniem i wypełnij środkowy blok."
+      ],
+      "oval": [
+        "Zaznacz środek i umieść dwa bloki końcowe osi długiej.",
+        "Umieść dwa bloki końcowe osi krótkiej pod kątem prostym do osi długiej.",
+        "Wypełniaj każdy łuk ćwiartki między osiami, zgodnie z planem.",
+        "Sprawdź lustrzane odbicie wszystkich czterech ćwiartek pod kątem symetrii.",
+        "Obróć cały owal o 90 stopni, aby zobaczyć, jak pasuje do twojej budowli."
+      ],
+      "torus": [
+        "Zacznij od pierścienia wewnętrznego - dziury pączka.",
+        "Zbuduj przekrój pierścienia we wszystkich 8 kierunkach kompasu.",
+        "Połącz przekroje krzywizną rury z planu.",
+        "Pracuj na tej samej poziomej warstwie dookoła.",
+        "Sprawdź grubość: każdy segment rury musi być identyczny."
+      ],
+      "ellipsoid": [
+        "Najpierw ułóż najszerszy pierścień na długiej osi poziomej.",
+        "Zbuduj pierścień osi głębokości pod kątem prostym, przechodzący przez środek.",
+        "Układaj warstwy w kierunku góry i dołu, za każdym razem zwężając pierścień.",
+        "Zachowaj symetrię trzech osi: szerokości, wysokości i głębokości.",
+        "Wygładź powierzchnię płytami tam, gdzie krzywizna jest najbardziej stroma."
+      ]
+    },
+    "materials": {
+      "title": "Potrzebne materiały",
+      "intro": "Do zbudowania tego {shape} będziesz potrzebować:",
+      "blocks": "{blocks} bloków",
+      "stacks": "{stacks} stosów po 64",
+      "time": "około {time} minut",
+      "note": {
+        "circle": "Wszystkie bloki są na tej samej wysokości, więc najpierw ułóż pierścień obrysu, a potem wypełnij wnętrze.",
+        "sphere": "Sfera zużywa najwięcej bloków jak na swój rozmiar - każda warstwa nad ziemią wymaga rusztowania lub tymczasowego filara centralnego.",
+        "dome": "Warstwy zwężają się w miarę wznoszenia, więc pierścień przy ziemi zużywa najwięcej bloków. Centralny filar utrzymuje wyrównanie wszystkich warstw.",
+        "oval": "Oś długa i krótka decydują o wyglądzie - większa różnica daje bardziej spłaszczony i wydłużony owal.",
+        "torus": "Pierścień wewnętrzny zużywa mniej bloków niż zewnętrzna rura, więc najpierw zaplanuj rozmiar dziury.",
+        "ellipsoid": "Wszystkie trzy osie są różne - najszerszy pierścień jest poziomy, a osie wysokości i głębokości nadają kształt reszcie."
+      }
+    }
   },
   "faq": {
     "title": "Częste pytania",

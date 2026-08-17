@@ -127,7 +127,66 @@
     "setblockBody": "Apri il generatore e premi Copia /setblock per ottenere ogni blocco come comando di Minecraft. Aggiungi le tue coordinate del mondo e l'intero {shape} sarà esattamente dove vuoi.",
     "thicknessTip": "Serve un muro più spesso? Imposta lo spessore del contorno su 3-6: un anello di {d} blocchi con contorno spesso è molto più robusto per mura e basi.",
     "innerTip": "Serve un anello cavo? Usa il ritaglio interno per rimuovere il centro del cerchio: perfetto per fossati, arene e torri rotonde.",
-    "builderTip": "Costruisci blocco per blocco: attiva la modalità costruttore per marcare ogni posizione con un clic, avanza con Avanti/Indietro o premi Play."
+    "builderTip": "Costruisci blocco per blocco: attiva la modalità costruttore per marcare ogni posizione con un clic, avanza con Avanti/Indietro o premi Play.",
+    "stepsByShape": {
+      "circle": [
+        "Segna il blocco centrale, poi posiziona i quattro blocchi degli assi a nord, est, sud e ovest.",
+        "Aggiungi i quattro blocchi d'angolo in diagonale, così l'anello avrà 8 punti di ancoraggio.",
+        "Riempi ogni quarto riga per riga seguendo la griglia del progetto.",
+        "Controlla la simmetria: ogni quadrante deve essere lo specchio degli altri tre.",
+        "Per un cerchio pieno, procedi verso l'interno anello per anello finché il centro non è coperto."
+      ],
+      "sphere": [
+        "Posiziona prima l'anello più largo come equatore: determina dimensione e forma.",
+        "Costruisci la metà inferiore livello per livello, restringendo ogni anello verso la calotta di sotto.",
+        "Metti un pilastro temporaneo al centro per tenere allineati tutti i livelli.",
+        "Costruisci la metà superiore con anelli sempre più grandi finché superi l'equatore.",
+        "Chiudi con la calotta superiore, poi rimuovi il pilastro temporaneo."
+      ],
+      "dome": [
+        "Inizia con il cerchio di base completo a terra, proprio come un cerchio piatto.",
+        "Impila ogni livello successivo con un anello più piccolo, mantenendo lo stesso centro.",
+        "Segui la griglia dei livelli del progetto per la dimensione esatta dell'anello di ogni livello.",
+        "Usa lastre o scale per smussare la curva dove diventa più ripida.",
+        "Chiudi la cima con l'anello più piccolo e riempi il blocco centrale."
+      ],
+      "oval": [
+        "Segna il centro e posiziona i due blocchi alle estremità dell'asse lungo.",
+        "Posiziona i due blocchi alle estremità dell'asse corto ad angolo retto rispetto all'asse lungo.",
+        "Riempi ogni quarto d'arco tra gli assi seguendo il progetto.",
+        "Controlla a specchio tutti e quattro i quarti per la simmetria.",
+        "Ruota l'intero ovale di 90 gradi per vedere come si adatta alla tua costruzione."
+      ],
+      "torus": [
+        "Inizia con l'anello interno: il buco della ciambella.",
+        "Costruisci la sezione trasversale dell'anello in tutti gli 8 punti cardinali.",
+        "Collega le sezioni con la curva del tubo dal progetto.",
+        "Lavora sullo stesso livello orizzontale per tutto il giro.",
+        "Controlla lo spessore: ogni segmento del tubo deve essere identico."
+      ],
+      "ellipsoid": [
+        "Posiziona prima l'anello più largo sull'asse orizzontale lungo.",
+        "Costruisci l'anello dell'asse di profondità ad angolo retto, passando per il centro.",
+        "Impila i livelli verso l'alto e il basso, restringendo l'anello ogni volta.",
+        "Mantieni simmetrici i tre assi: larghezza, altezza e profondità.",
+        "Smussa la superficie con le lastre dove la curva è più ripida."
+      ]
+    },
+    "materials": {
+      "title": "Materiali necessari",
+      "intro": "Per costruire questo {shape} ti serviranno:",
+      "blocks": "{blocks} blocchi",
+      "stacks": "{stacks} pile da 64",
+      "time": "circa {time} minuti",
+      "note": {
+        "circle": "Tutti i blocchi sono alla stessa altezza, quindi posa prima l'anello del contorno, poi riempi l'interno.",
+        "sphere": "Una sfera usa il maggior numero di blocchi per la sua dimensione: ogni livello sopra terra richiede un'impalcatura o un pilastro centrale temporaneo.",
+        "dome": "I livelli si restringono man mano che sali, quindi l'anello a terra usa più blocchi. Un pilastro centrale mantiene allineati tutti i livelli.",
+        "oval": "Gli assi lungo e corto decidono l'aspetto: una differenza maggiore dà un ovale più piatto e allungato.",
+        "torus": "L'anello interno usa meno blocchi del tubo esterno, quindi pianifica prima la dimensione del buco.",
+        "ellipsoid": "I tre assi sono tutti diversi: l'anello più largo è orizzontale, mentre gli assi di altezza e profondità danno forma al resto."
+      }
+    }
   },
   "faq": {
     "title": "Domande frequenti",

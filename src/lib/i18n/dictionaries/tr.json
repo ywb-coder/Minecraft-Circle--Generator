@@ -127,7 +127,66 @@
     "setblockBody": "Oluşturucuyu açın ve /setblock kopyala'ya basın; her blok bir Minecraft komutu olur. Dünya koordinatlarınızı ekleyin, {shape} tam istediğiniz yere otursun.",
     "thicknessTip": "Daha kalın bir duvar mı lazım? Dış hat kalınlığını 3-6 yapın - {d} blokluk kalın konturlu halka, kale duvarları için çok daha sağlamdır.",
     "innerTip": "İçi boş halka mı lazım? Dairenin ortasını kaldırmak için iç oyuğu kullanın - hendekler, arenalar ve yuvarlak kuleler için ideal.",
-    "builderTip": "Blok blok inşa edin: oluşturucuda Oluşturucu modunu açın, her yerleşimi tıklayarak işaretleyin, Sonraki/Önceki ile ilerleyin veya Oynat'a basın."
+    "builderTip": "Blok blok inşa edin: oluşturucuda Oluşturucu modunu açın, her yerleşimi tıklayarak işaretleyin, Sonraki/Önceki ile ilerleyin veya Oynat'a basın.",
+    "stepsByShape": {
+      "circle": [
+        "Merkez bloğunu işaretleyin, ardından dört eksen bloğunu kuzeye, doğuya, güneye ve batıya yerleştirin.",
+        "Çaprazdaki dört köşe bloğunu ekleyin ki halkanın 8 bağlantı noktası olsun.",
+        "Plan ızgarasını izleyerek her çeyrek bölümü satır satır doldurun.",
+        "Simetriyi kontrol edin: her kadran diğer üçünün aynası olmalı.",
+        "Dolu daire için merkez kapanana kadar halka halka içeriye doğru ilerleyin."
+      ],
+      "sphere": [
+        "Önce en geniş halkayı ekvator olarak döşeyin - boyutu ve şekli o belirler.",
+        "Alt yarıyı katman katman inşa edin, her halkayı alt kapağa doğru küçültün.",
+        "Tüm katmanları hizalı tutmak için merkeze geçici bir sütun dikin.",
+        "Ekvatoru geçene kadar büyüyen halkalarla üst yarıyı inşa edin.",
+        "Üst kapakla bitirin, ardından geçici sütunu kaldırın."
+      ],
+      "dome": [
+        "Düz bir daire gibi yere tam taban dairesiyle başlayın.",
+        "Aynı merkezi koruyarak her sonraki katmanı daha küçük bir halkayla yığın.",
+        "Her katmanın tam halka boyutu için plandaki katman ızgarasını izleyin.",
+        "Dikleştikçe eğriyi yumuşatmak için levha veya merdiven kullanın.",
+        "Tepeyi en küçük halkayla kapatın ve merkez bloğu doldurun."
+      ],
+      "oval": [
+        "Merkezi işaretleyin ve uzun eksenin iki uç bloğunu yerleştirin.",
+        "Kısa eksenin iki uç bloğunu uzun eksene dik açıyla yerleştirin.",
+        "Planı izleyerek eksenler arasındaki her çeyrek yayı doldurun.",
+        "Simetri için dört çeyreğin de aynasını kontrol edin.",
+        "Ovalin tamamını 90 derece döndürüp yapınıza nasıl oturduğuna bakın."
+      ],
+      "torus": [
+        "İç halkayla başlayın - çöreğin deliği.",
+        "Halkanın kesitini 8 pusula noktasının tamamında inşa edin.",
+        "Kesitleri plandaki boru eğrisiyle birleştirin.",
+        "Tüm çevre boyunca aynı yatay katmanda çalışın.",
+        "Kalınlığı kontrol edin: her boru parçası aynı olmalı."
+      ],
+      "ellipsoid": [
+        "Önce en geniş halkayı uzun yatay eksene döşeyin.",
+        "Derinlik ekseni halkasını merkezden dik açıyla geçecek şekilde inşa edin.",
+        "Her seferinde halkayı küçülterek katmanları üste ve alta doğru yığın.",
+        "Üç ekseni de simetrik tutun - genişlik, yükseklik ve derinlik.",
+        "Eğrinin en dik olduğu yerlerde yüzeyi levhalarla yumuşatın."
+      ]
+    },
+    "materials": {
+      "title": "Gerekli malzemeler",
+      "intro": "Bu {shape} şeklini inşa etmek için ihtiyacınız olacak:",
+      "blocks": "{blocks} blok",
+      "stacks": "64'lük {stacks} istif",
+      "time": "yaklaşık {time} dakika",
+      "note": {
+        "circle": "Tüm bloklar aynı yükseklikte durur, bu yüzden önce dış hat halkasını döşeyin, sonra içini doldurun.",
+        "sphere": "Küre, boyutuna göre en çok bloğu kullanır - yer üstündeki her katman iskele veya geçici bir merkez sütunu gerektirir.",
+        "dome": "Yukarı çıktıkça katmanlar küçülür, bu yüzden en çok bloğu yer halkası kullanır. Merkez sütunu tüm katmanları hizalı tutar.",
+        "oval": "Uzun ve kısa eksenler görünümü belirler - fark ne kadar büyükse oval o kadar basık ve uzun olur.",
+        "torus": "İç halka, dış borudan daha az blok kullanır, bu yüzden önce delik boyutunu planlayın.",
+        "ellipsoid": "Üç eksen de farklıdır - en geniş halka yataydır, yükseklik ve derinlik eksenleri ise geri kalanını şekillendirir."
+      }
+    }
   },
   "faq": {
     "title": "Sık sorulan sorular",

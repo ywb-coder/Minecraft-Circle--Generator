@@ -127,7 +127,66 @@
     "setblockBody": "Öffne den Generator und klicke auf /setblock kopieren, um jeden Block als Minecraft-Befehl zu erhalten. Füge deine Weltkoordinaten hinzu und der ganze {shape} sitzt exakt dort, wo du ihn haben willst.",
     "thicknessTip": "Brauchst du eine dickere Wand? Stelle die Umrissdicke im Generator auf 3-6 - ein {d}-Block-Ring mit dickerem Umriss ist viel stabiler für Burgmauern und Basen.",
     "innerTip": "Brauchst du einen hohlen Ring? Nutze den Innenausschnitt, um die Mitte des Kreises zu entfernen - perfekt für Burggräben, Arenen und runde Türme.",
-    "builderTip": "Baue Block für Block: Schalte im Generator den Builder-Modus ein, markiere jede Platzierung mit einem Klick, navigiere mit Weiter/Zurück oder drücke Play für automatisches Voranschreiten."
+    "builderTip": "Baue Block für Block: Schalte im Generator den Builder-Modus ein, markiere jede Platzierung mit einem Klick, navigiere mit Weiter/Zurück oder drücke Play für automatisches Voranschreiten.",
+    "stepsByShape": {
+      "circle": [
+        "Markiere den Mittelblock und setze dann die vier Achsenblöcke im Norden, Osten, Süden und Westen.",
+        "Füge die vier diagonalen Eckblöcke hinzu, damit der Ring 8 Ankerpunkte hat.",
+        "Fülle jeden Viertelabschnitt Reihe für Reihe nach dem Bauplan-Raster.",
+        "Prüfe die Symmetrie: Jeder Quadrant sollte das Spiegelbild der anderen drei sein.",
+        "Für einen gefüllten Kreis arbeite dich Ring für Ring nach innen vor, bis der Mittelpunkt bedeckt ist."
+      ],
+      "sphere": [
+        "Lege zuerst den breitesten Ring als Äquator - er bestimmt Größe und Form.",
+        "Baue die untere Hälfte Ebene für Ebene und verkleinere dabei jeden Ring bis zum unteren Abschluss.",
+        "Stelle eine temporäre Säule durch die Mitte, um jede Ebene ausgerichtet zu halten.",
+        "Baue die obere Hälfte mit wachsenden Ringen, bis du den Äquator überquerst.",
+        "Schließe mit dem Deckblock ab und entferne dann die temporäre Säule."
+      ],
+      "dome": [
+        "Beginne mit dem vollen Basiskreis auf dem Boden, genau wie bei einem flachen Kreis.",
+        "Staple jede nächste Ebene mit einem kleineren Ring und behalte denselben Mittelpunkt bei.",
+        "Folge dem Ebenen-Raster des Bauplans für die genaue Ringgröße jeder Ebene.",
+        "Nutze Platten oder Stufen, um die Kurve zu glätten, wenn sie steiler wird.",
+        "Schließe die Spitze mit dem kleinsten Ring und fülle den Mittelblock."
+      ],
+      "oval": [
+        "Markiere die Mitte und setze die beiden Endblöcke der langen Achse.",
+        "Setze die beiden Endblöcke der kurzen Achse im rechten Winkel zur langen Achse.",
+        "Fülle jeden Viertelbogen zwischen den Achsen nach dem Bauplan.",
+        "Prüfe alle vier Viertel spiegelbildlich auf Symmetrie.",
+        "Drehe das ganze Oval um 90 Grad, um zu sehen, wie es zu deinem Bau passt."
+      ],
+      "torus": [
+        "Beginne mit dem inneren Ring - dem Loch des Donuts.",
+        "Baue den Querschnitt des Rings an allen 8 Himmelsrichtungen.",
+        "Verbinde die Querschnitte mit der Rohrkurve aus dem Bauplan.",
+        "Arbeite in derselben horizontalen Ebene ringsum.",
+        "Prüfe die Dicke: Jedes Rohrsegment muss identisch sein."
+      ],
+      "ellipsoid": [
+        "Lege zuerst den breitesten Ring auf der langen horizontalen Achse.",
+        "Baue den Ring der Tiefenachse im rechten Winkel durch die Mitte.",
+        "Staple Ebenen nach oben und unten und verkleinere den Ring dabei jedes Mal.",
+        "Halte die drei Achsen symmetrisch - Breite, Höhe und Tiefe.",
+        "Glätte die Oberfläche mit Platten, wo die Kurve am steilsten ist."
+      ]
+    },
+    "materials": {
+      "title": "Benötigte Materialien",
+      "intro": "Um diesen {shape} zu bauen, benötigst du:",
+      "blocks": "{blocks} Blöcke",
+      "stacks": "{stacks} Stapel (je 64 Stück)",
+      "time": "etwa {time} Minuten",
+      "note": {
+        "circle": "Alle Blöcke liegen auf derselben Höhe - lege zuerst den Umrissring und fülle dann das Innere.",
+        "sphere": "Eine Kugel braucht für ihre Größe die meisten Blöcke - jede Ebene über dem Boden benötigt ein Gerüst oder eine temporäre Mittelsäule.",
+        "dome": "Die Ebenen werden nach oben hin kleiner, daher braucht der Bodenring die meisten Blöcke. Eine Mittelsäule hält jede Ebene ausgerichtet.",
+        "oval": "Die lange und die kurze Achse bestimmen das Aussehen - ein größerer Unterschied ergibt ein flacheres, länglicheres Oval.",
+        "torus": "Der innere Ring braucht weniger Blöcke als das äußere Rohr - plane die Lochgröße also zuerst.",
+        "ellipsoid": "Alle drei Achsen sind unterschiedlich - der breiteste Ring ist horizontal, während die Höhen- und Tiefenachse den Rest formen."
+      }
+    }
   },
   "faq": {
     "title": "Häufige Fragen",

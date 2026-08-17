@@ -9,7 +9,8 @@
     "lint": "eslint",
     "test": "vitest run",
     "test:e2e": "node scripts/e2e/run.js",
-    "serp": "node scripts/e2e/06-serp-check.js"
+    "serp": "node scripts/e2e/06-serp-check.js",
+    "render-pngs": "node scripts/render-shape-pngs.mjs"
   },
   "dependencies": {
     "next": "16.3.0",

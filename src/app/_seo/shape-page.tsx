@@ -379,6 +379,11 @@ export default async function ShapePage(
   const related = relatedLinks(resolved.type, d);
   const others = otherShapeLinks(locale, resolved.type, d);
   const vars = { shape: shapeName, d, blocks, use };
+  const shapeSteps = dict.perSize.stepsByShape[resolved.type];
+  const stacks = Math.ceil(blocks / 64);
+  const time = Math.max(1, Math.ceil(blocks / 240));
+  const pngName = resolved.path.slice(1).replace(/\//g, "-") + ".png";
+  const pngSrc = "/shape-pngs/" + pngName;
   return (
     <SeoShell dict={dict} locale={locale}>
       <div className="mx-auto max-w-3xl">
@@ -412,6 +417,12 @@ export default async function ShapePage(
               {shape.blockCount} {dict.perSize.blocks}
             </p>
           </div>
+          <img
+            src={pngSrc}
+            alt={title}
+            loading="lazy"
+            className="mt-4 h-auto max-w-full border-2 border-mc-border bg-panel-2"
+          />
           {layered && (
             <div className="mt-8">
               <div className="flex flex-wrap gap-5">
@@ -514,21 +525,53 @@ export default async function ShapePage(
           </table>
         </section>
 
+        <section className="mc-panel-inset pixel-corners mt-4 p-4">
+          <h2 className="font-pixel text-[10px] uppercase tracking-wide text-cyan">
+            {dict.perSize.materials.title}
+          </h2>
+          <p className="mt-3 text-sm text-muted">
+            {interpolate(dict.perSize.materials.intro, vars)}
+          </p>
+          <table className="mt-3 w-full">
+            <tbody>
+              <tr>
+                <td className="pr-4 font-pixel text-[10px] text-muted">
+                  {interpolate(dict.perSize.materials.blocks, { blocks })}
+                </td>
+                <td className="font-terminal text-xl text-accent">{blocks}</td>
+              </tr>
+              <tr>
+                <td className="pr-4 font-pixel text-[10px] text-muted">
+                  {interpolate(dict.perSize.materials.stacks, { stacks })}
+                </td>
+                <td className="font-terminal text-xl text-accent">{stacks}</td>
+              </tr>
+              <tr>
+                <td className="pr-4 font-pixel text-[10px] text-muted">
+                  {interpolate(dict.perSize.materials.time, { time })}
+                </td>
+                <td className="font-terminal text-xl text-accent">{time}</td>
+              </tr>
+            </tbody>
+          </table>
+          <p className="mt-3 text-sm text-muted">
+            {interpolate(dict.perSize.materials.note[resolved.type], vars)}
+          </p>
+        </section>
+
         <section className="mt-10">
           <h2 className="font-pixel text-[10px] uppercase tracking-wide text-cyan">
             {dict.perSize.howToTitle}
           </h2>
           <ol className="mt-3 list-decimal space-y-2 pl-5">
-            {dict.perSize.steps
-              .slice(0, layered ? 5 : 3)
-              .map((step, index) => (
-                <li
-                  key={index}
-                  className="font-pixel text-[10px] leading-relaxed text-ink"
-                >
-                  {step}
-                </li>
-              ))}
+            {shapeSteps.map((step, index) => (
+              <li
+                key={index}
+                className="font-pixel text-[10px] leading-relaxed text-ink"
+              >
+                {step}
+              </li>
+            ))}
           </ol>
         </section>
 

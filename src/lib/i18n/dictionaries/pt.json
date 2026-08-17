@@ -127,7 +127,66 @@
     "setblockBody": "Abra o gerador e clique em Copiar /setblock para obter cada bloco como um comando do Minecraft. Adicione suas coordenadas do mundo e todo o {shape} ficará exatamente onde você quiser.",
     "thicknessTip": "Precisa de uma parede mais grossa? Coloque a espessura do contorno em 3-6: um anel de {d} blocos com contorno grosso é muito mais resistente para muros e bases.",
     "innerTip": "Precisa de um anel oco? Use o recorte interno para remover o centro do círculo: perfeito para fossos, arenas e torres redondas.",
-    "builderTip": "Construa bloco a bloco: ative o modo Construtor para marcar cada posição com um clique, avance com Próximo/Anterior ou pressione Play."
+    "builderTip": "Construa bloco a bloco: ative o modo Construtor para marcar cada posição com um clique, avance com Próximo/Anterior ou pressione Play.",
+    "stepsByShape": {
+      "circle": [
+        "Marque o bloco central e coloque os quatro blocos dos eixos ao norte, leste, sul e oeste.",
+        "Adicione os quatro blocos diagonais dos cantos para que o anel tenha 8 pontos de ancoragem.",
+        "Preencha cada quarto linha por linha, seguindo a grade da planta.",
+        "Verifique a simetria: cada quadrante deve ser um espelho dos outros três.",
+        "Para um círculo preenchido, avance para dentro anel por anel até cobrir o centro."
+      ],
+      "sphere": [
+        "Coloque primeiro o anel mais largo como equador - ele define o tamanho e a forma.",
+        "Construa a metade inferior camada por camada, diminuindo cada anel em direção à calota inferior.",
+        "Coloque um pilar temporário no centro para manter todas as camadas alinhadas.",
+        "Construa a metade superior com anéis crescentes até passar do equador.",
+        "Termine com a calota superior e remova o pilar temporário."
+      ],
+      "dome": [
+        "Comece com o círculo base completo no chão, como um círculo plano.",
+        "Empilhe cada camada seguinte com um anel menor, mantendo o mesmo centro.",
+        "Siga a grade de camadas da planta para o tamanho exato do anel de cada camada.",
+        "Use lajes ou escadas para suavizar a curva onde ela fica mais íngreme.",
+        "Feche o topo com o menor anel e preencha o bloco central."
+      ],
+      "oval": [
+        "Marque o centro e coloque os dois blocos das pontas do eixo longo.",
+        "Coloque os dois blocos das pontas do eixo curto em ângulo reto com o eixo longo.",
+        "Preencha cada arco de quarto entre os eixos, seguindo a planta.",
+        "Verifique no espelho os quatro quartos para conferir a simetria.",
+        "Gire o oval inteiro 90 graus para ver como ele se encaixa na sua construção."
+      ],
+      "torus": [
+        "Comece pelo anel interno - o buraco da rosquinha.",
+        "Construa a seção transversal do anel nas 8 direções da bússola.",
+        "Conecte as seções com a curva do tubo da planta.",
+        "Trabalhe na mesma camada horizontal em todo o contorno.",
+        "Verifique a espessura: cada segmento do tubo deve ser idêntico."
+      ],
+      "ellipsoid": [
+        "Coloque primeiro o anel mais largo no eixo horizontal longo.",
+        "Construa o anel do eixo de profundidade em ângulo reto, passando pelo centro.",
+        "Empilhe camadas para cima e para baixo, diminuindo o anel a cada vez.",
+        "Mantenha os três eixos simétricos - largura, altura e profundidade.",
+        "Suavize a superfície com lajes onde a curva for mais íngreme."
+      ]
+    },
+    "materials": {
+      "title": "Materiais necessários",
+      "intro": "Para construir este {shape}, você vai precisar de:",
+      "blocks": "{blocks} blocos",
+      "stacks": "{stacks} pilhas de 64",
+      "time": "cerca de {time} minutos",
+      "note": {
+        "circle": "Todos os blocos ficam na mesma altura, então coloque primeiro o anel do contorno e depois preencha o interior.",
+        "sphere": "Uma esfera usa a maior quantidade de blocos para o seu tamanho - cada camada acima do chão precisa de andaimes ou de um pilar central temporário.",
+        "dome": "As camadas diminuem conforme você sobe, então o anel do chão usa mais blocos. Um pilar central mantém todas as camadas alinhadas.",
+        "oval": "Os eixos longo e curto definem a aparência - uma diferença maior dá um oval mais achatado e alongado.",
+        "torus": "O anel interno usa menos blocos que o tubo externo, então planeje primeiro o tamanho do buraco.",
+        "ellipsoid": "Os três eixos são diferentes - o anel mais largo é horizontal, enquanto os eixos de altura e profundidade moldam o resto."
+      }
+    }
   },
   "faq": {
     "title": "Perguntas frequentes",

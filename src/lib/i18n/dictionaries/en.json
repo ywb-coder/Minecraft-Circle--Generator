@@ -127,7 +127,66 @@
     "setblockBody": "Open the generator and hit Copy /setblock to get every block as a Minecraft command. Add your world coordinates and the whole {shape} lines up exactly where you want it to be.",
     "thicknessTip": "Need a thicker wall? Set the outline thickness to 3-6 in the generator - a {d}-block ring with a thicker outline is much sturdier for castle walls and bases.",
     "innerTip": "Need a hollow ring? Use the inner cutout to remove the middle of the circle - perfect for moats, arenas and round towers.",
-    "builderTip": "Build it block by block: turn on Builder mode in the generator to mark each placement with a click, step with Next and Prev, or press Play to auto-advance."
+    "builderTip": "Build it block by block: turn on Builder mode in the generator to mark each placement with a click, step with Next and Prev, or press Play to auto-advance.",
+    "stepsByShape": {
+      "circle": [
+        "Mark the center block, then place the four axis blocks at north, east, south and west.",
+        "Add the four diagonal corner blocks so the ring has 8 anchor points.",
+        "Fill each quarter section row by row, following the blueprint grid.",
+        "Check symmetry: each quadrant should be a mirror of the other three.",
+        "For a filled circle, move inward ring by ring until the center is covered."
+      ],
+      "sphere": [
+        "Lay the widest ring as the equator first - it sets the size and shape.",
+        "Build the bottom half layer by layer, shrinking each ring toward the bottom cap.",
+        "Place a temporary pillar through the center to keep every layer aligned.",
+        "Build the top half with growing rings until you pass the equator.",
+        "Finish with the top cap, then remove the temporary pillar."
+      ],
+      "dome": [
+        "Start with the full base circle on the ground, just like a flat circle.",
+        "Stack each next layer with a smaller ring, keeping the same center.",
+        "Follow the blueprint layer grid for the exact ring size of every layer.",
+        "Use slabs or stairs to smooth the curve as it gets steeper.",
+        "Close the top with the smallest ring and fill the center block."
+      ],
+      "oval": [
+        "Mark the center and place the two long-axis end blocks.",
+        "Place the two short-axis end blocks at right angles to the long axis.",
+        "Fill each quarter arc between the axes, following the blueprint.",
+        "Mirror-check all four quarters for symmetry.",
+        "Rotate the whole oval 90 degrees to see how it fits your build."
+      ],
+      "torus": [
+        "Start with the inner ring - the hole of the donut.",
+        "Build the ring cross-section at all 8 compass points.",
+        "Connect the cross-sections with the tube curve from the blueprint.",
+        "Work in the same horizontal layer all the way around.",
+        "Check the thickness: every tube segment must be identical."
+      ],
+      "ellipsoid": [
+        "Lay the widest ring on the long horizontal axis first.",
+        "Build the depth-axis ring at right angles through the center.",
+        "Stack layers toward the top and bottom, shrinking the ring each time.",
+        "Keep the three axes symmetric - width, height and depth.",
+        "Smooth the surface with slabs where the curve is steepest."
+      ]
+    },
+    "materials": {
+      "title": "Materials needed",
+      "intro": "To build this {shape} you will need:",
+      "blocks": "{blocks} blocks",
+      "stacks": "{stacks} stacks of 64",
+      "time": "about {time} minutes",
+      "note": {
+        "circle": "All blocks sit at the same height, so lay the outline ring first, then fill the inside.",
+        "sphere": "A sphere uses the most blocks for its size - every layer above ground needs scaffolding or a temporary center pillar.",
+        "dome": "Layers shrink as you go up, so the ground ring uses the most blocks. A center pillar keeps every layer aligned.",
+        "oval": "The long and short axes decide the look - a bigger difference makes a flatter, more elongated oval.",
+        "torus": "The inner ring uses fewer blocks than the outer tube, so plan the hole size first.",
+        "ellipsoid": "All three axes are different - the widest ring is horizontal, while the height and depth axes shape the rest."
+      }
+    }
   },
   "faq": {
     "title": "Frequently asked questions",

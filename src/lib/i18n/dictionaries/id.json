@@ -127,7 +127,66 @@
     "setblockBody": "Buka generator dan tekan Salin /setblock untuk mengubah setiap blok menjadi perintah Minecraft. Tambahkan koordinat dunia Anda dan seluruh {shape} akan berada tepat di tempat yang Anda inginkan.",
     "thicknessTip": "Butuh dinding lebih tebal? Atur ketebalan garis luar ke 3-6: cincin {d} blok dengan garis luar tebal jauh lebih kokoh untuk tembok dan pangkalan.",
     "innerTip": "Butuh cincin berlubang? Gunakan potongan dalam untuk menghilangkan bagian tengah lingkaran: cocok untuk parit, arena, dan menara bundar.",
-    "builderTip": "Bangun blok demi blok: aktifkan mode pembangun untuk menandai setiap penempatan dengan klik, maju dengan Berikutnya/Sebelumnya, atau tekan Putar."
+    "builderTip": "Bangun blok demi blok: aktifkan mode pembangun untuk menandai setiap penempatan dengan klik, maju dengan Berikutnya/Sebelumnya, atau tekan Putar.",
+    "stepsByShape": {
+      "circle": [
+        "Tandai blok tengah, lalu pasang empat blok sumbu di utara, timur, selatan, dan barat.",
+        "Tambahkan empat blok sudut diagonal agar cincin memiliki 8 titik jangkar.",
+        "Isi setiap bagian seperempat baris demi baris, mengikuti kisi cetak biru.",
+        "Periksa simetrinya: setiap kuadran harus menjadi cermin dari tiga kuadran lainnya.",
+        "Untuk lingkaran penuh, bergeraklah ke dalam cincin demi cincin hingga bagian tengah tertutup."
+      ],
+      "sphere": [
+        "Pasang cincin terlebar sebagai ekuator terlebih dahulu - cincin ini menentukan ukuran dan bentuk.",
+        "Bangun bagian bawah lapisan demi lapisan, perkecil setiap cincin menuju penutup bawah.",
+        "Tempatkan tiang sementara di tengah agar semua lapisan tetap sejajar.",
+        "Bangun bagian atas dengan cincin yang membesar hingga melewati ekuator.",
+        "Akhiri dengan penutup atas, lalu lepaskan tiang sementara."
+      ],
+      "dome": [
+        "Mulai dengan lingkaran dasar penuh di tanah, seperti lingkaran datar biasa.",
+        "Tumpuk setiap lapisan berikutnya dengan cincin yang lebih kecil, pertahankan pusat yang sama.",
+        "Ikuti kisi lapisan pada cetak biru untuk ukuran cincin yang tepat di setiap lapisan.",
+        "Gunakan lempengan atau tangga untuk menghaluskan kurva saat semakin curam.",
+        "Tutup bagian atas dengan cincin terkecil dan isi blok tengahnya."
+      ],
+      "oval": [
+        "Tandai bagian tengah dan pasang dua blok ujung sumbu panjang.",
+        "Pasang dua blok ujung sumbu pendek pada sudut siku-siku terhadap sumbu panjang.",
+        "Isi setiap busur seperempat di antara sumbu, mengikuti cetak biru.",
+        "Periksa cermin keempat bagian untuk memastikan simetri.",
+        "Putar seluruh oval 90 derajat untuk melihat apakah cocok dengan bangunan Anda."
+      ],
+      "torus": [
+        "Mulai dengan cincin dalam - lubang donatnya.",
+        "Bangun penampang cincin di semua 8 titik mata angin.",
+        "Hubungkan penampang dengan kurva tabung dari cetak biru.",
+        "Kerjakan di lapisan horizontal yang sama sepanjang keliling.",
+        "Periksa ketebalannya: setiap segmen tabung harus identik."
+      ],
+      "ellipsoid": [
+        "Pasang cincin terlebar pada sumbu horizontal panjang terlebih dahulu.",
+        "Bangun cincin sumbu kedalaman pada sudut siku-siku melalui bagian tengah.",
+        "Tumpuk lapisan ke arah atas dan bawah, perkecil cincin setiap kali.",
+        "Jaga ketiga sumbu tetap simetris - lebar, tinggi, dan kedalaman.",
+        "Haluskan permukaan dengan lempengan di tempat kurva paling curam."
+      ]
+    },
+    "materials": {
+      "title": "Bahan yang dibutuhkan",
+      "intro": "Untuk membangun {shape} ini, Anda akan membutuhkan:",
+      "blocks": "{blocks} blok",
+      "stacks": "{stacks} tumpukan 64",
+      "time": "sekitar {time} menit",
+      "note": {
+        "circle": "Semua blok berada di ketinggian yang sama, jadi pasang dulu cincin garis tepinya, lalu isi bagian dalam.",
+        "sphere": "Bola menggunakan blok paling banyak untuk ukurannya - setiap lapisan di atas tanah membutuhkan perancah atau tiang tengah sementara.",
+        "dome": "Lapisan mengecil semakin ke atas, jadi cincin di tanah menggunakan blok paling banyak. Tiang tengah menjaga semua lapisan tetap sejajar.",
+        "oval": "Sumbu panjang dan pendek menentukan tampilannya - perbedaan yang lebih besar menghasilkan oval yang lebih datar dan lebih memanjang.",
+        "torus": "Cincin dalam menggunakan lebih sedikit blok daripada tabung luar, jadi rencanakan dulu ukuran lubangnya.",
+        "ellipsoid": "Ketiga sumbunya berbeda - cincin terlebar horizontal, sementara sumbu tinggi dan kedalaman membentuk sisanya."
+      }
+    }
   },
   "faq": {
     "title": "Pertanyaan yang sering diajukan",
