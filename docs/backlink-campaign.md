@@ -32,7 +32,7 @@
 | 5 | Freesiteslike | dofollow | ★★ | ⚠️ 站点疑似停摆(TLS 证书失效/停放页),待确认 |
 | 6 | FreeToolDirectory | dofollow | ★★ | ⚠️ 站点当前无法访问(超时),待确认 |
 | 7 | Toolify | dofollow | ★★ | ❌ 跳过:只收 AI 工具,且当前提交收费 $99 |
-| 8 | Product Hunt Launch | dofollow | ★★★★ | ☐ 可提交(需排期) |
+| 8 | Product Hunt Launch | dofollow | ★★★★ | ✅ **已提交并排期**(2026-08-18),**发布日 2026-08-20(周四)**(dashboard 倒计时 1d23h 确认) |
 | 9 | Hacker News Show HN | dofollow | ★★★★ | ☐ 可提交(需先攒 karma) |
 | 10 | PlanetMinecraft 资源页 | dofollow | ★★★ | ☐ 可提交(新账号走 Greenlight 审核) |
 | 11 | minecraftforum.net | dofollow | ★★★ | ⚠️ 站点被 Cloudflare 拦截,注册后以实际提示为准 |
@@ -69,6 +69,7 @@
 | 2026-08-14 | Uneed(uneed.best) | 提交产品 CircleGen(slug:circlegen,Category Design,Pricing Free,Tagline+描述+Logo+1 图),已 Save;已 Unschedule 等待系统分配约 2026-08-28 档期 | ✅ 已提交,待发布(发布后验证 dofollow) |
 | 2026-08-14 | SideProjectors | Showcase 类型提交(Name+URL+pitch+描述+技术栈),开启 ComingUp 免费联动,ID 88943 | ✅ **已通过审核并上线**(2026-08-15),listing:https://www.sideprojectors.com/project/88943,链接实测 dofollow |
 | 2026-08-14 | Launching Next | 免费表单提交(Name/URL/headline/描述/tags/侧项目/$0 预算),已入队(预计 4 个月);Fast-Track $99 未买 | ✅ 已提交,In Queue |
+| 2026-08-18 | Product Hunt | CircleGen 完整提交:Name/Tagline(57字符)/Description(483字符)/Website+GitHub+dev.to 链接/开源勾选/Topics 3个(Minecraft/Developer Tools/Design Tools)/Gallery 6图(3D主图+2D蓝图+工具全貌+3D预览+蓝图特写+GIF)/Shoutouts 3个(Next.js/Vercel/GitHub)/首评已填/Pricing Free/Bootstrapped | ✅ **已排期,发布日 2026-08-20(周四)**;审核期可继续编辑;发布后记入 serp 进池追踪;发布日按 kit Playbook(不明示求票) |
 
 ---
 
