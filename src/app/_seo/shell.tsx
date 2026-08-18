@@ -51,6 +51,18 @@ export default function SeoShell({
           <p className="font-terminal text-sm text-muted">
             {dict.footer.lastUpdated}: {buildDate()}
           </p>
+          <a
+            href="https://www.producthunt.com/products/circlegen?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-circlegen"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              alt="CircleGen - Pixel-perfect Minecraft circle blueprints in 11 languages | Product Hunt"
+              width="250"
+              height="54"
+              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1225644&theme=dark&t=1787038210094"
+            />
+          </a>
         </div>
       </footer>
     </div>
