@@ -103,6 +103,8 @@
 | 8/19 | minecraft circle generator online | 第 9 页 | 8/17 为第 5 页图片结果 |
 | 8/19 | minecraft circle generator | 第 8 页 | GSC 8/14 实测 58 |
 
+**site: 池增长(8/19)**:site:pixelcircle.online 从 3 条 → **6 条**:en 首页 + pl 首页 + zh 首页 + en sphere/101 + en circle/101 + **ru sphere/101**。→ 多语言页面开始入池(11 语言策略生效),101 页确认仍收录(回撤 ≠ 删除),抓取按 sitemap 全量分布中。
+
 **解读**:全词轻微回撤 = 沙盒期典型波动(基线已预警 2-8 周):新站先短暂可见(第 3-6 天)→ 评估期回撤(第 7-14 天)→ 信号积累后爬升。8/20 PH 发布为设计中的拐点,8/21 GSC 导出为真值。**不因 2 天波动改策略。**
 
 ## 关键前提(不要误读数据)
