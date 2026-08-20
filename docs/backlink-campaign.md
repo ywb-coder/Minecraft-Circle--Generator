@@ -32,7 +32,7 @@
 | 5 | Freesiteslike | dofollow | ★★ | ⚠️ 站点疑似停摆(TLS 证书失效/停放页),待确认 |
 | 6 | FreeToolDirectory | dofollow | ★★ | ⚠️ 站点当前无法访问(超时),待确认 |
 | 7 | Toolify | dofollow | ★★ | ❌ 跳过:只收 AI 工具,且当前提交收费 $99 |
-| 8 | Product Hunt Launch | dofollow | ★★★★ | ✅ **已发布 2026-08-20**:**https://www.producthunt.com/products/circlegen?launch=circlegen**;发布后按 kit Playbook 运营(回评/24h Update);链接待 Google 收录后进 serp 池验证 |
+| 8 | Product Hunt Launch | ugc(≈nofollow,实测) | ★★★★ | ✅ **已发布 2026-08-20**:**https://www.producthunt.com/products/circlegen?launch=circlegen**;外链检查器实测链接 `https://pixelcircle.online/?ref=producthunt` 带 **rel="ugc"**(非 dofollow,Google 按 nofollow 处理,不传权重);价值 = 引荐流量 + 收录发现 + 品牌信号;发布后按 kit Playbook 运营(回评/24h Update);链接待 Google 收录后进 serp 池验证 |
 | 9 | Hacker News Show HN | dofollow | ★★★★ | ☐ 可提交(需先攒 karma) |
 | 10 | PlanetMinecraft 资源页 | dofollow | ★★★ | ☐ 可提交(新账号走 Greenlight 审核) |
 | 11 | minecraftforum.net | dofollow | ★★★ | ⚠️ 站点被 Cloudflare 拦截,注册后以实际提示为准 |
