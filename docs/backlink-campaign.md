@@ -70,7 +70,7 @@
 | 2026-08-14 | SideProjectors | Showcase 类型提交(Name+URL+pitch+描述+技术栈),开启 ComingUp 免费联动,ID 88943 | ✅ **已通过审核并上线**(2026-08-15),listing:https://www.sideprojectors.com/project/88943,链接实测 dofollow |
 | 2026-08-14 | Launching Next | 免费表单提交(Name/URL/headline/描述/tags/侧项目/$0 预算),已入队(预计 4 个月);Fast-Track $99 未买 | ✅ 已提交,In Queue |
 | 2026-08-18 | Product Hunt | CircleGen 完整提交:Name/Tagline(57字符)/Description(483字符)/Website+GitHub+dev.to 链接/开源勾选/Topics 3个(Minecraft/Developer Tools/Design Tools)/Gallery 6图(3D主图+2D蓝图+工具全貌+3D预览+蓝图特写+GIF)/Shoutouts 3个(Next.js/Vercel/GitHub)/首评已填/Pricing Free/Bootstrapped | ✅ **已排期,发布日 2026-08-20(周四)**;审核期可继续编辑;发布后记入 serp 进池追踪;发布日按 kit Playbook(不明示求票) |
-| 2026-08-20 | Product Hunt | **已发布**:https://www.producthunt.com/products/circlegen?launch=circlegen | 发布日 Playbook:核对首评已发 → 自然分享 → 快速回评;24h 后(8/21)发 Update 帖;链接 dofollow,待 Google 收录后进 serp 池 |
+| 2026-08-20 | Product Hunt | **已发布**:https://www.producthunt.com/products/circlegen?launch=circlegen | 页面验证通过(截图核对):"Launching today" 徽章 ✓、Tagline ✓、Gallery 5图 ✓、Free/Open Source 标签 ✓、Shoutouts 4头像 ✓、**创始人首评已自动发出** ✓(wb y/Maker,8/18 预填,显示 2d ago 属正常);暂无外部评论/upvote 数未显示(本人视角);发布日 Playbook:自然分享 → 快速回评;24h 后(8/21)发 Update 帖;链接 dofollow,待 Google 收录后进 serp 池 |
 
 ---
 
