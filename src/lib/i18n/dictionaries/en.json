@@ -196,12 +196,16 @@
       { "q": "Do the blueprints work for Java and Bedrock?", "a": "Yes. The grid shows block positions, so it works identically in Java Edition and Bedrock Edition." },
       { "q": "How do I build a sphere or dome?", "a": "Switch to the sphere or dome tab, then use the Layer slider to see each slice from bottom to top. Build one layer at a time and the shape assembles itself." },
       { "q": "Can I copy /setblock commands?", "a": "Yes - hit Copy /setblock to get every block as a /setblock command, with your world coordinates applied. Use Copy All layers for spheres, domes, toruses and ellipsoids." },
-      { "q": "What is Builder mode?", "a": "Builder mode turns the blueprint into a step-by-step guide: click blocks to mark them placed, use Next and Prev to move through the build order, or press Play to auto-advance." }
+      { "q": "What is Builder mode?", "a": "Builder mode turns the blueprint into a step-by-step guide: click blocks to mark them placed, use Next and Prev to move through the build order, or press Play to auto-advance." },
+      { "q": "How many blocks for a 21-block circle in Minecraft?", "a": "A 21-block diameter circle needs exactly 56 blocks (outline) or 331 blocks (filled). Perfect for small towers, windows, and decorative builds." },
+      { "q": "How many blocks for a 33-block circle in Minecraft?", "a": "A 33-block diameter circle needs 112 blocks (outline) or 807 blocks (filled). Great for medium builds like towers, rooms, and courtyards." },
+      { "q": "How many blocks for a 101-block circle in Minecraft?", "a": "A 101-block diameter circle needs 316 blocks (outline) or 7,853 blocks (filled). Ideal for stadiums, large temples, and coliseums." }
     ]
   },
   "footer": {
     "tagline": "Free Minecraft circle, oval, sphere, and dome blueprints.",
-    "lastUpdated": "Last updated"
+    "lastUpdated": "Last updated",
+    "feedback": "Questions or feedback? Email us at"
   },
   "meta": {
     "title": "Minecraft Circle Generator — Circles & Spheres",

@@ -300,6 +300,12 @@ export default function HomePage({
               src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1225644&theme=dark&t=1787038210094"
             />
           </a>
+          <p className="text-xs text-muted">
+            {dict.footer.feedback}{" "}
+            <a href="mailto:ywbiong@gmail.com" className="pixel-link">
+              ywbiong@gmail.com
+            </a>
+          </p>
         </div>
       </footer>
     </div>

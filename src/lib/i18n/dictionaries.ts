@@ -141,6 +141,7 @@ export interface Dictionary {
   footer: {
     tagline: string;
     lastUpdated: string;
+    feedback: string;
   };
   meta: {
     title: string;

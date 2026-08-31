@@ -201,7 +201,8 @@
   },
   "footer": {
     "tagline": "免费 Minecraft 圆形、椭圆形、球形和穹顶蓝图。",
-    "lastUpdated": "最后更新"
+    "lastUpdated": "最后更新",
+    "feedback": "有问题或反馈？请发邮件至"
   },
   "meta": {
     "title": "我的世界圆形生成器(Minecraft)— 圆形与球形",
