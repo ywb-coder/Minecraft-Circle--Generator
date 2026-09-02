@@ -46,7 +46,7 @@
 | 19 | **itch.io /tools** | nofollow(平台对描述链接自动加) | ★★★★ | ✅ **已发布**(2026-08-14),[项目页](https://ywb-coder.itch.io/circlegen-minecraft-circle-generator),Tools/HTML 嵌入,入口页 `docs/itch/index.html`;项目页含指向 pixelcircle.online 的链接(nofollow)+ meta/og 描述 |
 | 20 | **ArkFlame/awesome-minecraft**(PR) | dofollow | ★★★ | ❌ 跳过(2026-08-14 用户决定;备料留档) |
 | 21 | **CAIMEOX/awesome-minecraft-bedrock**(PR) | dofollow | ★★★ | ❌ 跳过(2026-08-14 用户决定;备料留档) |
-| 22 | **Uneed(uneed.best)** | dofollow(官方声明) | ★★★ | ✅ **已提交并排期**(2026-08-14),slug:uneed.best/tool/circlegen,已 Unschedule 让系统分配约 8/28 档期;发布后公开页生成 |
+| 22 | **Uneed(uneed.best)** | dofollow(官方声明) | ★★ | ❌ **跳过**:免费提交后仍需付费才能发布,性价比低,放弃 |
 | 23 | **LibHunt** | dofollow(大部分) | ★★★ | ✅ **已提交并自动批准**(2026-08-14),项目页 https://libhunt.com/r/Minecraft-Circle--Generator 含 pixelcircle.online 链接(已验证) |
 | 24 | **SideProjectors** | dofollow(实测) | ★★★ | ✅ **已通过审核并上线**(2026-08-15),listing:https://www.sideprojectors.com/project/88943,pixelcircle 链接实测 dofollow;ComingUp 联动已开 |
 | 25 | **Launching Next** | 🟡 多源标 dofollow | ★★ | ✅ **已提交**(2026-08-14),免费队列 In Queue(预计 4 个月);$99 Fast-Track 未购买(性价比低),发布后自查 dofollow |
