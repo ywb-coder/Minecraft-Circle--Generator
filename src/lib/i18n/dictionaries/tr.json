@@ -3,9 +3,9 @@
   "tagline": "Minecraft Daire Oluşturucu",
   "nav": {
     "tool": "Oluşturucu",
-    "about": "Hakkında"
-  ,
-    "faq": "SSS"},
+    "about": "Hakkında",
+    "faq": "SSS"
+  },
   "hero": {
     "title": "Minecraft'ta Mükemmel Daireler İnşa Edin",
     "subtitle": "Daireler, ovaller, küreler ve kubbeler için blok blok planlar oluşturun — canlı önizleme, inşa sırası animasyonu ve Java ile Bedrock için PNG indirmeleriyle."
@@ -108,13 +108,6 @@
     "factHeight": "Yükseklik",
     "definition": "{d} blokluk Minecraft {shape} {blocks} blok kullanır.",
     "howToTitle": "Nasıl inşa edilir",
-    "steps": [
-      "İnşa alanının merkez bloğunu işaretleyin.",
-      "Planı takip ederek kontur bloklarını satır satır yerleştirin.",
-      "Tüm halkaları ve satırları aynı merkez noktasına hizalayın.",
-      "Küreler ve kubbeler için her katmanı bir öncekinin üzerine yerleştirin.",
-      "Tepe bloğuyla bitirin ve sert basamakları levha veya merdivenle yumuşatın."
-    ],
     "usageTitle": "Ne inşa edebilirsiniz",
     "usageIntro": "{d} blokluk {shape} şunlar için uygundur:",
     "faqQ1": "{d} blokluk Minecraft {shape} kaç blok içerir?",
@@ -196,7 +189,10 @@
       { "q": "Planlar Java ve Bedrock'ta çalışıyor mu?", "a": "Evet. Izgara blok konumlarını gösterir, bu yüzden Java ve Bedrock sürümlerinde aynı şekilde çalışır." },
       { "q": "Küre veya kubbe nasıl inşa edilir?", "a": "Küre veya kubbe sekmesine geçin ve her katmanı aşağıdan yukarıya görmek için katman kaydırıcısını kullanın. Bir katmanı tek seferde inşa edin." },
       { "q": "/setblock komutları kopyalayabilir miyim?", "a": "Evet - /setblock kopyala'ya basarak her bloğu dünya koordinatlarınızla komut olarak alabilirsiniz. Küreler, kubbeler, halkalar ve elipsoitler için Tüm katmanları kopyalayın." },
-      { "q": "Oluşturucu modu nedir?", "a": "Oluşturucu modu planı adım adım rehbere çevirir: blokları tıklayarak işaretleyin, Sonraki/Önceki ile ilerleyin veya Oynat ile otomatik ilerletin." }
+      { "q": "Oluşturucu modu nedir?", "a": "Oluşturucu modu planı adım adım rehbere çevirir: blokları tıklayarak işaretleyin, Sonraki/Önceki ile ilerleyin veya Oynat ile otomatik ilerletin." },
+      { "q": "21 blok Minecraft dairesinde kaç blok var?", "a": "21 blok Minecraft dairesi 64 blok kullanır." },
+      { "q": "33 blok Minecraft dairesinde kaç blok var?", "a": "33 blok Minecraft dairesi 100 blok kullanır." },
+      { "q": "101 blok Minecraft dairesinde kaç blok var?", "a": "101 blok Minecraft dairesi 316 blok kullanır." }
     ]
   },
   "footer": {

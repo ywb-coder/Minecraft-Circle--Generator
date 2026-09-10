@@ -3,9 +3,9 @@
   "tagline": "Minecraft Kreisgenerator",
   "nav": {
     "tool": "Generator",
-    "about": "Über"
-  ,
-    "faq": "FAQ"},
+    "about": "Über",
+    "faq": "FAQ"
+  },
   "hero": {
     "title": "Baue perfekte Kreise in Minecraft",
     "subtitle": "Erstelle Block-für-Block-Baupläne für Kreise, Ovale, Kugeln und Kuppeln — mit Live-Vorschau, Bau-Reihenfolge-Animation und PNG-Download für Java und Bedrock."
@@ -108,13 +108,6 @@
     "factHeight": "Höhe",
     "definition": "Ein {shape} aus {d} Blöcken in Minecraft benötigt {blocks} Blöcke.",
     "howToTitle": "So baust du es",
-    "steps": [
-      "Markiere den Mittelblock deiner Baufläche.",
-      "Setze die Umrissblöcke Reihe für Reihe nach dem Bauplan.",
-      "Halte alle Ringe und Reihen auf denselben Mittelpunkt ausgerichtet.",
-      "Bei Kugeln und Kuppeln stapelst du jede Ebene direkt auf die vorherige.",
-      "Schließe mit dem Deckblock ab und gleiche harte Stufen mit Stufenblöcken aus."
-    ],
     "usageTitle": "Was du damit bauen kannst",
     "usageIntro": "Ein {shape} aus {d} Blöcken eignet sich gut für:",
     "faqQ1": "Wie viele Blöcke hat ein {shape} aus {d} Blöcken in Minecraft?",
@@ -196,7 +189,10 @@
       { "q": "Funktionieren die Baupläne für Java und Bedrock?", "a": "Ja. Das Raster zeigt die Blockpositionen, daher funktioniert es in Java Edition und Bedrock Edition identisch." },
       { "q": "Wie baue ich eine Kugel oder Kuppel?", "a": "Wechsle zum Reiter Kugel oder Kuppel und nutze den Ebenen-Schieberegler, um jede Scheibe von unten nach oben zu sehen. Baue eine Ebene nach der anderen." },
       { "q": "Kann ich /setblock-Befehle kopieren?", "a": "Ja - klicke auf /setblock kopieren, um jeden Block als /setblock-Befehl mit deinen Weltkoordinaten zu erhalten. Nutze Alle Ebenen kopieren für Kugeln, Kuppeln, Torus und Ellipsoide." },
-      { "q": "Was ist der Builder-Modus?", "a": "Der Builder-Modus macht den Bauplan zu einer Schritt-für-Schritt-Anleitung: Klicke Blöcke zum Markieren an, nutze Weiter/Zurück oder drücke Play für automatisches Voranschreiten." }
+      { "q": "Was ist der Builder-Modus?", "a": "Der Builder-Modus macht den Bauplan zu einer Schritt-für-Schritt-Anleitung: Klicke Blöcke zum Markieren an, nutze Weiter/Zurück oder drücke Play für automatisches Voranschreiten." },
+      { "q": "Wie viele Blöcke hat ein 21-Block-Minecraft-Kreis?", "a": "Ein 21-Block-Minecraft-Kreis verwendet 64 Blöcke." },
+      { "q": "Wie viele Blöcke hat ein 33-Block-Minecraft-Kreis?", "a": "Ein 33-Block-Minecraft-Kreis verwendet 100 Blöcke." },
+      { "q": "Wie viele Blöcke hat ein 101-Block-Minecraft-Kreis?", "a": "Ein 101-Block-Minecraft-Kreis verwendet 316 Blöcke." }
     ]
   },
   "footer": {

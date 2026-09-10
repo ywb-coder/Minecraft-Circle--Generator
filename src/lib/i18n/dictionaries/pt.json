@@ -3,9 +3,9 @@
   "tagline": "Gerador de Círculos para Minecraft",
   "nav": {
     "tool": "Gerador",
-    "about": "Sobre"
-  ,
-    "faq": "FAQ"},
+    "about": "Sobre",
+    "faq": "FAQ"
+  },
   "hero": {
     "title": "Construa círculos perfeitos no Minecraft",
     "subtitle": "Gere plantas bloco a bloco para círculos, ovais, esferas e cúpulas — com visualização ao vivo, animação da ordem de construção e downloads PNG para Java e Bedrock."
@@ -108,13 +108,6 @@
     "factHeight": "Altura",
     "definition": "Um {shape} de Minecraft com {d} blocos usa {blocks} blocos.",
     "howToTitle": "Como construir",
-    "steps": [
-      "Marque o bloco central da sua área de construção.",
-      "Coloque os blocos do contorno linha por linha seguindo a planta.",
-      "Mantenha cada anel e linha alinhados ao mesmo centro.",
-      "Para esferas e cúpulas, empilhe cada camada diretamente sobre a anterior.",
-      "Finalize com o bloco do topo e suavize degraus com lajes ou escadas."
-    ],
     "usageTitle": "O que construir com ele",
     "usageIntro": "Um {shape} de {d} blocos funciona bem para:",
     "faqQ1": "Quantos blocos tem um {shape} de Minecraft com {d} blocos?",
@@ -196,7 +189,10 @@
       { "q": "As plantas funcionam no Java e no Bedrock?", "a": "Sim. A grade mostra as posições dos blocos, então funciona igualmente na edição Java e na edição Bedrock." },
       { "q": "Como construir uma esfera ou cúpula?", "a": "Mude para a aba esfera ou cúpula e use o controle deslizante de camadas para ver cada fatia de baixo para cima. Construa uma camada de cada vez." },
       { "q": "Posso copiar comandos /setblock?", "a": "Sim: clique em Copiar /setblock para obter cada bloco como comando com suas coordenadas do mundo. Use Copiar todas as camadas para esferas, cúpulas, toros e elipsoides." },
-      { "q": "O que é o modo Construtor?", "a": "O modo Construtor transforma a planta em um guia passo a passo: marque blocos com um clique, avance com Próximo/Anterior ou pressione Play." }
+      { "q": "O que é o modo Construtor?", "a": "O modo Construtor transforma a planta em um guia passo a passo: marque blocos com um clique, avance com Próximo/Anterior ou pressione Play." },
+      { "q": "Quantos blocos tem um círculo Minecraft de 21 blocos?", "a": "Um círculo Minecraft de 21 blocos usa 64 blocos." },
+      { "q": "Quantos blocos tem um círculo Minecraft de 33 blocos?", "a": "Um círculo Minecraft de 33 blocos usa 100 blocos." },
+      { "q": "Quantos blocos tem um círculo Minecraft de 101 blocos?", "a": "Um círculo Minecraft de 101 blocos usa 316 blocos." }
     ]
   },
   "footer": {

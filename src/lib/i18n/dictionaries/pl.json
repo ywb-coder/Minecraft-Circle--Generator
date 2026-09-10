@@ -3,9 +3,9 @@
   "tagline": "Generator Kół do Minecrafta",
   "nav": {
     "tool": "Generator",
-    "about": "O nas"
-  ,
-    "faq": "FAQ"},
+    "about": "O nas",
+    "faq": "FAQ"
+  },
   "hero": {
     "title": "Buduj idealne koła w Minecraft",
     "subtitle": "Generuj plany blok po bloku dla kół, owali, sfer i kopuł — z podglądem na żywo, animacją kolejności budowy i pobieraniem PNG dla Java i Bedrock."
@@ -108,13 +108,6 @@
     "factHeight": "Wysokość",
     "definition": "{shape} z {d} bloków w Minecraft używa {blocks} bloków.",
     "howToTitle": "Jak to zbudować",
-    "steps": [
-      "Zaznacz środkowy blok swojego obszaru budowy.",
-      "Umieszczaj bloki obrysu rząd po rzędzie zgodnie z planem.",
-      "Trzymaj wszystkie pierścienie i rzędy wyrównane do tego samego środka.",
-      "W przypadku sfer i kopuł układaj każdą warstwę bezpośrednio na poprzedniej.",
-      "Zakończ blokiem szczytowym i wygładź ostre stopnie płytami lub schodami."
-    ],
     "usageTitle": "Co z tym zbudować",
     "usageIntro": "{shape} z {d} bloków świetnie nadaje się do:",
     "faqQ1": "Ile bloków ma {shape} z {d} bloków w Minecraft?",
@@ -196,7 +189,10 @@
       { "q": "Czy plany działają w Java i Bedrock?", "a": "Tak. Siatka pokazuje pozycje bloków, więc działa identycznie w edycji Java i Bedrock." },
       { "q": "Jak zbudować sferę lub kopułę?", "a": "Przełącz się na zakładkę sfera lub kopuła i użyj suwaka warstw, aby zobaczyć każdy przekrój od dołu do góry. Buduj warstwę po warstwie." },
       { "q": "Czy mogę kopiować komendy /setblock?", "a": "Tak — kliknij Kopiuj /setblock, aby uzyskać każdy blok jako komendę ze współrzędnymi świata. Dla sfer, kopuł, torusów i elipsoid użyj Kopiuj wszystkie warstwy." },
-      { "q": "Czym jest tryb budowniczego?", "a": "Tryb budowniczego zamienia plan w przewodnik krok po kroku: zaznaczaj bloki kliknięciem, przeglądaj Dalej/Wstecz lub naciśnij Odtwórz." }
+      { "q": "Czym jest tryb budowniczego?", "a": "Tryb budowniczego zamienia plan w przewodnik krok po kroku: zaznaczaj bloki kliknięciem, przeglądaj Dalej/Wstecz lub naciśnij Odtwórz." },
+      { "q": "Ile bloków ma koło Minecraft o średnicy 21 bloków?", "a": "Koło Minecraft o średnicy 21 bloków używa 64 bloków." },
+      { "q": "Ile bloków ma koło Minecraft o średnicy 33 bloków?", "a": "Koło Minecraft o średnicy 33 bloków używa 100 bloków." },
+      { "q": "Ile bloków ma koło Minecraft o średnicy 101 bloków?", "a": "Koło Minecraft o średnicy 101 bloków używa 316 bloków." }
     ]
   },
   "footer": {

@@ -6,7 +6,7 @@ import { defaultLocale } from "@/lib/i18n/locales";
 import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy –Minecraft Circle Generator",
+  title: "Privacy Policy – Minecraft Circle Generator",
   description:
     "Privacy policy for the free Minecraft circle generator: no cookies, no tracking, no personal data collected.",
   alternates: { canonical: `${SITE_URL}/privacy/` },

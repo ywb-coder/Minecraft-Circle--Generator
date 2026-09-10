@@ -3,9 +3,9 @@
   "tagline": "Pembuat Lingkaran Minecraft",
   "nav": {
     "tool": "Generator",
-    "about": "Tentang"
-  ,
-    "faq": "FAQ"},
+    "about": "Tentang",
+    "faq": "FAQ"
+  },
   "hero": {
     "title": "Bangun Lingkaran Sempurna di Minecraft",
     "subtitle": "Buat cetak biru blok demi blok untuk lingkaran, oval, bola, dan kubah — dengan pratinjau langsung, animasi urutan bangun, dan unduhan PNG untuk Java dan Bedrock."
@@ -108,13 +108,6 @@
     "factHeight": "Tinggi",
     "definition": "{shape} Minecraft {d} blok menggunakan {blocks} blok.",
     "howToTitle": "Cara membangunnya",
-    "steps": [
-      "Tandai blok tengah area bangunan Anda.",
-      "Pasang blok garis luar baris demi baris mengikuti cetak biru.",
-      "Jaga setiap cincin dan baris sejajar dengan titik tengah yang sama.",
-      "Untuk bola dan kubah, tumpuk setiap lapisan tepat di atas lapisan sebelumnya.",
-      "Akhiri dengan blok atas dan ratakan tangga yang kasar dengan lempengan atau tangga."
-    ],
     "usageTitle": "Apa yang bisa dibangun",
     "usageIntro": "{shape} {d} blok cocok untuk:",
     "faqQ1": "Berapa banyak blok dalam {shape} Minecraft {d} blok?",
@@ -196,7 +189,10 @@
       { "q": "Apakah cetak biru berfungsi untuk Java dan Bedrock?", "a": "Ya. Kisi menunjukkan posisi blok, jadi berfungsi sama di edisi Java dan edisi Bedrock." },
       { "q": "Bagaimana cara membangun bola atau kubah?", "a": "Pindah ke tab bola atau kubah dan gunakan penggeser lapisan untuk melihat setiap irisan dari bawah ke atas. Bangun satu lapisan pada satu waktu." },
       { "q": "Bisakah saya menyalin perintah /setblock?", "a": "Ya - tekan Salin /setblock untuk mengubah setiap blok menjadi perintah dengan koordinat dunia Anda. Gunakan Salin semua lapisan untuk bola, kubah, torus, dan elipsoida." },
-      { "q": "Apa itu mode pembangun?", "a": "Mode pembangun mengubah cetak biru menjadi panduan langkah demi langkah: tandai blok dengan klik, maju dengan Berikutnya/Sebelumnya, atau tekan Putar untuk otomatis." }
+      { "q": "Apa itu mode pembangun?", "a": "Mode pembangun mengubah cetak biru menjadi panduan langkah demi langkah: tandai blok dengan klik, maju dengan Berikutnya/Sebelumnya, atau tekan Putar untuk otomatis." },
+      { "q": "Berapa blok dalam lingkaran Minecraft 21 blok?", "a": "Lingkaran Minecraft 21 blok menggunakan 64 blok." },
+      { "q": "Berapa blok dalam lingkaran Minecraft 33 blok?", "a": "Lingkaran Minecraft 33 blok menggunakan 100 blok." },
+      { "q": "Berapa blok dalam lingkaran Minecraft 101 blok?", "a": "Lingkaran Minecraft 101 blok menggunakan 316 blok." }
     ]
   },
   "footer": {

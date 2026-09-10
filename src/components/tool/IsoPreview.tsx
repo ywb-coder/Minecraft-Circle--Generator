@@ -1,3 +1,4 @@
+"use client";
 import { memo, useEffect, useMemo, useRef } from "react";
 import type { ShapeResult } from "@/lib/shapes";
 

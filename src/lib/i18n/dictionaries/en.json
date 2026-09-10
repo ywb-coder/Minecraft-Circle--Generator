@@ -3,9 +3,9 @@
   "tagline": "Minecraft Circle Generator",
   "nav": {
     "tool": "Generator",
-    "about": "About"
-  ,
-    "faq": "FAQ"},
+    "about": "About",
+    "faq": "FAQ"
+  },
   "hero": {
     "title": "Build Perfect Circles in Minecraft",
     "subtitle": "Generate block-by-block blueprints for circles, ovals, spheres, and domes — with live preview, build order animation, and PNG downloads for Java and Bedrock."
@@ -108,13 +108,6 @@
     "factHeight": "Height",
     "definition": "A {d}-block Minecraft {shape} uses {blocks} blocks.",
     "howToTitle": "How to build it",
-    "steps": [
-      "Mark the center block of your build area.",
-      "Place the outline blocks row by row, following the blueprint.",
-      "Keep every ring and row aligned to the same center point.",
-      "For spheres and domes, stack each layer directly on top of the previous one.",
-      "Finish with the top cap and smooth any harsh steps with slabs or stairs."
-    ],
     "usageTitle": "What to build with it",
     "usageIntro": "A {d}-block {shape} works well for:",
     "faqQ1": "How many blocks are in a {d}-block Minecraft {shape}?",

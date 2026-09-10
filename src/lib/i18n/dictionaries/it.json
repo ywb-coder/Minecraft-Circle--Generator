@@ -3,9 +3,9 @@
   "tagline": "Generatore di Cerchi per Minecraft",
   "nav": {
     "tool": "Generatore",
-    "about": "Info"
-  ,
-    "faq": "FAQ"},
+    "about": "Info",
+    "faq": "FAQ"
+  },
   "hero": {
     "title": "Costruisci cerchi perfetti in Minecraft",
     "subtitle": "Genera progetti blocco per blocco per cerchi, ovali, sfere e cupole — con anteprima dal vivo, animazione dell'ordine di costruzione e download PNG per Java e Bedrock."
@@ -108,13 +108,6 @@
     "factHeight": "Altezza",
     "definition": "Un {shape} Minecraft da {d} blocchi usa {blocks} blocchi.",
     "howToTitle": "Come costruirlo",
-    "steps": [
-      "Segna il blocco centrale della tua area di costruzione.",
-      "Posiziona i blocchi del contorno riga per riga seguendo il progetto.",
-      "Mantieni ogni anello e riga allineati allo stesso centro.",
-      "Per sfere e cupole, impila ogni livello direttamente su quello precedente.",
-      "Finisci con il blocco superiore e ammorbidisci gli scalini con lastre o scale."
-    ],
     "usageTitle": "Cosa costruire",
     "usageIntro": "Un {shape} da {d} blocchi funziona bene per:",
     "faqQ1": "Quanti blocchi ha un {shape} Minecraft da {d} blocchi?",
@@ -196,7 +189,10 @@
       { "q": "I progetti funzionano per Java e Bedrock?", "a": "Sì. La griglia mostra le posizioni dei blocchi, quindi funziona allo stesso modo nelle edizioni Java e Bedrock." },
       { "q": "Come costruisco una sfera o una cupola?", "a": "Passa alla scheda sfera o cupola e usa il cursore dei livelli per vedere ogni sezione dal basso verso l'alto. Costruisci un livello alla volta." },
       { "q": "Posso copiare i comandi /setblock?", "a": "Sì: premi Copia /setblock per ottenere ogni blocco come comando con le tue coordinate del mondo. Usa Copia tutti i livelli per sfere, cupole, tori ed ellissoidi." },
-      { "q": "Cos'è la modalità costruttore?", "a": "La modalità costruttore trasforma il progetto in una guida passo passo: marca i blocchi con un clic, avanza con Avanti/Indietro o premi Play." }
+      { "q": "Cos'è la modalità costruttore?", "a": "La modalità costruttore trasforma il progetto in una guida passo passo: marca i blocchi con un clic, avanza con Avanti/Indietro o premi Play." },
+      { "q": "Quanti blocchi ha un cerchio Minecraft di 21 blocchi?", "a": "Un cerchio Minecraft di 21 blocchi usa 64 blocchi." },
+      { "q": "Quanti blocchi ha un cerchio Minecraft di 33 blocchi?", "a": "Un cerchio Minecraft di 33 blocchi usa 100 blocchi." },
+      { "q": "Quanti blocchi ha un cerchio Minecraft di 101 blocchi?", "a": "Un cerchio Minecraft di 101 blocchi usa 316 blocchi." }
     ]
   },
   "footer": {

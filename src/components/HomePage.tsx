@@ -65,7 +65,7 @@ export default function HomePage({
     "@type": "Organization",
     name: dict.siteName,
     url: SITE_URL,
-    logo: `${SITE_URL}/favicon.png`,
+    logo: `${SITE_URL}/favicon-32x32.png`,
     sameAs: [GITHUB_URL],
     contactPoint: {
       "@type": "ContactPoint",

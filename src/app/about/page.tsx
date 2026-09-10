@@ -6,7 +6,7 @@ import { defaultLocale } from "@/lib/i18n/locales";
 import { GITHUB_URL, SOURCES, SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "About –Minecraft Circle Generator",
+  title: "About – Minecraft Circle Generator",
   description:
     "About CircleGen, the free Minecraft circle generator. How the block-by-block blueprint algorithm works, why it is free, and who builds it.",
   alternates: { canonical: `${SITE_URL}/about/` },

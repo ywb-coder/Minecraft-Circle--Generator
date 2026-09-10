@@ -3,9 +3,9 @@
   "tagline": "Generador de Círculos de Minecraft",
   "nav": {
     "tool": "Generador",
-    "about": "Acerca de"
-  ,
-    "faq": "FAQ"},
+    "about": "Acerca de",
+    "faq": "FAQ"
+  },
   "hero": {
     "title": "Construye círculos perfectos en Minecraft",
     "subtitle": "Genera planos bloque a bloque para círculos, óvalos, esferas y cúpulas — con vista previa en vivo, animación del orden de construcción y descargas PNG para Java y Bedrock."
@@ -108,13 +108,6 @@
     "factHeight": "Alto",
     "definition": "Un {shape} de Minecraft de {d} bloques usa {blocks} bloques.",
     "howToTitle": "Cómo construirlo",
-    "steps": [
-      "Marca el bloque central de tu área de construcción.",
-      "Coloca los bloques del contorno fila por fila según el plano.",
-      "Mantén cada anillo y fila alineados con el mismo punto central.",
-      "Para esferas y cúpulas, apila cada capa directamente sobre la anterior.",
-      "Termina con el bloque superior y suaviza los escalones con losas o escaleras."
-    ],
     "usageTitle": "Qué construir con él",
     "usageIntro": "Un {shape} de {d} bloques funciona bien para:",
     "faqQ1": "¿Cuántos bloques tiene un {shape} de Minecraft de {d} bloques?",
@@ -196,7 +189,10 @@
       { "q": "¿Los planos funcionan en Java y Bedrock?", "a": "Sí. La cuadrícula muestra las posiciones de los bloques, por lo que funciona igual en la Edición Java y en la Edición Bedrock." },
       { "q": "¿Cómo construyo una esfera o cúpula?", "a": "Cambia a la pestaña de esfera o cúpula y usa el control deslizante de capas para ver cada sección de abajo hacia arriba. Construye una capa a la vez." },
       { "q": "¿Puedo copiar comandos /setblock?", "a": "Sí: pulsa Copiar /setblock para obtener cada bloque como comando con tus coordenadas del mundo. Usa Copiar todas las capas para esferas, cúpulas, toros y elipsoides." },
-      { "q": "¿Qué es el modo Constructor?", "a": "El modo Constructor convierte el plano en una guía paso a paso: marca bloques con un clic, avanza con Siguiente/Anterior o pulsa Play para avanzar automáticamente." }
+      { "q": "¿Qué es el modo Constructor?", "a": "El modo Constructor convierte el plano en una guía paso a paso: marca bloques con un clic, avanza con Siguiente/Anterior o pulsa Play para avanzar automáticamente." },
+      { "q": "¿Cuántos bloques tiene un círculo de Minecraft de 21 bloques?", "a": "Un círculo de Minecraft de 21 bloques usa 64 bloques." },
+      { "q": "¿Cuántos bloques tiene un círculo de Minecraft de 33 bloques?", "a": "Un círculo de Minecraft de 33 bloques usa 100 bloques." },
+      { "q": "¿Cuántos bloques tiene un círculo de Minecraft de 101 bloques?", "a": "Un círculo de Minecraft de 101 bloques usa 316 bloques." }
     ]
   },
   "footer": {

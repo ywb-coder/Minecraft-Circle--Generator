@@ -3,9 +3,9 @@
   "tagline": "Générateur de Cercles Minecraft",
   "nav": {
     "tool": "Générateur",
-    "about": "À propos"
-  ,
-    "faq": "FAQ"},
+    "about": "À propos",
+    "faq": "FAQ"
+  },
   "hero": {
     "title": "Construisez des cercles parfaits dans Minecraft",
     "subtitle": "Générez des plans bloc par bloc pour cercles, ovales, sphères et dômes — avec aperçu en direct, animation de l'ordre de construction et téléchargements PNG pour Java et Bedrock."
@@ -108,13 +108,6 @@
     "factHeight": "Hauteur",
     "definition": "Un {shape} Minecraft de {d} blocs utilise {blocks} blocs.",
     "howToTitle": "Comment le construire",
-    "steps": [
-      "Marquez le bloc central de votre zone de construction.",
-      "Placez les blocs du contour rangée par rangée en suivant le plan.",
-      "Gardez chaque anneau et chaque rangée alignés sur le même centre.",
-      "Pour les sphères et dômes, empilez chaque couche directement sur la précédente.",
-      "Terminez par le bloc supérieur et adoucissez les marches avec des dalles ou escaliers."
-    ],
     "usageTitle": "Que construire avec",
     "usageIntro": "Un {shape} de {d} blocs convient bien pour :",
     "faqQ1": "Combien de blocs compte un {shape} Minecraft de {d} blocs ?",
@@ -196,7 +189,10 @@
       { "q": "Les plans fonctionnent-ils pour Java et Bedrock ?", "a": "Oui. La grille montre les positions des blocs, donc c'est identique en édition Java et en édition Bedrock." },
       { "q": "Comment construire une sphère ou un dôme ?", "a": "Passez à l'onglet sphère ou dôme et utilisez le curseur de couches pour voir chaque tranche de bas en haut. Construisez une couche à la fois." },
       { "q": "Puis-je copier des commandes /setblock ?", "a": "Oui : cliquez sur Copier /setblock pour obtenir chaque bloc en commande avec vos coordonnées du monde. Utilisez Copier toutes les couches pour sphères, dômes, tores et ellipsoïdes." },
-      { "q": "Qu'est-ce que le mode constructeur ?", "a": "Le mode constructeur transforme le plan en guide pas à pas : marquez les blocs d'un clic, avancez avec Suivant/Précédent ou appuyez sur Lecture." }
+      { "q": "Qu'est-ce que le mode constructeur ?", "a": "Le mode constructeur transforme le plan en guide pas à pas : marquez les blocs d'un clic, avancez avec Suivant/Précédent ou appuyez sur Lecture." },
+      { "q": "Combien de blocs dans un cercle Minecraft de 21 blocs ?", "a": "Un cercle Minecraft de 21 blocs utilise 64 blocs." },
+      { "q": "Combien de blocs dans un cercle Minecraft de 33 blocs ?", "a": "Un cercle Minecraft de 33 blocs utilise 100 blocs." },
+      { "q": "Combien de blocs dans un cercle Minecraft de 101 blocs ?", "a": "Un cercle Minecraft de 101 blocs utilise 316 blocs." }
     ]
   },
   "footer": {

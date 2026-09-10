@@ -96,7 +96,6 @@ export interface Dictionary {
     factHeight: string;
     definition: string;
     howToTitle: string;
-    steps: string[];
     stepsByShape: {
       circle: string[];
       sphere: string[];

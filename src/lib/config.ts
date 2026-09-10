@@ -51,7 +51,7 @@ export const SOURCES: Source[] = [
 
 /** Build date, baked into the static HTML at build time. */
 export function buildDate(): string {
-  return new Date().toISOString().slice(0, 10);
+  return process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
 }
 
 /** Locale -> hreflang attribute value. */
