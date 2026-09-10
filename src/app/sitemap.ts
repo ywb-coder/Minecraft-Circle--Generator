@@ -87,7 +87,7 @@ for (const locale of HREFLANG_LOCALES) {
   }
 }
 
-const trustEntries: MetadataRoute.Sitemap = ["about", "contact", "privacy", "terms"].map(
+const trustEntries: MetadataRoute.Sitemap = ["about", "contact", "privacy", "terms", "blog", "blog/minecraft-circle-guide", "blog/minecraft-circle-sizes"].map(
   (page) => ({
     url: localizedUrl(`/${page}`, "en"),
     lastModified: new Date(),

@@ -47,6 +47,9 @@ export default function SeoShell({
             <Link href="/terms/" className="pixel-link text-sm">
               Terms
             </Link>
+            <Link href="/blog/" className="pixel-link text-sm">
+              Blog
+            </Link>
           </nav>
           <p className="font-terminal text-sm text-muted">
             {dict.footer.lastUpdated}: {buildDate()}

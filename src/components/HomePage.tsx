@@ -261,6 +261,9 @@ export default function HomePage({
             <Link href="/terms/" className="pixel-link text-sm">
               Terms
             </Link>
+            <Link href="/blog/" className="pixel-link text-sm">
+              Blog
+            </Link>
           </nav>
           <p className="font-pixel text-[10px] text-ink">
             © {new Date().getFullYear()} {dict.siteName}
