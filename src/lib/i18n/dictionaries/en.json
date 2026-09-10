@@ -93,9 +93,9 @@
     ]
   },
   "perSize": {
-    "title": "Minecraft {shape} with {d} block diameter",
+    "title": "Minecraft {d}x{d} {shape} — {blocks} Blocks",
     "titleEllipsoid": "Minecraft {shape} {w}×{h}×{dp}",
-    "desc": "Free block-by-block blueprint for a {d}-block {shape} in Minecraft - {blocks} blocks in total. See the pixel grid and build it in Java or Bedrock.",
+    "desc": "Get the exact block pattern for a Minecraft {d}x{d} {shape}. {blocks} blocks needed — works in both Java and Bedrock editions.",
     "blocks": "blocks",
     "layer": "Layer",
     "openTool": "Open in the generator",
@@ -208,7 +208,7 @@
     "feedback": "Questions or feedback? Email us at"
   },
   "meta": {
-    "title": "Minecraft Circle Generator — Circles & Spheres",
+    "title": "Minecraft Circle Generator — Free Block Blueprints",
     "description": "Free Minecraft circle generator with block-by-block pixel blueprints for circles, ovals, spheres, domes and arcs. Works for Java and Bedrock."
   }
 }

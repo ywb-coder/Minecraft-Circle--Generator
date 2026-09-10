@@ -93,9 +93,9 @@
     ]
   },
   "perSize": {
-    "title": "Cerchio Minecraft con {d} blocchi di diametro",
+    "title": "Minecraft {d}x{d} {shape} — {blocks} blocchi",
     "titleEllipsoid": "Minecraft {shape} {w}×{h}×{dp}",
-    "desc": "Progetto gratuito blocco per blocco per un {shape} di {d} blocchi in Minecraft: {blocks} blocchi. Vedi la griglia di pixel e costruiscilo in Java o Bedrock.",
+    "desc": "Ottieni il modello esatto di blocchi per un {shape} Minecraft {d}x{d}. {blocks} blocchi necessari — funziona in Java e Bedrock.",
     "blocks": "blocchi",
     "layer": "Livello",
     "openTool": "Apri nel generatore",
@@ -205,7 +205,7 @@
     "feedback": "Domande o feedback? Scrivici a"
   },
   "meta": {
-    "title": "Generatore di Cerchi Minecraft — Cerchi e Sfere",
+    "title": "Generatore di Cerchi Minecraft — Blueprint Gratis",
     "description": "Generatore gratuito di cerchi per Minecraft con progetti blocco per blocco per cerchi, ovali, sfere, cupole e archi. Per Java e Bedrock."
   }
 }

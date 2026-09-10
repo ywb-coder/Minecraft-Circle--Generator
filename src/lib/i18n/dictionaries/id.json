@@ -93,9 +93,9 @@
     ]
   },
   "perSize": {
-    "title": "Lingkaran Minecraft dengan diameter {d} blok",
+    "title": "Minecraft {d}x{d} {shape} — {blocks} blok",
     "titleEllipsoid": "Minecraft {shape} {w}×{h}×{dp}",
-    "desc": "Cetak biru gratis blok demi blok untuk {shape} {d} blok di Minecraft - total {blocks} blok. Lihat kisi piksel dan bangun di Java atau Bedrock.",
+    "desc": "Dapatkan pola blok yang tepat untuk {shape} Minecraft {d}x{d}. {blocks} blok dibutuhkan — berfungsi di Java dan Bedrock.",
     "blocks": "blok",
     "layer": "Lapisan",
     "openTool": "Buka di generator",
@@ -205,7 +205,7 @@
     "feedback": "Pertanyaan atau masukan? Kirim email ke"
   },
   "meta": {
-    "title": "Pembuat Lingkaran Minecraft — Lingkaran dan Bola",
+    "title": "Pembuat Lingkaran Minecraft — Blueprint Gratis",
     "description": "Pembuat lingkaran Minecraft gratis dengan cetak biru blok demi blok untuk lingkaran, oval, bola, kubah, dan busur. Untuk Java dan Bedrock."
   }
 }

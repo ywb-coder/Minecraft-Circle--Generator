@@ -93,9 +93,9 @@
     ]
   },
   "perSize": {
-    "title": "Círculo de Minecraft com {d} blocos de diâmetro",
+    "title": "Minecraft {d}x{d} {shape} — {blocks} blocos",
     "titleEllipsoid": "Minecraft {shape} {w}×{h}×{dp}",
-    "desc": "Planta gratuita bloco a bloco para um {shape} de {d} blocos no Minecraft - {blocks} blocos no total. Veja a grade de pixels e construa no Java ou no Bedrock.",
+    "desc": "Obtenha o padrão exato de blocos para um {shape} Minecraft {d}x{d}. {blocks} blocos necessários — funciona em Java e Bedrock.",
     "blocks": "blocos",
     "layer": "Camada",
     "openTool": "Abrir no gerador",
@@ -205,7 +205,7 @@
     "feedback": "Perguntas ou sugestões? Envie um e-mail para"
   },
   "meta": {
-    "title": "Gerador de Círculos Minecraft — Círculos e Esferas",
+    "title": "Gerador de Círculos Minecraft — Planos Gratuitos",
     "description": "Gerador gratuito de círculos para Minecraft com plantas bloco a bloco para círculos, ovais, esferas, cúpulas e arcos. Para Java e Bedrock."
   }
 }

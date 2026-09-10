@@ -93,9 +93,9 @@
     ]
   },
   "perSize": {
-    "title": "Круг Minecraft диаметром {d} блоков",
+    "title": "Minecraft {d}x{d} {shape} — {blocks} блоков",
     "titleEllipsoid": "Minecraft {shape} {w}×{h}×{dp}",
-    "desc": "Бесплатная схема блок за блоком для {shape} из {d} блоков в Minecraft - всего {blocks} блоков. Посмотрите пиксельную сетку и постройте его в Java или Bedrock.",
+    "desc": "Получите точный паттерн блоков для {shape} Minecraft {d}x{d}. Нужно {blocks} блоков — работает в Java и Bedrock.",
     "blocks": "блоков",
     "layer": "Слой",
     "openTool": "Открыть в генераторе",
@@ -205,7 +205,7 @@
     "feedback": "Вопросы или отзывы? Напишите нам на"
   },
   "meta": {
-    "title": "Генератор кругов Minecraft — Круги и сферы",
+    "title": "Генератор кругов Minecraft — Бесплатные схемы",
     "description": "Бесплатный генератор кругов для Minecraft со схемами блок за блоком для кругов, овалов, сфер, куполов и дуг. Для Java и Bedrock."
   }
 }

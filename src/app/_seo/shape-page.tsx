@@ -161,7 +161,7 @@ export async function shapePageMetadata(
           h,
           dp: resolved.dp,
         })
-      : interpolate(dict.perSize.title, { shape, d });
+      : interpolate(dict.perSize.title, { shape, d, blocks });
   return {
     title,
     description: interpolate(dict.perSize.desc, {
@@ -369,7 +369,7 @@ export default async function ShapePage(
           h,
           dp: resolved.dp,
         })
-      : interpolate(dict.perSize.title, { shape: shapeName, d });
+      : interpolate(dict.perSize.title, { shape: shapeName, d, blocks });
   const description = interpolate(dict.perSize.desc, {
     shape: shapeName,
     d: resolved.type === "torus" ? d : w,

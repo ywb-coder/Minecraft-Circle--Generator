@@ -93,9 +93,9 @@
     ]
   },
   "perSize": {
-    "title": "{d} 方块直径的 Minecraft {shape}",
+    "title": "Minecraft {d}x{d} {shape} — {blocks}个方块",
     "titleEllipsoid": "Minecraft {shape} {w}×{h}×{dp}",
-    "desc": "Minecraft 中 {d} 方块 {shape} 的免费逐方块蓝图——共 {blocks} 个方块。查看像素网格,并可在 Java 或 Bedrock 中建造。",
+    "desc": "获取 Minecraft {d}x{d} {shape} 的精确方块图案。需要 {blocks} 个方块——适用于 Java 和基岩版。",
     "blocks": "个方块",
     "layer": "层",
     "openTool": "在生成器中打开",
@@ -205,7 +205,7 @@
     "feedback": "有问题或反馈？请发邮件至"
   },
   "meta": {
-    "title": "我的世界圆形生成器(Minecraft)— 圆形与球形",
+    "title": "我的世界圆形生成器 — 免费方块蓝图",
     "description": "免费的我的世界(Minecraft)圆形生成器,提供圆形、椭圆、球形、穹顶和圆弧的逐方块蓝图。适用于 Java 和 Bedrock。"
   }
 }

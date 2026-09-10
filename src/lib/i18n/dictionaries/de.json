@@ -93,9 +93,9 @@
     ]
   },
   "perSize": {
-    "title": "Minecraft {shape} mit {d} Blöcken Durchmesser",
+    "title": "Minecraft {d}x{d} {shape} — {blocks} Blöcke",
     "titleEllipsoid": "Minecraft {shape} {w}×{h}×{dp}",
-    "desc": "Kostenloser Block-für-Block-Bauplan für einen {d}-Block-{shape} in Minecraft - insgesamt {blocks} Blöcke. Sieh das Pixelraster und baue es in Java oder Bedrock.",
+    "desc": "Erhalte das exakte Blockmuster für einen Minecraft {d}x{d} {shape}. {blocks} Blöcke benötigt — funktioniert in Java und Bedrock.",
     "blocks": "Blöcke",
     "layer": "Ebene",
     "openTool": "Im Generator öffnen",
@@ -205,7 +205,7 @@
     "feedback": "Fragen oder Feedback? E-Mail an"
   },
   "meta": {
-    "title": "Minecraft Kreisgenerator — Kreise & Kugeln",
+    "title": "Minecraft Kreisgenerator — Kostenlose Block-Vorlagen",
     "description": "Kostenloser Minecraft Kreisgenerator mit Block-für-Block-Bauplänen für Kreise, Ovale, Kugeln, Kuppeln und Bögen. Für Java und Bedrock."
   }
 }

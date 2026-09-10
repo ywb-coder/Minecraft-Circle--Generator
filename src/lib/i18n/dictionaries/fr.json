@@ -93,9 +93,9 @@
     ]
   },
   "perSize": {
-    "title": "Cercle Minecraft de {d} blocs de diamètre",
+    "title": "Minecraft {d}x{d} {shape} — {blocks} blocs",
     "titleEllipsoid": "Minecraft {shape} {w}×{h}×{dp}",
-    "desc": "Plan gratuit bloc par bloc pour un {shape} de {d} blocs dans Minecraft - {blocks} blocs au total. Voir la grille de pixels et le construire en Java ou Bedrock.",
+    "desc": "Obtenez le motif exact de blocs pour un {shape} Minecraft {d}x{d}. {blocks} blocs nécessaires — fonctionne en Java et Bedrock.",
     "blocks": "blocs",
     "layer": "Couche",
     "openTool": "Ouvrir dans le générateur",
@@ -205,7 +205,7 @@
     "feedback": "Des questions ou des commentaires ? Écrivez-nous à"
   },
   "meta": {
-    "title": "Générateur de Cercles Minecraft — Cercles et Sphères",
+    "title": "Générateur de Cercles Minecraft — Plans Gratuits",
     "description": "Générateur gratuit de cercles Minecraft avec des plans bloc par bloc pour cercles, ovales, sphères, dômes et arcs. Pour Java et Bedrock."
   }
 }
