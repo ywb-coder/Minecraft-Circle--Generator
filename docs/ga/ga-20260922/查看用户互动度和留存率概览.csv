@@ -1,0 +1,237 @@
+# ----------------------------------------
+# 查看用户互动度和留存率概览
+# 账号：pixelcircle
+# 媒体资源：pixelcircle.online
+# ----------------------------------------
+#  
+# 开始日期：20260825
+# 结束日期：20260921
+第 N 天,活跃用户
+0000,1
+0001,5
+0002,11
+0003,2
+0004,7
+0005,6
+0006,15
+0007,10
+0008,2
+0009,5
+0010,4
+0011,2
+0012,3
+0013,2
+0014,6
+0015,5
+0016,7
+0017,7
+0018,6
+0019,7
+0020,3
+0021,5
+0022,5
+0023,2
+0024,1
+0025,2
+0026,5
+0027,4
+
+# 开始日期：20260825
+# 结束日期：20260921
+第 N 天,新用户数
+0000,1
+0001,4
+0002,10
+0003,2
+0004,6
+0005,5
+0006,14
+0007,9
+0008,2
+0009,5
+0010,4
+0011,2
+0012,3
+0013,2
+0014,6
+0015,5
+0016,5
+0017,7
+0018,5
+0019,7
+0020,2
+0021,5
+0022,5
+0023,2
+0024,1
+0025,2
+0026,3
+0027,2
+
+# 您的新用户来自哪些渠道？
+# 开始日期：20260825
+# 结束日期：20260921
+带来用户首次互动的主渠道组（默认渠道组）,新用户数
+Direct,73
+Organic Search,48
+Referral,3
+AI Assistant,2
+
+#  
+# 开始日期：20260825
+# 结束日期：20260921
+网页标题和屏幕类,浏览次数
+Minecraft Circle Generator — Circles & Spheres,684
+我的世界圆形生成器(Minecraft)— 圆形与球形 | CircleGen,88
+Gerador de Círculos do Minecraft — Círculos e Esferas,70
+Gerador de Círculos Minecraft — Círculos e Esferas | CircleGen,24
+Générateur de Cercles Minecraft — Cercles et Sphères | CircleGen,23
+Генератор кругов Minecraft — Бесплатные схемы | CircleGen,21
+Minecraft Kreisgenerator — Kreise & Kugeln | CircleGen,14
+Generador de círculos para Minecraft: círculos y esferas,8
+Minecraft Circle with 33 block diameter | CircleGen,6
+"Minecraft Circle Guide: How to Build Perfect Circles, Spheres & Domes | CircleGen",4
+Minecraft Daire Oluşturucu — Ücretsiz Şablonlar | CircleGen,4
+我的世界圆形生成器 — 免费方块蓝图 | CircleGen,4
+Blog: Minecraft Building Guides & Tips | CircleGen,3
+Contact –Minecraft Circle Generator | CircleGen,3
+Minecraft 101x101 Óvalo — 326 bloques | CircleGen,3
+Terms of Use –Minecraft Circle Generator | CircleGen,3
+About –Minecraft Circle Generator | CircleGen,2
+Minecraft 101x101 Circle — 316 Blocks | CircleGen,2
+Minecraft Circle Sizes: Complete Chart for Every Build Type | CircleGen,2
+Minecraft Circle with 21 block diameter | CircleGen,2
+Minecraft Circle with 41 block diameter | CircleGen,2
+Privacy Policy –Minecraft Circle Generator | CircleGen,2
+Генератор кругов Minecraft — Круги и сферы | CircleGen,2
+41 方块直径的 Minecraft 圆形 | CircleGen,1
+Círculo de Minecraft de 15 bloques de diámetro | CircleGen,1
+Generatore di Cerchi Minecraft — Cerchi e Sfere | CircleGen,1
+Minecraft 15x15 Dome — 261 Blocks | CircleGen,1
+Minecraft 33x33 Circle — 112 Blocks | CircleGen,1
+Minecraft 35x35 Circle — 112 Blocks | CircleGen,1
+Minecraft Circle with 15 block diameter | CircleGen,1
+Minecraft Circle with 25 block diameter | CircleGen,1
+Minecraft Oval mit 101 Blöcken Durchmesser | CircleGen,1
+Minecraft Sphere with 21 block diameter | CircleGen,1
+Minecraft 圆圈生成器 — 圆圈与球体,1
+Круг в Minecraft диаметром 33 блока | CircleGen,1
+
+#  
+# 开始日期：20260825
+# 结束日期：20260921
+平台,活跃用户
+"[""网站""]",128
+
+#  
+# 开始日期：20260825
+# 结束日期：20260921
+同类群组,第 1 天,第 7 天
+0,0,0
+1,0.25,0
+2,0,0
+3,0,0
+4,0,0
+5,0,0
+6,0,0
+7,0,0
+8,0,0
+9,0,0
+10,0,0
+11,0,0
+12,0,0
+13,0,0
+14,0,0
+15,0.2,0
+16,0,0
+17,0,0
+18,0,0
+19,0,0
+20,0,0
+21,0,0
+22,0,0
+23,0,0
+24,0,0
+25,0.5,0
+26,0,0
+27,0,0
+
+#  
+# 开始日期：20260825
+# 结束日期：20260921
+同类群组,第 1 天,第 7 天
+0,0,0
+1,38,0
+2,0,0
+3,0,0
+4,0,0
+5,0,0
+6,0,0
+7,0,0
+8,0,0
+9,0,0
+10,0,0
+11,0,0
+12,0,0
+13,0,0
+14,0,0
+15,300,0
+16,0,0
+17,0,0
+18,0,0
+19,0,0
+20,0,0
+21,0,0
+22,0,0
+23,0,0
+24,0,0
+25,15,0
+26,0,0
+27,0,0
+
+#  
+# 开始日期：20260811
+# 结束日期：20260921
+同类群组,每位活跃用户的平均互动时长
+0000,33.87530234315949
+0001,8.404761904761905
+0002,2.707317073170732
+0003,0
+0004,0.46153846153846156
+0005,0.13157894736842105
+0006,0
+0007,0
+0008,0
+0009,0.3235294117647059
+0010,1.121212121212121
+0011,0
+0012,0
+0013,0
+0014,0
+0015,0
+0016,0
+0017,2.6153846153846154
+0018,0
+0019,0
+0020,0
+0021,0
+0022,0
+0023,0
+0024,0
+0025,0
+0026,0
+0027,0
+0028,0
+0029,0
+0030,0
+0031,0
+0032,0
+0033,0
+0034,0
+0035,0
+0036,0
+0037,0
+0038,0
+0039,0
+0040,0
+0041,0
