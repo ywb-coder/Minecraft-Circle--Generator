@@ -1,3 +1,4 @@
+import { SITE_URL } from "@/lib/config";
 import { generateShape } from "@/lib/shapes";
 
 export const dynamic = "force-static";
@@ -142,6 +143,27 @@ export async function GET(): Promise<Response> {
   lines.push("### What is Builder mode?");
   lines.push(
     "Builder mode turns the blueprint into a step-by-step guide: click blocks to mark them placed, use Next and Prev to move through the build order, or press Play to auto-advance."
+  );
+  lines.push("");
+  lines.push("## Pages");
+  lines.push("");
+  lines.push(`- ${SITE_URL}/ - English circle generator (circles, ovals, spheres, domes, arcs, toruses, ellipsoids)`);
+  lines.push(`- ${SITE_URL}/circle/15/ - 15-block circle blueprint (44 blocks)`);
+  lines.push(`- ${SITE_URL}/circle/21/ - 21-block circle blueprint (64 blocks)`);
+  lines.push(`- ${SITE_URL}/circle/33/ - 33-block circle blueprint (112 blocks)`);
+  lines.push(`- ${SITE_URL}/circle/41/ - 41-block circle blueprint (128 blocks)`);
+  lines.push(`- ${SITE_URL}/circle/101/ - 101-block circle blueprint (316 blocks)`);
+  lines.push(`- ${SITE_URL}/sphere/15/ - 15-block sphere blueprint`);
+  lines.push(`- ${SITE_URL}/dome/15/ - 15-block dome blueprint`);
+  lines.push(`- ${SITE_URL}/blog/minecraft-circle-guide/ - how to build circles, spheres and domes`);
+  lines.push(`- ${SITE_URL}/blog/minecraft-circle-sizes/ - circle size chart by build type`);
+  lines.push(`- ${SITE_URL}/es/ - Spanish circle generator`);
+  lines.push(`- ${SITE_URL}/es/blog/como-hacer-circulos-minecraft/ - Spanish step-by-step circle guide`);
+  lines.push("");
+  lines.push("## Languages");
+  lines.push("");
+  lines.push(
+    `English (${SITE_URL}/), Spanish (${SITE_URL}/es/), Russian (${SITE_URL}/ru/), German (${SITE_URL}/de/), French (${SITE_URL}/fr/), Italian (${SITE_URL}/it/), Portuguese (${SITE_URL}/pt/), Turkish (${SITE_URL}/tr/), Polish (${SITE_URL}/pl/), Indonesian (${SITE_URL}/id/), Chinese (${SITE_URL}/zh/)`
   );
   lines.push("");
   lines.push("## All sizes");

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     google: "google59dae63d03160853.html",
   },
   title: {
-    default: "Minecraft Circle Generator — Circles & Spheres",
+    default: "Minecraft Circle Generator — Free Block Blueprints",
     template: "%s | CircleGen",
   },
   description:

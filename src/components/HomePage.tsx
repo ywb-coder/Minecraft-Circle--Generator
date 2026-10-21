@@ -13,6 +13,7 @@ import LangSync from "./LangSync";
 import LangSwitcher from "./LangSwitcher";
 import CircleTool from "./tool/CircleTool";
 import SizeGuideTable from "./tool/SizeGuideTable";
+import SpanishGuide from "./SpanishGuide";
 
 export default function HomePage({
   dict,
@@ -148,6 +149,8 @@ export default function HomePage({
             ))}
           </div>
         </section>
+
+        {locale === "es" && <SpanishGuide />}
 
         <section className="mx-auto max-w-5xl px-4 pb-10">
           <div className="mc-panel pixel-corners p-5">

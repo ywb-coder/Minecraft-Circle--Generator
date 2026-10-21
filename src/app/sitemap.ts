@@ -96,6 +96,16 @@ const trustEntries: MetadataRoute.Sitemap = ["about", "contact", "privacy", "ter
   })
 );
 
+const esBlogEntries: MetadataRoute.Sitemap = [
+  "/es/blog",
+  "/es/blog/como-hacer-circulos-minecraft",
+].map((path) => ({
+  url: localizedUrl(path, "en"),
+  lastModified: new Date(),
+  changeFrequency: "monthly",
+  priority: 0.5,
+}));
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [...homeEntries, ...shapeEntries, ...trustEntries];
+  return [...homeEntries, ...shapeEntries, ...trustEntries, ...esBlogEntries];
 }

@@ -95,7 +95,7 @@
   "perSize": {
     "title": "Minecraft {d}x{d} {shape} — {blocks} Blocks",
     "titleEllipsoid": "Minecraft {shape} {w}×{h}×{dp}",
-    "desc": "Get the exact block pattern for a Minecraft {d}x{d} {shape}. {blocks} blocks needed — works in both Java and Bedrock editions.",
+    "desc": "Free Minecraft {d}x{d} {shape} blueprint — exact block-by-block pattern. {blocks} blocks needed, works in Java and Bedrock editions.",
     "blocks": "blocks",
     "layer": "Layer",
     "openTool": "Open in the generator",

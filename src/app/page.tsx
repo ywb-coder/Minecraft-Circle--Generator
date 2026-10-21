@@ -5,15 +5,17 @@ import { defaultLocale } from "@/lib/i18n/locales";
 import { SITE_URL } from "@/lib/config";
 import { hreflangMap } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Minecraft Circle Generator — Circles & Spheres",
-  description:
-    "Free Minecraft circle generator with block-by-block pixel blueprints for circles, ovals, spheres, domes and arcs. Works for Java and Bedrock.",
-  alternates: {
-    canonical: SITE_URL + "/",
-    languages: hreflangMap("/"),
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const dict = await getDictionary(defaultLocale);
+  return {
+    title: `${dict.meta.title} | ${dict.siteName}`,
+    description: dict.meta.description,
+    alternates: {
+      canonical: SITE_URL + "/",
+      languages: hreflangMap("/"),
+    },
+  };
+}
 
 export default async function Home() {
   const dict = await getDictionary(defaultLocale);

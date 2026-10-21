@@ -70,6 +70,24 @@ export async function GET(): Promise<Response> {
   lines.push(`- [Oval 15x7](${SITE_URL}/oval/15/7/): oval blueprint`);
   lines.push(`- [Torus 41x8](${SITE_URL}/torus/41/8/): torus blueprint`);
   lines.push(`- [Ellipsoid 25x17x9](${SITE_URL}/ellipsoid/25/17/9/): ellipsoid blueprint`);
+  lines.push("");
+  lines.push("## Guides");
+  lines.push("");
+  lines.push(
+    `- [Minecraft Circle Guide](${SITE_URL}/blog/minecraft-circle-guide/): odd vs even diameters, step-by-step circle building, sphere and dome tips`
+  );
+  lines.push(
+    `- [Minecraft Circle Sizes](${SITE_URL}/blog/minecraft-circle-sizes/): complete size chart with block counts for every build type`
+  );
+  lines.push(
+    `- [Cómo hacer un círculo en Minecraft](${SITE_URL}/es/blog/como-hacer-circulos-minecraft/): guía paso a paso en español`
+  );
+  lines.push("");
+  lines.push("## Languages");
+  lines.push("");
+  lines.push(
+    `- [Español](${SITE_URL}/es/), [Русский](${SITE_URL}/ru/), [Deutsch](${SITE_URL}/de/), [Français](${SITE_URL}/fr/), [Italiano](${SITE_URL}/it/), [Português](${SITE_URL}/pt/), [Türkçe](${SITE_URL}/tr/), [Polski](${SITE_URL}/pl/), [Bahasa Indonesia](${SITE_URL}/id/), [中文](${SITE_URL}/zh/)`
+  );
 
   return new Response(lines.join("\n"), {
     headers: { "Content-Type": "text/plain; charset=utf-8" },
