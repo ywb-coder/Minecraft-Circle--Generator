@@ -677,6 +677,7 @@ export default async function ShapePage(
           path={path}
           title={title}
           description={description}
+          image={`${SITE_URL}/shape-pngs/${pngName}`}
         />
 
         <script
@@ -724,6 +725,7 @@ export default async function ShapePage(
               name: title,
               description,
               url: `${SITE_URL}${localizePath(path, locale)}`,
+              image: `${SITE_URL}/shape-pngs/${pngName}`,
               applicationCategory: "UtilitiesApplication",
               operatingSystem: "Web",
               inLanguage: HREFLANG_MAP[locale],

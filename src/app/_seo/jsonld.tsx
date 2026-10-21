@@ -9,14 +9,17 @@ export default function SeoJsonLd({
   path,
   title,
   description,
+  image,
 }: {
   dict: Dictionary;
   locale: Locale;
   path: string;
   title: string;
   description: string;
+  image?: string;
 }) {
   const url = `${SITE_URL}${localizePath(path, locale)}`;
+  const imageUrl = image ?? `${SITE_URL}/og-image.png`;
   const homeUrl = `${SITE_URL}${localizePath("/", locale)}`;
   const breadcrumb = {
     "@context": "https://schema.org",
@@ -32,6 +35,11 @@ export default function SeoJsonLd({
     name: title,
     description,
     url,
+    image: [imageUrl],
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: imageUrl,
+    },
     inLanguage: HREFLANG_MAP[locale],
     datePublished: LAUNCH_DATE,
     dateModified: buildDate(),

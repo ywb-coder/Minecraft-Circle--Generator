@@ -56,6 +56,8 @@ export default function HomePage({
     description: dict.meta.description,
     applicationCategory: "GameApplication",
     operatingSystem: "Web Browser",
+    image: [`${SITE_URL}/og-image.png`],
+    screenshot: `${SITE_URL}/og-image.png`,
     inLanguage,
     datePublished: LAUNCH_DATE,
     dateModified: buildDate(),
@@ -66,7 +68,7 @@ export default function HomePage({
     "@type": "Organization",
     name: dict.siteName,
     url: SITE_URL,
-    logo: `${SITE_URL}/favicon-32x32.png`,
+    logo: `${SITE_URL}/android-chrome-512x512.png`,
     sameAs: [GITHUB_URL],
     contactPoint: {
       "@type": "ContactPoint",
@@ -136,17 +138,32 @@ export default function HomePage({
           <h2 className="font-pixel text-sm text-ink pixel-shadow">
             {dict.sizeGuide.title}
           </h2>
-          <div className="mt-6 flex flex-wrap gap-3">
-            {sizeButtons.map((entry) => (
-              <Link
-                key={entry.size}
-                href={`${langPath}circle/${entry.size}/`}
-                title={entry.use}
-                className="mc-btn px-3! py-1!"
-              >
-                <span className="font-pixel text-[10px]">{entry.size}</span>
-              </Link>
-            ))}
+          <div className="mt-6 flex flex-wrap items-center gap-6">
+            <Link
+              href={`${langPath}circle/33/`}
+              className="shrink-0 border-2 border-mc-border bg-panel-2"
+            >
+              <img
+                src="/shape-pngs/circle-33.png"
+                alt="Minecraft circle blueprint — 33 block diameter"
+                width={449}
+                height={449}
+                loading="lazy"
+                className="h-36 w-36"
+              />
+            </Link>
+            <div className="flex flex-wrap gap-3">
+              {sizeButtons.map((entry) => (
+                <Link
+                  key={entry.size}
+                  href={`${langPath}circle/${entry.size}/`}
+                  title={entry.use}
+                  className="mc-btn px-3! py-1!"
+                >
+                  <span className="font-pixel text-[10px]">{entry.size}</span>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 
