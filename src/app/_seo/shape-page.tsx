@@ -575,6 +575,19 @@ export default async function ShapePage(
           </ol>
         </section>
 
+        {locale === "es" && resolved.type === "circle" && (
+          <p className="mt-6 text-sm text-muted">
+            Para la guía completa, con tabla de tamaños y errores comunes, lee{" "}
+            <Link
+              href="/es/blog/como-hacer-circulos-minecraft/"
+              className="pixel-link"
+            >
+              Cómo hacer un círculo en Minecraft paso a paso
+            </Link>
+            .
+          </p>
+        )}
+
         <section className="mt-10">
           <h2 className="font-pixel text-[10px] uppercase tracking-wide text-cyan">
             {dict.perSize.setblockTitle}
