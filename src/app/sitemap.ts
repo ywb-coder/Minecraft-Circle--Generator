@@ -16,7 +16,6 @@ import {
 
 const homeEntries: MetadataRoute.Sitemap = HREFLANG_LOCALES.map((locale) => ({
   url: localizedUrl("/", locale),
-  lastModified: new Date(),
   changeFrequency: "weekly",
   priority: 1,
   alternates: { languages: hreflangMap("/") },
@@ -29,7 +28,6 @@ for (const locale of HREFLANG_LOCALES) {
     const path = `/circle/${d}`;
     shapeEntries.push({
       url: localizedUrl(path, locale),
-      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
       alternates: { languages: hreflangMap(path) },
@@ -39,7 +37,6 @@ for (const locale of HREFLANG_LOCALES) {
     const path = `/sphere/${d}`;
     shapeEntries.push({
       url: localizedUrl(path, locale),
-      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
       alternates: { languages: hreflangMap(path) },
@@ -49,7 +46,6 @@ for (const locale of HREFLANG_LOCALES) {
     const path = `/dome/${d}`;
     shapeEntries.push({
       url: localizedUrl(path, locale),
-      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
       alternates: { languages: hreflangMap(path) },
@@ -59,7 +55,6 @@ for (const locale of HREFLANG_LOCALES) {
     const path = `/oval/${w}/${h}`;
     shapeEntries.push({
       url: localizedUrl(path, locale),
-      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
       alternates: { languages: hreflangMap(path) },
@@ -69,7 +64,6 @@ for (const locale of HREFLANG_LOCALES) {
     const path = `/torus/${d}/${t}`;
     shapeEntries.push({
       url: localizedUrl(path, locale),
-      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
       alternates: { languages: hreflangMap(path) },
@@ -79,7 +73,6 @@ for (const locale of HREFLANG_LOCALES) {
     const path = `/ellipsoid/${w}/${h}/${dp}`;
     shapeEntries.push({
       url: localizedUrl(path, locale),
-      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
       alternates: { languages: hreflangMap(path) },
@@ -90,7 +83,6 @@ for (const locale of HREFLANG_LOCALES) {
 const trustEntries: MetadataRoute.Sitemap = ["about", "contact", "privacy", "terms", "blog", "blog/minecraft-circle-guide", "blog/minecraft-circle-sizes"].map(
   (page) => ({
     url: localizedUrl(`/${page}`, "en"),
-    lastModified: new Date(),
     changeFrequency: "monthly",
     priority: 0.4,
   })
@@ -101,7 +93,6 @@ const esBlogEntries: MetadataRoute.Sitemap = [
   "/es/blog/como-hacer-circulos-minecraft",
 ].map((path) => ({
   url: localizedUrl(path, "en"),
-  lastModified: new Date(),
   changeFrequency: "monthly",
   priority: 0.5,
 }));
