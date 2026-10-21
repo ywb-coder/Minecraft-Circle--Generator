@@ -21,7 +21,7 @@ const faqJsonLd = {
       name: "How many blocks do I need for a hollow Minecraft circle?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "It depends on the diameter. A diameter-7 hollow circle uses 16 blocks, diameter-9 uses 24, diameter-11 uses 32, diameter-15 uses 44, diameter-21 uses 64, diameter-31 uses 96, diameter-41 uses 128, and diameter-51 uses 160 blocks. Use the CircleGen generator to get exact counts for any diameter.",
+        text: "It depends on the diameter. A diameter-7 hollow circle uses 16 blocks, diameter-9 uses 32, diameter-11 uses 28, diameter-15 uses 40, diameter-21 uses 56, diameter-31 uses 84, diameter-41 uses 112, and diameter-51 uses 168 blocks. Use the CircleGen generator to get exact counts for any diameter.",
       },
     },
     {
@@ -171,54 +171,59 @@ export default async function MinecraftCircleGuidePage() {
                 <tr className="border-b border-mc-border/50">
                   <td className="px-3 py-2">7</td>
                   <td className="px-3 py-2">16</td>
-                  <td className="px-3 py-2">37</td>
+                  <td className="px-3 py-2">33</td>
                   <td className="px-3 py-2">Wells, chimneys</td>
                 </tr>
                 <tr className="border-b border-mc-border/50">
                   <td className="px-3 py-2">9</td>
-                  <td className="px-3 py-2">24</td>
-                  <td className="px-3 py-2">69</td>
+                  <td className="px-3 py-2">32</td>
+                  <td className="px-3 py-2">57</td>
                   <td className="px-3 py-2">Watchtowers, ponds</td>
                 </tr>
                 <tr className="border-b border-mc-border/50">
                   <td className="px-3 py-2">11</td>
-                  <td className="px-3 py-2">32</td>
-                  <td className="px-3 py-2">97</td>
+                  <td className="px-3 py-2">28</td>
+                  <td className="px-3 py-2">89</td>
                   <td className="px-3 py-2">Fountains, small rooms</td>
                 </tr>
                 <tr className="border-b border-mc-border/50">
                   <td className="px-3 py-2">15</td>
-                  <td className="px-3 py-2">44</td>
-                  <td className="px-3 py-2">177</td>
+                  <td className="px-3 py-2">40</td>
+                  <td className="px-3 py-2">169</td>
                   <td className="px-3 py-2">Tower bases</td>
                 </tr>
                 <tr className="border-b border-mc-border/50">
                   <td className="px-3 py-2">21</td>
-                  <td className="px-3 py-2">64</td>
-                  <td className="px-3 py-2">349</td>
+                  <td className="px-3 py-2">56</td>
+                  <td className="px-3 py-2">333</td>
                   <td className="px-3 py-2">Arenas, large rooms</td>
                 </tr>
                 <tr className="border-b border-mc-border/50">
                   <td className="px-3 py-2">31</td>
-                  <td className="px-3 py-2">96</td>
-                  <td className="px-3 py-2">761</td>
+                  <td className="px-3 py-2">84</td>
+                  <td className="px-3 py-2">729</td>
                   <td className="px-3 py-2">Castle walls, dome bases</td>
                 </tr>
                 <tr className="border-b border-mc-border/50">
                   <td className="px-3 py-2">41</td>
-                  <td className="px-3 py-2">128</td>
-                  <td className="px-3 py-2">1,321</td>
+                  <td className="px-3 py-2">112</td>
+                  <td className="px-3 py-2">1,293</td>
                   <td className="px-3 py-2">Large arenas</td>
                 </tr>
                 <tr>
                   <td className="px-3 py-2">51</td>
-                  <td className="px-3 py-2">160</td>
-                  <td className="px-3 py-2">2,043</td>
+                  <td className="px-3 py-2">168</td>
+                  <td className="px-3 py-2">2,005</td>
                   <td className="px-3 py-2">City walls</td>
                 </tr>
               </tbody>
             </table>
           </div>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            Counts are exact blueprint counts. At small diameters the ring can
+            be two blocks thick in places, so counts do not always increase
+            smoothly.
+          </p>
         </section>
 
         <section className="mc-panel pixel-corners mt-6 p-5">
@@ -262,9 +267,9 @@ export default async function MinecraftCircleGuidePage() {
               </h3>
               <p className="mt-1 text-sm leading-7 text-muted">
                 It depends on the diameter. A diameter-7 hollow circle uses 16
-                blocks, diameter-9 uses 24, diameter-11 uses 32, diameter-15
-                uses 44, diameter-21 uses 64, diameter-31 uses 96, diameter-41
-                uses 128, and diameter-51 uses 160 blocks. Use the{" "}
+                blocks, diameter-9 uses 32, diameter-11 uses 28, diameter-15
+                uses 40, diameter-21 uses 56, diameter-31 uses 84, diameter-41
+                uses 112, and diameter-51 uses 168 blocks. Use the{" "}
                 <Link href="/" className="pixel-link">
                   CircleGen generator
                 </Link>{" "}

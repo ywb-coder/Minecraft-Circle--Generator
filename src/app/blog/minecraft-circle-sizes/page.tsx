@@ -21,7 +21,7 @@ const faqJsonLd = {
       name: "What size circle do I need for a Minecraft well?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "A diameter of 7–9 blocks works best for most wells. Diameter 7 gives a cozy 16-block hollow ring, while diameter 9 provides more room with 24 blocks. Either size looks natural as a well opening.",
+        text: "A diameter of 7–9 blocks works best for most wells. Diameter 7 gives a cozy 16-block hollow ring, while diameter 9 provides more room with 32 blocks. Either size looks natural as a well opening.",
       },
     },
     {
@@ -29,7 +29,7 @@ const faqJsonLd = {
       name: "How many stacks of blocks do I need for a circle?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "It depends on the diameter and whether the circle is hollow or filled. A hollow diameter-21 circle needs 64 blocks (1 stack). A filled diameter-21 needs 349 blocks (about 5.5 stacks). Use the chart on this page to find exact stack counts.",
+        text: "It depends on the diameter and whether the circle is hollow or filled. A hollow diameter-21 circle needs 56 blocks (1 stack). A filled diameter-21 needs 333 blocks (about 5.2 stacks). Use the chart on this page to find exact stack counts.",
       },
     },
     {
@@ -37,7 +37,7 @@ const faqJsonLd = {
       name: "What is the biggest practical circle in Minecraft?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Diameter 101 (filled: 8,012 blocks, ~125 stacks) is a realistic upper limit for most survival builds. Larger diameters like 125+ are possible but require significant resource gathering. In creative mode, there is no practical limit — diameter 255 is the maximum for a single plane.",
+        text: "Diameter 101 (filled: 7,957 blocks, ~125 stacks) is a realistic upper limit for most survival builds. Larger diameters like 125+ are possible but require significant resource gathering. In creative mode, there is no practical limit — diameter 255 is the maximum for a single plane.",
       },
     },
   ],
@@ -105,7 +105,7 @@ export default async function MinecraftCircleSizesPage() {
           <p className="mt-1 text-sm leading-7 text-muted">
             A diameter of 7–9 blocks is the sweet spot for wells. Diameter 7
             gives you a 16-block ring that feels cozy and natural. Diameter 9
-            (24 blocks) leaves room for a water source block in the center and
+            (32 blocks) leaves room for a water source block in the center and
             looks more proportional on most builds.
           </p>
 
@@ -119,10 +119,10 @@ export default async function MinecraftCircleSizesPage() {
 
           <h3 className="mt-4 text-sm font-bold text-ink">Arenas</h3>
           <p className="mt-1 text-sm leading-7 text-muted">
-            Small combat arenas need at least diameter 21 (64 hollow blocks).
-            Medium arenas at diameter 31 (96 blocks) give enough room for
+            Small combat arenas need at least diameter 21 (56 hollow blocks).
+            Medium arenas at diameter 31 (84 blocks) give enough room for
             mob-spawning or PvP. Large spectator arenas reach diameter 41–51
-            (128–160 blocks) for a grand feel.
+            (112–168 blocks) for a grand feel.
           </p>
 
           <h3 className="mt-4 text-sm font-bold text-ink">Domes</h3>
@@ -137,8 +137,8 @@ export default async function MinecraftCircleSizesPage() {
           <p className="mt-1 text-sm leading-7 text-muted">
             Stadiums and colosseums typically use diameter 51–81. At these
             sizes, the curve looks smooth and the interior can hold seating
-            tiers, courts, or tracks. Budget 2,000–5,000+ blocks for the
-            perimeter wall alone.
+            tiers, courts, or tracks. Budget 168–264 blocks for the
+            perimeter ring alone.
           </p>
         </section>
 
@@ -171,90 +171,95 @@ export default async function MinecraftCircleSizesPage() {
                 <tr className="border-b border-mc-border/50">
                   <td className="px-3 py-2">5</td>
                   <td className="px-3 py-2">12</td>
-                  <td className="px-3 py-2">21</td>
+                  <td className="px-3 py-2">17</td>
                   <td className="px-3 py-2">&lt;1</td>
                   <td className="px-3 py-2">Tiny details</td>
                 </tr>
                 <tr className="border-b border-mc-border/50">
                   <td className="px-3 py-2">7</td>
                   <td className="px-3 py-2">16</td>
-                  <td className="px-3 py-2">37</td>
+                  <td className="px-3 py-2">33</td>
                   <td className="px-3 py-2">&lt;1</td>
                   <td className="px-3 py-2">Well openings</td>
                 </tr>
                 <tr className="border-b border-mc-border/50">
                   <td className="px-3 py-2">9</td>
-                  <td className="px-3 py-2">24</td>
-                  <td className="px-3 py-2">69</td>
+                  <td className="px-3 py-2">32</td>
+                  <td className="px-3 py-2">57</td>
                   <td className="px-3 py-2">1</td>
                   <td className="px-3 py-2">Watchtowers</td>
                 </tr>
                 <tr className="border-b border-mc-border/50">
                   <td className="px-3 py-2">11</td>
-                  <td className="px-3 py-2">32</td>
-                  <td className="px-3 py-2">97</td>
+                  <td className="px-3 py-2">28</td>
+                  <td className="px-3 py-2">89</td>
                   <td className="px-3 py-2">2</td>
                   <td className="px-3 py-2">Fountains</td>
                 </tr>
                 <tr className="border-b border-mc-border/50">
                   <td className="px-3 py-2">15</td>
-                  <td className="px-3 py-2">44</td>
-                  <td className="px-3 py-2">177</td>
+                  <td className="px-3 py-2">40</td>
+                  <td className="px-3 py-2">169</td>
                   <td className="px-3 py-2">3</td>
                   <td className="px-3 py-2">Tower bases</td>
                 </tr>
                 <tr className="border-b border-mc-border/50">
                   <td className="px-3 py-2">21</td>
-                  <td className="px-3 py-2">64</td>
-                  <td className="px-3 py-2">349</td>
+                  <td className="px-3 py-2">56</td>
+                  <td className="px-3 py-2">333</td>
                   <td className="px-3 py-2">6</td>
                   <td className="px-3 py-2">Arenas</td>
                 </tr>
                 <tr className="border-b border-mc-border/50">
                   <td className="px-3 py-2">31</td>
-                  <td className="px-3 py-2">96</td>
-                  <td className="px-3 py-2">761</td>
+                  <td className="px-3 py-2">84</td>
+                  <td className="px-3 py-2">729</td>
                   <td className="px-3 py-2">12</td>
                   <td className="px-3 py-2">Castle walls</td>
                 </tr>
                 <tr className="border-b border-mc-border/50">
                   <td className="px-3 py-2">41</td>
-                  <td className="px-3 py-2">128</td>
-                  <td className="px-3 py-2">1,321</td>
+                  <td className="px-3 py-2">112</td>
+                  <td className="px-3 py-2">1,293</td>
                   <td className="px-3 py-2">21</td>
                   <td className="px-3 py-2">Large arenas</td>
                 </tr>
                 <tr className="border-b border-mc-border/50">
                   <td className="px-3 py-2">51</td>
-                  <td className="px-3 py-2">160</td>
-                  <td className="px-3 py-2">2,043</td>
+                  <td className="px-3 py-2">168</td>
+                  <td className="px-3 py-2">2,005</td>
                   <td className="px-3 py-2">32</td>
                   <td className="px-3 py-2">City walls</td>
                 </tr>
                 <tr className="border-b border-mc-border/50">
                   <td className="px-3 py-2">65</td>
-                  <td className="px-3 py-2">208</td>
-                  <td className="px-3 py-2">3,317</td>
+                  <td className="px-3 py-2">188</td>
+                  <td className="px-3 py-2">3,273</td>
                   <td className="px-3 py-2">52</td>
                   <td className="px-3 py-2">Mega domes</td>
                 </tr>
                 <tr className="border-b border-mc-border/50">
                   <td className="px-3 py-2">81</td>
-                  <td className="px-3 py-2">256</td>
-                  <td className="px-3 py-2">5,153</td>
-                  <td className="px-3 py-2">81</td>
+                  <td className="px-3 py-2">264</td>
+                  <td className="px-3 py-2">5,097</td>
+                  <td className="px-3 py-2">80</td>
                   <td className="px-3 py-2">Stadiums</td>
                 </tr>
                 <tr>
                   <td className="px-3 py-2">101</td>
                   <td className="px-3 py-2">316</td>
-                  <td className="px-3 py-2">8,012</td>
+                  <td className="px-3 py-2">7,957</td>
                   <td className="px-3 py-2">125</td>
                   <td className="px-3 py-2">Megabuilds</td>
                 </tr>
               </tbody>
             </table>
           </div>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            Counts come from the CircleGen blueprint. At small diameters the
+            ring can be two blocks thick in places, so counts do not always
+            increase smoothly.
+          </p>
         </section>
 
         <section className="mc-panel pixel-corners mt-6 p-5">
@@ -283,8 +288,8 @@ export default async function MinecraftCircleSizesPage() {
             <li>
               <strong className="text-ink">Material needs:</strong> Filled
               circles scale with the square of the radius. A diameter-31
-              filled circle needs 761 blocks (about 12 stacks) — manageable
-              in survival. A diameter-51 filled circle needs 2,043 blocks (32
+              filled circle needs 729 blocks (about 12 stacks) — manageable
+              in survival. A diameter-51 filled circle needs 2,005 blocks (32
               stacks), which requires significant mining.
             </li>
           </ul>
@@ -302,13 +307,13 @@ export default async function MinecraftCircleSizesPage() {
             <li>
               <strong className="text-ink">Hollow circles</strong> are
               dramatically cheaper than filled ones. A hollow diameter-51
-              circle needs only 160 blocks (2.5 stacks), while the filled
-              version needs 2,043 (32 stacks).
+              circle needs only 168 blocks (about 2.6 stacks), while the filled
+              version needs 2,005 (32 stacks).
             </li>
             <li>
               <strong className="text-ink">Domes multiply the cost.</strong> A
               full sphere uses roughly 4× the blocks of a single circle slice.
-              A diameter-21 sphere uses about 1,400 blocks (22 stacks) for
+              A diameter-21 sphere uses about 986 blocks (16 stacks) for
               the hollow shell.
             </li>
             <li>
@@ -339,7 +344,7 @@ export default async function MinecraftCircleSizesPage() {
               <p className="mt-1 text-sm leading-7 text-muted">
                 A diameter of 7–9 blocks works best for most wells. Diameter 7
                 gives a cozy 16-block hollow ring, while diameter 9 provides
-                more room with 24 blocks. Either size looks natural as a well
+                more room with 32 blocks. Either size looks natural as a well
                 opening.
               </p>
             </div>
@@ -349,8 +354,8 @@ export default async function MinecraftCircleSizesPage() {
               </h3>
               <p className="mt-1 text-sm leading-7 text-muted">
                 It depends on the diameter and whether the circle is hollow or
-                filled. A hollow diameter-21 circle needs 64 blocks (1 stack).
-                A filled diameter-21 needs 349 blocks (about 5.5 stacks). Use
+                filled. A hollow diameter-21 circle needs 56 blocks (1 stack).
+                A filled diameter-21 needs 333 blocks (about 5.2 stacks). Use
                 the chart above to find exact stack counts.
               </p>
             </div>
@@ -359,7 +364,7 @@ export default async function MinecraftCircleSizesPage() {
                 What is the biggest practical circle in Minecraft?
               </h3>
               <p className="mt-1 text-sm leading-7 text-muted">
-                Diameter 101 (filled: 8,012 blocks, ~125 stacks) is a
+                Diameter 101 (filled: 7,957 blocks, ~125 stacks) is a
                 realistic upper limit for most survival builds. Larger
                 diameters like 125+ are possible but require significant
                 resource gathering. In creative mode, there is no practical

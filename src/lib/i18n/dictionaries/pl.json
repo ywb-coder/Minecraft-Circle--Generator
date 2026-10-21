@@ -190,8 +190,8 @@
       { "q": "Jak zbudować sferę lub kopułę?", "a": "Przełącz się na zakładkę sfera lub kopuła i użyj suwaka warstw, aby zobaczyć każdy przekrój od dołu do góry. Buduj warstwę po warstwie." },
       { "q": "Czy mogę kopiować komendy /setblock?", "a": "Tak — kliknij Kopiuj /setblock, aby uzyskać każdy blok jako komendę ze współrzędnymi świata. Dla sfer, kopuł, torusów i elipsoid użyj Kopiuj wszystkie warstwy." },
       { "q": "Czym jest tryb budowniczego?", "a": "Tryb budowniczego zamienia plan w przewodnik krok po kroku: zaznaczaj bloki kliknięciem, przeglądaj Dalej/Wstecz lub naciśnij Odtwórz." },
-      { "q": "Ile bloków ma koło Minecraft o średnicy 21 bloków?", "a": "Koło Minecraft o średnicy 21 bloków używa 64 bloków." },
-      { "q": "Ile bloków ma koło Minecraft o średnicy 33 bloków?", "a": "Koło Minecraft o średnicy 33 bloków używa 100 bloków." },
+      { "q": "Ile bloków ma koło Minecraft o średnicy 21 bloków?", "a": "Koło Minecraft o średnicy 21 bloków używa 56 bloków." },
+      { "q": "Ile bloków ma koło Minecraft o średnicy 33 bloków?", "a": "Koło Minecraft o średnicy 33 bloków używa 112 bloków." },
       { "q": "Ile bloków ma koło Minecraft o średnicy 101 bloków?", "a": "Koło Minecraft o średnicy 101 bloków używa 316 bloków." }
     ]
   },

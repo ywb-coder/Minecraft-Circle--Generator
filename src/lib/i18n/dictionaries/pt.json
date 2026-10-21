@@ -190,8 +190,8 @@
       { "q": "Como construir uma esfera ou cúpula?", "a": "Mude para a aba esfera ou cúpula e use o controle deslizante de camadas para ver cada fatia de baixo para cima. Construa uma camada de cada vez." },
       { "q": "Posso copiar comandos /setblock?", "a": "Sim: clique em Copiar /setblock para obter cada bloco como comando com suas coordenadas do mundo. Use Copiar todas as camadas para esferas, cúpulas, toros e elipsoides." },
       { "q": "O que é o modo Construtor?", "a": "O modo Construtor transforma a planta em um guia passo a passo: marque blocos com um clique, avance com Próximo/Anterior ou pressione Play." },
-      { "q": "Quantos blocos tem um círculo Minecraft de 21 blocos?", "a": "Um círculo Minecraft de 21 blocos usa 64 blocos." },
-      { "q": "Quantos blocos tem um círculo Minecraft de 33 blocos?", "a": "Um círculo Minecraft de 33 blocos usa 100 blocos." },
+      { "q": "Quantos blocos tem um círculo Minecraft de 21 blocos?", "a": "Um círculo Minecraft de 21 blocos usa 56 blocos." },
+      { "q": "Quantos blocos tem um círculo Minecraft de 33 blocos?", "a": "Um círculo Minecraft de 33 blocos usa 112 blocos." },
       { "q": "Quantos blocos tem um círculo Minecraft de 101 blocos?", "a": "Um círculo Minecraft de 101 blocos usa 316 blocos." }
     ]
   },

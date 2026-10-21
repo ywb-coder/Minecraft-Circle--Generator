@@ -26,7 +26,7 @@ export default function SpanishGuide() {
         </p>
         <p className="mt-3 text-sm leading-7 text-ink">
           Cuanto mayor sea el diámetro, más suave se verá la curva. Un contorno
-          de 15 bloques usa 44 bloques, uno de 21 usa 64 y uno de 33 usa 112.
+          de 15 bloques usa 40 bloques, uno de 21 usa 56 y uno de 33 usa 112.
           Para pozos y chimeneas basta con 7–9; para bases de torre, 15–21; para
           arenas y murallas, 31–51.
         </p>

@@ -190,8 +190,8 @@
       { "q": "Küre veya kubbe nasıl inşa edilir?", "a": "Küre veya kubbe sekmesine geçin ve her katmanı aşağıdan yukarıya görmek için katman kaydırıcısını kullanın. Bir katmanı tek seferde inşa edin." },
       { "q": "/setblock komutları kopyalayabilir miyim?", "a": "Evet - /setblock kopyala'ya basarak her bloğu dünya koordinatlarınızla komut olarak alabilirsiniz. Küreler, kubbeler, halkalar ve elipsoitler için Tüm katmanları kopyalayın." },
       { "q": "Oluşturucu modu nedir?", "a": "Oluşturucu modu planı adım adım rehbere çevirir: blokları tıklayarak işaretleyin, Sonraki/Önceki ile ilerleyin veya Oynat ile otomatik ilerletin." },
-      { "q": "21 blok Minecraft dairesinde kaç blok var?", "a": "21 blok Minecraft dairesi 64 blok kullanır." },
-      { "q": "33 blok Minecraft dairesinde kaç blok var?", "a": "33 blok Minecraft dairesi 100 blok kullanır." },
+      { "q": "21 blok Minecraft dairesinde kaç blok var?", "a": "21 blok Minecraft dairesi 56 blok kullanır." },
+      { "q": "33 blok Minecraft dairesinde kaç blok var?", "a": "33 blok Minecraft dairesi 112 blok kullanır." },
       { "q": "101 blok Minecraft dairesinde kaç blok var?", "a": "101 blok Minecraft dairesi 316 blok kullanır." }
     ]
   },

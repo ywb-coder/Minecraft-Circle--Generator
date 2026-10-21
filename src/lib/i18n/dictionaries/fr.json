@@ -190,8 +190,8 @@
       { "q": "Comment construire une sphère ou un dôme ?", "a": "Passez à l'onglet sphère ou dôme et utilisez le curseur de couches pour voir chaque tranche de bas en haut. Construisez une couche à la fois." },
       { "q": "Puis-je copier des commandes /setblock ?", "a": "Oui : cliquez sur Copier /setblock pour obtenir chaque bloc en commande avec vos coordonnées du monde. Utilisez Copier toutes les couches pour sphères, dômes, tores et ellipsoïdes." },
       { "q": "Qu'est-ce que le mode constructeur ?", "a": "Le mode constructeur transforme le plan en guide pas à pas : marquez les blocs d'un clic, avancez avec Suivant/Précédent ou appuyez sur Lecture." },
-      { "q": "Combien de blocs dans un cercle Minecraft de 21 blocs ?", "a": "Un cercle Minecraft de 21 blocs utilise 64 blocs." },
-      { "q": "Combien de blocs dans un cercle Minecraft de 33 blocs ?", "a": "Un cercle Minecraft de 33 blocs utilise 100 blocs." },
+      { "q": "Combien de blocs dans un cercle Minecraft de 21 blocs ?", "a": "Un cercle Minecraft de 21 blocs utilise 56 blocs." },
+      { "q": "Combien de blocs dans un cercle Minecraft de 33 blocs ?", "a": "Un cercle Minecraft de 33 blocs utilise 112 blocs." },
       { "q": "Combien de blocs dans un cercle Minecraft de 101 blocs ?", "a": "Un cercle Minecraft de 101 blocs utilise 316 blocs." }
     ]
   },

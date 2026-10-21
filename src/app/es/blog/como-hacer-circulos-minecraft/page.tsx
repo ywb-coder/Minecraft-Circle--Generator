@@ -30,7 +30,7 @@ const faqJsonLd = {
       name: "¿Cuántos bloques necesito para un círculo en Minecraft?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Depende del diámetro y de si el círculo es hueco o relleno. Un contorno de diámetro 15 usa 44 bloques, uno de 21 usa 64 y uno de 31 usa 96. El generador calcula el número exacto para cualquier tamaño.",
+        text: "Depende del diámetro y de si el círculo es hueco o relleno. Un contorno de diámetro 15 usa 40 bloques, uno de 21 usa 56 y uno de 31 usa 84. El generador calcula el número exacto para cualquier tamaño.",
       },
     },
     {
@@ -191,45 +191,47 @@ export default async function ComoHacerCirculosMinecraftPage() {
                 </tr>
                 <tr className="border-b border-mc-border/50">
                   <td className="px-3 py-2">9</td>
-                  <td className="px-3 py-2">24</td>
+                  <td className="px-3 py-2">32</td>
                   <td className="px-3 py-2">Torres de vigilancia, estanques</td>
                 </tr>
                 <tr className="border-b border-mc-border/50">
                   <td className="px-3 py-2">11</td>
-                  <td className="px-3 py-2">32</td>
+                  <td className="px-3 py-2">28</td>
                   <td className="px-3 py-2">Fuentes, habitaciones pequeñas</td>
                 </tr>
                 <tr className="border-b border-mc-border/50">
                   <td className="px-3 py-2">15</td>
-                  <td className="px-3 py-2">44</td>
+                  <td className="px-3 py-2">40</td>
                   <td className="px-3 py-2">Bases de torre</td>
                 </tr>
                 <tr className="border-b border-mc-border/50">
                   <td className="px-3 py-2">21</td>
-                  <td className="px-3 py-2">64</td>
+                  <td className="px-3 py-2">56</td>
                   <td className="px-3 py-2">Arenas, salas grandes</td>
                 </tr>
                 <tr className="border-b border-mc-border/50">
                   <td className="px-3 py-2">31</td>
-                  <td className="px-3 py-2">96</td>
+                  <td className="px-3 py-2">84</td>
                   <td className="px-3 py-2">Murallas de castillo, bases de cúpula</td>
                 </tr>
                 <tr className="border-b border-mc-border/50">
                   <td className="px-3 py-2">41</td>
-                  <td className="px-3 py-2">128</td>
+                  <td className="px-3 py-2">112</td>
                   <td className="px-3 py-2">Arenas grandes</td>
                 </tr>
                 <tr>
                   <td className="px-3 py-2">51</td>
-                  <td className="px-3 py-2">160</td>
+                  <td className="px-3 py-2">168</td>
                   <td className="px-3 py-2">Murallas de ciudad</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p className="mt-3 text-sm leading-7 text-muted">
-            Los números corresponden a un contorno hueco de un bloque de grosor.
-            Un círculo relleno usa muchos más bloques.
+            Los números son los del plano exacto de CircleGen. En diámetros
+            pequeños el contorno puede ocupar dos bloques en algunos puntos, así
+            que la cantidad no siempre sube de forma lineal. Un círculo relleno
+            usa muchos más bloques.
           </p>
         </section>
 
@@ -243,12 +245,12 @@ export default async function ComoHacerCirculosMinecraftPage() {
           <ul className="mt-3 grid gap-2 text-sm leading-7 text-ink sm:grid-cols-2">
             <li>
               <Link href="/es/circle/15/" className="pixel-link">
-                Círculo de 15 bloques — 44 bloques
+                Círculo de 15 bloques — 40 bloques
               </Link>
             </li>
             <li>
               <Link href="/es/circle/21/" className="pixel-link">
-                Círculo de 21 bloques — 64 bloques
+                Círculo de 21 bloques — 56 bloques
               </Link>
             </li>
             <li>
@@ -258,7 +260,7 @@ export default async function ComoHacerCirculosMinecraftPage() {
             </li>
             <li>
               <Link href="/es/circle/41/" className="pixel-link">
-                Círculo de 41 bloques — 128 bloques
+                Círculo de 41 bloques — 112 bloques
               </Link>
             </li>
             <li>
@@ -338,7 +340,7 @@ export default async function ComoHacerCirculosMinecraftPage() {
               </h3>
               <p className="mt-1 text-sm leading-7 text-muted">
                 Depende del diámetro y de si es hueco o relleno. Un contorno de
-                diámetro 15 usa 44 bloques, uno de 21 usa 64 y uno de 31 usa 96.
+                diámetro 15 usa 40 bloques, uno de 21 usa 56 y uno de 31 usa 84.
                 Usa la tabla de arriba o el generador para obtener el número
                 exacto.
               </p>

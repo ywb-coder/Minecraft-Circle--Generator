@@ -148,10 +148,10 @@ export async function GET(): Promise<Response> {
   lines.push("## Pages");
   lines.push("");
   lines.push(`- ${SITE_URL}/ - English circle generator (circles, ovals, spheres, domes, arcs, toruses, ellipsoids)`);
-  lines.push(`- ${SITE_URL}/circle/15/ - 15-block circle blueprint (44 blocks)`);
-  lines.push(`- ${SITE_URL}/circle/21/ - 21-block circle blueprint (64 blocks)`);
+  lines.push(`- ${SITE_URL}/circle/15/ - 15-block circle blueprint (40 blocks)`);
+  lines.push(`- ${SITE_URL}/circle/21/ - 21-block circle blueprint (56 blocks)`);
   lines.push(`- ${SITE_URL}/circle/33/ - 33-block circle blueprint (112 blocks)`);
-  lines.push(`- ${SITE_URL}/circle/41/ - 41-block circle blueprint (128 blocks)`);
+  lines.push(`- ${SITE_URL}/circle/41/ - 41-block circle blueprint (112 blocks)`);
   lines.push(`- ${SITE_URL}/circle/101/ - 101-block circle blueprint (316 blocks)`);
   lines.push(`- ${SITE_URL}/sphere/15/ - 15-block sphere blueprint`);
   lines.push(`- ${SITE_URL}/dome/15/ - 15-block dome blueprint`);

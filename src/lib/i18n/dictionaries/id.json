@@ -190,8 +190,8 @@
       { "q": "Bagaimana cara membangun bola atau kubah?", "a": "Pindah ke tab bola atau kubah dan gunakan penggeser lapisan untuk melihat setiap irisan dari bawah ke atas. Bangun satu lapisan pada satu waktu." },
       { "q": "Bisakah saya menyalin perintah /setblock?", "a": "Ya - tekan Salin /setblock untuk mengubah setiap blok menjadi perintah dengan koordinat dunia Anda. Gunakan Salin semua lapisan untuk bola, kubah, torus, dan elipsoida." },
       { "q": "Apa itu mode pembangun?", "a": "Mode pembangun mengubah cetak biru menjadi panduan langkah demi langkah: tandai blok dengan klik, maju dengan Berikutnya/Sebelumnya, atau tekan Putar untuk otomatis." },
-      { "q": "Berapa blok dalam lingkaran Minecraft 21 blok?", "a": "Lingkaran Minecraft 21 blok menggunakan 64 blok." },
-      { "q": "Berapa blok dalam lingkaran Minecraft 33 blok?", "a": "Lingkaran Minecraft 33 blok menggunakan 100 blok." },
+      { "q": "Berapa blok dalam lingkaran Minecraft 21 blok?", "a": "Lingkaran Minecraft 21 blok menggunakan 56 blok." },
+      { "q": "Berapa blok dalam lingkaran Minecraft 33 blok?", "a": "Lingkaran Minecraft 33 blok menggunakan 112 blok." },
       { "q": "Berapa blok dalam lingkaran Minecraft 101 blok?", "a": "Lingkaran Minecraft 101 blok menggunakan 316 blok." }
     ]
   },
