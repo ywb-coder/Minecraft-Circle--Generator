@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { getBlock } from "@/lib/blocks";
+import { trackEvent, type AnalyticsParams } from "@/lib/analytics";
 import {
   blocksText,
   buildShareUrl,
@@ -310,9 +311,11 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
   const handleToggle = () => {
     if (state.playing) {
       setState((s) => ({ ...s, playing: false }));
+      trackEvent("builder_play", { playing: false });
     } else {
       if (orderIndex >= order.length - 1) setOrderIndex(0);
       setState((s) => ({ ...s, playing: true }));
+      trackEvent("builder_play", { playing: true });
     }
   };
 
@@ -364,9 +367,14 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
     state.type === "oval" ? `${state.w}x${state.h}` : state.type === "ellipsoid" ? `${state.w}x${state.h}x${state.dp}` : state.type === "torus" ? `${state.d}x${state.t}` : state.d
   }`;
 
-  const copyToClipboard = async (text: string) => {
+  const copyToClipboard = async (
+    text: string,
+    event?: string,
+    params: AnalyticsParams = {}
+  ) => {
     try {
       await navigator.clipboard.writeText(text);
+      if (event) trackEvent(event, params);
       showCopied();
     } catch {
       // clipboard unavailable
@@ -382,7 +390,9 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
         state.centerZ,
         shape.layers.length > 0 ? shape.layers[layerIndex].z : 0,
         blockId
-      )
+      ),
+      "copy_setblock",
+      { shape: state.type, blocks: points.length, all_layers: false }
     );
 
   const handleSetblockAll = () => {
@@ -402,21 +412,39 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
         )
       )
       .join("\n");
-    copyToClipboard(all);
+    const total = shape.layers.reduce((sum, l) => sum + l.points.length, 0);
+    copyToClipboard(all, "copy_setblock", {
+      shape: state.type,
+      blocks: total,
+      all_layers: true,
+    });
   };
 
-  const handlePng = () => downloadGridPng(points, color, `${filename}.png`);
-  const handleSvg = () =>
+  const handlePng = () => {
+    trackEvent("download_png", { shape: state.type, blocks: points.length });
+    downloadGridPng(points, color, `${filename}.png`);
+  };
+  const handleSvg = () => {
+    trackEvent("download_svg", { shape: state.type, blocks: points.length });
     downloadText(`${filename}.svg`, toSVG(points, color), "image/svg+xml");
-  const handleCsv = () =>
+  };
+  const handleCsv = () => {
+    trackEvent("download_csv", { shape: state.type, blocks: points.length });
     downloadText(`${filename}.csv`, pointsToCSV(points), "text/csv");
-  const handleJson = () =>
+  };
+  const handleJson = () => {
+    trackEvent("download_json", { shape: state.type, blocks: points.length });
     downloadText(
       `${filename}.json`,
       pointsToJSON(points, shapeExportMeta(shape)),
       "application/json"
     );
-  const handleCopyBlocks = () => copyToClipboard(blocksText(points));
+  };
+  const handleCopyBlocks = () =>
+    copyToClipboard(blocksText(points), "copy_blocks", {
+      shape: state.type,
+      blocks: points.length,
+    });
   const handleCopyLink = () =>
     copyToClipboard(
       buildShareUrl({
@@ -428,7 +456,8 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
         b: state.block,
         a: state.start,
         g: state.span,
-      })
+      }),
+      "copy_link"
     );
 
   const handlePermLink = () => {
@@ -445,7 +474,11 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
           : state.type === "ellipsoid"
             ? `ellipsoid/${state.w}/${state.h}/${state.dp}/`
             : `${state.type}/${state.d}/`;
-    copyToClipboard(`${window.location.origin}${prefix}${path}`);
+    copyToClipboard(
+      `${window.location.origin}${prefix}${path}`,
+      "copy_permlink",
+      { shape: state.type }
+    );
   };
 
   const hasStaticPage =
@@ -466,7 +499,12 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
 
   const controlsPanel = (
     <>
-      <ShapeControls dict={dict} state={state} setState={setState} />
+      <ShapeControls
+        dict={dict}
+        state={state}
+        setState={setState}
+        onShapeChange={(shape) => trackEvent("shape_change", { shape })}
+      />
       <BlockPalette
         value={state.block}
         onChange={(block) => setState((s) => ({ ...s, block }))}
@@ -501,7 +539,10 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
           <button
             key={t}
             type="button"
-            onClick={() => setTab(t)}
+            onClick={() => {
+              setTab(t);
+              trackEvent("tab_view", { tab: t });
+            }}
             className={`mc-btn px-3! py-1! ${tab === t ? "mc-btn-selected" : ""}`}
           >
             {dict.tool[t === "build" ? "buildOrder" : t]}
@@ -539,7 +580,11 @@ export default function CircleTool({ dict }: { dict: Dictionary }) {
               <button
                 type="button"
                 className={`mc-btn px-2! py-1! ${state.builder ? "mc-btn-selected" : ""}`}
-                onClick={() => setState((s) => ({ ...s, builder: !s.builder }))}
+                onClick={() => {
+                  const next = !state.builder;
+                  setState((s) => ({ ...s, builder: next }));
+                  trackEvent("builder_mode", { enabled: next });
+                }}
               >
                 {dict.tool.builder}
               </button>

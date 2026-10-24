@@ -31,10 +31,12 @@ export default function ShapeControls({
   dict,
   state,
   setState,
+  onShapeChange,
 }: {
   dict: Dictionary;
   state: ToolState;
   setState: Dispatch<SetStateAction<ToolState>>;
+  onShapeChange?: (shape: ShapeType) => void;
 }) {
   const { type } = state;
   const limits = shapeLimits[type];
@@ -120,7 +122,10 @@ export default function ShapeControls({
             <button
               key={s}
               type="button"
-              onClick={() => set({ type: s })}
+              onClick={() => {
+                set({ type: s });
+                onShapeChange?.(s);
+              }}
               className={`mc-btn w-full px-2! py-1! ${type === s ? "mc-btn-selected" : ""}`}
             >
               {dict.tool[s]}
