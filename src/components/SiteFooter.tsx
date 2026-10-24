@@ -35,6 +35,10 @@ export default function SiteFooter({
         <p className="font-pixel text-[10px] text-ink">
           © {new Date().getFullYear()} {dict.siteName}
         </p>
+        <p className="max-w-xl text-xs leading-5 text-muted">
+          Not affiliated with Mojang Studios or Microsoft. Minecraft is a
+          trademark of Mojang Studios.
+        </p>
         <p className="font-terminal text-sm text-muted">
           {dict.footer.lastUpdated}: {CONTENT_UPDATED}
         </p>

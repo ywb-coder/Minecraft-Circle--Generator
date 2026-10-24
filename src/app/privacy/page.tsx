@@ -109,11 +109,12 @@ export default async function PrivacyPage() {
               <p className="mt-2">
                 The only analytics cookies this site may use are the Google
                 Analytics cookies described above, and only after you accept.
-                You can delete or block cookies and clear localStorage through
-                your browser settings. Blocking cookies does not prevent the
-                generator from working. Clearing site data may reset your
-                saved consent choice, in which case the banner will appear
-                again.
+                Advertising cookies, used only when ads are displayed, are
+                described in the Advertising section below. You can delete or
+                block cookies and clear localStorage through your browser
+                settings. Blocking cookies does not prevent the generator from
+                working. Clearing site data may reset your saved consent
+                choice, in which case the banner will appear again.
               </p>
             </div>
 
@@ -157,11 +158,47 @@ export default async function PrivacyPage() {
                 Advertising
               </h3>
               <p className="mt-2">
-                CircleGen currently displays no ads and does not load AdSense.
-                If advertising is added later, we will update this policy and
-                use a Google-certified consent management platform where
-                required, for example in the EEA, the UK and Switzerland,
-                before serving ads.
+                CircleGen may display advertisements served by Google AdSense
+                and other third-party vendors. Third-party vendors, including
+                Google, use cookies to serve ads based on your prior visits to
+                this website or other websites. Google&apos;s use of
+                advertising cookies enables it and its partners to serve ads to
+                you based on your visit to this site and/or other sites on the
+                Internet. These cookies may include the DoubleClick cookie, and
+                vendors may also use web beacons and IP addresses to measure ad
+                performance. Ads may not be enabled at all times; this section
+                describes how advertising works when it is shown.
+              </p>
+              <p className="mt-2">
+                You can opt out of personalised advertising by visiting{" "}
+                <a
+                  href="https://adssettings.google.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pixel-link"
+                >
+                  Google Ads Settings
+                </a>
+                . Opting out does not remove ads, but they will no longer be
+                personalised. You can read how Google uses information from
+                sites that use its services at{" "}
+                <a
+                  href="https://policies.google.com/technologies/partner-sites"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pixel-link"
+                >
+                  policies.google.com/technologies/partner-sites
+                </a>
+                .
+              </p>
+              <p className="mt-2">
+                If you are in the European Economic Area, the United Kingdom or
+                Switzerland, personalised advertising is only enabled after you
+                give consent through the consent message shown on the site
+                (served by a Google-certified consent management platform). You
+                can change or withdraw that choice at any time through the
+                Privacy settings link in the footer.
               </p>
             </div>
 
