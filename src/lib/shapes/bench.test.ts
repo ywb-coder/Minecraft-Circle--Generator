@@ -2,8 +2,11 @@ import { describe, expect, it } from "vitest";
 import { generateShape } from "./index";
 
 function time(fn: () => unknown): number {
+  // Warm up JIT and caches before measuring so a busy machine does not
+  // turn the first run into a false regression.
+  fn();
   let best = Infinity;
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 5; i++) {
     const t0 = performance.now();
     fn();
     const dt = performance.now() - t0;

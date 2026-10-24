@@ -157,8 +157,15 @@ export async function GET(): Promise<Response> {
   lines.push(`- ${SITE_URL}/dome/15/ - 15-block dome blueprint`);
   lines.push(`- ${SITE_URL}/blog/minecraft-circle-guide/ - how to build circles, spheres and domes`);
   lines.push(`- ${SITE_URL}/blog/minecraft-circle-sizes/ - circle size chart by build type`);
+  lines.push(`- ${SITE_URL}/blog/minecraft-sphere-guide/ - layer a circle into a sphere`);
+  lines.push(`- ${SITE_URL}/blog/minecraft-dome-guide/ - build a dome on a flat base`);
+  lines.push(`- ${SITE_URL}/blog/minecraft-oval-guide/ - width and height oval blueprints`);
+  lines.push(`- ${SITE_URL}/blog/minecraft-tower-guide/ - tower footprint, wall, and stair planning`);
   lines.push(`- ${SITE_URL}/es/ - Spanish circle generator`);
   lines.push(`- ${SITE_URL}/es/blog/como-hacer-circulos-minecraft/ - Spanish step-by-step circle guide`);
+  lines.push(`- ${SITE_URL}/es/blog/como-hacer-esfera-minecraft/ - Spanish layered sphere guide`);
+  lines.push(`- ${SITE_URL}/es/blog/medidas-circulos-minecraft/ - Spanish circle size chart`);
+  lines.push(`- ${SITE_URL}/es/blog/como-hacer-ovalo-minecraft/ - Spanish oval guide`);
   lines.push("");
   lines.push("## Languages");
   lines.push("");

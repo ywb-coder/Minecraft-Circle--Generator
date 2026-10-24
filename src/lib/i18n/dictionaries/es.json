@@ -198,7 +198,21 @@
   "footer": {
     "tagline": "Planos gratuitos de círculos, óvalos, esferas y cúpulas para Minecraft.",
     "lastUpdated": "Última actualización",
-    "feedback": "¿Preguntas o comentarios? Escríbenos a"
+    "feedback": "¿Preguntas o comentarios? Escríbenos a",
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "blog": "Blog"
+  },
+  "consent": {
+    "title": "Tu elección de privacidad",
+    "description": "Google Analytics solo se usa si aceptas, para entender el uso agregado del sitio. Puedes cambiar tu elección en cualquier momento desde los ajustes de privacidad del pie de página.",
+    "accept": "Aceptar analítica",
+    "reject": "Rechazar",
+    "settings": "Ajustes de privacidad",
+    "privacy": "Política de privacidad",
+    "close": "Cerrar"
   },
   "meta": {
     "title": "Generador de Círculos de Minecraft — Planos Gratis",

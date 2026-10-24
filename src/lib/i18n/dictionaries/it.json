@@ -198,7 +198,21 @@
   "footer": {
     "tagline": "Progetti gratuiti di cerchi, ovali, sfere e cupole per Minecraft.",
     "lastUpdated": "Ultimo aggiornamento",
-    "feedback": "Domande o feedback? Scrivici a"
+    "feedback": "Domande o feedback? Scrivici a",
+    "about": "Chi siamo",
+    "contact": "Contatti",
+    "privacy": "Privacy",
+    "terms": "Termini",
+    "blog": "Blog"
+  },
+  "consent": {
+    "title": "La tua scelta sulla privacy",
+    "description": "Google Analytics viene usato solo con il tuo consenso, per capire l'utilizzo aggregato del sito. Puoi cambiare la tua scelta in qualsiasi momento dalle impostazioni privacy nel footer.",
+    "accept": "Accetta analisi",
+    "reject": "Rifiuta",
+    "settings": "Impostazioni privacy",
+    "privacy": "Informativa sulla privacy",
+    "close": "Chiudi"
   },
   "meta": {
     "title": "Generatore di Cerchi Minecraft — Blueprint Gratis",

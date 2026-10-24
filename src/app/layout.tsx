@@ -42,10 +42,7 @@ export const metadata: Metadata = {
   },
 };
 
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || "G-ED1D95CXQV";
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
   return (
     <html lang="en" className="h-full antialiased">
       <head>
@@ -71,32 +68,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="font/woff2"
           crossOrigin="anonymous"
         />
-        {/* Google Analytics 4 */}
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: [
-              "window.dataLayer = window.dataLayer || [];",
-              "function gtag(){dataLayer.push(arguments);}",
-              "gtag('js', new Date());",
-              `gtag('config', '${GA_MEASUREMENT_ID}');`,
-            ].join("\n"),
-          }}
-        />
       </head>
-      <body className="flex min-h-full flex-col">
-        {children}
-        {plausibleDomain ? (
-          <script
-            defer
-            data-domain={plausibleDomain}
-            src="https://plausible.io/js/script.js"
-          />
-        ) : null}
-      </body>
+      <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );
 }

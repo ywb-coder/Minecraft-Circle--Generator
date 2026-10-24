@@ -80,7 +80,28 @@ export async function GET(): Promise<Response> {
     `- [Minecraft Circle Sizes](${SITE_URL}/blog/minecraft-circle-sizes/): complete size chart with block counts for every build type`
   );
   lines.push(
+    `- [Minecraft Sphere Guide](${SITE_URL}/blog/minecraft-sphere-guide/): turn circle slices into a layered sphere`
+  );
+  lines.push(
+    `- [Minecraft Dome Guide](${SITE_URL}/blog/minecraft-dome-guide/): choose a base diameter and stack a half-sphere roof`
+  );
+  lines.push(
+    `- [Minecraft Oval Guide](${SITE_URL}/blog/minecraft-oval-guide/): width and height blueprints for stretched circles`
+  );
+  lines.push(
+    `- [Minecraft Tower Guide](${SITE_URL}/blog/minecraft-tower-guide/): pick a footprint by interior, walls, and stairs`
+  );
+  lines.push(
     `- [Cómo hacer un círculo en Minecraft](${SITE_URL}/es/blog/como-hacer-circulos-minecraft/): guía paso a paso en español`
+  );
+  lines.push(
+    `- [Cómo hacer una esfera en Minecraft](${SITE_URL}/es/blog/como-hacer-esfera-minecraft/): esfera por capas en español`
+  );
+  lines.push(
+    `- [Medidas de círculos en Minecraft](${SITE_URL}/es/blog/medidas-circulos-minecraft/): tabla de tamaños y conteos`
+  );
+  lines.push(
+    `- [Cómo hacer un óvalo en Minecraft](${SITE_URL}/es/blog/como-hacer-ovalo-minecraft/): planos de ancho y alto en español`
   );
   lines.push("");
   lines.push("## Languages");

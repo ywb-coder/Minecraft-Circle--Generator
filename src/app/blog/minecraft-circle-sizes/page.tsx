@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "@/components/StaticLink";
+import ArticleMeta from "@/components/ArticleMeta";
 import SeoShell from "@/app/_seo/shell";
+import ArticleJsonLd from "@/app/_seo/article-jsonld";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { defaultLocale } from "@/lib/i18n/locales";
 import { SITE_URL } from "@/lib/config";
@@ -51,10 +53,20 @@ export default async function MinecraftCircleSizesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
+      <ArticleJsonLd
+        title="Minecraft Circle Sizes: Complete Chart for Every Build Type"
+        description="Find the perfect Minecraft circle size for towers, wells, arenas, and domes. Complete chart with block counts and recommendations."
+        path="/blog/minecraft-circle-sizes/"
+        locale="en"
+        images={["/shape-pngs/circle-21.png", "/shape-pngs/circle-101.png"]}
+        published="2026-09-10"
+        updated="2026-10-21"
+      />
       <div className="mx-auto max-w-3xl">
         <h1 className="pixel-shadow font-pixel text-lg text-ink sm:text-xl">
           Minecraft Circle Sizes: Complete Chart for Every Build Type
         </h1>
+        <ArticleMeta published="2026-09-10" updated="2026-10-21" />
 
         <section className="mc-panel pixel-corners mt-8 p-5">
           <h2 className="font-pixel text-[10px] text-cyan">Quick Answer</h2>
@@ -94,6 +106,20 @@ export default async function MinecraftCircleSizesPage() {
               </li>
             </ul>
           </div>
+          <figure className="mt-5 border-2 border-mc-border bg-panel-2 p-3">
+            <img
+              src="/shape-pngs/circle-21.png"
+              alt="Generated blueprint of a 21-block-diameter Minecraft circle for arenas and large rooms"
+              width={461}
+              height={461}
+              loading="lazy"
+              className="mx-auto h-auto w-full max-w-[260px] [image-rendering:pixelated]"
+            />
+            <figcaption className="mt-3 text-sm leading-6 text-muted">
+              Generated diagram, not an in-game screenshot: diameter 21 uses a
+              56-block hollow ring and 333 filled blocks.
+            </figcaption>
+          </figure>
         </section>
 
         <section className="mc-panel pixel-corners mt-6 p-5">
@@ -260,6 +286,21 @@ export default async function MinecraftCircleSizesPage() {
             ring can be two blocks thick in places, so counts do not always
             increase smoothly.
           </p>
+          <figure className="mt-5 border-2 border-mc-border bg-panel-2 p-3">
+            <img
+              src="/shape-pngs/circle-101.png"
+              alt="Generated blueprint of a 101-block-diameter Minecraft circle for megabuilds"
+              width={424}
+              height={424}
+              loading="lazy"
+              className="mx-auto h-auto w-full max-w-[300px] [image-rendering:pixelated]"
+            />
+            <figcaption className="mt-3 text-sm leading-6 text-muted">
+              Generated blueprint, not an in-game screenshot: diameter 101 is a
+              practical upper limit for most survival builds, with a 316-block
+              hollow ring.
+            </figcaption>
+          </figure>
         </section>
 
         <section className="mc-panel pixel-corners mt-6 p-5">
@@ -335,6 +376,27 @@ export default async function MinecraftCircleSizesPage() {
         </section>
 
         <section className="mc-panel pixel-corners mt-6 p-5">
+          <h2 className="font-pixel text-[10px] text-cyan">
+            How This Guide Was Made
+          </h2>
+          <p className="mt-3 text-sm leading-7 text-ink">
+            Every count and blueprint on this page comes from the same
+            discrete-circle algorithm that powers the CircleGen generator, and
+            the numbers were checked against generator output rather than
+            estimated by hand. This is a reference built from that grid math; we
+            do not claim hands-on in-game testing of every build.
+          </p>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            Found a size or count that does not match the generator? Send a
+            correction through the{" "}
+            <Link href="/contact/" className="pixel-link">
+              contact page
+            </Link>{" "}
+            and we will fix it.
+          </p>
+        </section>
+
+        <section className="mc-panel pixel-corners mt-6 p-5">
           <h2 className="font-pixel text-[10px] text-cyan">FAQ</h2>
           <div className="mt-3 space-y-4">
             <div>
@@ -372,6 +434,49 @@ export default async function MinecraftCircleSizesPage() {
               </p>
             </div>
           </div>
+        </section>
+
+        <section className="mc-panel pixel-corners mt-6 p-5">
+          <h2 className="font-pixel text-[10px] text-cyan">Related Guides</h2>
+          <ul className="mt-3 space-y-2 text-sm leading-7 text-ink">
+            <li>
+              <Link
+                href="/blog/minecraft-sphere-guide/"
+                className="pixel-link"
+              >
+                Minecraft Sphere Guide
+              </Link>{" "}
+              — choose a diameter and stack circle slices into a round sphere.
+            </li>
+            <li>
+              <Link href="/blog/minecraft-dome-guide/" className="pixel-link">
+                Minecraft Dome Guide
+              </Link>{" "}
+              — match a flat base to the dome height for roofs and interiors.
+            </li>
+            <li>
+              <Link
+                href="/blog/minecraft-tower-guide/"
+                className="pixel-link"
+              >
+                Minecraft Tower Guide
+              </Link>{" "}
+              — turn a footprint into a tower plan with interior and stair
+              checks.
+            </li>
+            <li>
+              <Link href="/blog/minecraft-oval-guide/" className="pixel-link">
+                Minecraft Oval Guide
+              </Link>{" "}
+              — build stretched circular footprints for ponds and tables.
+            </li>
+            <li>
+              <Link href="/dome/31/" className="pixel-link">
+                Diameter-31 dome blueprint
+              </Link>{" "}
+              — see how a 31-block base stacks up layer by layer.
+            </li>
+          </ul>
         </section>
 
         <div className="mt-8">

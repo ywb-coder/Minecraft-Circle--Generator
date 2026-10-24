@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "@/components/StaticLink";
+import ArticleMeta from "@/components/ArticleMeta";
 import SeoShell from "@/app/_seo/shell";
+import ArticleJsonLd from "@/app/_seo/article-jsonld";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { defaultLocale } from "@/lib/i18n/locales";
 import { SITE_URL } from "@/lib/config";
@@ -59,11 +61,21 @@ export default async function MinecraftCircleGuidePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
+      <ArticleJsonLd
+        title="Minecraft Circle Guide: How to Build Perfect Circles, Spheres & Domes"
+        description="Complete guide to building circles in Minecraft. Learn odd vs even diameters, step-by-step building, and find the perfect size for your build."
+        path="/blog/minecraft-circle-guide/"
+        locale="en"
+        images={["/shape-pngs/circle-15.png", "/shape-pngs/circle-33.png"]}
+        published="2026-09-10"
+        updated="2026-10-21"
+      />
       <div className="mx-auto max-w-3xl">
         <h1 className="pixel-shadow font-pixel text-lg text-ink sm:text-xl">
           Minecraft Circle Guide: How to Build Perfect Circles, Spheres &amp;
           Domes
         </h1>
+        <ArticleMeta published="2026-09-10" updated="2026-10-21" />
 
         <section className="mc-panel pixel-corners mt-8 p-5">
           <h2 className="font-pixel text-[10px] text-cyan">
@@ -106,6 +118,20 @@ export default async function MinecraftCircleGuidePage() {
             single center block makes placement simpler and the resulting
             circle is always symmetric along both axes.
           </p>
+          <figure className="mt-5 border-2 border-mc-border bg-panel-2 p-3">
+            <img
+              src="/shape-pngs/circle-15.png"
+              alt="Generated blueprint of a 15-block-diameter Minecraft circle with a single center block"
+              width={380}
+              height={380}
+              loading="lazy"
+              className="mx-auto h-auto w-full max-w-[260px] [image-rendering:pixelated]"
+            />
+            <figcaption className="mt-3 text-sm leading-6 text-muted">
+              Generated diagram, not an in-game screenshot: a 15-block odd
+              diameter keeps one center block and a 40-block hollow ring.
+            </figcaption>
+          </figure>
         </section>
 
         <section className="mc-panel pixel-corners mt-6 p-5">
@@ -143,6 +169,21 @@ export default async function MinecraftCircleGuidePage() {
               vertical axes.
             </li>
           </ol>
+          <figure className="mt-5 border-2 border-mc-border bg-panel-2 p-3">
+            <img
+              src="/shape-pngs/circle-33.png"
+              alt="Generated blueprint of a 33-block-diameter Minecraft circle showing the full symmetric ring"
+              width={449}
+              height={449}
+              loading="lazy"
+              className="mx-auto h-auto w-full max-w-[280px] [image-rendering:pixelated]"
+            />
+            <figcaption className="mt-3 text-sm leading-6 text-muted">
+              Generated blueprint, not an in-game screenshot: a 33-block circle
+              after mirroring all four quadrants. Larger diameters read as
+              smoother curves.
+            </figcaption>
+          </figure>
         </section>
 
         <section className="mc-panel pixel-corners mt-6 p-5">
@@ -259,6 +300,27 @@ export default async function MinecraftCircleGuidePage() {
         </section>
 
         <section className="mc-panel pixel-corners mt-6 p-5">
+          <h2 className="font-pixel text-[10px] text-cyan">
+            How This Guide Was Made
+          </h2>
+          <p className="mt-3 text-sm leading-7 text-ink">
+            The blueprints in this guide come from the same discrete-circle
+            algorithm that powers the CircleGen generator. Block counts were
+            checked against generator output rather than estimated by hand.
+            This is an explanation of the generator&apos;s grid math; we do not
+            claim hands-on in-game testing of every build.
+          </p>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            Spotted a count or pattern that does not match the generator? Send a
+            correction through the{" "}
+            <Link href="/contact/" className="pixel-link">
+              contact page
+            </Link>{" "}
+            and we will fix it.
+          </p>
+        </section>
+
+        <section className="mc-panel pixel-corners mt-6 p-5">
           <h2 className="font-pixel text-[10px] text-cyan">FAQ</h2>
           <div className="mt-3 space-y-4">
             <div>
@@ -314,6 +376,51 @@ export default async function MinecraftCircleGuidePage() {
               </p>
             </div>
           </div>
+        </section>
+
+        <section className="mc-panel pixel-corners mt-6 p-5">
+          <h2 className="font-pixel text-[10px] text-cyan">Related Guides</h2>
+          <ul className="mt-3 space-y-2 text-sm leading-7 text-ink">
+            <li>
+              <Link
+                href="/blog/minecraft-sphere-guide/"
+                className="pixel-link"
+              >
+                Minecraft Sphere Guide
+              </Link>{" "}
+              — turn flat circles into a layer-by-layer sphere with an
+              equator-first workflow.
+            </li>
+            <li>
+              <Link href="/blog/minecraft-dome-guide/" className="pixel-link">
+                Minecraft Dome Guide
+              </Link>{" "}
+              — build a half-sphere on a flat base for roofs, kilns, and
+              observatories.
+            </li>
+            <li>
+              <Link
+                href="/blog/minecraft-tower-guide/"
+                className="pixel-link"
+              >
+                Minecraft Tower Guide
+              </Link>{" "}
+              — match a footprint to interior space, stair width, and wall
+              thickness.
+            </li>
+            <li>
+              <Link href="/blog/minecraft-oval-guide/" className="pixel-link">
+                Minecraft Oval Guide
+              </Link>{" "}
+              — stretch the circle method into ponds, tables, and round rooms.
+            </li>
+            <li>
+              <Link href="/sphere/21/" className="pixel-link">
+                Diameter-21 sphere blueprint
+              </Link>{" "}
+              — open a ready-made layered slice reference in the generator.
+            </li>
+          </ul>
         </section>
 
         <div className="mt-8">

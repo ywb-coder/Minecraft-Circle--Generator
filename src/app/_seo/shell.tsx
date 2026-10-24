@@ -2,7 +2,8 @@ import Link from "@/components/StaticLink";
 import type { ReactNode } from "react";
 import type { Dictionary } from "@/lib/i18n/dictionaries";
 import { defaultLocale, type Locale } from "@/lib/i18n/locales";
-import { buildDate } from "@/lib/config";
+import SiteFooter from "@/components/SiteFooter";
+import ConsentGate from "@/components/ConsentGate";
 
 export default function SeoShell({
   dict,
@@ -31,43 +32,8 @@ export default function SeoShell({
       <main className="flex-1">
         <div className="mx-auto max-w-5xl px-4 py-10">{children}</div>
       </main>
-      <footer className="border-t-4 border-mc-border bg-panel-2 py-6">
-        <div className="mx-auto flex max-w-5xl flex-col items-center gap-3 px-4 text-center">
-          <p className="text-sm text-muted">{dict.footer.tagline}</p>
-          <nav className="flex flex-wrap justify-center gap-x-5 gap-y-2">
-            <Link href="/about/" className="pixel-link text-sm">
-              About
-            </Link>
-            <Link href="/contact/" className="pixel-link text-sm">
-              Contact
-            </Link>
-            <Link href="/privacy/" className="pixel-link text-sm">
-              Privacy
-            </Link>
-            <Link href="/terms/" className="pixel-link text-sm">
-              Terms
-            </Link>
-            <Link href="/blog/" className="pixel-link text-sm">
-              Blog
-            </Link>
-          </nav>
-          <p className="font-terminal text-sm text-muted">
-            {dict.footer.lastUpdated}: {buildDate()}
-          </p>
-          <a
-            href="https://www.producthunt.com/products/circlegen?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-circlegen"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              alt="CircleGen - Pixel-perfect Minecraft circle blueprints in 11 languages | Product Hunt"
-              width="250"
-              height="54"
-              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1225644&theme=dark&t=1787038210094"
-            />
-          </a>
-        </div>
-      </footer>
+      <SiteFooter dict={dict} locale={locale} />
+      <ConsentGate copy={dict.consent} />
     </div>
   );
 }

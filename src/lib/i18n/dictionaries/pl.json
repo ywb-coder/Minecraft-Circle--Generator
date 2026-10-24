@@ -198,7 +198,21 @@
   "footer": {
     "tagline": "Darmowe plany kół, owali, sfer i kopuł do Minecrafta.",
     "lastUpdated": "Ostatnia aktualizacja",
-    "feedback": "Pytania lub uwagi? Napisz do nas na"
+    "feedback": "Pytania lub uwagi? Napisz do nas na",
+    "about": "O nas",
+    "contact": "Kontakt",
+    "privacy": "Prywatność",
+    "terms": "Regulamin",
+    "blog": "Blog"
+  },
+  "consent": {
+    "title": "Twój wybór prywatności",
+    "description": "Google Analytics jest używany tylko za Twoją zgodą, aby poznać zbiorcze statystyki witryny. Możesz zmienić swój wybór w dowolnym momencie w ustawieniach prywatności w stopce.",
+    "accept": "Akceptuj analitykę",
+    "reject": "Odrzuć",
+    "settings": "Ustawienia prywatności",
+    "privacy": "Polityka prywatności",
+    "close": "Zamknij"
   },
   "meta": {
     "title": "Koło w Minecraft — Generator Kół i Darmowe Schematy",

@@ -198,7 +198,21 @@
   "footer": {
     "tagline": "Minecraft için ücretsiz daire, oval, küre ve kubbe planları.",
     "lastUpdated": "Son güncelleme",
-    "feedback": "Sorularınız veya geri bildiriminiz mi var? Bize yazın:"
+    "feedback": "Sorularınız veya geri bildiriminiz mi var? Bize yazın:",
+    "about": "Hakkında",
+    "contact": "İletişim",
+    "privacy": "Gizlilik",
+    "terms": "Koşullar",
+    "blog": "Blog"
+  },
+  "consent": {
+    "title": "Gizlilik seçiminiz",
+    "description": "Google Analytics yalnızca onay verirseniz, site kullanımını toplu olarak anlamak için kullanılır. Seçiminizi altbilgideki gizlilik ayarlarından istediğiniz zaman değiştirebilirsiniz.",
+    "accept": "Analitiği kabul et",
+    "reject": "Reddet",
+    "settings": "Gizlilik ayarları",
+    "privacy": "Gizlilik politikası",
+    "close": "Kapat"
   },
   "meta": {
     "title": "Minecraft Daire ve Yuvarlak Oluşturucu — Ücretsiz Şablonlar",

@@ -198,7 +198,21 @@
   "footer": {
     "tagline": "Free Minecraft circle, oval, sphere, and dome blueprints.",
     "lastUpdated": "Last updated",
-    "feedback": "Questions or feedback? Email us at"
+    "feedback": "Questions or feedback? Email us at",
+    "about": "About",
+    "contact": "Contact",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "blog": "Blog"
+  },
+  "consent": {
+    "title": "Your privacy choice",
+    "description": "Google Analytics is used only if you accept, to understand aggregate site usage. You can change your choice anytime via Privacy settings in the footer.",
+    "accept": "Accept analytics",
+    "reject": "Reject",
+    "settings": "Privacy settings",
+    "privacy": "Privacy policy",
+    "close": "Close"
   },
   "meta": {
     "title": "Minecraft Circle Generator — Free Block Blueprints",

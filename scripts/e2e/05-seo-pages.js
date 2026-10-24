@@ -8,14 +8,13 @@ const PAGES = [
   "/circle/21/",
   "/circle/101/",
   "/sphere/15/",
-  "/sphere/33/",
+  "/sphere/21/",
   "/dome/15/",
-  "/dome/33/",
+  "/dome/21/",
   "/oval/15/7/",
-  "/oval/25/13/",
-  "/torus/41/8/",
-  "/torus/65/12/",
-  "/ellipsoid/25/17/11/",
+  "/oval/21/9/",
+  "/torus/21/4/",
+  "/ellipsoid/15/11/7/",
 ];
 
 module.exports = async function main() {
@@ -62,6 +61,52 @@ module.exports = async function main() {
     const c404 = await page.content();
     check("05 404 message", c404.includes("Page not found"));
     check("05 404 popular link", c404.includes("/circle/15/"));
+
+    const niBefore = errAt();
+    const niResp = await page.goto(BASE + "/sphere/33/", { waitUntil: "networkidle" });
+    const niContent = await page.content();
+    check(
+      "05 noindex status /sphere/33/",
+      !!niResp && niResp.status() === 200,
+      niResp ? String(niResp.status()) : "no resp"
+    );
+    const niRobots = await page
+      .locator('meta[name="robots"]')
+      .first()
+      .getAttribute("content");
+    check(
+      "05 noindex robots /sphere/33/",
+      !!niRobots && /noindex/i.test(niRobots),
+      niRobots || "missing"
+    );
+    check("05 noindex h1 /sphere/33/", (await page.locator("h1").count()) >= 1);
+    check(
+      "05 noindex no alternates /sphere/33/",
+      (niContent.match(/rel="alternate"/g) || []).length === 0
+    );
+    check("05 noindex no errors /sphere/33/", errAt() === niBefore);
+
+    const relatedPages = ["/circle/15/", "/sphere/15/", "/dome/15/"];
+    const evenShapePaths = [
+      "/circle/14/",
+      "/circle/16/",
+      "/sphere/16/",
+      "/dome/16/",
+    ];
+    for (const path of relatedPages) {
+      await page.goto(BASE + path, { waitUntil: "networkidle" });
+      const hrefs = await page.evaluate(() =>
+        Array.from(document.querySelectorAll("a[href]")).map(
+          (a) => new URL(a.getAttribute("href"), location.href).pathname
+        )
+      );
+      const bad = hrefs.filter((href) => evenShapePaths.includes(href));
+      check(
+        `05 related links odd only ${path}`,
+        bad.length === 0,
+        bad.join(", ")
+      );
+    }
 
     const trust = ["/about/", "/contact/", "/privacy/", "/terms/"];
     for (const path of trust) {

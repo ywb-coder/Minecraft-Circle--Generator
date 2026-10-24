@@ -141,6 +141,20 @@ export interface Dictionary {
     tagline: string;
     lastUpdated: string;
     feedback: string;
+    about: string;
+    contact: string;
+    privacy: string;
+    terms: string;
+    blog: string;
+  };
+  consent: {
+    title: string;
+    description: string;
+    accept: string;
+    reject: string;
+    settings: string;
+    privacy: string;
+    close: string;
   };
   meta: {
     title: string;

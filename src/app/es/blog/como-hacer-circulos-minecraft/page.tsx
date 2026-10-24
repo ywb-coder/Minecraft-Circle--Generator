@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "@/components/StaticLink";
+import ArticleMeta from "@/components/ArticleMeta";
 import SeoShell from "@/app/_seo/shell";
+import ArticleJsonLd from "@/app/_seo/article-jsonld";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { SITE_URL } from "@/lib/config";
 
@@ -60,10 +62,24 @@ export default async function ComoHacerCirculosMinecraftPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
+      <ArticleJsonLd
+        title="Cómo Hacer un Círculo en Minecraft — Guía Paso a Paso"
+        description="Aprende a hacer círculos perfectos en Minecraft: elige el diámetro, sigue el patrón de bloques y usa la tabla de tamaños. Funciona en Java y Bedrock."
+        path="/es/blog/como-hacer-circulos-minecraft/"
+        locale="es"
+        images={[
+          "/shape-pngs/circle-15.png",
+          "/shape-pngs/circle-21.png",
+          "/shape-pngs/circle-33.png",
+        ]}
+        published="2026-10-21"
+        updated="2026-10-21"
+      />
       <div className="mx-auto max-w-3xl">
         <h1 className="pixel-shadow font-pixel text-lg text-ink sm:text-xl">
           Cómo Hacer un Círculo en Minecraft: Guía Paso a Paso
         </h1>
+        <ArticleMeta published="2026-10-21" updated="2026-10-21" locale="es" />
 
         <section className="mc-panel pixel-corners mt-8 p-5">
           <h2 className="font-pixel text-[10px] text-cyan">Respuesta Rápida</h2>
@@ -125,6 +141,20 @@ export default async function ComoHacerCirculosMinecraftPage() {
             central hace que la colocación sea más sencilla y el círculo
             resultante siempre es simétrico en ambos ejes.
           </p>
+          <figure className="mt-5 border-2 border-mc-border bg-panel-2 p-3">
+            <img
+              src="/shape-pngs/circle-15.png"
+              alt="Plano generado de un círculo de Minecraft de 15 bloques de diámetro con un único bloque central"
+              width={380}
+              height={380}
+              loading="lazy"
+              className="mx-auto h-auto w-full max-w-[260px] [image-rendering:pixelated]"
+            />
+            <figcaption className="mt-3 text-sm leading-6 text-muted">
+              Diagrama generado, no una captura del juego: el diámetro impar 15
+              mantiene un bloque central y un contorno hueco de 40 bloques.
+            </figcaption>
+          </figure>
         </section>
 
         <section className="mc-panel pixel-corners mt-6 p-5">
@@ -162,6 +192,20 @@ export default async function ComoHacerCirculosMinecraftPage() {
               vertical.
             </li>
           </ol>
+          <figure className="mt-5 border-2 border-mc-border bg-panel-2 p-3">
+            <img
+              src="/shape-pngs/circle-21.png"
+              alt="Plano generado de un círculo de Minecraft de 21 bloques de diámetro con los cuatro cuadrantes simétricos"
+              width={461}
+              height={461}
+              loading="lazy"
+              className="mx-auto h-auto w-full max-w-[280px] [image-rendering:pixelated]"
+            />
+            <figcaption className="mt-3 text-sm leading-6 text-muted">
+              Plano generado, no una captura del juego: un círculo de diámetro
+              21 con los cuatro cuadrantes ya copiados.
+            </figcaption>
+          </figure>
         </section>
 
         <section className="mc-panel pixel-corners mt-6 p-5">
@@ -279,6 +323,20 @@ export default async function ComoHacerCirculosMinecraftPage() {
               </Link>
             </li>
           </ul>
+          <figure className="mt-5 border-2 border-mc-border bg-panel-2 p-3">
+            <img
+              src="/shape-pngs/circle-33.png"
+              alt="Plano generado de un círculo de Minecraft de 33 bloques de diámetro"
+              width={449}
+              height={449}
+              loading="lazy"
+              className="mx-auto h-auto w-full max-w-[280px] [image-rendering:pixelated]"
+            />
+            <figcaption className="mt-3 text-sm leading-6 text-muted">
+              Plano generado, no una captura del juego: el diámetro 33 es un
+              ejemplo de curva amplia que se ve suave desde lejos.
+            </figcaption>
+          </figure>
         </section>
 
         <section className="mc-panel pixel-corners mt-6 p-5">
@@ -313,6 +371,27 @@ export default async function ComoHacerCirculosMinecraftPage() {
               para resultados suaves.
             </li>
           </ul>
+        </section>
+
+        <section className="mc-panel pixel-corners mt-6 p-5">
+          <h2 className="font-pixel text-[10px] text-cyan">
+            Cómo se Hizo Esta Guía
+          </h2>
+          <p className="mt-3 text-sm leading-7 text-ink">
+            Los planos de esta guía salen del mismo algoritmo de círculo discreto
+            que usa el generador de CircleGen, y los conteos de bloques se
+            comprobaron con la salida del generador en lugar de calcularse a ojo.
+            Esta guía explica esa lógica de cuadrícula; no afirmamos haber
+            probado todas las construcciones dentro del juego.
+          </p>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            ¿Has encontrado un conteo o un patrón que no coincide con el
+            generador? Envíanos la corrección desde la{" "}
+            <Link href="/contact/" className="pixel-link">
+              página de contacto
+            </Link>{" "}
+            y la revisaremos.
+          </p>
         </section>
 
         <section className="mc-panel pixel-corners mt-6 p-5">
@@ -365,6 +444,47 @@ export default async function ComoHacerCirculosMinecraftPage() {
               </p>
             </div>
           </div>
+        </section>
+
+        <section className="mc-panel pixel-corners mt-6 p-5">
+          <h2 className="font-pixel text-[10px] text-cyan">
+            Guías Relacionadas
+          </h2>
+          <ul className="mt-3 space-y-2 text-sm leading-7 text-ink">
+            <li>
+              <Link
+                href="/es/blog/como-hacer-esfera-minecraft/"
+                className="pixel-link"
+              >
+                Cómo hacer una esfera en Minecraft por capas
+              </Link>{" "}
+              — el mismo patrón circular, apilado en capas horizontales.
+            </li>
+            <li>
+              <Link
+                href="/es/blog/medidas-circulos-minecraft/"
+                className="pixel-link"
+              >
+                Medidas de círculos en Minecraft: tabla de tamaños
+              </Link>{" "}
+              — bloques huecos, rellenos y pilas para cada diámetro.
+            </li>
+            <li>
+              <Link
+                href="/es/blog/como-hacer-ovalo-minecraft/"
+                className="pixel-link"
+              >
+                Cómo hacer un óvalo en Minecraft
+              </Link>{" "}
+              — estira el patrón circular para estanques y mesas.
+            </li>
+            <li>
+              <Link href="/es/sphere/21/" className="pixel-link">
+                Plano de esfera de 21 bloques
+              </Link>{" "}
+              — capas y conteos listos para construir.
+            </li>
+          </ul>
         </section>
 
         <div className="mt-8">

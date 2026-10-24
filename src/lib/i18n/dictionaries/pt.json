@@ -198,7 +198,21 @@
   "footer": {
     "tagline": "Plantas gratuitas de círculos, ovais, esferas e cúpulas para Minecraft.",
     "lastUpdated": "Última atualização",
-    "feedback": "Perguntas ou sugestões? Envie um e-mail para"
+    "feedback": "Perguntas ou sugestões? Envie um e-mail para",
+    "about": "Sobre",
+    "contact": "Contato",
+    "privacy": "Privacidade",
+    "terms": "Termos",
+    "blog": "Blog"
+  },
+  "consent": {
+    "title": "Sua escolha de privacidade",
+    "description": "O Google Analytics só é usado com o seu consentimento, para entender o uso agregado do site. Você pode mudar sua escolha a qualquer momento nas configurações de privacidade no rodapé.",
+    "accept": "Aceitar análise",
+    "reject": "Recusar",
+    "settings": "Configurações de privacidade",
+    "privacy": "Política de privacidade",
+    "close": "Fechar"
   },
   "meta": {
     "title": "Gerador de Círculos Minecraft — Planos Gratuitos",

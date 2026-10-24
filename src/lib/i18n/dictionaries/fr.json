@@ -198,7 +198,21 @@
   "footer": {
     "tagline": "Plans gratuits de cercles, ovales, sphères et dômes pour Minecraft.",
     "lastUpdated": "Dernière mise à jour",
-    "feedback": "Des questions ou des commentaires ? Écrivez-nous à"
+    "feedback": "Des questions ou des commentaires ? Écrivez-nous à",
+    "about": "À propos",
+    "contact": "Contact",
+    "privacy": "Confidentialité",
+    "terms": "Conditions",
+    "blog": "Blog"
+  },
+  "consent": {
+    "title": "Votre choix de confidentialité",
+    "description": "Google Analytics n'est utilisé qu'avec votre consentement, pour comprendre l'usage global du site. Vous pouvez modifier votre choix à tout moment via les paramètres de confidentialité en bas de page.",
+    "accept": "Accepter l'analyse",
+    "reject": "Refuser",
+    "settings": "Paramètres de confidentialité",
+    "privacy": "Politique de confidentialité",
+    "close": "Fermer"
   },
   "meta": {
     "title": "Générateur de Cercles Minecraft — Plans Gratuits",

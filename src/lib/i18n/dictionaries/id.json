@@ -198,7 +198,21 @@
   "footer": {
     "tagline": "Cetak biru lingkaran, oval, bola, dan kubah Minecraft gratis.",
     "lastUpdated": "Pembaruan terakhir",
-    "feedback": "Pertanyaan atau masukan? Kirim email ke"
+    "feedback": "Pertanyaan atau masukan? Kirim email ke",
+    "about": "Tentang",
+    "contact": "Kontak",
+    "privacy": "Privasi",
+    "terms": "Ketentuan",
+    "blog": "Blog"
+  },
+  "consent": {
+    "title": "Pilihan privasi Anda",
+    "description": "Google Analytics hanya digunakan jika Anda setuju, untuk memahami penggunaan situs secara agregat. Anda dapat mengubah pilihan kapan saja melalui pengaturan privasi di footer.",
+    "accept": "Terima analitik",
+    "reject": "Tolak",
+    "settings": "Pengaturan privasi",
+    "privacy": "Kebijakan privasi",
+    "close": "Tutup"
   },
   "meta": {
     "title": "Pembuat Lingkaran Minecraft — Blueprint Gratis",

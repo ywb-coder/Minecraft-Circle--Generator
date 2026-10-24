@@ -7,16 +7,21 @@ import { defaultLocale, type Locale } from "@/lib/i18n/locales";
 import { interpolate } from "@/lib/i18n/format";
 import { SITE_URL, HREFLANG_MAP } from "@/lib/config";
 import { generateShape } from "@/lib/shapes";
+import { getShapeNote } from "@/lib/shape-notes";
 import {
+  circleDiameters,
+  domeDiameters,
   ELLIPSOID_COMBOS,
   hreflangMap,
   isEllipsoidCombo,
+  isIndexableShapePath,
   isOvalPair,
   isTorusCombo,
   localizePath,
   nearestOvalPair,
   OVAL_PAIRS,
   parsePositiveInt,
+  sphereDiameters,
   TORUS_COMBOS,
 } from "@/lib/seo";
 import SeoShell from "./shell";
@@ -169,10 +174,19 @@ export async function shapePageMetadata(
       d: resolved.type === "torus" ? d : w,
       blocks,
     }),
-    alternates: {
-      canonical: `${SITE_URL}${localizePath(resolved.path, input.locale)}`,
-      languages: hreflangMap(resolved.path),
-    },
+    ...(isIndexableShapePath(resolved.path)
+      ? {
+          alternates: {
+            canonical: `${SITE_URL}${localizePath(resolved.path, input.locale)}`,
+            languages: hreflangMap(resolved.path),
+          },
+        }
+      : {
+          alternates: {
+            canonical: `${SITE_URL}${localizePath(resolved.path, input.locale)}`,
+          },
+          robots: { index: false, follow: true },
+        }),
   };
 }
 
@@ -214,32 +228,43 @@ function arcToolHref(locale: Locale, d: number): string {
 }
 
 function relatedLinks(
+  locale: Locale,
   type: RouteShape,
   d: number
 ): { href: string; label: string }[] {
   if (type === "circle") {
-    return [-2, -1, 1, 2]
-      .map((offset) => d + offset)
-      .filter((v) => v >= RANGES.circle.min && v <= RANGES.circle.max)
-      .map((v) => ({ href: `/circle/${v}/`, label: String(v) }));
+    return circleDiameters
+      .filter((v) => Math.abs(v - d) === 2 || Math.abs(v - d) === 4)
+      .map((v) => ({
+        href: localizePath(`/circle/${v}`, locale),
+        label: String(v),
+      }));
   }
   if (type === "sphere" || type === "dome") {
-    const range = RANGES[type];
-    return [-1, 1]
-      .map((offset) => d + offset)
-      .filter((v) => v >= range.min && v <= range.max)
-      .map((v) => ({ href: `/${type}/${v}/`, label: String(v) }));
+    const diameters = type === "sphere" ? sphereDiameters : domeDiameters;
+    return diameters
+      .filter((v) => Math.abs(v - d) === 2)
+      .map((v) => ({
+        href: localizePath(`/${type}/${v}`, locale),
+        label: String(v),
+      }));
   }
   if (type === "torus") {
     const index = TORUS_COMBOS.findIndex(([pd]) => pd === d);
     const links: { href: string; label: string }[] = [];
     if (index > 0) {
       const [pd, pt] = TORUS_COMBOS[index - 1];
-      links.push({ href: `/torus/${pd}/${pt}/`, label: `${pd}×${pt}` });
+      links.push({
+        href: localizePath(`/torus/${pd}/${pt}`, locale),
+        label: `${pd}×${pt}`,
+      });
     }
     if (index >= 0 && index < TORUS_COMBOS.length - 1) {
       const [pd, pt] = TORUS_COMBOS[index + 1];
-      links.push({ href: `/torus/${pd}/${pt}/`, label: `${pd}×${pt}` });
+      links.push({
+        href: localizePath(`/torus/${pd}/${pt}`, locale),
+        label: `${pd}×${pt}`,
+      });
     }
     return links;
   }
@@ -249,14 +274,14 @@ function relatedLinks(
     if (index > 0) {
       const [pw, ph, pd] = ELLIPSOID_COMBOS[index - 1];
       links.push({
-        href: `/ellipsoid/${pw}/${ph}/${pd}/`,
+        href: localizePath(`/ellipsoid/${pw}/${ph}/${pd}`, locale),
         label: `${pw}×${ph}×${pd}`,
       });
     }
     if (index >= 0 && index < ELLIPSOID_COMBOS.length - 1) {
       const [pw, ph, pd] = ELLIPSOID_COMBOS[index + 1];
       links.push({
-        href: `/ellipsoid/${pw}/${ph}/${pd}/`,
+        href: localizePath(`/ellipsoid/${pw}/${ph}/${pd}`, locale),
         label: `${pw}×${ph}×${pd}`,
       });
     }
@@ -266,11 +291,17 @@ function relatedLinks(
   const links: { href: string; label: string }[] = [];
   if (index > 0) {
     const [pw, ph] = OVAL_PAIRS[index - 1];
-    links.push({ href: `/oval/${pw}/${ph}/`, label: `${pw}×${ph}` });
+    links.push({
+      href: localizePath(`/oval/${pw}/${ph}`, locale),
+      label: `${pw}×${ph}`,
+    });
   }
   if (index >= 0 && index < OVAL_PAIRS.length - 1) {
     const [pw, ph] = OVAL_PAIRS[index + 1];
-    links.push({ href: `/oval/${pw}/${ph}/`, label: `${pw}×${ph}` });
+    links.push({
+      href: localizePath(`/oval/${pw}/${ph}`, locale),
+      label: `${pw}×${ph}`,
+    });
   }
   return links;
 }
@@ -308,29 +339,44 @@ function otherShapeLinks(
 ): { href: string; labelKey: keyof Dictionary["tool"] }[] {
   const links: { href: string; labelKey: keyof Dictionary["tool"] }[] = [];
   if (type !== "circle") {
-    links.push({ href: `/circle/${d}/`, labelKey: "circle" });
+    links.push({
+      href: localizePath(`/circle/${d}`, locale),
+      labelKey: "circle",
+    });
   }
   if (type !== "sphere" && d <= RANGES.sphere.max) {
-    links.push({ href: `/sphere/${d}/`, labelKey: "sphere" });
+    links.push({
+      href: localizePath(`/sphere/${d}`, locale),
+      labelKey: "sphere",
+    });
   }
   if (type !== "dome" && d <= RANGES.dome.max) {
-    links.push({ href: `/dome/${d}/`, labelKey: "dome" });
+    links.push({
+      href: localizePath(`/dome/${d}`, locale),
+      labelKey: "dome",
+    });
   }
   if (d <= RANGES.sphere.max) {
     links.push({ href: arcToolHref(locale, d), labelKey: "arc" });
   }
   if (type !== "oval") {
     const [w, h] = nearestOvalPair(d);
-    links.push({ href: `/oval/${w}/${h}/`, labelKey: "oval" });
+    links.push({
+      href: localizePath(`/oval/${w}/${h}`, locale),
+      labelKey: "oval",
+    });
   }
   if (type !== "torus") {
     const [td, tt] = nearestTorusCombo(d);
-    links.push({ href: `/torus/${td}/${tt}/`, labelKey: "torus" });
+    links.push({
+      href: localizePath(`/torus/${td}/${tt}`, locale),
+      labelKey: "torus",
+    });
   }
   if (type !== "ellipsoid") {
     const [ew, eh, edp] = nearestEllipsoidCombo(d);
     links.push({
-      href: `/ellipsoid/${ew}/${eh}/${edp}/`,
+      href: localizePath(`/ellipsoid/${ew}/${eh}/${edp}`, locale),
       labelKey: "ellipsoid",
     });
   }
@@ -375,8 +421,9 @@ export default async function ShapePage(
     d: resolved.type === "torus" ? d : w,
     blocks,
   });
+  const note = getShapeNote(resolved.path, locale);
   const use = nearestUse(dict, d);
-  const related = relatedLinks(resolved.type, d);
+  const related = relatedLinks(locale, resolved.type, d);
   const others = otherShapeLinks(locale, resolved.type, d);
   const vars = { shape: shapeName, d, blocks, use };
   const shapeSteps = dict.perSize.stepsByShape[resolved.type];
@@ -393,6 +440,7 @@ export default async function ShapePage(
         <p className="mt-4 text-base leading-7 text-muted">
           {description}
         </p>
+        {note ? <p className="mt-3 text-sm leading-7 text-ink">{note}</p> : null}
         <div className="mt-6">
           <a
             href={toolHref(

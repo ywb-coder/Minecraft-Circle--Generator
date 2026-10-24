@@ -27,7 +27,11 @@ export const HREFLANG_LOCALES = [
 
 export const GITHUB_URL =
   "https://github.com/ywb-coder/Minecraft-Circle--Generator";
-export const LAUNCH_DATE = "2026-01-01";
+export const SITE_EMAIL = "ywbiong@gmail.com";
+export const LAUNCH_DATE = "2026-08-13";
+
+/** Last date the site content was meaningfully reviewed or updated. */
+export const CONTENT_UPDATED = "2026-10-23";
 
 export interface Source {
   name: string;

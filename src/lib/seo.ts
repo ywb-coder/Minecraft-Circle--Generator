@@ -26,6 +26,44 @@ export const circleDiameters = oddRange(5, 255);
 export const sphereDiameters = oddRange(5, 127);
 export const domeDiameters = oddRange(5, 127);
 
+/** Shape pages that are allowed to be indexed (and listed in the sitemap). */
+export const INDEXABLE_SHAPE_PATHS: ReadonlySet<string> = new Set([
+  "/circle/7",
+  "/circle/9",
+  "/circle/11",
+  "/circle/15",
+  "/circle/21",
+  "/circle/25",
+  "/circle/31",
+  "/circle/33",
+  "/circle/41",
+  "/circle/49",
+  "/circle/51",
+  "/circle/65",
+  "/circle/101",
+  "/sphere/15",
+  "/sphere/21",
+  "/sphere/31",
+  "/sphere/51",
+  "/sphere/101",
+  "/dome/15",
+  "/dome/21",
+  "/dome/31",
+  "/oval/15/7",
+  "/oval/21/9",
+  "/oval/31/15",
+  "/oval/41/21",
+  "/torus/21/4",
+  "/torus/33/6",
+  "/ellipsoid/15/11/7",
+  "/ellipsoid/21/15/9",
+]);
+
+export function isIndexableShapePath(path: string): boolean {
+  const normalized = `/${path.replace(/^\/+/, "").replace(/\/+$/, "")}`;
+  return INDEXABLE_SHAPE_PATHS.has(normalized);
+}
+
 export function parsePositiveInt(value: string | undefined): number | null {
   if (value === undefined || !/^\d+$/.test(value)) return null;
   const n = Number.parseInt(value, 10);
@@ -105,6 +143,6 @@ export function hreflangMap(path: string): Record<string, string> {
   for (const locale of HREFLANG_LOCALES) {
     languages[HREFLANG_MAP[locale]] = localizedUrl(path, locale);
   }
-  languages["x-default"] = `${SITE_URL}/`;
+  languages["x-default"] = localizedUrl(path, defaultLocale);
   return languages;
 }

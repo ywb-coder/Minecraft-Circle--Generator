@@ -198,7 +198,21 @@
   "footer": {
     "tagline": "Kostenlose Minecraft Baupläne für Kreise, Ovale, Kugeln und Kuppeln.",
     "lastUpdated": "Zuletzt aktualisiert",
-    "feedback": "Fragen oder Feedback? E-Mail an"
+    "feedback": "Fragen oder Feedback? E-Mail an",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "privacy": "Datenschutz",
+    "terms": "Nutzungsbedingungen",
+    "blog": "Blog"
+  },
+  "consent": {
+    "title": "Deine Datenschutz-Auswahl",
+    "description": "Google Analytics wird nur mit deiner Zustimmung verwendet, um die Nutzung der Website zusammengefasst auszuwerten. Du kannst deine Wahl jederzeit über die Datenschutz-Einstellungen im Footer ändern.",
+    "accept": "Analytics akzeptieren",
+    "reject": "Ablehnen",
+    "settings": "Datenschutz-Einstellungen",
+    "privacy": "Datenschutzerklärung",
+    "close": "Schließen"
   },
   "meta": {
     "title": "Minecraft Kreisgenerator — Kostenlose Block-Vorlagen",
