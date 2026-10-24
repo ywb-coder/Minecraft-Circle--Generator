@@ -21,7 +21,9 @@ export async function generateMetadata({
   if (!isLocale(locale)) return {};
   const dict = await getDictionary(locale);
   return {
-    title: dict.meta.title,
+    // absolute: bypass the root layout's "%s | CircleGen" template so the
+    // localized homepage gets the full ~60-char SERP title budget.
+    title: { absolute: dict.meta.title },
     description: dict.meta.description,
     alternates: {
       canonical: SITE_URL + localizePath("/", locale),

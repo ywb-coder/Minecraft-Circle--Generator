@@ -8,7 +8,9 @@ import { hreflangMap } from "@/lib/seo";
 export async function generateMetadata(): Promise<Metadata> {
   const dict = await getDictionary(defaultLocale);
   return {
-    title: `${dict.meta.title} | ${dict.siteName}`,
+    // absolute: the root layout template would append " | CircleGen" and push
+    // the title past Google's ~60-char display limit.
+    title: { absolute: dict.meta.title },
     description: dict.meta.description,
     alternates: {
       canonical: SITE_URL + "/",
