@@ -1,9 +1,10 @@
 # AdSense preparation — CircleGen
 
-Status: **not ready to apply yet.** The technical P0 fixes, the analytics
-consent gate, ten articles and size-specific shape-page intros are implemented
-in the working tree, but they have not been committed or deployed. The
-certified-CMP step and the AdSense account itself are still open.
+Status: **ready to apply (2026-10-24 更新).** The privacy-policy advertising
+disclosure and the footer trademark disclaimer are now in place, so the
+remaining checklist items are owner-side (confirm 18+, confirm no duplicate
+AdSense account) plus post-approval tasks (ads.txt, ad code, certified CMP).
+Full audit: `docs/adsense/audit-20261024.md` (73 requirements, 0 blockers).
 
 This is an engineering checklist, not legal advice.
 
