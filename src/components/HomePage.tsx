@@ -46,6 +46,7 @@ export default function HomePage({
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: dict.siteName,
+    alternateName: ["PixelCircle", "pixelcircle.online"],
     url: SITE_URL,
     inLanguage,
   };
