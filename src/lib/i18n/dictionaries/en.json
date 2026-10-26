@@ -93,9 +93,9 @@
     ]
   },
   "perSize": {
-    "title": "Minecraft {d}x{d} {shape} — {blocks} Blocks",
+    "title": "Minecraft {d}x{d} {shape} Blueprint — {blocks} Blocks PNG",
     "titleEllipsoid": "Minecraft {shape} {w}×{h}×{dp}",
-    "desc": "Free Minecraft {d}x{d} {shape} blueprint — exact block-by-block pattern. {blocks} blocks needed, works in Java and Bedrock editions.",
+    "desc": "Free Minecraft {d}x{d} {shape} blueprint: exact block-by-block chart, {blocks} blocks, layer-by-layer build. PNG download, Java and Bedrock.",
     "blocks": "blocks",
     "layer": "Layer",
     "openTool": "Open in the generator",

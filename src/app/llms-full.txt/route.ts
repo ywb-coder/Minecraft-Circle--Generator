@@ -17,6 +17,17 @@ const SIZE_USES: Record<number, string> = {
   101: "a stadium, temple or mega base",
 };
 
+const SIZE_USES_ES: Record<number, string> = {
+  15: "fuente pequeña o ventana decorativa",
+  21: "torre compacta o silo",
+  25: "estanque de jardín o base de glorieta",
+  33: "torre grande o elemento de jardín",
+  41: "torreón de castillo o base de faro",
+  49: "torre grande o anillo de arena",
+  65: "coliseo o gran sala abovedada",
+  101: "estadio, templo o mega base",
+};
+
 function circleBlocks(d: number): number {
   return generateShape({ type: "circle", d, style: "outline" }).blockCount;
 }
@@ -113,6 +124,28 @@ export async function GET(): Promise<Response> {
     `- Ellipsoid 49x31x21: ${ellipsoidSummary(49, 31, 21)} - a big three-axis shape for stadium builds.`
   );
   lines.push("");
+  lines.push("## Tabla de tamaños en español (Spanish size chart)");
+  lines.push("");
+  lines.push(
+    "> Guía rápida en español: cuántos bloques tiene cada círculo de Minecraft y para qué sirve. Generador gratis en " +
+      `${SITE_URL}/es/ — planos PNG sin registro.`
+  );
+  lines.push("");
+  for (const d of CIRCLE_SIZES) {
+    lines.push(
+      `- Círculo de ${d}x${d} bloques: el contorno usa ${circleBlocks(d)} bloques — ideal para ${SIZE_USES_ES[d]}.`
+    );
+  }
+  lines.push(
+    `- Esfera de 15 bloques: ${sphereSummary(15)} — se construye capa por capa desde abajo.`
+  );
+  lines.push(
+    `- Cúpula de 15 bloques: ${domeSummary(15)} — media esfera sobre una base plana.`
+  );
+  lines.push(
+    `- Círculo de 5 a 15 bloques: fuentes y ventanas. De 21 a 49: torres y salas. Más de 65: estadios y coliseos.`
+  );
+  lines.push("");
   lines.push("## FAQ");
   lines.push("");
   lines.push("### How do I use the generator?");
@@ -166,6 +199,8 @@ export async function GET(): Promise<Response> {
   lines.push(`- ${SITE_URL}/es/blog/como-hacer-esfera-minecraft/ - Spanish layered sphere guide`);
   lines.push(`- ${SITE_URL}/es/blog/medidas-circulos-minecraft/ - Spanish circle size chart`);
   lines.push(`- ${SITE_URL}/es/blog/como-hacer-ovalo-minecraft/ - Spanish oval guide`);
+  lines.push(`- ${SITE_URL}/es/blog/como-hacer-cupula-minecraft/ - Spanish dome guide`);
+  lines.push(`- ${SITE_URL}/es/blog/como-hacer-torre-minecraft/ - Spanish tower guide`);
   lines.push("");
   lines.push("## Languages");
   lines.push("");

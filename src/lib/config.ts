@@ -31,7 +31,7 @@ export const SITE_EMAIL = "ywbiong@gmail.com";
 export const LAUNCH_DATE = "2026-08-13";
 
 /** Last date the site content was meaningfully reviewed or updated. */
-export const CONTENT_UPDATED = "2026-10-24";
+export const CONTENT_UPDATED = "2026-10-26";
 
 export interface Source {
   name: string;

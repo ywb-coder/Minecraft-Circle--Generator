@@ -73,8 +73,8 @@ describe("sitemap", () => {
     );
   });
 
-  it("has 346 entries", () => {
-    expect(entries).toHaveLength(346);
+  it("has 348 entries", () => {
+    expect(entries).toHaveLength(348);
     expect(shapeUrls).toHaveLength(INDEXABLE_SHAPE_PATHS.size * HREFLANG_LOCALES.length);
     expect(entries.every((entry) => entry.url.startsWith(SITE_URL))).toBe(true);
 

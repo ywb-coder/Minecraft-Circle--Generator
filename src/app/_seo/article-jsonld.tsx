@@ -1,4 +1,4 @@
-import { SITE_URL } from "@/lib/config";
+import { GITHUB_URL, SITE_URL } from "@/lib/config";
 
 type ArticleLocale = "en" | "es";
 
@@ -45,6 +45,7 @@ export default function ArticleJsonLd({
       "@type": "Organization",
       name: "CircleGen",
       url: authorUrl,
+      sameAs: [GITHUB_URL],
     },
     publisher: {
       "@type": "Organization",

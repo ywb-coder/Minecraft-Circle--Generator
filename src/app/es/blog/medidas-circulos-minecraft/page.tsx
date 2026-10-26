@@ -78,13 +78,13 @@ export default async function MedidasCirculosMinecraftPage() {
         locale="es"
         images={["/shape-pngs/circle-21.png", "/shape-pngs/circle-101.png"]}
         published="2026-10-21"
-        updated="2026-10-21"
+        updated="2026-10-26"
       />
       <div className="mx-auto max-w-3xl">
         <h1 className="pixel-shadow font-pixel text-lg text-ink sm:text-xl">
           Medidas de Círculos en Minecraft: Tabla de Tamaños
         </h1>
-        <ArticleMeta published="2026-10-21" updated="2026-10-21" locale="es" />
+        <ArticleMeta published="2026-10-21" updated="2026-10-26" locale="es" />
 
         <section className="mc-panel pixel-corners mt-8 p-5">
           <h2 className="font-pixel text-[10px] text-cyan">Respuesta Rápida</h2>
@@ -100,6 +100,14 @@ export default async function MedidasCirculosMinecraftPage() {
               <strong className="text-ink">hueco</strong> y uno{" "}
               <strong className="text-ink">relleno</strong> del mismo diámetro no
               usan la misma cantidad de bloques.
+            </p>
+            <p className="mt-2">
+              Contornos más consultados:{" "}
+              <strong className="text-ink">15 → 40 bloques</strong>,{" "}
+              <strong className="text-ink">21 → 56</strong>,{" "}
+              <strong className="text-ink">31 → 84</strong>,{" "}
+              <strong className="text-ink">41 → 112</strong>,{" "}
+              <strong className="text-ink">101 → 316</strong>.
             </p>
           </div>
         </section>

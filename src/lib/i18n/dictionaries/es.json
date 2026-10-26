@@ -93,9 +93,9 @@
     ]
   },
   "perSize": {
-    "title": "Minecraft {d}x{d} {shape} — {blocks} bloques",
+    "title": "Minecraft {d}x{d} {shape} — Plano PNG de {blocks} bloques",
     "titleEllipsoid": "Minecraft {shape} {w}×{h}×{dp}",
-    "desc": "Obtén el patrón exacto de bloques para un {shape} de Minecraft {d}x{d}. {blocks} bloques necesarios — funciona en Java y Bedrock.",
+    "desc": "Plano exacto del {shape} de Minecraft {d}x{d}: {blocks} bloques, patrón paso a paso y descarga PNG. Gratis, funciona en Java y Bedrock.",
     "blocks": "bloques",
     "layer": "Capa",
     "openTool": "Abrir en el generador",

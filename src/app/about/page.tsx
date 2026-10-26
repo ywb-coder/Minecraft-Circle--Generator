@@ -3,7 +3,7 @@ import Link from "@/components/StaticLink";
 import SeoShell from "@/app/_seo/shell";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { defaultLocale } from "@/lib/i18n/locales";
-import { GITHUB_URL, SITE_EMAIL, SOURCES, SITE_URL } from "@/lib/config";
+import { GITHUB_URL, SITE_EMAIL, SOURCES, SITE_URL, CONTENT_UPDATED, LAUNCH_DATE } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "About – Minecraft Circle Generator",
@@ -14,12 +14,31 @@ export const metadata: Metadata = {
 
 export default async function AboutPage() {
   const dict = await getDictionary(defaultLocale);
+  const orgJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "CircleGen",
+    url: SITE_URL,
+    logo: `${SITE_URL}/android-chrome-512x512.png`,
+    sameAs: [GITHUB_URL],
+    email: SITE_EMAIL,
+    foundingDate: LAUNCH_DATE,
+  };
   return (
     <SeoShell dict={dict} locale={defaultLocale}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(orgJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <div className="mx-auto max-w-3xl">
         <h1 className="pixel-shadow font-pixel text-lg text-ink sm:text-xl">
           About CircleGen
         </h1>
+        <p className="mt-3 text-xs text-muted">
+          Last content review: {CONTENT_UPDATED}
+        </p>
 
         <section className="mc-panel pixel-corners mt-8 p-5">
           <h2 className="font-pixel text-[10px] text-cyan">

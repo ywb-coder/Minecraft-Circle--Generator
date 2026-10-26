@@ -45,6 +45,22 @@ const faqJsonLd = {
     },
     {
       "@type": "Question",
+      name: "¿Cuántos bloques tiene un círculo de 15, 21 o 31 en Minecraft?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "El contorno de un círculo de 15 bloques usa 40 bloques, el de 21 usa 56, el de 31 usa 84 y el de 41 usa 112. Si lo rellenas por completo, la cifra sube mucho: el de 21 necesita 333 bloques rellenos. Consulta la tabla completa de medidas para todos los diámetros.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Se puede hacer un círculo en Minecraft sin mods ni comandos?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sí. El plano es solo un patrón de bloques: se construye a mano en supervivencia o creativo sin mods ni comandos. Si prefieres comandos, CircleGen también exporta cada bloque como /setblock con coordenadas de mundo.",
+      },
+    },
+    {
+      "@type": "Question",
       name: "¿Cuál es el mejor diámetro para una torre?",
       acceptedAnswer: {
         "@type": "Answer",
@@ -73,13 +89,13 @@ export default async function ComoHacerCirculosMinecraftPage() {
           "/shape-pngs/circle-33.png",
         ]}
         published="2026-10-21"
-        updated="2026-10-21"
+        updated="2026-10-26"
       />
       <div className="mx-auto max-w-3xl">
         <h1 className="pixel-shadow font-pixel text-lg text-ink sm:text-xl">
           Cómo Hacer un Círculo en Minecraft: Guía Paso a Paso
         </h1>
-        <ArticleMeta published="2026-10-21" updated="2026-10-21" locale="es" />
+        <ArticleMeta published="2026-10-21" updated="2026-10-26" locale="es" />
 
         <section className="mc-panel pixel-corners mt-8 p-5">
           <h2 className="font-pixel text-[10px] text-cyan">Respuesta Rápida</h2>
@@ -435,6 +451,27 @@ export default async function ComoHacerCirculosMinecraftPage() {
             </div>
             <div>
               <h3 className="text-sm font-bold text-ink">
+                ¿Cuántos bloques tiene un círculo de 15, 21 o 31?
+              </h3>
+              <p className="mt-1 text-sm leading-7 text-muted">
+                El contorno de un círculo de 15 usa 40 bloques, el de 21 usa 56,
+                el de 31 usa 84 y el de 41 usa 112. Relleno por completo, el de
+                21 necesita 333 bloques. La tabla de medidas recoge todos los
+                diámetros.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-bold text-ink">
+                ¿Se puede hacer un círculo sin mods ni comandos?
+              </h3>
+              <p className="mt-1 text-sm leading-7 text-muted">
+                Sí. El plano es un patrón de bloques que se construye a mano en
+                supervivencia o creativo. Si prefieres comandos, CircleGen
+                exporta cada bloque como /setblock con coordenadas de mundo.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-bold text-ink">
                 ¿Cuál es el mejor diámetro para una torre?
               </h3>
               <p className="mt-1 text-sm leading-7 text-muted">
@@ -477,6 +514,15 @@ export default async function ComoHacerCirculosMinecraftPage() {
                 Cómo hacer un óvalo en Minecraft
               </Link>{" "}
               — estira el patrón circular para estanques y mesas.
+            </li>
+            <li>
+              <Link
+                href="/es/blog/como-hacer-torre-minecraft/"
+                className="pixel-link"
+              >
+                Cómo hacer una torre en Minecraft
+              </Link>{" "}
+              — elige el diámetro según el interior, el muro y las escaleras.
             </li>
             <li>
               <Link href="/es/sphere/21/" className="pixel-link">

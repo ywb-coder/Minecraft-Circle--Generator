@@ -113,6 +113,8 @@ const esBlogImages: Record<string, string> = {
   "/es/blog/como-hacer-esfera-minecraft": "/shape-pngs/circle-21.png",
   "/es/blog/medidas-circulos-minecraft": "/shape-pngs/circle-101.png",
   "/es/blog/como-hacer-ovalo-minecraft": "/shape-pngs/oval-21-9.png",
+  "/es/blog/como-hacer-cupula-minecraft": "/shape-pngs/circle-31.png",
+  "/es/blog/como-hacer-torre-minecraft": "/shape-pngs/circle-21.png",
 };
 
 const esBlogEntries: MetadataRoute.Sitemap = [
@@ -121,6 +123,8 @@ const esBlogEntries: MetadataRoute.Sitemap = [
   "/es/blog/como-hacer-esfera-minecraft",
   "/es/blog/medidas-circulos-minecraft",
   "/es/blog/como-hacer-ovalo-minecraft",
+  "/es/blog/como-hacer-cupula-minecraft",
+  "/es/blog/como-hacer-torre-minecraft",
 ].map((path) => ({
   url: localizedUrl(path, "en"),
   changeFrequency: "monthly",

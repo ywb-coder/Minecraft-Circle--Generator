@@ -27,6 +27,66 @@ export default async function BlogEsPage() {
             <div className="flex gap-4">
               <div className="shrink-0 border-2 border-mc-border bg-panel-2">
                 <img
+                  src="/shape-pngs/circle-31.png"
+                  alt="Miniatura de un diagrama de cúpula de 31 bloques sobre base plana"
+                  width={454}
+                  height={454}
+                  loading="lazy"
+                  className="h-20 w-20 [image-rendering:pixelated]"
+                />
+              </div>
+              <div>
+                <Link
+                  href="/es/blog/como-hacer-cupula-minecraft/"
+                  className="pixel-link text-sm font-bold"
+                >
+                  Cómo Hacer una Cúpula en Minecraft: Guía sobre Base Plana
+                </Link>
+                <ArticleMeta
+                  published="2026-10-26"
+                  updated="2026-10-26"
+                  locale="es"
+                />
+                <p className="mt-1 text-sm leading-7 text-muted">
+                  Construye una cúpula sobre una base plana: diámetro vs
+                  altura, interiores huecos, paso a paso y errores comunes al
+                  cerrar el casquete.
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="shrink-0 border-2 border-mc-border bg-panel-2">
+                <img
+                  src="/shape-pngs/circle-21.png"
+                  alt="Miniatura de un círculo de 21 bloques usado como huella de torre"
+                  width={461}
+                  height={461}
+                  loading="lazy"
+                  className="h-20 w-20 [image-rendering:pixelated]"
+                />
+              </div>
+              <div>
+                <Link
+                  href="/es/blog/como-hacer-torre-minecraft/"
+                  className="pixel-link text-sm font-bold"
+                >
+                  Cómo Hacer una Torre en Minecraft: Diámetro y Planificación
+                </Link>
+                <ArticleMeta
+                  published="2026-10-26"
+                  updated="2026-10-26"
+                  locale="es"
+                />
+                <p className="mt-1 text-sm leading-7 text-muted">
+                  Elige el diámetro de tu torre según interior, grosor de muro,
+                  escaleras y altura. Tabla de huellas de 9 a 51 bloques con
+                  recuentos verificados.
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="shrink-0 border-2 border-mc-border bg-panel-2">
+                <img
                   src="/shape-pngs/oval-21-9.png"
                   alt="Miniatura del plano generado de un óvalo de 21 por 9 bloques"
                   width={461}

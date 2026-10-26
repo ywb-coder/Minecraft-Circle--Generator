@@ -418,6 +418,15 @@ export default async function ComoHacerEsferaMinecraftPage() {
               — bloques huecos y rellenos antes de empezar.
             </li>
             <li>
+              <Link
+                href="/es/blog/como-hacer-cupula-minecraft/"
+                className="pixel-link"
+              >
+                Cómo hacer una cúpula en Minecraft
+              </Link>{" "}
+              — la mitad inferior de la esfera, sobre una base plana.
+            </li>
+            <li>
               <Link href="/es/sphere/21/" className="pixel-link">
                 Plano de esfera de 21 bloques
               </Link>{" "}

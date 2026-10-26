@@ -306,6 +306,128 @@ function relatedLinks(
   return links;
 }
 
+function guideLinks(
+  locale: Locale,
+  type: RouteShape
+): { href: string; label: string }[] {
+  const es = locale === "es";
+  const links: { href: string; label: string }[] = [];
+  if (type === "circle") {
+    links.push(
+      es
+        ? {
+            href: "/es/blog/como-hacer-circulos-minecraft/",
+            label: "Cómo hacer un círculo en Minecraft",
+          }
+        : {
+            href: "/blog/minecraft-circle-guide/",
+            label: "Minecraft circle guide",
+          }
+    );
+    links.push(
+      es
+        ? {
+            href: "/es/blog/medidas-circulos-minecraft/",
+            label: "Tabla de medidas de círculos",
+          }
+        : {
+            href: "/blog/minecraft-circle-sizes/",
+            label: "Circle size chart",
+          }
+    );
+    links.push(
+      es
+        ? {
+            href: "/es/blog/como-hacer-torre-minecraft/",
+            label: "Cómo hacer una torre",
+          }
+        : { href: "/blog/minecraft-tower-guide/", label: "Tower guide" }
+    );
+    return links;
+  }
+  if (type === "sphere") {
+    links.push(
+      es
+        ? {
+            href: "/es/blog/como-hacer-esfera-minecraft/",
+            label: "Cómo hacer una esfera",
+          }
+        : {
+            href: "/blog/minecraft-sphere-guide/",
+            label: "Minecraft sphere guide",
+          }
+    );
+    links.push(
+      es
+        ? {
+            href: "/es/blog/como-hacer-circulos-minecraft/",
+            label: "Cómo hacer un círculo",
+          }
+        : { href: "/blog/minecraft-circle-guide/", label: "Circle guide" }
+    );
+    return links;
+  }
+  if (type === "dome") {
+    links.push(
+      es
+        ? {
+            href: "/es/blog/como-hacer-cupula-minecraft/",
+            label: "Cómo hacer una cúpula",
+          }
+        : { href: "/blog/minecraft-dome-guide/", label: "Minecraft dome guide" }
+    );
+    links.push(
+      es
+        ? {
+            href: "/es/blog/como-hacer-esfera-minecraft/",
+            label: "Cómo hacer una esfera",
+          }
+        : {
+            href: "/blog/minecraft-sphere-guide/",
+            label: "Sphere guide",
+          }
+    );
+    return links;
+  }
+  if (type === "oval") {
+    links.push(
+      es
+        ? {
+            href: "/es/blog/como-hacer-ovalo-minecraft/",
+            label: "Cómo hacer un óvalo",
+          }
+        : { href: "/blog/minecraft-oval-guide/", label: "Minecraft oval guide" }
+    );
+    links.push(
+      es
+        ? {
+            href: "/es/blog/como-hacer-circulos-minecraft/",
+            label: "Cómo hacer un círculo",
+          }
+        : { href: "/blog/minecraft-circle-guide/", label: "Circle guide" }
+    );
+    return links;
+  }
+  // torus / ellipsoid: no dedicated guide yet — anchor to circle + sphere
+  links.push(
+    es
+      ? {
+          href: "/es/blog/como-hacer-circulos-minecraft/",
+          label: "Cómo hacer un círculo",
+        }
+      : { href: "/blog/minecraft-circle-guide/", label: "Minecraft circle guide" }
+  );
+  links.push(
+    es
+      ? {
+          href: "/es/blog/como-hacer-esfera-minecraft/",
+          label: "Cómo hacer una esfera",
+        }
+      : { href: "/blog/minecraft-sphere-guide/", label: "Sphere guide" }
+  );
+  return links;
+}
+
 function nearestTorusCombo(d: number): readonly [number, number] {
   let best = TORUS_COMBOS[0];
   let bestDiff = Infinity;
@@ -425,6 +547,7 @@ export default async function ShapePage(
   const use = nearestUse(dict, d);
   const related = relatedLinks(locale, resolved.type, d);
   const others = otherShapeLinks(locale, resolved.type, d);
+  const guides = guideLinks(locale, resolved.type);
   const vars = { shape: shapeName, d, blocks, use };
   const shapeSteps = dict.perSize.stepsByShape[resolved.type];
   const stacks = Math.ceil(blocks / 64);
@@ -623,17 +746,23 @@ export default async function ShapePage(
           </ol>
         </section>
 
-        {locale === "es" && resolved.type === "circle" && (
-          <p className="mt-6 text-sm text-muted">
-            Para la guía completa, con tabla de tamaños y errores comunes, lee{" "}
-            <Link
-              href="/es/blog/como-hacer-circulos-minecraft/"
-              className="pixel-link"
-            >
-              Cómo hacer un círculo en Minecraft paso a paso
-            </Link>
-            .
-          </p>
+        {guides.length > 0 && (
+          <section className="mt-10">
+            <h2 className="font-pixel text-[10px] uppercase tracking-wide text-cyan">
+              {locale === "es" ? "Guías relacionadas" : "Related guides"}
+            </h2>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {guides.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="mc-btn px-2! py-1! text-[10px]"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </section>
         )}
 
         <section className="mt-10">
