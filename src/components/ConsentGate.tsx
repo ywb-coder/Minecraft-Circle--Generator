@@ -47,8 +47,12 @@ function getGtag(): GtagWindow["gtag"] {
   if (analyticsWindow.gtag) return analyticsWindow.gtag;
   analyticsWindow.dataLayer = analyticsWindow.dataLayer || [];
   const dataLayer = analyticsWindow.dataLayer;
-  const gtag = (...args: unknown[]) => {
-    dataLayer.push(args);
+  // gtag.js reads each dataLayer entry as an `arguments` object. Pushing a
+  // plain array makes consent commands stall silently (no hits, no cookies),
+  // so mirror Google's own snippet exactly.
+  const gtag = function () {
+    // eslint-disable-next-line prefer-rest-params
+    dataLayer.push(arguments as unknown as unknown[]);
   };
   analyticsWindow.gtag = gtag;
   return gtag;
