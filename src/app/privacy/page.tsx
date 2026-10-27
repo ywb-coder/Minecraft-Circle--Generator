@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "@/components/StaticLink";
-import ConsentSettingsButton from "@/components/ConsentSettingsButton";
 import SeoShell from "@/app/_seo/shell";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { defaultLocale } from "@/lib/i18n/locales";
@@ -9,7 +8,7 @@ import { CONTENT_UPDATED, SITE_EMAIL, SITE_URL } from "@/lib/config";
 export const metadata: Metadata = {
   title: "Privacy Policy – Minecraft Circle Generator",
   description:
-    "CircleGen privacy policy: the generator runs in your browser, Google Analytics runs in consent mode with no cookies before you accept, and you can change your choice anytime.",
+    "CircleGen privacy policy: the generator runs in your browser, Google Analytics measures aggregate site usage, and you can block cookies anytime in your browser.",
   alternates: { canonical: `${SITE_URL}/privacy/` },
 };
 
@@ -30,8 +29,8 @@ export default async function PrivacyPage() {
           <p className="mt-3 text-sm leading-7 text-ink">
             CircleGen is an independent, free Minecraft circle generator that
             runs in your browser. You do not need an account. Google Analytics
-            runs in consent mode: no analytics cookies are set until you accept
-            analytics.
+            is used to measure aggregate site usage; it does not change how the
+            generator works and can be blocked in your browser at any time.
           </p>
         </section>
 
@@ -66,26 +65,20 @@ export default async function PrivacyPage() {
 
             <div>
               <h3 className="font-pixel text-[10px] leading-relaxed text-ink">
-                Analytics and your consent
+                Analytics
               </h3>
               <p className="mt-2">
-                We use Google Analytics 4 in consent mode. The analytics script
-                starts with analytics storage denied: no analytics cookies are
-                written and no identifying information is collected unless you
-                choose Accept analytics in the banner or in Privacy settings.
-                In the denied state Google may still receive a cookieless,
-                aggregated ping that helps model overall traffic volume without
-                identifying individual visitors. When you accept, Google
-                Analytics may set first-party cookies such as <code>_ga</code>,{" "}
-                <code>_ga_*</code> and <code>_gid</code> in your browser and
-                collect usage information such as pages viewed, approximate
-                location derived from your IP address, device and browser
-                details, and interactions with the site. We use this data only
-                to understand aggregate site usage and improve the site. Google
-                LLC provides Google Analytics and processes data under its own
-                terms and privacy policy. Visitors in the EEA, the UK and
-                Switzerland see the consent banner first; elsewhere analytics
-                runs by default and you can opt out at any time.
+                We use Google Analytics 4 to understand aggregate site usage.
+                Google Analytics may set first-party cookies such as{" "}
+                <code>_ga</code>, <code>_ga_*</code> and <code>_gid</code> in
+                your browser and collect usage information such as pages
+                viewed, approximate location derived from your IP address,
+                device and browser details, and interactions with the site. We
+                use this data only to understand aggregate site usage and
+                improve the site. Google LLC provides Google Analytics and
+                processes data under its own terms and privacy policy. We do
+                not use analytics to identify individual visitors and do not
+                sell or share this data with third parties.
               </p>
             </div>
 
@@ -94,17 +87,13 @@ export default async function PrivacyPage() {
                 Your choice and how to change it
               </h3>
               <p className="mt-2">
-                Your consent choice is stored in your browser&apos;s
-                localStorage under the key <code>circlegen-consent-v1</code>.
-                It stays on your device until you change it or clear site data.
-                You can reopen the settings with the button below or with the
-                Privacy settings link in the footer. If you withdraw consent,
-                we disable Google Analytics for this site and remove its{" "}
-                <code>_ga</code>, <code>_ga_*</code> and <code>_gid</code>{" "}
-                cookies before reloading the page.
-              </p>
-              <p className="mt-3">
-                <ConsentSettingsButton label={dict.consent.settings} />
+                Analytics is optional in practice even if it is on by default:
+                you can delete or block the Google Analytics cookies through
+                your browser settings or with a content-blocking extension, and
+                the generator keeps working either way. We may later add a
+                consent tool that lets you opt out of analytics directly on the
+                site; until then the browser controls described below are the
+                way to opt out.
               </p>
             </div>
 
@@ -114,13 +103,11 @@ export default async function PrivacyPage() {
               </h3>
               <p className="mt-2">
                 The only analytics cookies this site may use are the Google
-                Analytics cookies described above, and only after you accept.
-                Advertising cookies, used only when ads are displayed, are
-                described in the Advertising section below. You can delete or
-                block cookies and clear localStorage through your browser
-                settings. Blocking cookies does not prevent the generator from
-                working. Clearing site data may reset your saved consent
-                choice, in which case the banner will appear again.
+                Analytics cookies described above. Advertising cookies, used
+                only when ads are displayed, are described in the Advertising
+                section below. You can delete or block cookies through your
+                browser settings at any time. Blocking cookies does not prevent
+                the generator from working.
               </p>
             </div>
 

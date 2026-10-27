@@ -269,7 +269,7 @@ export default function HomePage({
       </main>
 
       <SiteFooter dict={dict} locale={locale} />
-      <ConsentGate copy={dict.consent} />
+      <ConsentGate />
     </div>
   );
 }

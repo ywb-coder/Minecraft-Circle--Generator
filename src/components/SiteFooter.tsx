@@ -1,5 +1,4 @@
 import Link from "@/components/StaticLink";
-import ConsentSettingsButton from "@/components/ConsentSettingsButton";
 import type { Dictionary } from "@/lib/i18n/dictionaries";
 import type { Locale } from "@/lib/i18n/locales";
 import { CONTENT_UPDATED, SITE_EMAIL } from "@/lib/config";
@@ -30,7 +29,6 @@ export default function SiteFooter({
           <Link href="/blog/" className="pixel-link text-sm">
             {dict.footer.blog}
           </Link>
-          <ConsentSettingsButton label={dict.consent.settings} />
         </nav>
         <p className="font-pixel text-[10px] text-ink">
           © {new Date().getFullYear()} {dict.siteName}

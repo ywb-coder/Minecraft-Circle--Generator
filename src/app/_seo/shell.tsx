@@ -33,7 +33,7 @@ export default function SeoShell({
         <div className="mx-auto max-w-5xl px-4 py-10">{children}</div>
       </main>
       <SiteFooter dict={dict} locale={locale} />
-      <ConsentGate copy={dict.consent} />
+      <ConsentGate />
     </div>
   );
 }
