@@ -9,7 +9,7 @@ import { CONTENT_UPDATED, SITE_EMAIL, SITE_URL } from "@/lib/config";
 export const metadata: Metadata = {
   title: "Privacy Policy – Minecraft Circle Generator",
   description:
-    "CircleGen privacy policy: the generator runs in your browser, Google Analytics stays off until you consent, and you can change your choice anytime.",
+    "CircleGen privacy policy: the generator runs in your browser, Google Analytics runs in consent mode with no cookies before you accept, and you can change your choice anytime.",
   alternates: { canonical: `${SITE_URL}/privacy/` },
 };
 
@@ -30,7 +30,8 @@ export default async function PrivacyPage() {
           <p className="mt-3 text-sm leading-7 text-ink">
             CircleGen is an independent, free Minecraft circle generator that
             runs in your browser. You do not need an account. Google Analytics
-            is disabled by default and only loads if you accept analytics.
+            runs in consent mode: no analytics cookies are set until you accept
+            analytics.
           </p>
         </section>
 
@@ -68,18 +69,23 @@ export default async function PrivacyPage() {
                 Analytics and your consent
               </h3>
               <p className="mt-2">
-                We use Google Analytics 4 only after you choose Accept
-                analytics in the consent banner or in Privacy settings. If you
-                reject analytics or do not make a choice, the Google Analytics
-                script is not loaded. When you accept, Google Analytics may set
-                first-party cookies such as <code>_ga</code>,{" "}
+                We use Google Analytics 4 in consent mode. The analytics script
+                starts with analytics storage denied: no analytics cookies are
+                written and no identifying information is collected unless you
+                choose Accept analytics in the banner or in Privacy settings.
+                In the denied state Google may still receive a cookieless,
+                aggregated ping that helps model overall traffic volume without
+                identifying individual visitors. When you accept, Google
+                Analytics may set first-party cookies such as <code>_ga</code>,{" "}
                 <code>_ga_*</code> and <code>_gid</code> in your browser and
                 collect usage information such as pages viewed, approximate
                 location derived from your IP address, device and browser
                 details, and interactions with the site. We use this data only
                 to understand aggregate site usage and improve the site. Google
                 LLC provides Google Analytics and processes data under its own
-                terms and privacy policy.
+                terms and privacy policy. Visitors in the EEA, the UK and
+                Switzerland see the consent banner first; elsewhere analytics
+                runs by default and you can opt out at any time.
               </p>
             </div>
 

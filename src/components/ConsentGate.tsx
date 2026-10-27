@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import Link from "@/components/StaticLink";
 import {
   CONSENT_STORAGE_KEY,
+  detectConsentRegion,
   parseConsent,
   serializeConsent,
   type ConsentChoice,
@@ -14,9 +15,10 @@ const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || "G-ED1D95CXQV";
 const GA_SCRIPT_ATTRIBUTE = "data-circlegen-ga";
 const EXPIRED_COOKIE_DATE = "Thu, 01 Jan 1970 00:00:00 GMT";
 
-let gaConfigured = false;
-
 type ConsentCopy = Dictionary["consent"];
+type ConsentRegion = "eea" | "row";
+
+let gtagBootstrapped = false;
 
 function readStoredConsent(): ConsentChoice | null {
   try {
@@ -35,31 +37,58 @@ function storeConsent(choice: ConsentChoice): void {
   }
 }
 
+type GtagWindow = Window & {
+  dataLayer?: unknown[];
+  gtag?: (...args: unknown[]) => void;
+};
+
+function getGtag(): GtagWindow["gtag"] {
+  const analyticsWindow = window as GtagWindow;
+  if (analyticsWindow.gtag) return analyticsWindow.gtag;
+  analyticsWindow.dataLayer = analyticsWindow.dataLayer || [];
+  const dataLayer = analyticsWindow.dataLayer;
+  const gtag = (...args: unknown[]) => {
+    dataLayer.push(args);
+  };
+  analyticsWindow.gtag = gtag;
+  return gtag;
+}
+
 function setGaDisabled(disabled: boolean): void {
   (window as unknown as Record<string, unknown>)[
     `ga-disable-${GA_MEASUREMENT_ID}`
   ] = disabled;
 }
 
-function loadGoogleAnalytics(): void {
+/**
+ * Load gtag.js once and install Consent Mode v2 defaults before the first hit.
+ *
+ * EEA/UK/CH visitors start with every storage type denied: GA4 still sends
+ * cookieless pings (when the property has behavioral modeling enabled) but no
+ * cookies are written until they accept. Visitors elsewhere start granted,
+ * which keeps reporting complete for the site's main markets (LatAm/US) while
+ * the footer still exposes an opt-out.
+ */
+function bootstrapGtag(region: ConsentRegion): void {
+  if (gtagBootstrapped) return;
+  gtagBootstrapped = true;
+
   setGaDisabled(false);
+  const gtag = getGtag();
+  if (!gtag) return;
 
-  const analyticsWindow = window as Window & {
-    dataLayer?: unknown[];
-    gtag?: (...args: unknown[]) => void;
-  };
-  analyticsWindow.dataLayer = analyticsWindow.dataLayer || [];
-  const dataLayer = analyticsWindow.dataLayer;
+  const grantAll = region === "row";
 
-  if (gaConfigured) return;
-  gaConfigured = true;
+  gtag("consent", "default", {
+    ad_storage: grantAll ? "granted" : "denied",
+    ad_user_data: grantAll ? "granted" : "denied",
+    ad_personalization: grantAll ? "granted" : "denied",
+    analytics_storage: grantAll ? "granted" : "denied",
+    functionality_storage: "granted",
+    security_storage: "granted",
+    wait_for_update: 500,
+  });
 
-  // Queue the commands before the external script loads, matching Google's
-  // standard snippet. The script drains this array when it is ready.
-  const gtag = (...args: unknown[]) => {
-    dataLayer.push(args);
-  };
-  analyticsWindow.gtag = gtag;
   gtag("js", new Date());
   gtag("config", GA_MEASUREMENT_ID);
 
@@ -72,6 +101,18 @@ function loadGoogleAnalytics(): void {
     script.setAttribute(GA_SCRIPT_ATTRIBUTE, "true");
     document.head.appendChild(script);
   }
+}
+
+/** Push a Consent Mode v2 update after an explicit user decision. */
+function applyConsent(choice: ConsentChoice): void {
+  const gtag = getGtag();
+  if (!gtag) return;
+  gtag("consent", "update", {
+    ad_storage: choice,
+    ad_user_data: choice,
+    ad_personalization: choice,
+    analytics_storage: choice,
+  });
 }
 
 /** Derive the registrable-looking domain used for GA's domain-wide cookie. */
@@ -132,14 +173,28 @@ export default function ConsentGate({ copy }: { copy: ConsentCopy }) {
     // client render stay identical.
     const init = window.setTimeout(() => {
       const stored = readStoredConsent();
+      const region = detectConsentRegion();
       setChoice(stored);
 
+      // Consent Mode defaults must be installed before the first GA hit, so
+      // gtag loads for everyone; only the storage permissions differ.
+      bootstrapGtag(region);
+
       if (stored === "granted") {
-        loadGoogleAnalytics();
-      } else {
+        applyConsent("granted");
+        setGaDisabled(false);
+      } else if (stored === "denied") {
+        applyConsent("denied");
         setGaDisabled(true);
         clearGaCookies();
-        if (!stored) setOpen(true);
+      } else if (region === "eea") {
+        // Keep the denied defaults: cookieless pings may still feed GA4's
+        // behavioral modeling, but no cookies are written before consent.
+        setOpen(true);
+      } else {
+        // Rest of world: tracking is on by default; the footer exposes the
+        // opt-out, which stores "denied" and reloads the consent state.
+        applyConsent("granted");
       }
 
       setReady(true);
@@ -156,26 +211,14 @@ export default function ConsentGate({ copy }: { copy: ConsentCopy }) {
 
   const handleChoice = useCallback(
     (next: ConsentChoice) => {
-      const previous = choice ?? readStoredConsent();
       storeConsent(next);
       setChoice(next);
       setOpen(false);
-
-      if (previous !== null && previous !== next) {
-        setGaDisabled(next === "denied");
-        clearGaCookies();
-        window.location.reload();
-        return;
-      }
-
-      if (next === "granted") {
-        loadGoogleAnalytics();
-      } else {
-        setGaDisabled(true);
-        clearGaCookies();
-      }
+      applyConsent(next);
+      setGaDisabled(next === "denied");
+      if (next === "denied") clearGaCookies();
     },
-    [choice]
+    []
   );
 
   if (!ready || !open) return null;
