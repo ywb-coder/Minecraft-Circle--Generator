@@ -167,6 +167,9 @@ export async function shapePageMetadata(
           dp: resolved.dp,
         })
       : interpolate(dict.perSize.title, { shape, d, blocks });
+  const shapeImg = `${SITE_URL}/shape-pngs/${resolved.path
+    .slice(1)
+    .replace(/\//g, "-")}.webp`;
   return {
     title,
     description: interpolate(dict.perSize.desc, {
@@ -174,6 +177,12 @@ export async function shapePageMetadata(
       d: resolved.type === "torus" ? d : w,
       blocks,
     }),
+    openGraph: {
+      images: [{ url: shapeImg, width: 449, height: 449 }],
+    },
+    twitter: {
+      images: [shapeImg],
+    },
     ...(isIndexableShapePath(resolved.path)
       ? {
           alternates: {
@@ -552,7 +561,7 @@ export default async function ShapePage(
   const shapeSteps = dict.perSize.stepsByShape[resolved.type];
   const stacks = Math.ceil(blocks / 64);
   const time = Math.max(1, Math.ceil(blocks / 240));
-  const pngName = resolved.path.slice(1).replace(/\//g, "-") + ".png";
+  const pngName = resolved.path.slice(1).replace(/\//g, "-") + ".webp";
   const pngSrc = "/shape-pngs/" + pngName;
   return (
     <SeoShell dict={dict} locale={locale}>

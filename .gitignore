@@ -17,6 +17,13 @@
 /.next/
 /out/
 
+# stale build / export snapshots. These are not matched by the rules above and
+# would otherwise be committed AND scanned by Tailwind's automatic source
+# detection (which slows every `next build` down considerably).
+/.next-*/
+/out-*/
+/diag-output/
+
 # production
 /build
 

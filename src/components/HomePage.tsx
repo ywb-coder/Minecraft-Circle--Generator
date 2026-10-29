@@ -59,8 +59,8 @@ export default function HomePage({
     description: dict.meta.description,
     applicationCategory: "GameApplication",
     operatingSystem: "Web Browser",
-    image: [`${SITE_URL}/og-image.png`],
-    screenshot: `${SITE_URL}/og-image.png`,
+    image: [`${SITE_URL}/og-image.webp`],
+    screenshot: `${SITE_URL}/og-image.webp`,
     inLanguage,
     datePublished: LAUNCH_DATE,
     dateModified: CONTENT_UPDATED,
@@ -147,7 +147,7 @@ export default function HomePage({
               className="shrink-0 border-2 border-mc-border bg-panel-2"
             >
               <img
-                src="/shape-pngs/circle-33.png"
+                src="/shape-pngs/circle-33.webp"
                 alt="Minecraft circle blueprint — 33 block diameter"
                 width={449}
                 height={449}

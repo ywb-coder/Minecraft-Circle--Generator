@@ -24,7 +24,7 @@ export default function SeoJsonLd({
   image?: string;
 }) {
   const url = `${SITE_URL}${localizePath(path, locale)}`;
-  const imageUrl = image ?? `${SITE_URL}/og-image.png`;
+  const imageUrl = image ?? `${SITE_URL}/og-image.webp`;
   const homeUrl = `${SITE_URL}${localizePath("/", locale)}`;
   const breadcrumb = {
     "@context": "https://schema.org",

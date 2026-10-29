@@ -15,6 +15,12 @@ const AI_AGENTS = [
   "OAI-SearchBot", // OpenAI search index (powers ChatGPT citations)
   "ChatGPT-User", // on-demand fetch when a ChatGPT user opens a link
   "PerplexityBot", // Perplexity index
+  "ClaudeBot", // Anthropic training/index crawler
+  "Google-Extended", // Google's Gemini/Bard training crawler
+  "Applebot-Extended", // Apple Foundation Models training crawler
+  "Bytespider", // ByteDance/TikTok AI index
+  "Cohere-AI", // Cohere training crawler
+  "Diffbot", // Diffbot AI index
 ];
 
 export default function robots(): MetadataRoute.Robots {

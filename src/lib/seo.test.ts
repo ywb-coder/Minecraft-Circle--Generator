@@ -73,10 +73,26 @@ describe("sitemap", () => {
     );
   });
 
-  it("has 348 entries", () => {
-    expect(entries).toHaveLength(348);
+  it("has 376 entries", () => {
+    expect(entries).toHaveLength(376);
     expect(shapeUrls).toHaveLength(INDEXABLE_SHAPE_PATHS.size * HREFLANG_LOCALES.length);
     expect(entries.every((entry) => entry.url.startsWith(SITE_URL))).toBe(true);
+
+    // multi-language blog expansion (de/fr/pt/ru added in this pass)
+    for (const locale of ["de", "fr", "pt", "ru"]) {
+      for (const slug of [
+        "minecraft-circle-guide",
+        "minecraft-circle-sizes",
+        "minecraft-sphere-guide",
+        "minecraft-dome-guide",
+        "minecraft-oval-guide",
+        "minecraft-tower-guide",
+      ]) {
+        expect(
+          entries.some((e) => e.url === `${SITE_URL}/${locale}/blog/${slug}/`)
+        ).toBe(true);
+      }
+    }
 
     const paths = new Set(entries.map((entry) => new URL(entry.url).pathname));
     for (const path of [

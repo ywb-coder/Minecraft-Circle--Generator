@@ -15,9 +15,15 @@ import {
   sphereDiameters,
   TORUS_COMBOS,
 } from "../lib/seo";
+import {
+  BLOG_SLUGS,
+  BLOG_PUBLISHED_LOCALES,
+  blogPath,
+  type BlogSlug,
+} from "../lib/blog-content";
 
 function shapeImage(path: string): string {
-  return `${SITE_URL}/shape-pngs/${path.slice(1).replace(/\//g, "-")}.png`;
+  return `${SITE_URL}/shape-pngs/${path.slice(1).replace(/\//g, "-")}.webp`;
 }
 
 function shapeEntry(
@@ -37,7 +43,7 @@ const homeEntries: MetadataRoute.Sitemap = HREFLANG_LOCALES.map((locale) => ({
   url: localizedUrl("/", locale),
   changeFrequency: "weekly",
   priority: 1,
-  images: [`${SITE_URL}/og-image.png`],
+  images: [`${SITE_URL}/og-image.webp`],
   alternates: { languages: hreflangMap("/") },
 }));
 
@@ -77,13 +83,13 @@ for (const locale of HREFLANG_LOCALES) {
 }
 
 const blogImages: Record<string, string> = {
-  blog: "/og-image.png",
-  "blog/minecraft-circle-guide": "/shape-pngs/circle-15.png",
-  "blog/minecraft-circle-sizes": "/shape-pngs/circle-21.png",
-  "blog/minecraft-sphere-guide": "/shape-pngs/circle-21.png",
-  "blog/minecraft-dome-guide": "/shape-pngs/circle-31.png",
-  "blog/minecraft-oval-guide": "/shape-pngs/oval-21-9.png",
-  "blog/minecraft-tower-guide": "/shape-pngs/circle-21.png",
+  blog: "/og-image.webp",
+  "blog/minecraft-circle-guide": "/shape-pngs/circle-15.webp",
+  "blog/minecraft-circle-sizes": "/shape-pngs/circle-21.webp",
+  "blog/minecraft-sphere-guide": "/shape-pngs/circle-21.webp",
+  "blog/minecraft-dome-guide": "/shape-pngs/circle-31.webp",
+  "blog/minecraft-oval-guide": "/shape-pngs/oval-21-9.webp",
+  "blog/minecraft-tower-guide": "/shape-pngs/circle-21.webp",
 };
 
 const trustEntries: MetadataRoute.Sitemap = [
@@ -108,13 +114,13 @@ const trustEntries: MetadataRoute.Sitemap = [
 }));
 
 const esBlogImages: Record<string, string> = {
-  "/es/blog": "/og-image.png",
-  "/es/blog/como-hacer-circulos-minecraft": "/shape-pngs/circle-15.png",
-  "/es/blog/como-hacer-esfera-minecraft": "/shape-pngs/circle-21.png",
-  "/es/blog/medidas-circulos-minecraft": "/shape-pngs/circle-101.png",
-  "/es/blog/como-hacer-ovalo-minecraft": "/shape-pngs/oval-21-9.png",
-  "/es/blog/como-hacer-cupula-minecraft": "/shape-pngs/circle-31.png",
-  "/es/blog/como-hacer-torre-minecraft": "/shape-pngs/circle-21.png",
+  "/es/blog": "/og-image.webp",
+  "/es/blog/como-hacer-circulos-minecraft": "/shape-pngs/circle-15.webp",
+  "/es/blog/como-hacer-esfera-minecraft": "/shape-pngs/circle-21.webp",
+  "/es/blog/medidas-circulos-minecraft": "/shape-pngs/circle-101.webp",
+  "/es/blog/como-hacer-ovalo-minecraft": "/shape-pngs/oval-21-9.webp",
+  "/es/blog/como-hacer-cupula-minecraft": "/shape-pngs/circle-31.webp",
+  "/es/blog/como-hacer-torre-minecraft": "/shape-pngs/circle-21.webp",
 };
 
 const esBlogEntries: MetadataRoute.Sitemap = [
@@ -134,6 +140,50 @@ const esBlogEntries: MetadataRoute.Sitemap = [
     : {}),
 }));
 
+function blogHreflang(slug: BlogSlug): Record<string, string> {
+  const map: Record<string, string> = {};
+  for (const l of BLOG_PUBLISHED_LOCALES) {
+    map[l] = `${SITE_URL}${blogPath(l, slug)}`;
+  }
+  map["x-default"] = `${SITE_URL}/blog/${slug}/`;
+  return map;
+}
+
+const newBlogEntries: MetadataRoute.Sitemap = [];
+for (const locale of BLOG_PUBLISHED_LOCALES) {
+  if (locale === "en" || locale === "es") continue;
+  for (const slug of BLOG_SLUGS) {
+    newBlogEntries.push({
+      url: `${SITE_URL}${blogPath(locale, slug)}`,
+      changeFrequency: "monthly",
+      priority: 0.5,
+      alternates: { languages: blogHreflang(slug) },
+    });
+  }
+  newBlogEntries.push({
+    url: `${SITE_URL}/${locale}/blog/`,
+    changeFrequency: "monthly",
+    priority: 0.4,
+    alternates: {
+      languages: {
+        en: `${SITE_URL}/blog/`,
+        es: `${SITE_URL}/es/blog/`,
+        de: `${SITE_URL}/de/blog/`,
+        fr: `${SITE_URL}/fr/blog/`,
+        pt: `${SITE_URL}/pt/blog/`,
+        ru: `${SITE_URL}/ru/blog/`,
+        "x-default": `${SITE_URL}/blog/`,
+      },
+    },
+  });
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [...homeEntries, ...shapeEntries, ...trustEntries, ...esBlogEntries];
+  return [
+    ...homeEntries,
+    ...shapeEntries,
+    ...trustEntries,
+    ...esBlogEntries,
+    ...newBlogEntries,
+  ];
 }

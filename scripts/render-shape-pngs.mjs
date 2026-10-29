@@ -4,10 +4,10 @@
  * For each unique shape URL (circle/101, oval/21/9, torus/113/20, ellipsoid/113/71/49, ...) it
  * loads the prebuilt static page from out/ over a tiny local HTTP server, locates the blueprint
  * grid element (section.mc-panel .mc-panel-inset — the root rendered by BlueprintGrid on SEO pages)
- * and saves an element screenshot as public/shape-pngs/<url-with-dashes>.png.
+ * and saves an element screenshot as public/shape-pngs/<url-with-dashes>.webp.
  *
  * Usage:  node scripts/render-shape-pngs.mjs
- * Output: public/shape-pngs/*.png (existing files are kept/overwritten, never deleted)
+ * Output: public/shape-pngs/*.webp (existing files are kept/overwritten, never deleted)
  *
  * NOTE: keep console output ASCII-only — Windows console (GBK) garbles UTF-8.
  */
@@ -153,13 +153,13 @@ async function main() {
   const total = entries.length;
   for (let i = 0; i < total; i++) {
     const entry = entries[i];
-    const outFile = path.join(PNG_DIR, entry.name + ".png");
+    const outFile = path.join(PNG_DIR, entry.name + ".webp");
     try {
       await page.goto(base + entry.urlPath, { waitUntil: "domcontentloaded", timeout: 30000 });
       await page.waitForTimeout(300); // let fonts/layout settle
       const loc = page.locator(SELECTOR).first();
       if ((await loc.count()) === 0) throw new Error("blueprint selector not found");
-      await loc.screenshot({ path: outFile, timeout: 30000 });
+      await loc.screenshot({ path: outFile, type: "webp", timeout: 30000 });
     } catch (e) {
       failed.push(entry.name);
       console.error(`FAIL ${entry.name}: ${String(e.message).split("\n")[0].slice(0, 200)}`);

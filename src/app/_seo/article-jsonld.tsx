@@ -1,6 +1,5 @@
 import { GITHUB_URL, SITE_URL } from "@/lib/config";
-
-type ArticleLocale = "en" | "es";
+import type { Locale } from "@/lib/i18n/locales";
 
 function absoluteImage(image: string): string {
   if (/^https?:\/\//i.test(image)) return image;
@@ -23,14 +22,20 @@ export default function ArticleJsonLd({
   title: string;
   description: string;
   path: string;
-  locale: ArticleLocale;
+  locale: Locale;
   images: string[];
   published: string;
   updated: string;
 }) {
   const url = `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
-  const homeUrl = `${SITE_URL}${locale === "es" ? "/es/" : "/"}`;
-  const blogUrl = `${SITE_URL}${locale === "es" ? "/es/blog/" : "/blog/"}`;
+  const homeUrl = `${SITE_URL}${locale === "en" ? "/" : `/${locale}/`}`;
+  const blogUrl = `${SITE_URL}${
+    locale === "en"
+      ? "/blog/"
+      : locale === "es"
+        ? "/es/blog/"
+        : `/${locale}/blog/`
+  }`;
   const authorUrl = `${SITE_URL}/about/`;
 
   const article = {
