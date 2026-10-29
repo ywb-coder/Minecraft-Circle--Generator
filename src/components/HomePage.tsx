@@ -14,6 +14,7 @@ import LangSwitcher from "./LangSwitcher";
 import CircleTool from "./tool/CircleTool";
 import SizeGuideTable from "./tool/SizeGuideTable";
 import SpanishGuide from "./SpanishGuide";
+import ComparisonSection from "./ComparisonSection";
 import SiteFooter from "./SiteFooter";
 import ConsentGate from "./ConsentGate";
 
@@ -226,6 +227,8 @@ export default function HomePage({
             ))}
           </ul>
         </section>
+
+        <ComparisonSection />
 
         <section id="faq" className="mx-auto max-w-5xl px-4 pb-16">
           <h2 className="font-pixel text-sm text-ink pixel-shadow">

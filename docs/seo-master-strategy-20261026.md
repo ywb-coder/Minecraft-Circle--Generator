@@ -255,6 +255,36 @@ AI Assistant 渠道 28 天 23 会话（8.1%），互动率 69.6%、页/会话 13
 | 监测 AI 引用 | 每月 GA4 侧记录 AI Assistant 会话；抽查 ChatGPT/Perplexity 中 "minecraft circle generator" 引用是否提及 CircleGen | 30min/月 | P1 |
 | robots 维持 AI 爬虫放行 | GPTBot / OAI-SearchBot / ChatGPT-User / PerplexityBot 已显式 allow | ✅ 完成 | — |
 
+### 7.1 GEO 实测诊断（2026-10-29，8 平台 × 20 题 = 160 次收录查询）
+
+上表是「把 AI 可读的基础设施做好」，本节是「AI 到底有没有提到我们」。完整报告：`diag-output/CircleGen-GEO-诊断报告.html`。
+
+**AIVO 总分 64 / 100（一般）** — 基建 86、权威度 42，中间 48 分的断层就是全部行动空间。
+
+| 维度 | 分数 | 关键数据 |
+|---|---|---|
+| AI 搜索可见度 | **38** | 160 次查询仅被提及 41 次（提及率 0.256）= 竞品均值的 47% |
+| 基建完善度 | **86** | llms.txt / llms-full.txt / JSON-LD / hreflang / 3,179 页矩阵全部到位 |
+| 竞品对比优势 | **42** | 选型类问题提及率 < 15%，17 题中 **0 次**被列为首位 |
+| 舆情健康度 | **90** | 负面率 0.0875——但这是**假性高分**，负面少是因为没人谈它 |
+
+**诊断结论**：技术基建已经过关（Kimi/DeepSeek/智谱能准确说出「11 语言」「3,179 页」「MIT 开源」），但 AI 在选型题里只从高权重榜单站取数，而 7 大榜单站（iTechGuides、UMA、TechYorker、Position Is Everything、Everything Xiaomi、HowPremium、PCN Mobile）**100% 缺席**。
+
+**与上文 6.2 节「榜单提名」的关系**：6.2 提出的榜单提名是本节诊断给出的**量化理由**——不再是「应该做」，而是「提及率 0.256 vs 目标 0.40，这是唯一杠杆」。
+
+| 本次新增动作 | 文档 | 状态 |
+|---|---|---|
+| llms.txt / llms-full.txt 加入竞品差异矩阵 + 品牌混淆消歧 | — | ✅ 本次完成 |
+| per-size 页 Dataset 结构化块数（JSON-LD） | — | ✅ 本次完成 |
+| 榜单提报素材包（7 站通用 + 精确块数表） | `docs/listing-submission-kit.md` | ✅ 素材就绪，待提交 |
+| 社区口碑内容包（5 篇实录 + 西语篇） | `docs/community-content-kit.md` | ✅ 草稿就绪，待发布 |
+| .schem 导出 / 512 上限 / 预设模板 评估 | `docs/geo-p3-technical-assessment.md` | ✅ 评估完成 |
+| 月度提及率复测 + 榜单巡检机制 | `docs/geo-monitoring-setup.md` | ✅ 已建立 |
+
+**新发现的竞品情报**（此前 10-26 竞品文档未收录）：
+- **Godlike.Host Circle Generator** — iTechGuides 9.7/10，8 款榜单全部 #1，支持 .schem 导出。2026 年 AI 权重上升最快的对手
+- **pixelcirclegenerator.com** — 与本品牌名高度近似，已获三家榜单站独立评测页，AI 已出现同品类混淆推荐。其短板是**无 3D 预览**，正是我们的差异点
+
 ---
 
 ## 8. 索引攻坚（P0，最大隐忧）

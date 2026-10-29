@@ -928,6 +928,75 @@ export default async function ShapePage(
             }).replace(/</g, "\\u003c"),
           }}
         />
+
+        {/*
+          Machine-readable facts for this exact size. Answer engines that
+          answer "how many blocks do I need for a 101 circle" need the number
+          as a value, not as prose inside a paragraph. Keeping it in a
+          dedicated Dataset node lets a crawler read the number directly
+          instead of parsing the page text.
+        */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Dataset",
+              name: `${shapeName} ${resolved.type === "ellipsoid" ? `${w}x${h}x${resolved.dp}` : resolved.type === "oval" ? `${w}x${h}` : d} — block count and blueprint`,
+              description: `Exact block counts for a ${shapeName.toLowerCase()} of ${resolved.type === "ellipsoid" ? `${w}x${h}x${resolved.dp} blocks` : resolved.type === "oval" ? `${w}x${h} blocks` : `${d} blocks`}, computed by the CircleGen geometry engine.`,
+              url: `${SITE_URL}${localizePath(path, locale)}`,
+              creator: {
+                "@type": "Organization",
+                name: "CircleGen",
+                url: SITE_URL,
+              },
+              isAccessibleForFree: true,
+              license: "https://opensource.org/licenses/MIT",
+              variableMeasured: [
+                {
+                  "@type": "PropertyValue",
+                  name: "diameter",
+                  value: d,
+                  unitText: "blocks",
+                },
+                {
+                  "@type": "PropertyValue",
+                  name: "outlineBlockCount",
+                  value: shape.blockCount,
+                  unitText: "blocks",
+                },
+                {
+                  "@type": "PropertyValue",
+                  name: "totalBlockCount",
+                  value: blocks,
+                  unitText: "blocks",
+                },
+                {
+                  "@type": "PropertyValue",
+                  name: "inventoryStacks",
+                  value: stacks,
+                  unitText: "stacks of 64",
+                },
+                {
+                  "@type": "PropertyValue",
+                  name: "layerCount",
+                  value: shape.layers.length,
+                  unitText: "layers",
+                },
+                {
+                  "@type": "PropertyValue",
+                  name: "shape",
+                  value: resolved.type,
+                },
+              ],
+              variableMentioned: {
+                "@type": "Thing",
+                name: "Minecraft",
+                alternateName: "Minecraft Java Edition and Bedrock Edition",
+              },
+            }).replace(/</g, "\\u003c"),
+          }}
+        />
       </div>
     </SeoShell>
   );

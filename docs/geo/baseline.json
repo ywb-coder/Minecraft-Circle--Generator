@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-29",
+  "mode": "diagnosis",
+  "source": "GEO diagnosis skill (geo-diag-report), 8 platforms x 20 questions = 160 simulated collection queries",
+  "mentionRate": 0.256,
+  "mentionedCount": 41,
+  "totalQueries": 160,
+  "rankedFirstCount": 0,
+  "selectionQuestionMentionRate": 0.12,
+  "platformBreakdown": {
+    "1": {
+      "name": "DeepSeek",
+      "mentioned": 6,
+      "total": 20,
+      "rate": 0.3
+    },
+    "2": {
+      "name": "Doubao",
+      "mentioned": 4,
+      "total": 20,
+      "rate": 0.2
+    },
+    "3": {
+      "name": "Yuanbao",
+      "mentioned": 6,
+      "total": 20,
+      "rate": 0.3
+    },
+    "4": {
+      "name": "Tongyi Qianwen",
+      "mentioned": 5,
+      "total": 20,
+      "rate": 0.25
+    },
+    "5": {
+      "name": "Wenxin Yiyan",
+      "mentioned": 4,
+      "total": 20,
+      "rate": 0.2
+    },
+    "6": {
+      "name": "Nami Search",
+      "mentioned": 3,
+      "total": 20,
+      "rate": 0.15
+    },
+    "7": {
+      "name": "Kimi",
+      "mentioned": 7,
+      "total": 20,
+      "rate": 0.35
+    },
+    "8": {
+      "name": "Zhipu Qingyan",
+      "mentioned": 6,
+      "total": 20,
+      "rate": 0.3
+    }
+  },
+  "competitorTotals": {
+    "CircleGen": 41,
+    "Donat Studios": 111,
+    "Godlike.Host": 102,
+    "Plotz": 94,
+    "Mcgic": 88,
+    "BlockBlend": 67,
+    "Pixel Circle Generator": 59
+  },
+  "aivoScore": 64,
+  "aivoBreakdown": {
+    "AI_SEARCH_VISIBILITY": 38,
+    "INFRA_COMPLETENESS": 86,
+    "COMPETITIVE_ADVANTAGE": 42,
+    "SENTIMENT_HEALTH": 90
+  },
+  "notes": [
+    "Baseline for the listing-submission and community-content push. Any later run must use the same 8 platforms and the same 20 questions to be comparable.",
+    "Mention rate 0.256 means we are named in 41 of 160 simulated AI answers.",
+    "We were named first in 0 of the 17 selection-type questions — that is the specific gap the listing work targets.",
+    "Competitor average is 87 mentions; we are at 41, or 47% of the average.",
+    "aivoScore 已校正为四维等权平均值（原值 63，四维实际加权为 64，存在 1 分舍入偏差）"
+  ]
+}

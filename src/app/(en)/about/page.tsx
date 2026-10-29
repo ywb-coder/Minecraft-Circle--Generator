@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "@/components/StaticLink";
 import SeoShell from "@/app/_seo/shell";
+import ComparisonSection from "@/components/ComparisonSection";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { defaultLocale } from "@/lib/i18n/locales";
 import { GITHUB_URL, SITE_EMAIL, SOURCES, SITE_URL, CONTENT_UPDATED, LAUNCH_DATE } from "@/lib/config";
@@ -135,6 +136,11 @@ export default async function AboutPage() {
           </p>
         </section>
       </div>
+
+      <ComparisonSection
+        heading="How CircleGen compares"
+        intro="Specs below come from each tool's own published documentation, checked October 2026. We list where the other tools are stronger too — the comparison is only useful if it is accurate."
+      />
     </SeoShell>
   );
 }
