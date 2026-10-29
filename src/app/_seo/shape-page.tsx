@@ -6,6 +6,11 @@ import { getDictionary, type Dictionary } from "@/lib/i18n/dictionaries";
 import { defaultLocale, type Locale } from "@/lib/i18n/locales";
 import { interpolate } from "@/lib/i18n/format";
 import { SITE_URL, HREFLANG_MAP } from "@/lib/config";
+import {
+  blogPath,
+  guideLabel,
+  type BlogSlug,
+} from "@/lib/blog-content";
 import { generateShape } from "@/lib/shapes";
 import { getShapeNote } from "@/lib/shape-notes";
 import {
@@ -319,122 +324,49 @@ function guideLinks(
   locale: Locale,
   type: RouteShape
 ): { href: string; label: string }[] {
-  const es = locale === "es";
-  const links: { href: string; label: string }[] = [];
-  if (type === "circle") {
-    links.push(
-      es
-        ? {
-            href: "/es/blog/como-hacer-circulos-minecraft/",
-            label: "Cómo hacer un círculo en Minecraft",
-          }
-        : {
-            href: "/blog/minecraft-circle-guide/",
+  const defs: { slug: BlogSlug; label: string }[] =
+    type === "circle"
+      ? [
+          {
+            slug: "minecraft-circle-guide",
             label: "Minecraft circle guide",
-          }
-    );
-    links.push(
-      es
-        ? {
-            href: "/es/blog/medidas-circulos-minecraft/",
-            label: "Tabla de medidas de círculos",
-          }
-        : {
-            href: "/blog/minecraft-circle-sizes/",
-            label: "Circle size chart",
-          }
-    );
-    links.push(
-      es
-        ? {
-            href: "/es/blog/como-hacer-torre-minecraft/",
-            label: "Cómo hacer una torre",
-          }
-        : { href: "/blog/minecraft-tower-guide/", label: "Tower guide" }
-    );
-    return links;
-  }
-  if (type === "sphere") {
-    links.push(
-      es
-        ? {
-            href: "/es/blog/como-hacer-esfera-minecraft/",
-            label: "Cómo hacer una esfera",
-          }
-        : {
-            href: "/blog/minecraft-sphere-guide/",
-            label: "Minecraft sphere guide",
-          }
-    );
-    links.push(
-      es
-        ? {
-            href: "/es/blog/como-hacer-circulos-minecraft/",
-            label: "Cómo hacer un círculo",
-          }
-        : { href: "/blog/minecraft-circle-guide/", label: "Circle guide" }
-    );
-    return links;
-  }
-  if (type === "dome") {
-    links.push(
-      es
-        ? {
-            href: "/es/blog/como-hacer-cupula-minecraft/",
-            label: "Cómo hacer una cúpula",
-          }
-        : { href: "/blog/minecraft-dome-guide/", label: "Minecraft dome guide" }
-    );
-    links.push(
-      es
-        ? {
-            href: "/es/blog/como-hacer-esfera-minecraft/",
-            label: "Cómo hacer una esfera",
-          }
-        : {
-            href: "/blog/minecraft-sphere-guide/",
-            label: "Sphere guide",
-          }
-    );
-    return links;
-  }
-  if (type === "oval") {
-    links.push(
-      es
-        ? {
-            href: "/es/blog/como-hacer-ovalo-minecraft/",
-            label: "Cómo hacer un óvalo",
-          }
-        : { href: "/blog/minecraft-oval-guide/", label: "Minecraft oval guide" }
-    );
-    links.push(
-      es
-        ? {
-            href: "/es/blog/como-hacer-circulos-minecraft/",
-            label: "Cómo hacer un círculo",
-          }
-        : { href: "/blog/minecraft-circle-guide/", label: "Circle guide" }
-    );
-    return links;
-  }
-  // torus / ellipsoid: no dedicated guide yet — anchor to circle + sphere
-  links.push(
-    es
-      ? {
-          href: "/es/blog/como-hacer-circulos-minecraft/",
-          label: "Cómo hacer un círculo",
-        }
-      : { href: "/blog/minecraft-circle-guide/", label: "Minecraft circle guide" }
-  );
-  links.push(
-    es
-      ? {
-          href: "/es/blog/como-hacer-esfera-minecraft/",
-          label: "Cómo hacer una esfera",
-        }
-      : { href: "/blog/minecraft-sphere-guide/", label: "Sphere guide" }
-  );
-  return links;
+          },
+          { slug: "minecraft-circle-sizes", label: "Circle size chart" },
+          { slug: "minecraft-tower-guide", label: "Tower guide" },
+        ]
+      : type === "sphere"
+        ? [
+            {
+              slug: "minecraft-sphere-guide",
+              label: "Minecraft sphere guide",
+            },
+            { slug: "minecraft-circle-guide", label: "Circle guide" },
+          ]
+        : type === "dome"
+          ? [
+              { slug: "minecraft-dome-guide", label: "Minecraft dome guide" },
+              { slug: "minecraft-sphere-guide", label: "Sphere guide" },
+            ]
+          : type === "oval"
+            ? [
+                {
+                  slug: "minecraft-oval-guide",
+                  label: "Minecraft oval guide",
+                },
+                { slug: "minecraft-circle-guide", label: "Circle guide" },
+              ]
+            : // torus / ellipsoid: no dedicated guide yet — anchor to circle + sphere
+              [
+                {
+                  slug: "minecraft-circle-guide",
+                  label: "Minecraft circle guide",
+                },
+                { slug: "minecraft-sphere-guide", label: "Sphere guide" },
+              ];
+  return defs.map((d) => ({
+    href: blogPath(locale, d.slug),
+    label: guideLabel(locale, d.slug, d.label),
+  }));
 }
 
 function nearestTorusCombo(d: number): readonly [number, number] {

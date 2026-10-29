@@ -6,6 +6,13 @@ import {
   isIndexableShapePath,
 } from "./seo";
 import { HREFLANG_LOCALES, SITE_URL } from "./config";
+import {
+  blogHreflang,
+  blogIndexPath,
+  blogIndexHreflang,
+  blogPath,
+  BLOG_SLUGS,
+} from "./blog-content";
 
 const SHAPE_PREFIXES = [
   "/circle/",
@@ -105,6 +112,78 @@ describe("sitemap", () => {
       "/es/blog/como-hacer-ovalo-minecraft/",
     ]) {
       expect(paths.has(path)).toBe(true);
+    }
+  });
+});
+
+describe("blog localization", () => {
+  it("uses Spanish slugs for es", () => {
+    expect(blogPath("es", "minecraft-circle-guide")).toBe(
+      "/es/blog/como-hacer-circulos-minecraft/"
+    );
+    expect(blogPath("es", "minecraft-circle-sizes")).toBe(
+      "/es/blog/medidas-circulos-minecraft/"
+    );
+    expect(blogPath("es", "minecraft-tower-guide")).toBe(
+      "/es/blog/como-hacer-torre-minecraft/"
+    );
+  });
+
+  it("keeps the English slug for the translated locales", () => {
+    for (const locale of ["de", "fr", "pt", "ru"] as const) {
+      expect(blogPath(locale, "minecraft-circle-guide")).toBe(
+        `/${locale}/blog/minecraft-circle-guide/`
+      );
+      expect(blogIndexPath(locale)).toBe(`/${locale}/blog/`);
+    }
+  });
+
+  it("falls back to English for locales without a blog", () => {
+    for (const locale of ["it", "tr", "pl", "id", "zh"] as const) {
+      expect(blogPath(locale, "minecraft-circle-guide")).toBe(
+        "/blog/minecraft-circle-guide/"
+      );
+      expect(blogIndexPath(locale)).toBe("/blog/");
+    }
+  });
+
+  it("builds an hreflang cluster that covers every published locale", () => {
+    const cluster = blogHreflang("minecraft-circle-guide");
+    expect(cluster["en"]).toBe(`${SITE_URL}/blog/minecraft-circle-guide/`);
+    expect(cluster["es"]).toBe(
+      `${SITE_URL}/es/blog/como-hacer-circulos-minecraft/`
+    );
+    expect(cluster["de"]).toBe(`${SITE_URL}/de/blog/minecraft-circle-guide/`);
+    expect(cluster["x-default"]).toBe(
+      `${SITE_URL}/blog/minecraft-circle-guide/`
+    );
+    expect(blogIndexHreflang()["es"]).toBe(`${SITE_URL}/es/blog/`);
+  });
+
+  it("never points a blog hreflang at a URL missing from the sitemap", () => {
+    const entries = sitemap();
+    const paths = new Set(entries.map((entry) => new URL(entry.url).pathname));
+    for (const entry of entries) {
+      const alternates = (entry.alternates?.languages ??
+        {}) as Record<string, string | Array<string>>;
+      for (const [lang, value] of Object.entries(alternates)) {
+        for (const url of Array.isArray(value) ? value : [value]) {
+          const pathname = new URL(url).pathname;
+          if (!pathname.includes("/blog/")) continue;
+          expect(paths.has(pathname), `${lang} -> ${pathname}`).toBe(true);
+        }
+      }
+    }
+  });
+
+  it("keeps every published blog slug reachable in every locale", () => {
+    const paths = new Set(
+      sitemap().map((entry) => new URL(entry.url).pathname)
+    );
+    for (const slug of BLOG_SLUGS) {
+      for (const locale of ["en", "es", "de", "fr", "pt", "ru"] as const) {
+        expect(paths.has(blogPath(locale, slug))).toBe(true);
+      }
     }
   });
 });

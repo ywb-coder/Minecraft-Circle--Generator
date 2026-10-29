@@ -9,7 +9,7 @@ import { SITE_URL } from "@/lib/config";
 import {
   BLOG_CONTENT,
   BLOG_SLUGS,
-  BLOG_PUBLISHED_LOCALES,
+  blogHreflang,
   blogPath,
   isBlogContentLocale,
   type BlogSlug,
@@ -34,11 +34,7 @@ export async function generateMetadata({
   const loc = locale;
   const post = BLOG_CONTENT[loc]?.[slug as BlogSlug];
   if (!post) return {};
-  const languages: Record<string, string> = {};
-  for (const l of BLOG_PUBLISHED_LOCALES) {
-    languages[l] = `${SITE_URL}${blogPath(l, slug as BlogSlug)}`;
-  }
-  languages["x-default"] = `${SITE_URL}/blog/${slug}/`;
+  const languages = blogHreflang(slug as BlogSlug);
   return {
     title: post.title,
     description: post.description,

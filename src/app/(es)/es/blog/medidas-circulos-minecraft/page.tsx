@@ -5,6 +5,7 @@ import SeoShell from "@/app/_seo/shell";
 import ArticleJsonLd from "@/app/_seo/article-jsonld";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { SITE_URL } from "@/lib/config";
+import { blogHreflang } from "@/lib/blog-content";
 
 export const metadata: Metadata = {
   title: "Medidas de Círculos en Minecraft: Tabla de Tamaños",
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
     "Tabla de medidas de círculos en Minecraft: bloques huecos y rellenos para diámetros 5 a 101, pilas necesarias y qué tamaño elegir según tu construcción.",
   alternates: {
     canonical: `${SITE_URL}/es/blog/medidas-circulos-minecraft/`,
+    languages: blogHreflang("minecraft-circle-sizes"),
   },
 };
 

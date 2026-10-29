@@ -6,12 +6,16 @@ import ArticleJsonLd from "@/app/_seo/article-jsonld";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { defaultLocale } from "@/lib/i18n/locales";
 import { SITE_URL } from "@/lib/config";
+import { blogHreflang } from "@/lib/blog-content";
 
 export const metadata: Metadata = {
   title: "Minecraft Circle Guide: How to Build Perfect Circles, Spheres & Domes",
   description:
     "Complete guide to building circles in Minecraft. Learn odd vs even diameters, step-by-step building, and find the perfect size for your build.",
-  alternates: { canonical: `${SITE_URL}/blog/minecraft-circle-guide/` },
+  alternates: {
+    canonical: `${SITE_URL}/blog/minecraft-circle-guide/`,
+    languages: blogHreflang("minecraft-circle-guide"),
+  },
 };
 
 const faqJsonLd = {

@@ -4,12 +4,16 @@ import ArticleMeta from "@/components/ArticleMeta";
 import SeoShell from "@/app/_seo/shell";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { SITE_URL } from "@/lib/config";
+import { blogIndexHreflang } from "@/lib/blog-content";
 
 export const metadata: Metadata = {
   title: "Blog: Guías y Consejos para Construir en Minecraft",
   description:
     "Guías y consejos para construir mejor en Minecraft: círculos perfectos, óvalos, esferas, cúpulas y tamaños de bloques explicados paso a paso.",
-  alternates: { canonical: `${SITE_URL}/es/blog/` },
+  alternates: {
+    canonical: `${SITE_URL}/es/blog/`,
+    languages: blogIndexHreflang(),
+  },
 };
 
 export default async function BlogEsPage() {

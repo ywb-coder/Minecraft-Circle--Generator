@@ -5,12 +5,16 @@ import SeoShell from "@/app/_seo/shell";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { defaultLocale } from "@/lib/i18n/locales";
 import { SITE_URL } from "@/lib/config";
+import { blogIndexHreflang } from "@/lib/blog-content";
 
 export const metadata: Metadata = {
   title: "Blog: Minecraft Building Guides & Tips",
   description:
     "Guides and tips for building better structures in Minecraft. Circle sizes, towers, ovals, spheres, and more.",
-  alternates: { canonical: `${SITE_URL}/blog/` },
+  alternates: {
+    canonical: `${SITE_URL}/blog/`,
+    languages: blogIndexHreflang(),
+  },
 };
 
 export default async function BlogPage() {

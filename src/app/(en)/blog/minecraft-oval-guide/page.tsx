@@ -6,6 +6,7 @@ import ArticleJsonLd from "@/app/_seo/article-jsonld";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { defaultLocale } from "@/lib/i18n/locales";
 import { SITE_URL } from "@/lib/config";
+import { blogHreflang } from "@/lib/blog-content";
 
 const TITLE = "Minecraft Oval Guide: Build Round Ovals Block by Block";
 const DESCRIPTION =
@@ -15,7 +16,10 @@ const PATH = "/blog/minecraft-oval-guide/";
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: { canonical: `${SITE_URL}${PATH}` },
+  alternates: {
+    canonical: `${SITE_URL}${PATH}`,
+    languages: blogHreflang("minecraft-oval-guide"),
+  },
 };
 
 const faqJsonLd = {

@@ -8,7 +8,7 @@ import {
   BLOG_CONTENT,
   BLOG_SLUGS,
   BLOG_INDEX_META,
-  BLOG_PUBLISHED_LOCALES,
+  blogIndexHreflang,
   blogPath,
   isBlogContentLocale,
   type BlogSlug,
@@ -41,14 +41,7 @@ export async function generateMetadata({
   if (!isLocale(locale) || !isBlogContentLocale(locale)) return {};
   const loc = locale;
   const meta = BLOG_INDEX_META[loc];
-  const languages: Record<string, string> = {};
-  for (const l of BLOG_PUBLISHED_LOCALES) {
-    languages[l] = `${SITE_URL}${blogPath(l, BLOG_SLUGS[0])}`.replace(
-      `/${BLOG_SLUGS[0]}/`,
-      "/",
-    );
-  }
-  languages["x-default"] = `${SITE_URL}/blog/`;
+  const languages = blogIndexHreflang();
   return {
     title: meta.title,
     description: meta.description,

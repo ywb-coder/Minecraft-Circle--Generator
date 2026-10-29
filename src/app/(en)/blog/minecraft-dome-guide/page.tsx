@@ -6,6 +6,7 @@ import ArticleJsonLd from "@/app/_seo/article-jsonld";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { defaultLocale } from "@/lib/i18n/locales";
 import { SITE_URL } from "@/lib/config";
+import { blogHreflang } from "@/lib/blog-content";
 
 const TITLE =
   "Minecraft Dome Guide: Build a Half-Sphere on a Flat Base";
@@ -16,7 +17,10 @@ const PATH = "/blog/minecraft-dome-guide/";
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: { canonical: `${SITE_URL}${PATH}` },
+  alternates: {
+    canonical: `${SITE_URL}${PATH}`,
+    languages: blogHreflang("minecraft-dome-guide"),
+  },
 };
 
 const faqJsonLd = {

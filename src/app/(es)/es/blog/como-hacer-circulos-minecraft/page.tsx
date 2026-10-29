@@ -5,6 +5,7 @@ import SeoShell from "@/app/_seo/shell";
 import ArticleJsonLd from "@/app/_seo/article-jsonld";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { SITE_URL } from "@/lib/config";
+import { blogHreflang } from "@/lib/blog-content";
 
 export const metadata: Metadata = {
   title: "Cómo Hacer un Círculo en Minecraft — Guía Paso a Paso",
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
     "Aprende a hacer círculos perfectos en Minecraft: elige el diámetro, sigue el patrón de bloques y usa la tabla de tamaños. Funciona en Java y Bedrock.",
   alternates: {
     canonical: `${SITE_URL}/es/blog/como-hacer-circulos-minecraft/`,
+    languages: blogHreflang("minecraft-circle-guide"),
   },
 };
 

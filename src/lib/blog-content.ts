@@ -1,4 +1,5 @@
-import type { Locale } from "@/lib/i18n/locales";
+import type { Locale } from "./i18n/locales";
+import { SITE_URL } from "./config";
 
 export type BlogSlug =
   | "minecraft-circle-guide"
@@ -1130,8 +1131,85 @@ export const BLOG_PUBLISHED_LOCALES: Locale[] = [
   ...BLOG_LOCALES,
 ];
 
+/**
+ * Spanish ships its own slugs; every other locale reuses the English ones.
+ * Keeping this mapping here means a single source of truth for every link,
+ * hreflang alternate and sitemap entry.
+ */
+const ES_SLUGS: Record<BlogSlug, string> = {
+  "minecraft-circle-guide": "como-hacer-circulos-minecraft",
+  "minecraft-circle-sizes": "medidas-circulos-minecraft",
+  "minecraft-sphere-guide": "como-hacer-esfera-minecraft",
+  "minecraft-dome-guide": "como-hacer-cupula-minecraft",
+  "minecraft-oval-guide": "como-hacer-ovalo-minecraft",
+  "minecraft-tower-guide": "como-hacer-torre-minecraft",
+};
+
+/** Spanish titles, kept in sync with the Spanish blog index page. */
+const ES_TITLES: Record<BlogSlug, string> = {
+  "minecraft-circle-guide":
+    "Cómo Hacer un Círculo en Minecraft: Guía Paso a Paso",
+  "minecraft-circle-sizes":
+    "Medidas de Círculos en Minecraft: Tabla de Tamaños",
+  "minecraft-sphere-guide":
+    "Cómo Hacer una Esfera en Minecraft: Guía por Capas",
+  "minecraft-dome-guide":
+    "Cómo Hacer una Cúpula en Minecraft: Guía sobre Base Plana",
+  "minecraft-oval-guide":
+    "Cómo Hacer un Óvalo en Minecraft: Guía Paso a Paso",
+  "minecraft-tower-guide":
+    "Cómo Hacer una Torre en Minecraft: Diámetro y Planificación",
+};
+
+/** True when the locale publishes a blog of its own (Spanish included). */
+export function hasBlog(locale: Locale): boolean {
+  return locale === "es" || isBlogContentLocale(locale);
+}
+
+/** Blog index URL for a locale. Locales without a blog fall back to English. */
+export function blogIndexPath(locale: Locale): string {
+  if (locale === "es") return "/es/blog/";
+  if (isBlogContentLocale(locale)) return `/${locale}/blog/`;
+  return "/blog/";
+}
+
+/** URL of a single guide. Locales without a blog fall back to English. */
 export function blogPath(locale: Locale, slug: BlogSlug): string {
-  if (locale === "en") return `/blog/${slug}/`;
-  if (locale === "es") return `/es/blog/${slug}/`;
-  return `/${locale}/blog/${slug}/`;
+  if (locale === "es") return `/es/blog/${ES_SLUGS[slug]}/`;
+  if (isBlogContentLocale(locale)) return `/${locale}/blog/${slug}/`;
+  return `/blog/${slug}/`;
+}
+
+/**
+ * Localized link label for a guide. `fallback` keeps the short English label
+ * for the locales that have no blog of their own.
+ */
+export function guideLabel(
+  locale: Locale,
+  slug: BlogSlug,
+  fallback: string
+): string {
+  if (locale === "es") return ES_TITLES[slug];
+  if (isBlogContentLocale(locale)) return BLOG_CONTENT[locale][slug].title;
+  return fallback;
+}
+
+/** hreflang cluster for a guide — every locale that publishes it. */
+export function blogHreflang(slug: BlogSlug): Record<string, string> {
+  const map: Record<string, string> = {};
+  for (const l of BLOG_PUBLISHED_LOCALES) {
+    map[l] = `${SITE_URL}${blogPath(l, slug)}`;
+  }
+  map["x-default"] = `${SITE_URL}/blog/${slug}/`;
+  return map;
+}
+
+/** hreflang cluster for the blog index. */
+export function blogIndexHreflang(): Record<string, string> {
+  const map: Record<string, string> = {};
+  for (const l of BLOG_PUBLISHED_LOCALES) {
+    map[l] = `${SITE_URL}${blogIndexPath(l)}`;
+  }
+  map["x-default"] = `${SITE_URL}/blog/`;
+  return map;
 }

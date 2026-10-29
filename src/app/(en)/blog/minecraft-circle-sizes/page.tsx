@@ -6,12 +6,16 @@ import ArticleJsonLd from "@/app/_seo/article-jsonld";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { defaultLocale } from "@/lib/i18n/locales";
 import { SITE_URL } from "@/lib/config";
+import { blogHreflang } from "@/lib/blog-content";
 
 export const metadata: Metadata = {
   title: "Minecraft Circle Sizes: Complete Chart for Every Build Type",
   description:
     "Find the perfect Minecraft circle size for towers, wells, arenas, and domes. Complete chart with block counts and recommendations.",
-  alternates: { canonical: `${SITE_URL}/blog/minecraft-circle-sizes/` },
+  alternates: {
+    canonical: `${SITE_URL}/blog/minecraft-circle-sizes/`,
+    languages: blogHreflang("minecraft-circle-sizes"),
+  },
 };
 
 const faqJsonLd = {

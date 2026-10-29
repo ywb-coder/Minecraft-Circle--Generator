@@ -5,6 +5,7 @@ import SeoShell from "@/app/_seo/shell";
 import ArticleJsonLd from "@/app/_seo/article-jsonld";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { SITE_URL } from "@/lib/config";
+import { blogHreflang } from "@/lib/blog-content";
 
 export const metadata: Metadata = {
   title: "Cómo Hacer una Esfera en Minecraft: Guía por Capas",
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
     "Construye una esfera en Minecraft por capas: ecuador primero, diámetros impares, versión hueca o maciza y errores comunes al apilar círculos.",
   alternates: {
     canonical: `${SITE_URL}/es/blog/como-hacer-esfera-minecraft/`,
+    languages: blogHreflang("minecraft-sphere-guide"),
   },
 };
 

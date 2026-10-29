@@ -5,6 +5,7 @@ import SeoShell from "@/app/_seo/shell";
 import ArticleJsonLd from "@/app/_seo/article-jsonld";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { SITE_URL } from "@/lib/config";
+import { blogHreflang } from "@/lib/blog-content";
 
 const TITLE = "Cómo Hacer una Torre en Minecraft: Diámetro y Planificación";
 const DESCRIPTION =
@@ -14,7 +15,10 @@ const PATH = "/es/blog/como-hacer-torre-minecraft/";
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: { canonical: `${SITE_URL}${PATH}` },
+  alternates: {
+    canonical: `${SITE_URL}${PATH}`,
+    languages: blogHreflang("minecraft-tower-guide"),
+  },
 };
 
 const faqJsonLd = {

@@ -1,4 +1,5 @@
 import { GITHUB_URL, SITE_URL } from "@/lib/config";
+import { blogIndexPath } from "@/lib/blog-content";
 import type { Locale } from "@/lib/i18n/locales";
 
 function absoluteImage(image: string): string {
@@ -29,13 +30,7 @@ export default function ArticleJsonLd({
 }) {
   const url = `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
   const homeUrl = `${SITE_URL}${locale === "en" ? "/" : `/${locale}/`}`;
-  const blogUrl = `${SITE_URL}${
-    locale === "en"
-      ? "/blog/"
-      : locale === "es"
-        ? "/es/blog/"
-        : `/${locale}/blog/`
-  }`;
+  const blogUrl = `${SITE_URL}${blogIndexPath(locale)}`;
   const authorUrl = `${SITE_URL}/about/`;
 
   const article = {

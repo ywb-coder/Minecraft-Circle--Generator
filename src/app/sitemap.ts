@@ -18,6 +18,9 @@ import {
 import {
   BLOG_SLUGS,
   BLOG_PUBLISHED_LOCALES,
+  blogHreflang,
+  blogIndexHreflang,
+  blogIndexPath,
   blogPath,
   type BlogSlug,
 } from "../lib/blog-content";
@@ -82,72 +85,70 @@ for (const locale of HREFLANG_LOCALES) {
   }
 }
 
-const blogImages: Record<string, string> = {
-  blog: "/og-image.webp",
-  "blog/minecraft-circle-guide": "/shape-pngs/circle-15.webp",
-  "blog/minecraft-circle-sizes": "/shape-pngs/circle-21.webp",
-  "blog/minecraft-sphere-guide": "/shape-pngs/circle-21.webp",
-  "blog/minecraft-dome-guide": "/shape-pngs/circle-31.webp",
-  "blog/minecraft-oval-guide": "/shape-pngs/oval-21-9.webp",
-  "blog/minecraft-tower-guide": "/shape-pngs/circle-21.webp",
-};
-
 const trustEntries: MetadataRoute.Sitemap = [
   "about",
   "contact",
   "privacy",
   "terms",
-  "blog",
-  "blog/minecraft-circle-guide",
-  "blog/minecraft-circle-sizes",
-  "blog/minecraft-sphere-guide",
-  "blog/minecraft-dome-guide",
-  "blog/minecraft-oval-guide",
-  "blog/minecraft-tower-guide",
 ].map((page) => ({
   url: localizedUrl(`/${page}`, "en"),
-  changeFrequency: "monthly",
+  changeFrequency: "monthly" as const,
   priority: 0.4,
-  ...(blogImages[page]
-    ? { images: [`${SITE_URL}${blogImages[page]}`] }
-    : {}),
 }));
 
-const esBlogImages: Record<string, string> = {
-  "/es/blog": "/og-image.webp",
-  "/es/blog/como-hacer-circulos-minecraft": "/shape-pngs/circle-15.webp",
-  "/es/blog/como-hacer-esfera-minecraft": "/shape-pngs/circle-21.webp",
-  "/es/blog/medidas-circulos-minecraft": "/shape-pngs/circle-101.webp",
-  "/es/blog/como-hacer-ovalo-minecraft": "/shape-pngs/oval-21-9.webp",
-  "/es/blog/como-hacer-cupula-minecraft": "/shape-pngs/circle-31.webp",
-  "/es/blog/como-hacer-torre-minecraft": "/shape-pngs/circle-21.webp",
+/** Thumbnail per guide, per language. */
+const enBlogImage: Record<BlogSlug, string> = {
+  "minecraft-circle-guide": "/shape-pngs/circle-15.webp",
+  "minecraft-circle-sizes": "/shape-pngs/circle-21.webp",
+  "minecraft-sphere-guide": "/shape-pngs/circle-21.webp",
+  "minecraft-dome-guide": "/shape-pngs/circle-31.webp",
+  "minecraft-oval-guide": "/shape-pngs/oval-21-9.webp",
+  "minecraft-tower-guide": "/shape-pngs/circle-21.webp",
 };
 
-const esBlogEntries: MetadataRoute.Sitemap = [
-  "/es/blog",
-  "/es/blog/como-hacer-circulos-minecraft",
-  "/es/blog/como-hacer-esfera-minecraft",
-  "/es/blog/medidas-circulos-minecraft",
-  "/es/blog/como-hacer-ovalo-minecraft",
-  "/es/blog/como-hacer-cupula-minecraft",
-  "/es/blog/como-hacer-torre-minecraft",
-].map((path) => ({
-  url: localizedUrl(path, "en"),
-  changeFrequency: "monthly",
-  priority: 0.5,
-  ...(esBlogImages[path]
-    ? { images: [`${SITE_URL}${esBlogImages[path]}`] }
-    : {}),
-}));
+const esBlogImage: Record<BlogSlug, string> = {
+  "minecraft-circle-guide": "/shape-pngs/circle-15.webp",
+  "minecraft-circle-sizes": "/shape-pngs/circle-101.webp",
+  "minecraft-sphere-guide": "/shape-pngs/circle-21.webp",
+  "minecraft-dome-guide": "/shape-pngs/circle-31.webp",
+  "minecraft-oval-guide": "/shape-pngs/oval-21-9.webp",
+  "minecraft-tower-guide": "/shape-pngs/circle-21.webp",
+};
 
-function blogHreflang(slug: BlogSlug): Record<string, string> {
-  const map: Record<string, string> = {};
-  for (const l of BLOG_PUBLISHED_LOCALES) {
-    map[l] = `${SITE_URL}${blogPath(l, slug)}`;
-  }
-  map["x-default"] = `${SITE_URL}/blog/${slug}/`;
-  return map;
+/**
+ * One blog entry (index or guide) with the full hreflang cluster, so every
+ * language that publishes the guide points at the others.
+ */
+function blogEntry(
+  path: string,
+  image: string,
+  slug: BlogSlug | null,
+  priority: number
+): MetadataRoute.Sitemap[number] {
+  return {
+    url: `${SITE_URL}${path}`,
+    changeFrequency: "monthly",
+    priority,
+    images: [`${SITE_URL}${image}`],
+    alternates: {
+      languages: slug ? blogHreflang(slug) : blogIndexHreflang(),
+    },
+  };
 }
+
+const enBlogEntries: MetadataRoute.Sitemap = [
+  blogEntry("/blog/", "/og-image.webp", null, 0.4),
+  ...BLOG_SLUGS.map((slug) =>
+    blogEntry(`/blog/${slug}/`, enBlogImage[slug], slug, 0.4)
+  ),
+];
+
+const esBlogEntries: MetadataRoute.Sitemap = [
+  blogEntry("/es/blog/", "/og-image.webp", null, 0.5),
+  ...BLOG_SLUGS.map((slug) =>
+    blogEntry(blogPath("es", slug), esBlogImage[slug], slug, 0.5)
+  ),
+];
 
 const newBlogEntries: MetadataRoute.Sitemap = [];
 for (const locale of BLOG_PUBLISHED_LOCALES) {
@@ -161,20 +162,10 @@ for (const locale of BLOG_PUBLISHED_LOCALES) {
     });
   }
   newBlogEntries.push({
-    url: `${SITE_URL}/${locale}/blog/`,
+    url: `${SITE_URL}${blogIndexPath(locale)}`,
     changeFrequency: "monthly",
     priority: 0.4,
-    alternates: {
-      languages: {
-        en: `${SITE_URL}/blog/`,
-        es: `${SITE_URL}/es/blog/`,
-        de: `${SITE_URL}/de/blog/`,
-        fr: `${SITE_URL}/fr/blog/`,
-        pt: `${SITE_URL}/pt/blog/`,
-        ru: `${SITE_URL}/ru/blog/`,
-        "x-default": `${SITE_URL}/blog/`,
-      },
-    },
+    alternates: { languages: blogIndexHreflang() },
   });
 }
 
@@ -183,6 +174,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...homeEntries,
     ...shapeEntries,
     ...trustEntries,
+    ...enBlogEntries,
     ...esBlogEntries,
     ...newBlogEntries,
   ];
